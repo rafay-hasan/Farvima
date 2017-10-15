@@ -7,10 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BBDC092D1F93B37000E5D9A2 /* PharmaIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */; };
+		BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09351F93B7C600E5D9A2 /* NewsIntroViewController.m */; };
+		BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09391F93B7F100E5D9A2 /* EventIntroViewController.m */; };
+		BBDC093D1F93B81300E5D9A2 /* OfferIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC093C1F93B81300E5D9A2 /* OfferIntroViewController.m */; };
+		BBDC09411F93B83500E5D9A2 /* PreBookIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09401F93B83500E5D9A2 /* PreBookIntroViewController.m */; };
 		BBFD43C21F93AABD00A7E265 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFD43C11F93AABD00A7E265 /* AppDelegate.m */; };
 		BBFD43C51F93AABD00A7E265 /* Farvima.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BBFD43C31F93AABD00A7E265 /* Farvima.xcdatamodeld */; };
-		BBFD43C81F93AABD00A7E265 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFD43C71F93AABD00A7E265 /* MasterViewController.m */; };
-		BBFD43CB1F93AABD00A7E265 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFD43CA1F93AABD00A7E265 /* DetailViewController.m */; };
 		BBFD43CE1F93AABD00A7E265 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBFD43CC1F93AABD00A7E265 /* Main.storyboard */; };
 		BBFD43D01F93AABD00A7E265 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBFD43CF1F93AABD00A7E265 /* Assets.xcassets */; };
 		BBFD43D31F93AABD00A7E265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBFD43D11F93AABD00A7E265 /* LaunchScreen.storyboard */; };
@@ -18,14 +21,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BBDC092B1F93B37000E5D9A2 /* PharmaIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmaIntroViewController.h; sourceTree = "<group>"; };
+		BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PharmaIntroViewController.m; sourceTree = "<group>"; };
+		BBDC09341F93B7C600E5D9A2 /* NewsIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsIntroViewController.h; sourceTree = "<group>"; };
+		BBDC09351F93B7C600E5D9A2 /* NewsIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsIntroViewController.m; sourceTree = "<group>"; };
+		BBDC09381F93B7F100E5D9A2 /* EventIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventIntroViewController.h; sourceTree = "<group>"; };
+		BBDC09391F93B7F100E5D9A2 /* EventIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventIntroViewController.m; sourceTree = "<group>"; };
+		BBDC093B1F93B81300E5D9A2 /* OfferIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfferIntroViewController.h; sourceTree = "<group>"; };
+		BBDC093C1F93B81300E5D9A2 /* OfferIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfferIntroViewController.m; sourceTree = "<group>"; };
+		BBDC093F1F93B83500E5D9A2 /* PreBookIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreBookIntroViewController.h; sourceTree = "<group>"; };
+		BBDC09401F93B83500E5D9A2 /* PreBookIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreBookIntroViewController.m; sourceTree = "<group>"; };
 		BBFD43BD1F93AABD00A7E265 /* Farvima.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Farvima.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBFD43C01F93AABD00A7E265 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BBFD43C11F93AABD00A7E265 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		BBFD43C41F93AABD00A7E265 /* Farvima.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Farvima.xcdatamodel; sourceTree = "<group>"; };
-		BBFD43C61F93AABD00A7E265 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		BBFD43C71F93AABD00A7E265 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		BBFD43C91F93AABD00A7E265 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		BBFD43CA1F93AABD00A7E265 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		BBFD43CD1F93AABD00A7E265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BBFD43CF1F93AABD00A7E265 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBFD43D21F93AABD00A7E265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -44,6 +53,63 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BBDC092A1F93B34900E5D9A2 /* Start up guide */ = {
+			isa = PBXGroup;
+			children = (
+				BBDC093E1F93B82200E5D9A2 /* Pre Book */,
+				BBDC09371F93B7D700E5D9A2 /* Event */,
+				BBDC09331F93B7B500E5D9A2 /* News */,
+				BBDC092F1F93B78B00E5D9A2 /* Offer */,
+				BBDC092E1F93B78200E5D9A2 /* Pharmacy */,
+			);
+			path = "Start up guide";
+			sourceTree = "<group>";
+		};
+		BBDC092E1F93B78200E5D9A2 /* Pharmacy */ = {
+			isa = PBXGroup;
+			children = (
+				BBDC092B1F93B37000E5D9A2 /* PharmaIntroViewController.h */,
+				BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */,
+			);
+			path = Pharmacy;
+			sourceTree = "<group>";
+		};
+		BBDC092F1F93B78B00E5D9A2 /* Offer */ = {
+			isa = PBXGroup;
+			children = (
+				BBDC093B1F93B81300E5D9A2 /* OfferIntroViewController.h */,
+				BBDC093C1F93B81300E5D9A2 /* OfferIntroViewController.m */,
+			);
+			path = Offer;
+			sourceTree = "<group>";
+		};
+		BBDC09331F93B7B500E5D9A2 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				BBDC09341F93B7C600E5D9A2 /* NewsIntroViewController.h */,
+				BBDC09351F93B7C600E5D9A2 /* NewsIntroViewController.m */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		BBDC09371F93B7D700E5D9A2 /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				BBDC09381F93B7F100E5D9A2 /* EventIntroViewController.h */,
+				BBDC09391F93B7F100E5D9A2 /* EventIntroViewController.m */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
+		BBDC093E1F93B82200E5D9A2 /* Pre Book */ = {
+			isa = PBXGroup;
+			children = (
+				BBDC093F1F93B83500E5D9A2 /* PreBookIntroViewController.h */,
+				BBDC09401F93B83500E5D9A2 /* PreBookIntroViewController.m */,
+			);
+			path = "Pre Book";
+			sourceTree = "<group>";
+		};
 		BBFD43B41F93AABD00A7E265 = {
 			isa = PBXGroup;
 			children = (
@@ -65,10 +131,7 @@
 			children = (
 				BBFD43C01F93AABD00A7E265 /* AppDelegate.h */,
 				BBFD43C11F93AABD00A7E265 /* AppDelegate.m */,
-				BBFD43C61F93AABD00A7E265 /* MasterViewController.h */,
-				BBFD43C71F93AABD00A7E265 /* MasterViewController.m */,
-				BBFD43C91F93AABD00A7E265 /* DetailViewController.h */,
-				BBFD43CA1F93AABD00A7E265 /* DetailViewController.m */,
+				BBDC092A1F93B34900E5D9A2 /* Start up guide */,
 				BBFD43CC1F93AABD00A7E265 /* Main.storyboard */,
 				BBFD43CF1F93AABD00A7E265 /* Assets.xcassets */,
 				BBFD43D11F93AABD00A7E265 /* LaunchScreen.storyboard */,
@@ -152,9 +215,12 @@
 			files = (
 				BBFD43D61F93AABD00A7E265 /* main.m in Sources */,
 				BBFD43C51F93AABD00A7E265 /* Farvima.xcdatamodeld in Sources */,
-				BBFD43C81F93AABD00A7E265 /* MasterViewController.m in Sources */,
+				BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */,
+				BBDC093D1F93B81300E5D9A2 /* OfferIntroViewController.m in Sources */,
+				BBDC09411F93B83500E5D9A2 /* PreBookIntroViewController.m in Sources */,
+				BBDC092D1F93B37000E5D9A2 /* PharmaIntroViewController.m in Sources */,
 				BBFD43C21F93AABD00A7E265 /* AppDelegate.m in Sources */,
-				BBFD43CB1F93AABD00A7E265 /* DetailViewController.m in Sources */,
+				BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
