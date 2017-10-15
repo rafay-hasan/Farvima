@@ -1,0 +1,354 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BBFD43C21F93AABD00A7E265 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFD43C11F93AABD00A7E265 /* AppDelegate.m */; };
+		BBFD43C51F93AABD00A7E265 /* Farvima.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BBFD43C31F93AABD00A7E265 /* Farvima.xcdatamodeld */; };
+		BBFD43C81F93AABD00A7E265 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFD43C71F93AABD00A7E265 /* MasterViewController.m */; };
+		BBFD43CB1F93AABD00A7E265 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFD43CA1F93AABD00A7E265 /* DetailViewController.m */; };
+		BBFD43CE1F93AABD00A7E265 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBFD43CC1F93AABD00A7E265 /* Main.storyboard */; };
+		BBFD43D01F93AABD00A7E265 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBFD43CF1F93AABD00A7E265 /* Assets.xcassets */; };
+		BBFD43D31F93AABD00A7E265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBFD43D11F93AABD00A7E265 /* LaunchScreen.storyboard */; };
+		BBFD43D61F93AABD00A7E265 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFD43D51F93AABD00A7E265 /* main.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BBFD43BD1F93AABD00A7E265 /* Farvima.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Farvima.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BBFD43C01F93AABD00A7E265 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		BBFD43C11F93AABD00A7E265 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		BBFD43C41F93AABD00A7E265 /* Farvima.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Farvima.xcdatamodel; sourceTree = "<group>"; };
+		BBFD43C61F93AABD00A7E265 /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		BBFD43C71F93AABD00A7E265 /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		BBFD43C91F93AABD00A7E265 /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		BBFD43CA1F93AABD00A7E265 /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		BBFD43CD1F93AABD00A7E265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		BBFD43CF1F93AABD00A7E265 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BBFD43D21F93AABD00A7E265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BBFD43D41F93AABD00A7E265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBFD43D51F93AABD00A7E265 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BBFD43BA1F93AABD00A7E265 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BBFD43B41F93AABD00A7E265 = {
+			isa = PBXGroup;
+			children = (
+				BBFD43BF1F93AABD00A7E265 /* Farvima */,
+				BBFD43BE1F93AABD00A7E265 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BBFD43BE1F93AABD00A7E265 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BBFD43BD1F93AABD00A7E265 /* Farvima.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BBFD43BF1F93AABD00A7E265 /* Farvima */ = {
+			isa = PBXGroup;
+			children = (
+				BBFD43C01F93AABD00A7E265 /* AppDelegate.h */,
+				BBFD43C11F93AABD00A7E265 /* AppDelegate.m */,
+				BBFD43C61F93AABD00A7E265 /* MasterViewController.h */,
+				BBFD43C71F93AABD00A7E265 /* MasterViewController.m */,
+				BBFD43C91F93AABD00A7E265 /* DetailViewController.h */,
+				BBFD43CA1F93AABD00A7E265 /* DetailViewController.m */,
+				BBFD43CC1F93AABD00A7E265 /* Main.storyboard */,
+				BBFD43CF1F93AABD00A7E265 /* Assets.xcassets */,
+				BBFD43D11F93AABD00A7E265 /* LaunchScreen.storyboard */,
+				BBFD43D41F93AABD00A7E265 /* Info.plist */,
+				BBFD43D51F93AABD00A7E265 /* main.m */,
+				BBFD43C31F93AABD00A7E265 /* Farvima.xcdatamodeld */,
+			);
+			path = Farvima;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BBFD43BC1F93AABD00A7E265 /* Farvima */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BBFD43D91F93AABD00A7E265 /* Build configuration list for PBXNativeTarget "Farvima" */;
+			buildPhases = (
+				BBFD43B91F93AABD00A7E265 /* Sources */,
+				BBFD43BA1F93AABD00A7E265 /* Frameworks */,
+				BBFD43BB1F93AABD00A7E265 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Farvima;
+			productName = Farvima;
+			productReference = BBFD43BD1F93AABD00A7E265 /* Farvima.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BBFD43B51F93AABD00A7E265 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = "Rafay Hasan";
+				TargetAttributes = {
+					BBFD43BC1F93AABD00A7E265 = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = BBFD43B81F93AABD00A7E265 /* Build configuration list for PBXProject "Farvima" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BBFD43B41F93AABD00A7E265;
+			productRefGroup = BBFD43BE1F93AABD00A7E265 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BBFD43BC1F93AABD00A7E265 /* Farvima */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BBFD43BB1F93AABD00A7E265 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBFD43D31F93AABD00A7E265 /* LaunchScreen.storyboard in Resources */,
+				BBFD43D01F93AABD00A7E265 /* Assets.xcassets in Resources */,
+				BBFD43CE1F93AABD00A7E265 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BBFD43B91F93AABD00A7E265 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BBFD43D61F93AABD00A7E265 /* main.m in Sources */,
+				BBFD43C51F93AABD00A7E265 /* Farvima.xcdatamodeld in Sources */,
+				BBFD43C81F93AABD00A7E265 /* MasterViewController.m in Sources */,
+				BBFD43C21F93AABD00A7E265 /* AppDelegate.m in Sources */,
+				BBFD43CB1F93AABD00A7E265 /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BBFD43CC1F93AABD00A7E265 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBFD43CD1F93AABD00A7E265 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		BBFD43D11F93AABD00A7E265 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BBFD43D21F93AABD00A7E265 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BBFD43D71F93AABD00A7E265 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		BBFD43D81F93AABD00A7E265 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BBFD43DA1F93AABD00A7E265 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Farvima/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Rafay.Farvima;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BBFD43DB1F93AABD00A7E265 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = Farvima/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = Rafay.Farvima;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BBFD43B81F93AABD00A7E265 /* Build configuration list for PBXProject "Farvima" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBFD43D71F93AABD00A7E265 /* Debug */,
+				BBFD43D81F93AABD00A7E265 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BBFD43D91F93AABD00A7E265 /* Build configuration list for PBXNativeTarget "Farvima" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BBFD43DA1F93AABD00A7E265 /* Debug */,
+				BBFD43DB1F93AABD00A7E265 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		BBFD43C31F93AABD00A7E265 /* Farvima.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BBFD43C41F93AABD00A7E265 /* Farvima.xcdatamodel */,
+			);
+			currentVersion = BBFD43C41F93AABD00A7E265 /* Farvima.xcdatamodel */;
+			path = Farvima.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BBFD43B51F93AABD00A7E265 /* Project object */;
+}
