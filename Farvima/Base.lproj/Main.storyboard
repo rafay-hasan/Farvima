@@ -734,11 +734,11 @@
                                                     </view>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0n5-Ia-7vn">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0n5-Ia-7vn">
                                                 <rect key="frame" x="504" y="0.0" width="488" height="224"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jqp-3V-ysU">
-                                                        <rect key="frame" x="0.0" y="0.0" width="166" height="64"/>
+                                                        <rect key="frame" x="322" y="0.0" width="166" height="64"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ButtonBackground" translatesAutoresizingMaskIntoConstraints="NO" id="652-5p-THH">
                                                                 <rect key="frame" x="0.0" y="0.0" width="166" height="64"/>
@@ -773,7 +773,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kfs-Rg-yix">
-                                                        <rect key="frame" x="0.0" y="80" width="166" height="64"/>
+                                                        <rect key="frame" x="322" y="80" width="166" height="64"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ButtonBackground" translatesAutoresizingMaskIntoConstraints="NO" id="cFY-4J-az5">
                                                                 <rect key="frame" x="0.0" y="0.0" width="166" height="64"/>
@@ -808,7 +808,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igb-1F-Yml">
-                                                        <rect key="frame" x="0.0" y="160" width="166" height="64"/>
+                                                        <rect key="frame" x="322" y="160" width="166" height="64"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ButtonBackground" translatesAutoresizingMaskIntoConstraints="NO" id="779-39-oI2">
                                                                 <rect key="frame" x="0.0" y="0.0" width="166" height="64"/>
