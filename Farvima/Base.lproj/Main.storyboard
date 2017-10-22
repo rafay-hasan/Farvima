@@ -637,14 +637,12 @@
                                                                 <rect key="frame" x="51" y="8" width="34" height="32"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="34" id="Tth-kh-RSt"/>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="qrZ-fp-IFV"/>
-                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="34" id="xhv-Y3-eT0"/>
                                                                     <constraint firstAttribute="height" constant="32" id="zrY-Qi-7j9"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHI SIAMO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yq4-bm-e4e">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHI SIAMO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Yq4-bm-e4e">
                                                                 <rect key="frame" x="8" y="40" width="120" height="22.5"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -670,18 +668,16 @@
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ButtonBackground" translatesAutoresizingMaskIntoConstraints="NO" id="STe-Cl-Nfc">
                                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="64"/>
                                                             </imageView>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pharmacia" translatesAutoresizingMaskIntoConstraints="NO" id="GqC-tr-sHT">
-                                                                <rect key="frame" x="51" y="8" width="34" height="32"/>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewsIntro" translatesAutoresizingMaskIntoConstraints="NO" id="GqC-tr-sHT">
+                                                                <rect key="frame" x="49.5" y="8" width="37" height="33"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="34" id="S3R-JN-szO"/>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="TyT-pR-LbN"/>
-                                                                    <constraint firstAttribute="width" constant="34" id="Vf4-lf-mXq"/>
-                                                                    <constraint firstAttribute="height" constant="32" id="wMZ-IO-ct5"/>
+                                                                    <constraint firstAttribute="width" constant="37" id="Vf4-lf-mXq"/>
+                                                                    <constraint firstAttribute="height" constant="33" id="wMZ-IO-ct5"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHI SIAMO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKS-le-62A">
-                                                                <rect key="frame" x="8" y="40" width="120" height="22.5"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NEWS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bKS-le-62A">
+                                                                <rect key="frame" x="8" y="41" width="120" height="21.5"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -707,18 +703,16 @@
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ButtonBackground" translatesAutoresizingMaskIntoConstraints="NO" id="jgV-ea-PSi">
                                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="64"/>
                                                             </imageView>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pharmacia" translatesAutoresizingMaskIntoConstraints="NO" id="t1K-dt-3Um">
-                                                                <rect key="frame" x="51" y="8" width="34" height="32"/>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EventIntro" translatesAutoresizingMaskIntoConstraints="NO" id="t1K-dt-3Um">
+                                                                <rect key="frame" x="51.5" y="8" width="33" height="33"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="34" id="1mg-HZ-Edg"/>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="9KL-qf-A4L"/>
-                                                                    <constraint firstAttribute="height" constant="32" id="eu8-JP-lcS"/>
-                                                                    <constraint firstAttribute="width" constant="34" id="loJ-8Z-tPs"/>
+                                                                    <constraint firstAttribute="height" constant="33" id="eu8-JP-lcS"/>
+                                                                    <constraint firstAttribute="width" constant="33" id="loJ-8Z-tPs"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHI SIAMO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQZ-6S-Hga">
-                                                                <rect key="frame" x="8" y="40" width="120" height="22.5"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EVENTI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="WQZ-6S-Hga">
+                                                                <rect key="frame" x="8" y="41" width="120" height="21.5"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -749,18 +743,16 @@
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ButtonBackground" translatesAutoresizingMaskIntoConstraints="NO" id="652-5p-THH">
                                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="64"/>
                                                             </imageView>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pharmacia" translatesAutoresizingMaskIntoConstraints="NO" id="IdO-zb-9VU">
-                                                                <rect key="frame" x="51" y="8" width="34" height="32"/>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OffetIntroIcon" translatesAutoresizingMaskIntoConstraints="NO" id="IdO-zb-9VU">
+                                                                <rect key="frame" x="52.5" y="8" width="31" height="32"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="34" id="Ctr-nk-G3H"/>
-                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="34" id="K4t-no-4sW"/>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="bOT-xO-e8F"/>
+                                                                    <constraint firstAttribute="width" constant="31" id="Ctr-nk-G3H"/>
                                                                     <constraint firstAttribute="height" constant="32" id="j7o-xR-noQ"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHI SIAMO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="piw-9B-F4B">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OFFERETE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="piw-9B-F4B">
                                                                 <rect key="frame" x="8" y="40" width="120" height="22.5"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -786,18 +778,16 @@
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ButtonBackground" translatesAutoresizingMaskIntoConstraints="NO" id="cFY-4J-az5">
                                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="64"/>
                                                             </imageView>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pharmacia" translatesAutoresizingMaskIntoConstraints="NO" id="d7b-Ou-vRH">
-                                                                <rect key="frame" x="51" y="8" width="34" height="32"/>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookIntroIcon" translatesAutoresizingMaskIntoConstraints="NO" id="d7b-Ou-vRH">
+                                                                <rect key="frame" x="51.5" y="8" width="33" height="33"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="34" id="HE0-YM-oRc"/>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="N4F-i6-IGK"/>
-                                                                    <constraint firstAttribute="height" constant="32" id="fhQ-Z0-MjS"/>
-                                                                    <constraint firstAttribute="width" constant="34" id="gwl-Uq-oaW"/>
+                                                                    <constraint firstAttribute="height" constant="33" id="fhQ-Z0-MjS"/>
+                                                                    <constraint firstAttribute="width" constant="33" id="gwl-Uq-oaW"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHI SIAMO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aBH-DN-77A">
-                                                                <rect key="frame" x="8" y="40" width="120" height="22.5"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PRENOTA E RITIR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="aBH-DN-77A">
+                                                                <rect key="frame" x="8" y="41" width="120" height="21.5"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -823,18 +813,16 @@
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ButtonBackground" translatesAutoresizingMaskIntoConstraints="NO" id="779-39-oI2">
                                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="64"/>
                                                             </imageView>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Pharmacia" translatesAutoresizingMaskIntoConstraints="NO" id="2NK-te-JHe">
-                                                                <rect key="frame" x="51" y="8" width="34" height="32"/>
+                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Galleria" translatesAutoresizingMaskIntoConstraints="NO" id="2NK-te-JHe">
+                                                                <rect key="frame" x="52.5" y="8" width="31" height="33"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="width" constant="34" id="ON9-XL-omi"/>
-                                                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="34" id="QaD-uu-3Jm"/>
-                                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="32" id="qpb-ZC-juq"/>
-                                                                    <constraint firstAttribute="height" constant="32" id="yGI-VE-wIe"/>
+                                                                    <constraint firstAttribute="width" constant="31" id="ON9-XL-omi"/>
+                                                                    <constraint firstAttribute="height" constant="33" id="yGI-VE-wIe"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CHI SIAMO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XPa-uQ-SwL">
-                                                                <rect key="frame" x="8" y="40" width="120" height="22.5"/>
-                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GALLERIA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="XPa-uQ-SwL">
+                                                                <rect key="frame" x="8" y="41" width="120" height="21.5"/>
+                                                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
@@ -874,23 +862,29 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Php-mj-ZYA">
-                                <rect key="frame" x="40" y="412" width="240" height="64"/>
+                                <rect key="frame" x="55" y="412" width="210" height="64"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ButtonBackground" translatesAutoresizingMaskIntoConstraints="NO" id="1ak-2E-h12">
-                                        <rect key="frame" x="0.0" y="0.0" width="240" height="64"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ButtonBackground" translatesAutoresizingMaskIntoConstraints="NO" id="1ak-2E-h12">
+                                        <rect key="frame" x="0.0" y="0.0" width="210" height="64"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="SCEGLI LA TUA FARMACIA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1MM-bZ-6qf">
-                                        <rect key="frame" x="8" y="8" width="224" height="48"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCEGLI LA TUA FARMACIA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1MM-bZ-6qf">
+                                        <rect key="frame" x="8" y="8" width="194" height="48"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Bm7-mt-XYq"/>
+                                    <constraint firstItem="1ak-2E-h12" firstAttribute="top" secondItem="Php-mj-ZYA" secondAttribute="top" id="6OM-cV-FJW"/>
+                                    <constraint firstAttribute="width" constant="210" id="Bm7-mt-XYq"/>
+                                    <constraint firstAttribute="trailing" secondItem="1ak-2E-h12" secondAttribute="trailing" id="KCo-hG-aoa"/>
+                                    <constraint firstAttribute="bottom" secondItem="1ak-2E-h12" secondAttribute="bottom" id="MaO-hO-xyP"/>
+                                    <constraint firstAttribute="trailing" secondItem="1MM-bZ-6qf" secondAttribute="trailing" constant="8" id="Oqe-OU-Qfs"/>
+                                    <constraint firstItem="1MM-bZ-6qf" firstAttribute="leading" secondItem="Php-mj-ZYA" secondAttribute="leading" constant="8" id="Prk-rf-Qzw"/>
+                                    <constraint firstItem="1ak-2E-h12" firstAttribute="leading" secondItem="Php-mj-ZYA" secondAttribute="leading" id="cLa-8j-PWw"/>
+                                    <constraint firstItem="1MM-bZ-6qf" firstAttribute="top" secondItem="Php-mj-ZYA" secondAttribute="top" constant="8" id="gDC-qe-V2G"/>
+                                    <constraint firstAttribute="bottom" secondItem="1MM-bZ-6qf" secondAttribute="bottom" constant="8" id="hmR-ng-iHX"/>
                                     <constraint firstAttribute="height" constant="64" id="yPs-MR-T6e"/>
                                 </constraints>
                             </view>
@@ -1235,6 +1229,7 @@
         <image name="BookIntroIcon" width="33" height="33"/>
         <image name="ButtonBackground" width="166" height="64"/>
         <image name="EventIntro" width="33" height="33"/>
+        <image name="Galleria" width="30" height="33"/>
         <image name="IntroBg" width="414" height="736"/>
         <image name="Medicine" width="23" height="24"/>
         <image name="Message" width="24" height="17"/>
