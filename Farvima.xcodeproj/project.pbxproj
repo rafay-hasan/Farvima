@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		BB13E82C1F9CD78D00BDA4EB /* PharmaHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13E82B1F9CD78D00BDA4EB /* PharmaHomeViewController.m */; };
 		BB63834B1F9E504B007B56AF /* GallaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB63834A1F9E504B007B56AF /* GallaryViewController.m */; };
+		BB63834E1F9E577B007B56AF /* GallaryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB63834D1F9E577B007B56AF /* GallaryCollectionViewCell.m */; };
 		BBDC092D1F93B37000E5D9A2 /* PharmaIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */; };
 		BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09351F93B7C600E5D9A2 /* NewsIntroViewController.m */; };
 		BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09391F93B7F100E5D9A2 /* EventIntroViewController.m */; };
@@ -27,6 +28,8 @@
 		BB13E82B1F9CD78D00BDA4EB /* PharmaHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PharmaHomeViewController.m; sourceTree = "<group>"; };
 		BB6383491F9E504B007B56AF /* GallaryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GallaryViewController.h; sourceTree = "<group>"; };
 		BB63834A1F9E504B007B56AF /* GallaryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GallaryViewController.m; sourceTree = "<group>"; };
+		BB63834C1F9E577B007B56AF /* GallaryCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GallaryCollectionViewCell.h; sourceTree = "<group>"; };
+		BB63834D1F9E577B007B56AF /* GallaryCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GallaryCollectionViewCell.m; sourceTree = "<group>"; };
 		BBDC092B1F93B37000E5D9A2 /* PharmaIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmaIntroViewController.h; sourceTree = "<group>"; };
 		BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PharmaIntroViewController.m; sourceTree = "<group>"; };
 		BBDC09341F93B7C600E5D9A2 /* NewsIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsIntroViewController.h; sourceTree = "<group>"; };
@@ -73,6 +76,8 @@
 			children = (
 				BB6383491F9E504B007B56AF /* GallaryViewController.h */,
 				BB63834A1F9E504B007B56AF /* GallaryViewController.m */,
+				BB63834C1F9E577B007B56AF /* GallaryCollectionViewCell.h */,
+				BB63834D1F9E577B007B56AF /* GallaryCollectionViewCell.m */,
 			);
 			path = Galleria;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 			files = (
 				BBFD43D61F93AABD00A7E265 /* main.m in Sources */,
 				BB13E82C1F9CD78D00BDA4EB /* PharmaHomeViewController.m in Sources */,
+				BB63834E1F9E577B007B56AF /* GallaryCollectionViewCell.m in Sources */,
 				BBFD43C51F93AABD00A7E265 /* Farvima.xcdatamodeld in Sources */,
 				BB63834B1F9E504B007B56AF /* GallaryViewController.m in Sources */,
 				BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */,
