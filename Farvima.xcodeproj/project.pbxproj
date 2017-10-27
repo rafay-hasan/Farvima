@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84A607F21FA3062300D7E3D7 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A607F11FA3062300D7E3D7 /* NewsViewController.m */; };
 		BB0DEA371F9F9045009E8420 /* OfferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0DEA361F9F9045009E8420 /* OfferViewController.m */; };
 		BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0DEA391F9F9726009E8420 /* OfferTableViewCell.m */; };
 		BB13E82C1F9CD78D00BDA4EB /* PharmaHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13E82B1F9CD78D00BDA4EB /* PharmaHomeViewController.m */; };
@@ -26,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84A607F01FA3062300D7E3D7 /* NewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
+		84A607F11FA3062300D7E3D7 /* NewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		BB0DEA351F9F9045009E8420 /* OfferViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfferViewController.h; sourceTree = "<group>"; };
 		BB0DEA361F9F9045009E8420 /* OfferViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfferViewController.m; sourceTree = "<group>"; };
 		BB0DEA381F9F9726009E8420 /* OfferTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfferTableViewCell.h; sourceTree = "<group>"; };
@@ -68,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		84A607EF1FA305E800D7E3D7 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				84A607F01FA3062300D7E3D7 /* NewsViewController.h */,
+				84A607F11FA3062300D7E3D7 /* NewsViewController.m */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		BB0DEA341F9F902A009E8420 /* Offerete */ = {
 			isa = PBXGroup;
 			children = (
@@ -181,6 +193,7 @@
 				BB13E8291F9CD77000BDA4EB /* Pharma Home */,
 				BB6383481F9E502D007B56AF /* Galleria */,
 				BB0DEA341F9F902A009E8420 /* Offerete */,
+				84A607EF1FA305E800D7E3D7 /* News */,
 				BBFD43CC1F93AABD00A7E265 /* Main.storyboard */,
 				BBFD43CF1F93AABD00A7E265 /* Assets.xcassets */,
 				BBFD43D11F93AABD00A7E265 /* LaunchScreen.storyboard */,
@@ -275,6 +288,7 @@
 				BBFD43C21F93AABD00A7E265 /* AppDelegate.m in Sources */,
 				BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */,
 				BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */,
+				84A607F21FA3062300D7E3D7 /* NewsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
