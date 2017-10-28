@@ -16,6 +16,7 @@
 		BB7700DC1FA45E3200EA76D2 /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700DB1FA45E3200EA76D2 /* NewsTableViewCell.m */; };
 		BB7700EE1FA475D600EA76D2 /* NewsSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700ED1FA475D600EA76D2 /* NewsSectionHeader.m */; };
 		BB7700F01FA4762D00EA76D2 /* NewsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */; };
+		BB7700F31FA4856B00EA76D2 /* NewsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700F21FA4856B00EA76D2 /* NewsDetailsViewController.m */; };
 		BBDC092D1F93B37000E5D9A2 /* PharmaIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */; };
 		BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09351F93B7C600E5D9A2 /* NewsIntroViewController.m */; };
 		BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09391F93B7F100E5D9A2 /* EventIntroViewController.m */; };
@@ -47,6 +48,8 @@
 		BB7700EC1FA475D600EA76D2 /* NewsSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsSectionHeader.h; sourceTree = "<group>"; };
 		BB7700ED1FA475D600EA76D2 /* NewsSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsSectionHeader.m; sourceTree = "<group>"; };
 		BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsHeader.xib; sourceTree = "<group>"; };
+		BB7700F11FA4856B00EA76D2 /* NewsDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsDetailsViewController.h; sourceTree = "<group>"; };
+		BB7700F21FA4856B00EA76D2 /* NewsDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsDetailsViewController.m; sourceTree = "<group>"; };
 		BBDC092B1F93B37000E5D9A2 /* PharmaIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmaIntroViewController.h; sourceTree = "<group>"; };
 		BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PharmaIntroViewController.m; sourceTree = "<group>"; };
 		BBDC09341F93B7C600E5D9A2 /* NewsIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsIntroViewController.h; sourceTree = "<group>"; };
@@ -88,6 +91,8 @@
 				BB7700DB1FA45E3200EA76D2 /* NewsTableViewCell.m */,
 				BB7700EC1FA475D600EA76D2 /* NewsSectionHeader.h */,
 				BB7700ED1FA475D600EA76D2 /* NewsSectionHeader.m */,
+				BB7700F11FA4856B00EA76D2 /* NewsDetailsViewController.h */,
+				BB7700F21FA4856B00EA76D2 /* NewsDetailsViewController.m */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -303,6 +308,7 @@
 				BBFD43C21F93AABD00A7E265 /* AppDelegate.m in Sources */,
 				BB7700DC1FA45E3200EA76D2 /* NewsTableViewCell.m in Sources */,
 				BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */,
+				BB7700F31FA4856B00EA76D2 /* NewsDetailsViewController.m in Sources */,
 				BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */,
 				84A607F21FA3062300D7E3D7 /* NewsViewController.m in Sources */,
 			);
