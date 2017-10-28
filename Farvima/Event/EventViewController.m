@@ -8,12 +8,13 @@
 
 #import "EventViewController.h"
 #import "EventTableViewCell.h"
-
+#import "MessageViewController.h"
 @interface EventViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *eventtableView;
 
 - (IBAction)backButtonAction:(id)sender;
+- (IBAction)messageButtonAction:(id)sender;
 
 @end
 
@@ -41,6 +42,15 @@
 
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)messageButtonAction:(id)sender {
+    if (![self isControllerAlreadyOnNavigationControllerStack]) {
+        //push controller
+        MessageViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"messaggi"];
+        [self.navigationController pushViewController:newView animated:YES];
+        
+    }
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -71,6 +81,17 @@
     UIView *footerView = [[UIView alloc] init];
     footerView.backgroundColor = [UIColor clearColor];
     return footerView;
+}
+
+-(BOOL)isControllerAlreadyOnNavigationControllerStack{
+    MessageViewController *messageVc = [MessageViewController new];
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        if ([vc isKindOfClass:messageVc.class]) {
+            [self.navigationController popToViewController:vc animated:NO];
+            return YES;
+        }
+    }
+    return NO;
 }
 
 @end

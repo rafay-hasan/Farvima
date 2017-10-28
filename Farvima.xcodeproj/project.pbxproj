@@ -19,6 +19,7 @@
 		BB7700EE1FA475D600EA76D2 /* NewsSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700ED1FA475D600EA76D2 /* NewsSectionHeader.m */; };
 		BB7700F01FA4762D00EA76D2 /* NewsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */; };
 		BB7700F31FA4856B00EA76D2 /* NewsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700F21FA4856B00EA76D2 /* NewsDetailsViewController.m */; };
+		BB8A24AF1FA4D5760070322E /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24AE1FA4D5760070322E /* MessageViewController.m */; };
 		BBDC092D1F93B37000E5D9A2 /* PharmaIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */; };
 		BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09351F93B7C600E5D9A2 /* NewsIntroViewController.m */; };
 		BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09391F93B7F100E5D9A2 /* EventIntroViewController.m */; };
@@ -56,6 +57,8 @@
 		BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsHeader.xib; sourceTree = "<group>"; };
 		BB7700F11FA4856B00EA76D2 /* NewsDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsDetailsViewController.h; sourceTree = "<group>"; };
 		BB7700F21FA4856B00EA76D2 /* NewsDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsDetailsViewController.m; sourceTree = "<group>"; };
+		BB8A24AD1FA4D5760070322E /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		BB8A24AE1FA4D5760070322E /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		BBDC092B1F93B37000E5D9A2 /* PharmaIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmaIntroViewController.h; sourceTree = "<group>"; };
 		BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PharmaIntroViewController.m; sourceTree = "<group>"; };
 		BBDC09341F93B7C600E5D9A2 /* NewsIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsIntroViewController.h; sourceTree = "<group>"; };
@@ -145,6 +148,15 @@
 			path = Galleria;
 			sourceTree = "<group>";
 		};
+		BB8A24AC1FA4D55A0070322E /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				BB8A24AD1FA4D5760070322E /* MessageViewController.h */,
+				BB8A24AE1FA4D5760070322E /* MessageViewController.m */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
 		BBDC092A1F93B34900E5D9A2 /* Start up guide */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +241,7 @@
 				BB0DEA341F9F902A009E8420 /* Offerete */,
 				84A607EF1FA305E800D7E3D7 /* News */,
 				BB1158FF1FA4B0640052107A /* Event */,
+				BB8A24AC1FA4D55A0070322E /* Message */,
 				BBFD43CC1F93AABD00A7E265 /* Main.storyboard */,
 				BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */,
 				BBFD43CF1F93AABD00A7E265 /* Assets.xcassets */,
@@ -318,6 +331,7 @@
 				BB1159021FA4B07F0052107A /* EventViewController.m in Sources */,
 				BB63834E1F9E577B007B56AF /* GallaryCollectionViewCell.m in Sources */,
 				BB1159051FA4B5D30052107A /* EventTableViewCell.m in Sources */,
+				BB8A24AF1FA4D5760070322E /* MessageViewController.m in Sources */,
 				BBFD43C51F93AABD00A7E265 /* Farvima.xcdatamodeld in Sources */,
 				BB63834B1F9E504B007B56AF /* GallaryViewController.m in Sources */,
 				BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */,

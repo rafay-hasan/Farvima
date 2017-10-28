@@ -7,10 +7,12 @@
 //
 
 #import "NewsDetailsViewController.h"
+#import "MessageViewController.h"
 
 @interface NewsDetailsViewController ()
 
 - (IBAction)backButtonAction:(id)sender;
+- (IBAction)messageButtonAction:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIImageView *newsImageView;
 @property (weak, nonatomic) IBOutlet UILabel *newsHeaderLabel;
@@ -54,4 +56,24 @@
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (IBAction)messageButtonAction:(id)sender {
+    if (![self isControllerAlreadyOnNavigationControllerStack]) {
+        //push controller
+        MessageViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"messaggi"];
+        [self.navigationController pushViewController:newView animated:YES];
+        
+    }
+}
+-(BOOL)isControllerAlreadyOnNavigationControllerStack{
+    MessageViewController *messageVc = [MessageViewController new];
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        if ([vc isKindOfClass:messageVc.class]) {
+            [self.navigationController popToViewController:vc animated:NO];
+            return YES;
+        }
+    }
+    return NO;
+}
+
 @end

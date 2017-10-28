@@ -7,12 +7,14 @@
 //
 
 #import "OfferViewController.h"
+#import "MessageViewController.h"
 
 @interface OfferViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *offerTableview;
 
 - (IBAction)backButtonAction:(id)sender;
+- (IBAction)messageButtonAction:(id)sender;
 
 @end
 
@@ -60,4 +62,24 @@
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (IBAction)messageButtonAction:(id)sender {
+    if (![self isControllerAlreadyOnNavigationControllerStack]) {
+        //push controller
+        MessageViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"messaggi"];
+        [self.navigationController pushViewController:newView animated:YES];
+        
+    }
+}
+-(BOOL)isControllerAlreadyOnNavigationControllerStack{
+    MessageViewController *messageVc = [MessageViewController new];
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        if ([vc isKindOfClass:messageVc.class]) {
+            [self.navigationController popToViewController:vc animated:NO];
+            return YES;
+        }
+    }
+    return NO;
+}
+
 @end
