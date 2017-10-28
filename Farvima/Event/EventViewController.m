@@ -1,35 +1,28 @@
 //
-//  NewsDetailsViewController.m
+//  EventViewController.m
 //  Farvima
 //
 //  Created by Rafay Hasan on 10/28/17.
 //  Copyright © 2017 Rafay Hasan. All rights reserved.
 //
 
-#import "NewsDetailsViewController.h"
+#import "EventViewController.h"
+#import "EventTableViewCell.h"
 #import "MessageViewController.h"
+@interface EventViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-@interface NewsDetailsViewController ()
+@property (weak, nonatomic) IBOutlet UITableView *eventtableView;
 
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)messageButtonAction:(id)sender;
 
-@property (weak, nonatomic) IBOutlet UIImageView *newsImageView;
-@property (weak, nonatomic) IBOutlet UILabel *newsHeaderLabel;
-@property (weak, nonatomic) IBOutlet UILabel *newsPublisDateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *newsDetailsLabel;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ScrollContainerViewHeight;
-
-
 @end
 
-@implementation NewsDetailsViewController
+@implementation EventViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self loadNewsDetailsView];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,12 +40,6 @@
 }
 */
 
-- (void) loadNewsDetailsView
-{
-    self.newsDetailsLabel.text = @"C'era un'atmosfera sombera negli stadi italiani il mercoledì sera durante un minuto di silenzio, seguito da quegli estratti del diario di Anne Frank, vittima dell'olocausto, che veniva letto attraverso altoparlanti prima di tutte le principali partite di calcio. I giocatori indossavano magliette con lo slogan No all'antisemitismo, con una foto di Anne Frank stampata su di essi, mentre le copie del suo diario sono state distribuite ai tifosi dello stadio.";
-    self.ScrollContainerViewHeight.constant = self.newsDetailsLabel.frame.origin.y + self.newsDetailsLabel.frame.size.height;
-}
-
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -65,6 +52,37 @@
         
     }
 }
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 15;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"eventCell" forIndexPath:indexPath];
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UIView *headerView = [[UIView alloc] init];
+    headerView.backgroundColor = [UIColor clearColor];
+    return headerView;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *footerView = [[UIView alloc] init];
+    footerView.backgroundColor = [UIColor clearColor];
+    return footerView;
+}
+
 -(BOOL)isControllerAlreadyOnNavigationControllerStack{
     MessageViewController *messageVc = [MessageViewController new];
     for (UIViewController *vc in self.navigationController.viewControllers) {

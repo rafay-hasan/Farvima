@@ -10,6 +10,8 @@
 		84A607F21FA3062300D7E3D7 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A607F11FA3062300D7E3D7 /* NewsViewController.m */; };
 		BB0DEA371F9F9045009E8420 /* OfferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0DEA361F9F9045009E8420 /* OfferViewController.m */; };
 		BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0DEA391F9F9726009E8420 /* OfferTableViewCell.m */; };
+		BB1159021FA4B07F0052107A /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1159011FA4B07F0052107A /* EventViewController.m */; };
+		BB1159051FA4B5D30052107A /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1159041FA4B5D30052107A /* EventTableViewCell.m */; };
 		BB13E82C1F9CD78D00BDA4EB /* PharmaHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13E82B1F9CD78D00BDA4EB /* PharmaHomeViewController.m */; };
 		BB63834B1F9E504B007B56AF /* GallaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB63834A1F9E504B007B56AF /* GallaryViewController.m */; };
 		BB63834E1F9E577B007B56AF /* GallaryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB63834D1F9E577B007B56AF /* GallaryCollectionViewCell.m */; };
@@ -17,6 +19,10 @@
 		BB7700EE1FA475D600EA76D2 /* NewsSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700ED1FA475D600EA76D2 /* NewsSectionHeader.m */; };
 		BB7700F01FA4762D00EA76D2 /* NewsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */; };
 		BB7700F31FA4856B00EA76D2 /* NewsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700F21FA4856B00EA76D2 /* NewsDetailsViewController.m */; };
+		BB8A24AF1FA4D5760070322E /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24AE1FA4D5760070322E /* MessageViewController.m */; };
+		BB8A24B21FA4DCE30070322E /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24B11FA4DCE30070322E /* MessageTableViewCell.m */; };
+		BB8A24B51FA4DD480070322E /* MessageSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24B41FA4DD480070322E /* MessageSectionHeader.m */; };
+		BB8A24B71FA4DD5E0070322E /* MessageSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */; };
 		BBDC092D1F93B37000E5D9A2 /* PharmaIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */; };
 		BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09351F93B7C600E5D9A2 /* NewsIntroViewController.m */; };
 		BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09391F93B7F100E5D9A2 /* EventIntroViewController.m */; };
@@ -37,6 +43,10 @@
 		BB0DEA361F9F9045009E8420 /* OfferViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfferViewController.m; sourceTree = "<group>"; };
 		BB0DEA381F9F9726009E8420 /* OfferTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfferTableViewCell.h; sourceTree = "<group>"; };
 		BB0DEA391F9F9726009E8420 /* OfferTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfferTableViewCell.m; sourceTree = "<group>"; };
+		BB1159001FA4B07F0052107A /* EventViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
+		BB1159011FA4B07F0052107A /* EventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+		BB1159031FA4B5D30052107A /* EventTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
+		BB1159041FA4B5D30052107A /* EventTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
 		BB13E82A1F9CD78D00BDA4EB /* PharmaHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmaHomeViewController.h; sourceTree = "<group>"; };
 		BB13E82B1F9CD78D00BDA4EB /* PharmaHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PharmaHomeViewController.m; sourceTree = "<group>"; };
 		BB6383491F9E504B007B56AF /* GallaryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GallaryViewController.h; sourceTree = "<group>"; };
@@ -50,6 +60,13 @@
 		BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsHeader.xib; sourceTree = "<group>"; };
 		BB7700F11FA4856B00EA76D2 /* NewsDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsDetailsViewController.h; sourceTree = "<group>"; };
 		BB7700F21FA4856B00EA76D2 /* NewsDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsDetailsViewController.m; sourceTree = "<group>"; };
+		BB8A24AD1FA4D5760070322E /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
+		BB8A24AE1FA4D5760070322E /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		BB8A24B01FA4DCE30070322E /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
+		BB8A24B11FA4DCE30070322E /* MessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
+		BB8A24B31FA4DD480070322E /* MessageSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageSectionHeader.h; sourceTree = "<group>"; };
+		BB8A24B41FA4DD480070322E /* MessageSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageSectionHeader.m; sourceTree = "<group>"; };
+		BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageSectionHeader.xib; sourceTree = "<group>"; };
 		BBDC092B1F93B37000E5D9A2 /* PharmaIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmaIntroViewController.h; sourceTree = "<group>"; };
 		BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PharmaIntroViewController.m; sourceTree = "<group>"; };
 		BBDC09341F93B7C600E5D9A2 /* NewsIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsIntroViewController.h; sourceTree = "<group>"; };
@@ -108,6 +125,17 @@
 			path = Offerete;
 			sourceTree = "<group>";
 		};
+		BB1158FF1FA4B0640052107A /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				BB1159001FA4B07F0052107A /* EventViewController.h */,
+				BB1159011FA4B07F0052107A /* EventViewController.m */,
+				BB1159031FA4B5D30052107A /* EventTableViewCell.h */,
+				BB1159041FA4B5D30052107A /* EventTableViewCell.m */,
+			);
+			path = Event;
+			sourceTree = "<group>";
+		};
 		BB13E8291F9CD77000BDA4EB /* Pharma Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +154,19 @@
 				BB63834D1F9E577B007B56AF /* GallaryCollectionViewCell.m */,
 			);
 			path = Galleria;
+			sourceTree = "<group>";
+		};
+		BB8A24AC1FA4D55A0070322E /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				BB8A24AD1FA4D5760070322E /* MessageViewController.h */,
+				BB8A24AE1FA4D5760070322E /* MessageViewController.m */,
+				BB8A24B01FA4DCE30070322E /* MessageTableViewCell.h */,
+				BB8A24B11FA4DCE30070322E /* MessageTableViewCell.m */,
+				BB8A24B31FA4DD480070322E /* MessageSectionHeader.h */,
+				BB8A24B41FA4DD480070322E /* MessageSectionHeader.m */,
+			);
+			path = Message;
 			sourceTree = "<group>";
 		};
 		BBDC092A1F93B34900E5D9A2 /* Start up guide */ = {
@@ -211,8 +252,11 @@
 				BB6383481F9E502D007B56AF /* Galleria */,
 				BB0DEA341F9F902A009E8420 /* Offerete */,
 				84A607EF1FA305E800D7E3D7 /* News */,
+				BB1158FF1FA4B0640052107A /* Event */,
+				BB8A24AC1FA4D55A0070322E /* Message */,
 				BBFD43CC1F93AABD00A7E265 /* Main.storyboard */,
 				BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */,
+				BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */,
 				BBFD43CF1F93AABD00A7E265 /* Assets.xcassets */,
 				BBFD43D11F93AABD00A7E265 /* LaunchScreen.storyboard */,
 				BBFD43D41F93AABD00A7E265 /* Info.plist */,
@@ -282,6 +326,7 @@
 			files = (
 				BBFD43D31F93AABD00A7E265 /* LaunchScreen.storyboard in Resources */,
 				BB7700F01FA4762D00EA76D2 /* NewsHeader.xib in Resources */,
+				BB8A24B71FA4DD5E0070322E /* MessageSectionHeader.xib in Resources */,
 				BBFD43D01F93AABD00A7E265 /* Assets.xcassets in Resources */,
 				BBFD43CE1F93AABD00A7E265 /* Main.storyboard in Resources */,
 			);
@@ -296,10 +341,15 @@
 			files = (
 				BBFD43D61F93AABD00A7E265 /* main.m in Sources */,
 				BB0DEA371F9F9045009E8420 /* OfferViewController.m in Sources */,
+				BB8A24B21FA4DCE30070322E /* MessageTableViewCell.m in Sources */,
 				BB13E82C1F9CD78D00BDA4EB /* PharmaHomeViewController.m in Sources */,
+				BB1159021FA4B07F0052107A /* EventViewController.m in Sources */,
 				BB63834E1F9E577B007B56AF /* GallaryCollectionViewCell.m in Sources */,
+				BB1159051FA4B5D30052107A /* EventTableViewCell.m in Sources */,
+				BB8A24AF1FA4D5760070322E /* MessageViewController.m in Sources */,
 				BBFD43C51F93AABD00A7E265 /* Farvima.xcdatamodeld in Sources */,
 				BB63834B1F9E504B007B56AF /* GallaryViewController.m in Sources */,
+				BB8A24B51FA4DD480070322E /* MessageSectionHeader.m in Sources */,
 				BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */,
 				BBDC093D1F93B81300E5D9A2 /* OfferIntroViewController.m in Sources */,
 				BBDC09411F93B83500E5D9A2 /* PreBookIntroViewController.m in Sources */,
