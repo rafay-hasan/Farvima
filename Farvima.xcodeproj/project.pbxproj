@@ -10,6 +10,8 @@
 		84A607F21FA3062300D7E3D7 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A607F11FA3062300D7E3D7 /* NewsViewController.m */; };
 		BB0DEA371F9F9045009E8420 /* OfferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0DEA361F9F9045009E8420 /* OfferViewController.m */; };
 		BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0DEA391F9F9726009E8420 /* OfferTableViewCell.m */; };
+		BB1159021FA4B07F0052107A /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1159011FA4B07F0052107A /* EventViewController.m */; };
+		BB1159051FA4B5D30052107A /* EventTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1159041FA4B5D30052107A /* EventTableViewCell.m */; };
 		BB13E82C1F9CD78D00BDA4EB /* PharmaHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13E82B1F9CD78D00BDA4EB /* PharmaHomeViewController.m */; };
 		BB63834B1F9E504B007B56AF /* GallaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB63834A1F9E504B007B56AF /* GallaryViewController.m */; };
 		BB63834E1F9E577B007B56AF /* GallaryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB63834D1F9E577B007B56AF /* GallaryCollectionViewCell.m */; };
@@ -37,6 +39,10 @@
 		BB0DEA361F9F9045009E8420 /* OfferViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfferViewController.m; sourceTree = "<group>"; };
 		BB0DEA381F9F9726009E8420 /* OfferTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfferTableViewCell.h; sourceTree = "<group>"; };
 		BB0DEA391F9F9726009E8420 /* OfferTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfferTableViewCell.m; sourceTree = "<group>"; };
+		BB1159001FA4B07F0052107A /* EventViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
+		BB1159011FA4B07F0052107A /* EventViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+		BB1159031FA4B5D30052107A /* EventTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventTableViewCell.h; sourceTree = "<group>"; };
+		BB1159041FA4B5D30052107A /* EventTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventTableViewCell.m; sourceTree = "<group>"; };
 		BB13E82A1F9CD78D00BDA4EB /* PharmaHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmaHomeViewController.h; sourceTree = "<group>"; };
 		BB13E82B1F9CD78D00BDA4EB /* PharmaHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PharmaHomeViewController.m; sourceTree = "<group>"; };
 		BB6383491F9E504B007B56AF /* GallaryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GallaryViewController.h; sourceTree = "<group>"; };
@@ -106,6 +112,17 @@
 				BB0DEA391F9F9726009E8420 /* OfferTableViewCell.m */,
 			);
 			path = Offerete;
+			sourceTree = "<group>";
+		};
+		BB1158FF1FA4B0640052107A /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				BB1159001FA4B07F0052107A /* EventViewController.h */,
+				BB1159011FA4B07F0052107A /* EventViewController.m */,
+				BB1159031FA4B5D30052107A /* EventTableViewCell.h */,
+				BB1159041FA4B5D30052107A /* EventTableViewCell.m */,
+			);
+			path = Event;
 			sourceTree = "<group>";
 		};
 		BB13E8291F9CD77000BDA4EB /* Pharma Home */ = {
@@ -211,6 +228,7 @@
 				BB6383481F9E502D007B56AF /* Galleria */,
 				BB0DEA341F9F902A009E8420 /* Offerete */,
 				84A607EF1FA305E800D7E3D7 /* News */,
+				BB1158FF1FA4B0640052107A /* Event */,
 				BBFD43CC1F93AABD00A7E265 /* Main.storyboard */,
 				BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */,
 				BBFD43CF1F93AABD00A7E265 /* Assets.xcassets */,
@@ -297,7 +315,9 @@
 				BBFD43D61F93AABD00A7E265 /* main.m in Sources */,
 				BB0DEA371F9F9045009E8420 /* OfferViewController.m in Sources */,
 				BB13E82C1F9CD78D00BDA4EB /* PharmaHomeViewController.m in Sources */,
+				BB1159021FA4B07F0052107A /* EventViewController.m in Sources */,
 				BB63834E1F9E577B007B56AF /* GallaryCollectionViewCell.m in Sources */,
+				BB1159051FA4B5D30052107A /* EventTableViewCell.m in Sources */,
 				BBFD43C51F93AABD00A7E265 /* Farvima.xcdatamodeld in Sources */,
 				BB63834B1F9E504B007B56AF /* GallaryViewController.m in Sources */,
 				BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */,
