@@ -13,6 +13,9 @@
 		BB13E82C1F9CD78D00BDA4EB /* PharmaHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13E82B1F9CD78D00BDA4EB /* PharmaHomeViewController.m */; };
 		BB63834B1F9E504B007B56AF /* GallaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB63834A1F9E504B007B56AF /* GallaryViewController.m */; };
 		BB63834E1F9E577B007B56AF /* GallaryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB63834D1F9E577B007B56AF /* GallaryCollectionViewCell.m */; };
+		BB7700DC1FA45E3200EA76D2 /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700DB1FA45E3200EA76D2 /* NewsTableViewCell.m */; };
+		BB7700EE1FA475D600EA76D2 /* NewsSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700ED1FA475D600EA76D2 /* NewsSectionHeader.m */; };
+		BB7700F01FA4762D00EA76D2 /* NewsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */; };
 		BBDC092D1F93B37000E5D9A2 /* PharmaIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */; };
 		BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09351F93B7C600E5D9A2 /* NewsIntroViewController.m */; };
 		BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09391F93B7F100E5D9A2 /* EventIntroViewController.m */; };
@@ -39,6 +42,11 @@
 		BB63834A1F9E504B007B56AF /* GallaryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GallaryViewController.m; sourceTree = "<group>"; };
 		BB63834C1F9E577B007B56AF /* GallaryCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GallaryCollectionViewCell.h; sourceTree = "<group>"; };
 		BB63834D1F9E577B007B56AF /* GallaryCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GallaryCollectionViewCell.m; sourceTree = "<group>"; };
+		BB7700DA1FA45E3200EA76D2 /* NewsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
+		BB7700DB1FA45E3200EA76D2 /* NewsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
+		BB7700EC1FA475D600EA76D2 /* NewsSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsSectionHeader.h; sourceTree = "<group>"; };
+		BB7700ED1FA475D600EA76D2 /* NewsSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsSectionHeader.m; sourceTree = "<group>"; };
+		BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsHeader.xib; sourceTree = "<group>"; };
 		BBDC092B1F93B37000E5D9A2 /* PharmaIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmaIntroViewController.h; sourceTree = "<group>"; };
 		BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PharmaIntroViewController.m; sourceTree = "<group>"; };
 		BBDC09341F93B7C600E5D9A2 /* NewsIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsIntroViewController.h; sourceTree = "<group>"; };
@@ -76,6 +84,10 @@
 			children = (
 				84A607F01FA3062300D7E3D7 /* NewsViewController.h */,
 				84A607F11FA3062300D7E3D7 /* NewsViewController.m */,
+				BB7700DA1FA45E3200EA76D2 /* NewsTableViewCell.h */,
+				BB7700DB1FA45E3200EA76D2 /* NewsTableViewCell.m */,
+				BB7700EC1FA475D600EA76D2 /* NewsSectionHeader.h */,
+				BB7700ED1FA475D600EA76D2 /* NewsSectionHeader.m */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -195,6 +207,7 @@
 				BB0DEA341F9F902A009E8420 /* Offerete */,
 				84A607EF1FA305E800D7E3D7 /* News */,
 				BBFD43CC1F93AABD00A7E265 /* Main.storyboard */,
+				BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */,
 				BBFD43CF1F93AABD00A7E265 /* Assets.xcassets */,
 				BBFD43D11F93AABD00A7E265 /* LaunchScreen.storyboard */,
 				BBFD43D41F93AABD00A7E265 /* Info.plist */,
@@ -263,6 +276,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBFD43D31F93AABD00A7E265 /* LaunchScreen.storyboard in Resources */,
+				BB7700F01FA4762D00EA76D2 /* NewsHeader.xib in Resources */,
 				BBFD43D01F93AABD00A7E265 /* Assets.xcassets in Resources */,
 				BBFD43CE1F93AABD00A7E265 /* Main.storyboard in Resources */,
 			);
@@ -284,8 +298,10 @@
 				BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */,
 				BBDC093D1F93B81300E5D9A2 /* OfferIntroViewController.m in Sources */,
 				BBDC09411F93B83500E5D9A2 /* PreBookIntroViewController.m in Sources */,
+				BB7700EE1FA475D600EA76D2 /* NewsSectionHeader.m in Sources */,
 				BBDC092D1F93B37000E5D9A2 /* PharmaIntroViewController.m in Sources */,
 				BBFD43C21F93AABD00A7E265 /* AppDelegate.m in Sources */,
+				BB7700DC1FA45E3200EA76D2 /* NewsTableViewCell.m in Sources */,
 				BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */,
 				BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */,
 				84A607F21FA3062300D7E3D7 /* NewsViewController.m in Sources */,
