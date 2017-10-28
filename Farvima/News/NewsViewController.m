@@ -22,12 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.newsTableView.estimatedRowHeight = 156;
-    self.newsTableView.rowHeight = UITableViewAutomaticDimension;
-    self.newsTableView.estimatedSectionHeaderHeight = 44;
-    self.newsTableView.sectionHeaderHeight = UITableViewAutomaticDimension;
-    self.newsTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     
+    self.newsTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     UINib *newsHeaderXix = [UINib nibWithNibName:@"NewsHeader" bundle:nil];
     [self.newsTableView registerNib:newsHeaderXix forHeaderFooterViewReuseIdentifier:@"newsSectionHeader"];
 }
@@ -60,12 +56,23 @@
     cell.newsDetailsLabel.text = @"C'era un'atmosfera sombera negli stadi italiani il mercoledì sera durante un minuto di silenzio, seguito da quegli estratti del diario di Anne Frank, vittima dell'olocausto, che veniva letto attraverso altoparlanti prima di tutte le principali partite di calcio. I giocatori indossavano magliette con lo slogan No all'antisemitismo, con una foto di Anne Frank stampata su di essi, mentre le copie del suo diario sono state distribuite ai tifosi dello stadio.";
     return cell;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     NewsSectionHeader *newsHeaderView = [self.newsTableView dequeueReusableHeaderFooterViewWithIdentifier:@"newsSectionHeader"];
     newsHeaderView.nameLabel.text = @"LA NUOVA SCIENZA";
     newsHeaderView.timeLabel.text = @"02 GENNAIO 2017";
     return newsHeaderView;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *footerView = [[UIView alloc] init];
+    footerView.backgroundColor = [UIColor clearColor];
+    return footerView;
 }
 
 
