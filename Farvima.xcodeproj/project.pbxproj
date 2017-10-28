@@ -28,6 +28,8 @@
 		BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09391F93B7F100E5D9A2 /* EventIntroViewController.m */; };
 		BBDC093D1F93B81300E5D9A2 /* OfferIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC093C1F93B81300E5D9A2 /* OfferIntroViewController.m */; };
 		BBDC09411F93B83500E5D9A2 /* PreBookIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09401F93B83500E5D9A2 /* PreBookIntroViewController.m */; };
+		BBF4DF0A1FA4EE9A00E0C811 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4DF091FA4EE9A00E0C811 /* NotificationViewController.m */; };
+		BBF4DF0D1FA4F7DA00E0C811 /* NotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4DF0C1FA4F7DA00E0C811 /* NotificationTableViewCell.m */; };
 		BBFD43C21F93AABD00A7E265 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFD43C11F93AABD00A7E265 /* AppDelegate.m */; };
 		BBFD43C51F93AABD00A7E265 /* Farvima.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BBFD43C31F93AABD00A7E265 /* Farvima.xcdatamodeld */; };
 		BBFD43CE1F93AABD00A7E265 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBFD43CC1F93AABD00A7E265 /* Main.storyboard */; };
@@ -77,6 +79,10 @@
 		BBDC093C1F93B81300E5D9A2 /* OfferIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfferIntroViewController.m; sourceTree = "<group>"; };
 		BBDC093F1F93B83500E5D9A2 /* PreBookIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreBookIntroViewController.h; sourceTree = "<group>"; };
 		BBDC09401F93B83500E5D9A2 /* PreBookIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreBookIntroViewController.m; sourceTree = "<group>"; };
+		BBF4DF081FA4EE9A00E0C811 /* NotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
+		BBF4DF091FA4EE9A00E0C811 /* NotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
+		BBF4DF0B1FA4F7DA00E0C811 /* NotificationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationTableViewCell.h; sourceTree = "<group>"; };
+		BBF4DF0C1FA4F7DA00E0C811 /* NotificationTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationTableViewCell.m; sourceTree = "<group>"; };
 		BBFD43BD1F93AABD00A7E265 /* Farvima.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Farvima.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBFD43C01F93AABD00A7E265 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		BBFD43C11F93AABD00A7E265 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -226,6 +232,17 @@
 			path = "Pre Book";
 			sourceTree = "<group>";
 		};
+		BBF4DF071FA4EE6A00E0C811 /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				BBF4DF081FA4EE9A00E0C811 /* NotificationViewController.h */,
+				BBF4DF091FA4EE9A00E0C811 /* NotificationViewController.m */,
+				BBF4DF0B1FA4F7DA00E0C811 /* NotificationTableViewCell.h */,
+				BBF4DF0C1FA4F7DA00E0C811 /* NotificationTableViewCell.m */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
 		BBFD43B41F93AABD00A7E265 = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +271,7 @@
 				84A607EF1FA305E800D7E3D7 /* News */,
 				BB1158FF1FA4B0640052107A /* Event */,
 				BB8A24AC1FA4D55A0070322E /* Message */,
+				BBF4DF071FA4EE6A00E0C811 /* Notification */,
 				BBFD43CC1F93AABD00A7E265 /* Main.storyboard */,
 				BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */,
 				BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */,
@@ -354,6 +372,8 @@
 				BBDC093D1F93B81300E5D9A2 /* OfferIntroViewController.m in Sources */,
 				BBDC09411F93B83500E5D9A2 /* PreBookIntroViewController.m in Sources */,
 				BB7700EE1FA475D600EA76D2 /* NewsSectionHeader.m in Sources */,
+				BBF4DF0A1FA4EE9A00E0C811 /* NotificationViewController.m in Sources */,
+				BBF4DF0D1FA4F7DA00E0C811 /* NotificationTableViewCell.m in Sources */,
 				BBDC092D1F93B37000E5D9A2 /* PharmaIntroViewController.m in Sources */,
 				BBFD43C21F93AABD00A7E265 /* AppDelegate.m in Sources */,
 				BB7700DC1FA45E3200EA76D2 /* NewsTableViewCell.m in Sources */,
