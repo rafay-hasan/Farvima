@@ -20,6 +20,9 @@
 		BB7700F01FA4762D00EA76D2 /* NewsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */; };
 		BB7700F31FA4856B00EA76D2 /* NewsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700F21FA4856B00EA76D2 /* NewsDetailsViewController.m */; };
 		BB8A24AF1FA4D5760070322E /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24AE1FA4D5760070322E /* MessageViewController.m */; };
+		BB8A24B21FA4DCE30070322E /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24B11FA4DCE30070322E /* MessageTableViewCell.m */; };
+		BB8A24B51FA4DD480070322E /* MessageSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24B41FA4DD480070322E /* MessageSectionHeader.m */; };
+		BB8A24B71FA4DD5E0070322E /* MessageSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */; };
 		BBDC092D1F93B37000E5D9A2 /* PharmaIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */; };
 		BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09351F93B7C600E5D9A2 /* NewsIntroViewController.m */; };
 		BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09391F93B7F100E5D9A2 /* EventIntroViewController.m */; };
@@ -59,6 +62,11 @@
 		BB7700F21FA4856B00EA76D2 /* NewsDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsDetailsViewController.m; sourceTree = "<group>"; };
 		BB8A24AD1FA4D5760070322E /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		BB8A24AE1FA4D5760070322E /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
+		BB8A24B01FA4DCE30070322E /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
+		BB8A24B11FA4DCE30070322E /* MessageTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageTableViewCell.m; sourceTree = "<group>"; };
+		BB8A24B31FA4DD480070322E /* MessageSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageSectionHeader.h; sourceTree = "<group>"; };
+		BB8A24B41FA4DD480070322E /* MessageSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageSectionHeader.m; sourceTree = "<group>"; };
+		BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageSectionHeader.xib; sourceTree = "<group>"; };
 		BBDC092B1F93B37000E5D9A2 /* PharmaIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmaIntroViewController.h; sourceTree = "<group>"; };
 		BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PharmaIntroViewController.m; sourceTree = "<group>"; };
 		BBDC09341F93B7C600E5D9A2 /* NewsIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsIntroViewController.h; sourceTree = "<group>"; };
@@ -153,6 +161,10 @@
 			children = (
 				BB8A24AD1FA4D5760070322E /* MessageViewController.h */,
 				BB8A24AE1FA4D5760070322E /* MessageViewController.m */,
+				BB8A24B01FA4DCE30070322E /* MessageTableViewCell.h */,
+				BB8A24B11FA4DCE30070322E /* MessageTableViewCell.m */,
+				BB8A24B31FA4DD480070322E /* MessageSectionHeader.h */,
+				BB8A24B41FA4DD480070322E /* MessageSectionHeader.m */,
 			);
 			path = Message;
 			sourceTree = "<group>";
@@ -244,6 +256,7 @@
 				BB8A24AC1FA4D55A0070322E /* Message */,
 				BBFD43CC1F93AABD00A7E265 /* Main.storyboard */,
 				BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */,
+				BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */,
 				BBFD43CF1F93AABD00A7E265 /* Assets.xcassets */,
 				BBFD43D11F93AABD00A7E265 /* LaunchScreen.storyboard */,
 				BBFD43D41F93AABD00A7E265 /* Info.plist */,
@@ -313,6 +326,7 @@
 			files = (
 				BBFD43D31F93AABD00A7E265 /* LaunchScreen.storyboard in Resources */,
 				BB7700F01FA4762D00EA76D2 /* NewsHeader.xib in Resources */,
+				BB8A24B71FA4DD5E0070322E /* MessageSectionHeader.xib in Resources */,
 				BBFD43D01F93AABD00A7E265 /* Assets.xcassets in Resources */,
 				BBFD43CE1F93AABD00A7E265 /* Main.storyboard in Resources */,
 			);
@@ -327,6 +341,7 @@
 			files = (
 				BBFD43D61F93AABD00A7E265 /* main.m in Sources */,
 				BB0DEA371F9F9045009E8420 /* OfferViewController.m in Sources */,
+				BB8A24B21FA4DCE30070322E /* MessageTableViewCell.m in Sources */,
 				BB13E82C1F9CD78D00BDA4EB /* PharmaHomeViewController.m in Sources */,
 				BB1159021FA4B07F0052107A /* EventViewController.m in Sources */,
 				BB63834E1F9E577B007B56AF /* GallaryCollectionViewCell.m in Sources */,
@@ -334,6 +349,7 @@
 				BB8A24AF1FA4D5760070322E /* MessageViewController.m in Sources */,
 				BBFD43C51F93AABD00A7E265 /* Farvima.xcdatamodeld in Sources */,
 				BB63834B1F9E504B007B56AF /* GallaryViewController.m in Sources */,
+				BB8A24B51FA4DD480070322E /* MessageSectionHeader.m in Sources */,
 				BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */,
 				BBDC093D1F93B81300E5D9A2 /* OfferIntroViewController.m in Sources */,
 				BBDC09411F93B83500E5D9A2 /* PreBookIntroViewController.m in Sources */,

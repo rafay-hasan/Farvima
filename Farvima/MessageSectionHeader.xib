@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MessageSectionHeader">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ixW-YP-6Jc">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="69"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z52-2z-bWH">
+                            <rect key="frame" x="16" y="8" width="302" height="53"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farmacia logo" translatesAutoresizingMaskIntoConstraints="NO" id="3OJ-T4-QFm">
+                            <rect key="frame" x="334" y="22" width="25" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="25" id="hCF-j3-gcU"/>
+                                <constraint firstAttribute="width" constant="25" id="yDd-De-cRz"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.10588235294117647" green="0.23921568627450979" blue="0.52549019607843139" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="Z52-2z-bWH" firstAttribute="top" secondItem="ixW-YP-6Jc" secondAttribute="top" constant="8" id="029-1c-zDw"/>
+                        <constraint firstAttribute="bottom" secondItem="Z52-2z-bWH" secondAttribute="bottom" constant="8" id="ND4-Hb-XBN"/>
+                        <constraint firstItem="3OJ-T4-QFm" firstAttribute="centerY" secondItem="ixW-YP-6Jc" secondAttribute="centerY" id="YN3-Zl-9sH"/>
+                        <constraint firstItem="Z52-2z-bWH" firstAttribute="leading" secondItem="ixW-YP-6Jc" secondAttribute="leading" constant="16" id="bAW-jh-ON5"/>
+                        <constraint firstAttribute="trailing" secondItem="3OJ-T4-QFm" secondAttribute="trailing" constant="16" id="ihB-RH-QtC"/>
+                        <constraint firstItem="3OJ-T4-QFm" firstAttribute="leading" secondItem="Z52-2z-bWH" secondAttribute="trailing" constant="16" id="qhd-N2-ude"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ixW-YP-6Jc" secondAttribute="bottom" id="3YL-03-D2N"/>
+                <constraint firstItem="ixW-YP-6Jc" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="4fE-EQ-R1u"/>
+                <constraint firstItem="ixW-YP-6Jc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="CGS-ae-Vkk"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ixW-YP-6Jc" secondAttribute="trailing" id="NRo-ec-D4a"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="categotyNameLabel" destination="Z52-2z-bWH" id="BZ4-Jv-4oq"/>
+                <outlet property="messageCategoryImageview" destination="3OJ-T4-QFm" id="NK3-cy-kd0"/>
+            </connections>
+            <point key="canvasLocation" x="33.5" y="352.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="farmacia logo" width="47" height="47"/>
+    </resources>
+</document>
