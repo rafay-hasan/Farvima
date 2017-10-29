@@ -9,9 +9,11 @@
 #import "MessageViewController.h"
 #import "MessageTableViewCell.h"
 #import "MessageSectionHeader.h"
+#import "NotificationViewController.h"
 
 @interface MessageViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *messageTableview;
+- (IBAction)notificationButtonAction:(id)sender;
 
 - (IBAction)backButtonAction:(id)sender;
 @end
@@ -40,6 +42,16 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)notificationButtonAction:(id)sender {
+    NotificationViewController *notificationVc = [NotificationViewController new];
+    if (![self isControllerAlreadyOnNavigationControllerStack:notificationVc]) {
+        //push controller
+        NotificationViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"notification"];
+        [self.navigationController pushViewController:newView animated:YES];
+        
+    }
+}
 
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -75,6 +87,16 @@
     UIView *footerView = [[UIView alloc] init];
     footerView.backgroundColor = [UIColor clearColor];
     return footerView;
+}
+
+-(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        if ([vc isKindOfClass:targetViewController.class]) {
+            [self.navigationController popToViewController:vc animated:NO];
+            return YES;
+        }
+    }
+    return NO;
 }
 
 @end

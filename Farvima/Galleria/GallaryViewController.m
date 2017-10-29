@@ -8,6 +8,7 @@
 
 #import "GallaryViewController.h"
 #import "MessageViewController.h"
+#import "NotificationViewController.h"
 
 @interface GallaryViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
@@ -15,6 +16,7 @@
 
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)messageButtonAction:(id)sender;
+- (IBAction)notificationButtonAction:(id)sender;
 
 @end
 
@@ -98,22 +100,33 @@
 }
 
 - (IBAction)messageButtonAction:(id)sender {
-    if (![self isControllerAlreadyOnNavigationControllerStack]) {
+    MessageViewController *messageVc = [MessageViewController new];
+    if (![self isControllerAlreadyOnNavigationControllerStack:messageVc]) {
         //push controller
         MessageViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"messaggi"];
         [self.navigationController pushViewController:newView animated:YES];
         
     }
 }
--(BOOL)isControllerAlreadyOnNavigationControllerStack{
-    MessageViewController *messageVc = [MessageViewController new];
+
+- (IBAction)notificationButtonAction:(id)sender {
+    NotificationViewController *notificationVc = [NotificationViewController new];
+    if (![self isControllerAlreadyOnNavigationControllerStack:notificationVc]) {
+        //push controller
+        NotificationViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"notification"];
+        [self.navigationController pushViewController:newView animated:YES];
+        
+    }
+}
+-(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
     for (UIViewController *vc in self.navigationController.viewControllers) {
-        if ([vc isKindOfClass:messageVc.class]) {
+        if ([vc isKindOfClass:targetViewController.class]) {
             [self.navigationController popToViewController:vc animated:NO];
             return YES;
         }
     }
     return NO;
 }
+
 
 @end

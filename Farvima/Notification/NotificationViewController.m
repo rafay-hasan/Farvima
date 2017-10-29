@@ -1,30 +1,31 @@
 //
-//  EventViewController.m
+//  NotificationViewController.m
 //  Farvima
 //
 //  Created by Rafay Hasan on 10/28/17.
 //  Copyright © 2017 Rafay Hasan. All rights reserved.
 //
 
-#import "EventViewController.h"
-#import "EventTableViewCell.h"
-#import "MessageViewController.h"
 #import "NotificationViewController.h"
-@interface EventViewController ()<UITableViewDataSource,UITableViewDelegate>
+#import "MessageViewController.h"
+#import "NotificationTableViewCell.h"
 
-@property (weak, nonatomic) IBOutlet UITableView *eventtableView;
+@interface NotificationViewController ()
 
-- (IBAction)backButtonAction:(id)sender;
 - (IBAction)messageButtonAction:(id)sender;
-- (IBAction)notificationButtonAction:(id)sender;
+- (IBAction)backButtonAction:(id)sender;
+
+@property (weak, nonatomic) IBOutlet UITableView *notificationTableview;
+
 
 @end
 
-@implementation EventViewController
+@implementation NotificationViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.notificationTableview.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -42,10 +43,15 @@
 }
 */
 
-- (IBAction)backButtonAction:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+-(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        if ([vc isKindOfClass:targetViewController.class]) {
+            [self.navigationController popToViewController:vc animated:NO];
+            return YES;
+        }
+    }
+    return NO;
 }
-
 - (IBAction)messageButtonAction:(id)sender {
     MessageViewController *messageVc = [MessageViewController new];
     if (![self isControllerAlreadyOnNavigationControllerStack:messageVc]) {
@@ -55,27 +61,27 @@
         
     }
 }
-
-- (IBAction)notificationButtonAction:(id)sender {
-    NotificationViewController *notificationVc = [NotificationViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:notificationVc]) {
-        //push controller
-        NotificationViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"notification"];
-        [self.navigationController pushViewController:newView animated:YES];
-        
-    }
+- (IBAction)backButtonAction:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 15;
+    return 5;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    EventTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"eventCell" forIndexPath:indexPath];
+    NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"notificationCell" forIndexPath:indexPath];
+    if (indexPath.row % 2 == 0) {
+        cell.backgroundColor = [UIColor colorWithRed:230/255.0 green:228/255.0 blue:228/255.0 alpha:1.0];
+        cell.notificationTYpeImageView.image = [UIImage imageNamed:@"farma logo"];
+    }
+    else {
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.notificationTYpeImageView.image = [UIImage imageNamed:@"farmacia logo"];
+    }
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -95,15 +101,4 @@
     footerView.backgroundColor = [UIColor clearColor];
     return footerView;
 }
-
--(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
-    for (UIViewController *vc in self.navigationController.viewControllers) {
-        if ([vc isKindOfClass:targetViewController.class]) {
-            [self.navigationController popToViewController:vc animated:NO];
-            return YES;
-        }
-    }
-    return NO;
-}
-
 @end
