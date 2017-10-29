@@ -51,8 +51,10 @@
 
 - (void) loadNewsDetailsView
 {
-    self.newsDetailsLabel.text = @"C'era un'atmosfera sombera negli stadi italiani il mercoledì sera durante un minuto di silenzio, seguito da quegli estratti del diario di Anne Frank, vittima dell'olocausto, che veniva letto attraverso altoparlanti prima di tutte le principali partite di calcio. I giocatori indossavano magliette con lo slogan No all'antisemitismo, con una foto di Anne Frank stampata su di essi, mentre le copie del suo diario sono state distribuite ai tifosi dello stadio.";
-    self.ScrollContainerViewHeight.constant = self.newsDetailsLabel.frame.origin.y + self.newsDetailsLabel.frame.size.height;
+//    self.newsDetailsLabel.text = @"C'era un'atmosfera sombera negli stadi italiani il mercoledì sera durante un minuto di silenzio, seguito da quegli estratti del diario di Anne Frank, vittima dell'olocausto, che veniva letto attraverso altoparlanti prima di tutte le principali partite di calcio. I giocatori indossavano magliette con lo slogan No all'antisemitismo, con una foto di Anne Frank stampata su di essi, mentre le copie del suo diario sono state distribuite ai tifosi dello stadio.";
+    [self.view setNeedsLayout];
+    self.ScrollContainerViewHeight.constant = self.newsDetailsLabel.frame.origin.y + self.newsDetailsLabel.frame.size.height + 32;
+    NSLog(@"%@",self.ScrollContainerViewHeight);
 }
 
 - (IBAction)backButtonAction:(id)sender {
