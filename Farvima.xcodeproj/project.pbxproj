@@ -37,9 +37,12 @@
 		BBFD43D01F93AABD00A7E265 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBFD43CF1F93AABD00A7E265 /* Assets.xcassets */; };
 		BBFD43D31F93AABD00A7E265 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBFD43D11F93AABD00A7E265 /* LaunchScreen.storyboard */; };
 		BBFD43D61F93AABD00A7E265 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFD43D51F93AABD00A7E265 /* main.m */; };
+		F6BF77A48AF20020A9AA8F42 /* libPods-Farvima.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C923C4B9424231A7D810D82 /* libPods-Farvima.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1C923C4B9424231A7D810D82 /* libPods-Farvima.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Farvima.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6AF49D719E96AB9AC74CE0B4 /* Pods-Farvima.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farvima.release.xcconfig"; path = "Pods/Target Support Files/Pods-Farvima/Pods-Farvima.release.xcconfig"; sourceTree = "<group>"; };
 		84A607F01FA3062300D7E3D7 /* NewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		84A607F11FA3062300D7E3D7 /* NewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		BB0DEA351F9F9045009E8420 /* OfferViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfferViewController.h; sourceTree = "<group>"; };
@@ -95,6 +98,7 @@
 		BBFD43D21F93AABD00A7E265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBFD43D41F93AABD00A7E265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BBFD43D51F93AABD00A7E265 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E2FB0FEBF165970D978B384F /* Pods-Farvima.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farvima.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Farvima/Pods-Farvima.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,12 +106,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6BF77A48AF20020A9AA8F42 /* libPods-Farvima.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2AD0A3FF8B2C209DD074AF52 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E2FB0FEBF165970D978B384F /* Pods-Farvima.debug.xcconfig */,
+				6AF49D719E96AB9AC74CE0B4 /* Pods-Farvima.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		84A607EF1FA305E800D7E3D7 /* News */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,6 +274,8 @@
 			children = (
 				BBFD43BF1F93AABD00A7E265 /* Farvima */,
 				BBFD43BE1F93AABD00A7E265 /* Products */,
+				2AD0A3FF8B2C209DD074AF52 /* Pods */,
+				FBB8BF018C16FD4692EC36A1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -297,6 +313,14 @@
 			path = Farvima;
 			sourceTree = "<group>";
 		};
+		FBB8BF018C16FD4692EC36A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1C923C4B9424231A7D810D82 /* libPods-Farvima.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -304,9 +328,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BBFD43D91F93AABD00A7E265 /* Build configuration list for PBXNativeTarget "Farvima" */;
 			buildPhases = (
+				14172144C79D6B66AB016ADC /* [CP] Check Pods Manifest.lock */,
 				BBFD43B91F93AABD00A7E265 /* Sources */,
 				BBFD43BA1F93AABD00A7E265 /* Frameworks */,
 				BBFD43BB1F93AABD00A7E265 /* Resources */,
+				22A52C9303DF4D73B1D285F5 /* [CP] Embed Pods Frameworks */,
+				FA252B2547ADC0D6ACB61424 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -364,6 +391,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		14172144C79D6B66AB016ADC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		22A52C9303DF4D73B1D285F5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Farvima/Pods-Farvima-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA252B2547ADC0D6ACB61424 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Farvima/Pods-Farvima-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BBFD43B91F93AABD00A7E265 /* Sources */ = {
@@ -526,6 +601,7 @@
 		};
 		BBFD43DA1F93AABD00A7E265 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E2FB0FEBF165970D978B384F /* Pods-Farvima.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
@@ -541,6 +617,7 @@
 		};
 		BBFD43DB1F93AABD00A7E265 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6AF49D719E96AB9AC74CE0B4 /* Pods-Farvima.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
