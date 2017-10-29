@@ -28,6 +28,7 @@
 		BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09391F93B7F100E5D9A2 /* EventIntroViewController.m */; };
 		BBDC093D1F93B81300E5D9A2 /* OfferIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC093C1F93B81300E5D9A2 /* OfferIntroViewController.m */; };
 		BBDC09411F93B83500E5D9A2 /* PreBookIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09401F93B83500E5D9A2 /* PreBookIntroViewController.m */; };
+		BBE31AB91FA5A2D700E07440 /* ProductSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE31AB81FA5A2D700E07440 /* ProductSearchViewController.m */; };
 		BBF4DF0A1FA4EE9A00E0C811 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4DF091FA4EE9A00E0C811 /* NotificationViewController.m */; };
 		BBF4DF0D1FA4F7DA00E0C811 /* NotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4DF0C1FA4F7DA00E0C811 /* NotificationTableViewCell.m */; };
 		BBFD43C21F93AABD00A7E265 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFD43C11F93AABD00A7E265 /* AppDelegate.m */; };
@@ -79,6 +80,8 @@
 		BBDC093C1F93B81300E5D9A2 /* OfferIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfferIntroViewController.m; sourceTree = "<group>"; };
 		BBDC093F1F93B83500E5D9A2 /* PreBookIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreBookIntroViewController.h; sourceTree = "<group>"; };
 		BBDC09401F93B83500E5D9A2 /* PreBookIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreBookIntroViewController.m; sourceTree = "<group>"; };
+		BBE31AB71FA5A2D700E07440 /* ProductSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductSearchViewController.h; sourceTree = "<group>"; };
+		BBE31AB81FA5A2D700E07440 /* ProductSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductSearchViewController.m; sourceTree = "<group>"; };
 		BBF4DF081FA4EE9A00E0C811 /* NotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
 		BBF4DF091FA4EE9A00E0C811 /* NotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
 		BBF4DF0B1FA4F7DA00E0C811 /* NotificationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationTableViewCell.h; sourceTree = "<group>"; };
@@ -232,6 +235,15 @@
 			path = "Pre Book";
 			sourceTree = "<group>";
 		};
+		BBE31AB61FA5A2B400E07440 /* Product search */ = {
+			isa = PBXGroup;
+			children = (
+				BBE31AB71FA5A2D700E07440 /* ProductSearchViewController.h */,
+				BBE31AB81FA5A2D700E07440 /* ProductSearchViewController.m */,
+			);
+			path = "Product search";
+			sourceTree = "<group>";
+		};
 		BBF4DF071FA4EE6A00E0C811 /* Notification */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +284,7 @@
 				BB1158FF1FA4B0640052107A /* Event */,
 				BB8A24AC1FA4D55A0070322E /* Message */,
 				BBF4DF071FA4EE6A00E0C811 /* Notification */,
+				BBE31AB61FA5A2B400E07440 /* Product search */,
 				BBFD43CC1F93AABD00A7E265 /* Main.storyboard */,
 				BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */,
 				BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */,
@@ -380,6 +393,7 @@
 				BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */,
 				BB7700F31FA4856B00EA76D2 /* NewsDetailsViewController.m in Sources */,
 				BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */,
+				BBE31AB91FA5A2D700E07440 /* ProductSearchViewController.m in Sources */,
 				84A607F21FA3062300D7E3D7 /* NewsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
