@@ -15,6 +15,8 @@
 		BB13E82C1F9CD78D00BDA4EB /* PharmaHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB13E82B1F9CD78D00BDA4EB /* PharmaHomeViewController.m */; };
 		BB63834B1F9E504B007B56AF /* GallaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB63834A1F9E504B007B56AF /* GallaryViewController.m */; };
 		BB63834E1F9E577B007B56AF /* GallaryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB63834D1F9E577B007B56AF /* GallaryCollectionViewCell.m */; };
+		BB6446381FA5FD7F006F2B92 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6446371FA5FD7F006F2B92 /* SearchResultViewController.m */; };
+		BB64463B1FA6077B006F2B92 /* SearchResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB64463A1FA6077B006F2B92 /* SearchResultCollectionViewCell.m */; };
 		BB7700DC1FA45E3200EA76D2 /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700DB1FA45E3200EA76D2 /* NewsTableViewCell.m */; };
 		BB7700EE1FA475D600EA76D2 /* NewsSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700ED1FA475D600EA76D2 /* NewsSectionHeader.m */; };
 		BB7700F01FA4762D00EA76D2 /* NewsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */; };
@@ -59,6 +61,10 @@
 		BB63834A1F9E504B007B56AF /* GallaryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GallaryViewController.m; sourceTree = "<group>"; };
 		BB63834C1F9E577B007B56AF /* GallaryCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GallaryCollectionViewCell.h; sourceTree = "<group>"; };
 		BB63834D1F9E577B007B56AF /* GallaryCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GallaryCollectionViewCell.m; sourceTree = "<group>"; };
+		BB6446361FA5FD7F006F2B92 /* SearchResultViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResultViewController.h; sourceTree = "<group>"; };
+		BB6446371FA5FD7F006F2B92 /* SearchResultViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewController.m; sourceTree = "<group>"; };
+		BB6446391FA6077B006F2B92 /* SearchResultCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResultCollectionViewCell.h; sourceTree = "<group>"; };
+		BB64463A1FA6077B006F2B92 /* SearchResultCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultCollectionViewCell.m; sourceTree = "<group>"; };
 		BB7700DA1FA45E3200EA76D2 /* NewsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
 		BB7700DB1FA45E3200EA76D2 /* NewsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
 		BB7700EC1FA475D600EA76D2 /* NewsSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsSectionHeader.h; sourceTree = "<group>"; };
@@ -254,6 +260,10 @@
 			children = (
 				BBE31AB71FA5A2D700E07440 /* ProductSearchViewController.h */,
 				BBE31AB81FA5A2D700E07440 /* ProductSearchViewController.m */,
+				BB6446361FA5FD7F006F2B92 /* SearchResultViewController.h */,
+				BB6446371FA5FD7F006F2B92 /* SearchResultViewController.m */,
+				BB6446391FA6077B006F2B92 /* SearchResultCollectionViewCell.h */,
+				BB64463A1FA6077B006F2B92 /* SearchResultCollectionViewCell.m */,
 			);
 			path = "Product search";
 			sourceTree = "<group>";
@@ -466,6 +476,8 @@
 				BBFD43C21F93AABD00A7E265 /* AppDelegate.m in Sources */,
 				BB7700DC1FA45E3200EA76D2 /* NewsTableViewCell.m in Sources */,
 				BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */,
+				BB6446381FA5FD7F006F2B92 /* SearchResultViewController.m in Sources */,
+				BB64463B1FA6077B006F2B92 /* SearchResultCollectionViewCell.m in Sources */,
 				BB7700F31FA4856B00EA76D2 /* NewsDetailsViewController.m in Sources */,
 				BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */,
 				BBE31AB91FA5A2D700E07440 /* ProductSearchViewController.m in Sources */,
