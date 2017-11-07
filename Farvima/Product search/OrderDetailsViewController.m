@@ -108,6 +108,7 @@
         
     }
 }
+
 -(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
     for (UIViewController *vc in self.navigationController.viewControllers) {
         if ([vc isKindOfClass:targetViewController.class]) {
