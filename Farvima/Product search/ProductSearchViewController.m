@@ -11,8 +11,10 @@
 @interface ProductSearchViewController ()
 
 - (IBAction)backButtonAction:(id)sender;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollContainerViewHeight;
+- (IBAction)searchButtonAction:(id)sender;
 
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollContainerViewHeight;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 
 @end
@@ -45,5 +47,9 @@
 
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)searchButtonAction:(id)sender {
+    [self performSegueWithIdentifier:@"searchResult" sender:self];
 }
 @end
