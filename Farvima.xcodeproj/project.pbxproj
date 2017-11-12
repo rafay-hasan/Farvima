@@ -19,6 +19,7 @@
 		BB16A7C41FA781C400AFA112 /* OrderDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB16A7C31FA781C400AFA112 /* OrderDetailsTableViewCell.m */; };
 		BB16A7C61FA787AA00AFA112 /* OrderDetailsFooterSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB16A7C51FA787AA00AFA112 /* OrderDetailsFooterSection.xib */; };
 		BB16A7C91FA788BE00AFA112 /* OrderDetailsFooetrSection.m in Sources */ = {isa = PBXBuildFile; fileRef = BB16A7C81FA788BE00AFA112 /* OrderDetailsFooetrSection.m */; };
+		BB3425CF1FB209A8000FD88C /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3425CE1FB209A8000FD88C /* EventDetailsViewController.m */; };
 		BB63834B1F9E504B007B56AF /* GallaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB63834A1F9E504B007B56AF /* GallaryViewController.m */; };
 		BB63834E1F9E577B007B56AF /* GallaryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB63834D1F9E577B007B56AF /* GallaryCollectionViewCell.m */; };
 		BB6446381FA5FD7F006F2B92 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6446371FA5FD7F006F2B92 /* SearchResultViewController.m */; };
@@ -74,6 +75,8 @@
 		BB16A7C51FA787AA00AFA112 /* OrderDetailsFooterSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailsFooterSection.xib; sourceTree = "<group>"; };
 		BB16A7C71FA788BE00AFA112 /* OrderDetailsFooetrSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDetailsFooetrSection.h; sourceTree = "<group>"; };
 		BB16A7C81FA788BE00AFA112 /* OrderDetailsFooetrSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDetailsFooetrSection.m; sourceTree = "<group>"; };
+		BB3425CD1FB209A8000FD88C /* EventDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
+		BB3425CE1FB209A8000FD88C /* EventDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
 		BB6383491F9E504B007B56AF /* GallaryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GallaryViewController.h; sourceTree = "<group>"; };
 		BB63834A1F9E504B007B56AF /* GallaryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GallaryViewController.m; sourceTree = "<group>"; };
 		BB63834C1F9E577B007B56AF /* GallaryCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GallaryCollectionViewCell.h; sourceTree = "<group>"; };
@@ -180,6 +183,8 @@
 				BB1159011FA4B07F0052107A /* EventViewController.m */,
 				BB1159031FA4B5D30052107A /* EventTableViewCell.h */,
 				BB1159041FA4B5D30052107A /* EventTableViewCell.m */,
+				BB3425CD1FB209A8000FD88C /* EventDetailsViewController.h */,
+				BB3425CE1FB209A8000FD88C /* EventDetailsViewController.m */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -518,6 +523,7 @@
 				BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */,
 				BB16A7C91FA788BE00AFA112 /* OrderDetailsFooetrSection.m in Sources */,
 				BBE31AB91FA5A2D700E07440 /* ProductSearchViewController.m in Sources */,
+				BB3425CF1FB209A8000FD88C /* EventDetailsViewController.m in Sources */,
 				BB16A7C41FA781C400AFA112 /* OrderDetailsTableViewCell.m in Sources */,
 				84A607F21FA3062300D7E3D7 /* NewsViewController.m in Sources */,
 			);
