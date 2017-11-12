@@ -1667,11 +1667,11 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="X3s-OZ-ULy"/>
                                                 </constraints>
-                                                <mutableString key="text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+                                                <string key="text">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
 
 The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
 
-</mutableString>
+</string>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1762,7 +1762,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njj-PE-f11">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="eLQ-Lw-4cH" eventType="touchUpInside" id="4Ze-H2-OSl"/>
+                                                            <action selector="messageButtonAction:" destination="Onz-dy-eTE" eventType="touchUpInside" id="hfd-4D-opS"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1796,7 +1796,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJE-Ym-xLT">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="eLQ-Lw-4cH" eventType="touchUpInside" id="9oW-Mz-rfv"/>
+                                                            <action selector="notificationButtonAction:" destination="Onz-dy-eTE" eventType="touchUpInside" id="Wbk-4o-kyj"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1886,7 +1886,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K8S-f1-5Q4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="656.52173913043487" y="3050.54347826087"/>
+            <point key="canvasLocation" x="623" y="3158"/>
         </scene>
         <!--Offer View Controller-->
         <scene sceneID="G31-mM-8CS">
