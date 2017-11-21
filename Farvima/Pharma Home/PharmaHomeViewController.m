@@ -10,6 +10,7 @@
 #import "MessageViewController.h"
 #import "NotificationViewController.h"
 
+
 @interface PharmaHomeViewController ()
 
 - (IBAction)messageButtonAction:(id)sender;
@@ -55,7 +56,7 @@
         //push controller
         NotificationViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"notification"];
         [self.navigationController pushViewController:newView animated:YES];
-        
+
     }
 }
 

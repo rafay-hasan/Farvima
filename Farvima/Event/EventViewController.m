@@ -10,6 +10,8 @@
 #import "EventTableViewCell.h"
 #import "MessageViewController.h"
 #import "NotificationViewController.h"
+#import "UIViewController+LGSideMenuController.h"
+
 @interface EventViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *eventtableView;
@@ -17,6 +19,7 @@
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)messageButtonAction:(id)sender;
 - (IBAction)notificationButtonAction:(id)sender;
+- (IBAction)leftMenuButtonAction:(id)sender;
 
 @end
 
@@ -64,6 +67,10 @@
         [self.navigationController pushViewController:newView animated:YES];
         
     }
+}
+
+- (IBAction)leftMenuButtonAction:(id)sender {
+    [[self sideMenuController] showLeftViewAnimated:sender];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

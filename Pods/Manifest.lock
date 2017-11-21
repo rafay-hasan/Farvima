@@ -1,12 +1,15 @@
 PODS:
   - IQKeyboardManager (4.0.8)
+  - LGSideMenuController (2.0.5)
 
 DEPENDENCIES:
   - IQKeyboardManager
+  - LGSideMenuController
 
 SPEC CHECKSUMS:
   IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
+  LGSideMenuController: 3cc82025a53b672926d3ffb3f428f4f3e15e3349
 
-PODFILE CHECKSUM: af95e09bfc412b949bc259ebae2690785edfd8e8
+PODFILE CHECKSUM: 17acb315345b220c62671420a26f328abd1cddd0
 
 COCOAPODS: 1.2.0

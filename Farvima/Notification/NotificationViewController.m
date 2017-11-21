@@ -9,6 +9,7 @@
 #import "NotificationViewController.h"
 #import "MessageViewController.h"
 #import "NotificationTableViewCell.h"
+#import "UIViewController+LGSideMenuController.h"
 
 @interface NotificationViewController ()
 
@@ -27,6 +28,7 @@
     // Do any additional setup after loading the view.
     self.notificationTableview.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -53,13 +55,14 @@
     return NO;
 }
 - (IBAction)messageButtonAction:(id)sender {
-    MessageViewController *messageVc = [MessageViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:messageVc]) {
-        //push controller
-        MessageViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"messaggi"];
-        [self.navigationController pushViewController:newView animated:YES];
-        
-    }
+    [self.sideMenuController showLeftViewAnimated:YES completionHandler:nil];
+//    MessageViewController *messageVc = [MessageViewController new];
+//    if (![self isControllerAlreadyOnNavigationControllerStack:messageVc]) {
+//        //push controller
+//        MessageViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"messaggi"];
+//        [self.navigationController pushViewController:newView animated:YES];
+//
+//    }
 }
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

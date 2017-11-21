@@ -7,8 +7,12 @@
 //
 
 #import "NewsIntroViewController.h"
+#import "MainViewController.h"
+#import "NavigationController.h"
+#import "PharmaHomeViewController.h"
 
 @interface NewsIntroViewController ()
+- (IBAction)saltaButtonAction:(id)sender;
 
 @end
 
@@ -34,4 +38,31 @@
 }
 */
 
+- (IBAction)saltaButtonAction:(id)sender {
+    
+    PharmaHomeViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"farmaHome"];
+    NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:newView];
+    navigationController.navigationBarHidden = YES;
+    MainViewController *mainViewController = [MainViewController new];
+    mainViewController.rootViewController = navigationController;
+    // [mainViewController setupWithType];
+    mainViewController.leftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenu"];
+    mainViewController.rightViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightMenu"];
+    mainViewController.leftViewBackgroundColor = [UIColor whiteColor];
+    mainViewController.rightViewBackgroundColor = [UIColor whiteColor];
+    mainViewController.leftViewWidth = 180.0;
+    mainViewController.rightViewWidth = 180.0;
+    mainViewController.swipeGestureArea = LGSideMenuSwipeGestureAreaFull;
+    mainViewController.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideAbove;
+    mainViewController.rightViewPresentationStyle = LGSideMenuPresentationStyleSlideAbove;
+    
+    UIWindow *window = UIApplication.sharedApplication.delegate.window;
+    window.rootViewController = mainViewController;
+    
+    [UIView transitionWithView:window
+                      duration:0.3
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:nil
+                    completion:nil];
+}
 @end
