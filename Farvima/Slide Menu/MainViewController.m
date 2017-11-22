@@ -34,7 +34,7 @@
     self.rightViewBackgroundColor = [UIColor whiteColor];
     self.leftViewWidth = 180.0;
     self.rightViewWidth = 180.0;
-    self.swipeGestureArea = LGSideMenuSwipeGestureAreaFull;
+    self.swipeGestureArea = LGSideMenuSwipeGestureAreaBorders;
     self.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideAbove;
     self.rightViewPresentationStyle = LGSideMenuPresentationStyleSlideAbove;
 
