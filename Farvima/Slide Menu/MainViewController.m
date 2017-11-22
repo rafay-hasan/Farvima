@@ -7,7 +7,7 @@
 //
 
 #import "MainViewController.h"
-#import "LeftSideMenuViewController.h"
+#import "LeftSlideMenuViewController.h"
 #import "RightSideMenuViewController.h"
 
 @interface MainViewController ()

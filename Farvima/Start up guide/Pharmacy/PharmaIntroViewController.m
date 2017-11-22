@@ -10,7 +10,7 @@
 #import "MainViewController.h"
 #import "NavigationController.h"
 #import "PharmaHomeViewController.h"
-#import "LeftSideMenuViewController.h"
+#import "LeftSlideMenuViewController.h"
 @interface PharmaIntroViewController ()
 
 - (IBAction)saltaButtonAction:(id)sender;

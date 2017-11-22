@@ -20,7 +20,6 @@
 		BB16A7C61FA787AA00AFA112 /* OrderDetailsFooterSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB16A7C51FA787AA00AFA112 /* OrderDetailsFooterSection.xib */; };
 		BB16A7C91FA788BE00AFA112 /* OrderDetailsFooetrSection.m in Sources */ = {isa = PBXBuildFile; fileRef = BB16A7C81FA788BE00AFA112 /* OrderDetailsFooetrSection.m */; };
 		BB3425CF1FB209A8000FD88C /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3425CE1FB209A8000FD88C /* EventDetailsViewController.m */; };
-		BB5C964C1FC4510000126DC9 /* LeftSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C964B1FC4510000126DC9 /* LeftSideMenuViewController.m */; };
 		BB5C964F1FC4511300126DC9 /* RightSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C964E1FC4511300126DC9 /* RightSideMenuViewController.m */; };
 		BB5C96521FC45AC900126DC9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C96511FC45AC900126DC9 /* MainViewController.m */; };
 		BB5C96551FC45D0F00126DC9 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C96531FC45D0F00126DC9 /* NavigationController.m */; };
@@ -38,6 +37,7 @@
 		BB8A24B21FA4DCE30070322E /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24B11FA4DCE30070322E /* MessageTableViewCell.m */; };
 		BB8A24B51FA4DD480070322E /* MessageSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24B41FA4DD480070322E /* MessageSectionHeader.m */; };
 		BB8A24B71FA4DD5E0070322E /* MessageSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */; };
+		BBD8B6811FC5C243009EDD32 /* LeftSlideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD8B6801FC5C243009EDD32 /* LeftSlideMenuViewController.m */; };
 		BBD8CCC51FC4FB6B00C75038 /* RightMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD8CCC41FC4FB6B00C75038 /* RightMenuTableViewCell.m */; };
 		BBDC092D1F93B37000E5D9A2 /* PharmaIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */; };
 		BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09351F93B7C600E5D9A2 /* NewsIntroViewController.m */; };
@@ -83,8 +83,6 @@
 		BB16A7C81FA788BE00AFA112 /* OrderDetailsFooetrSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDetailsFooetrSection.m; sourceTree = "<group>"; };
 		BB3425CD1FB209A8000FD88C /* EventDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
 		BB3425CE1FB209A8000FD88C /* EventDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
-		BB5C964A1FC4510000126DC9 /* LeftSideMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftSideMenuViewController.h; sourceTree = "<group>"; };
-		BB5C964B1FC4510000126DC9 /* LeftSideMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftSideMenuViewController.m; sourceTree = "<group>"; };
 		BB5C964D1FC4511300126DC9 /* RightSideMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RightSideMenuViewController.h; sourceTree = "<group>"; };
 		BB5C964E1FC4511300126DC9 /* RightSideMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RightSideMenuViewController.m; sourceTree = "<group>"; };
 		BB5C96501FC45AC900126DC9 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -117,6 +115,8 @@
 		BB8A24B31FA4DD480070322E /* MessageSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageSectionHeader.h; sourceTree = "<group>"; };
 		BB8A24B41FA4DD480070322E /* MessageSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageSectionHeader.m; sourceTree = "<group>"; };
 		BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageSectionHeader.xib; sourceTree = "<group>"; };
+		BBD8B67F1FC5C243009EDD32 /* LeftSlideMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftSlideMenuViewController.h; sourceTree = "<group>"; };
+		BBD8B6801FC5C243009EDD32 /* LeftSlideMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftSlideMenuViewController.m; sourceTree = "<group>"; };
 		BBD8CCC31FC4FB6B00C75038 /* RightMenuTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RightMenuTableViewCell.h; sourceTree = "<group>"; };
 		BBD8CCC41FC4FB6B00C75038 /* RightMenuTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RightMenuTableViewCell.m; sourceTree = "<group>"; };
 		BBDC092B1F93B37000E5D9A2 /* PharmaIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmaIntroViewController.h; sourceTree = "<group>"; };
@@ -223,8 +223,8 @@
 				BB5C96511FC45AC900126DC9 /* MainViewController.m */,
 				BB5C96541FC45D0F00126DC9 /* NavigationController.h */,
 				BB5C96531FC45D0F00126DC9 /* NavigationController.m */,
-				BB5C964A1FC4510000126DC9 /* LeftSideMenuViewController.h */,
-				BB5C964B1FC4510000126DC9 /* LeftSideMenuViewController.m */,
+				BBD8B67F1FC5C243009EDD32 /* LeftSlideMenuViewController.h */,
+				BBD8B6801FC5C243009EDD32 /* LeftSlideMenuViewController.m */,
 				BB5C96561FC473C900126DC9 /* LeftMenuTableViewCell.h */,
 				BB5C96571FC473C900126DC9 /* LeftMenuTableViewCell.m */,
 				BB5C964D1FC4511300126DC9 /* RightSideMenuViewController.h */,
@@ -545,6 +545,7 @@
 				BB63834B1F9E504B007B56AF /* GallaryViewController.m in Sources */,
 				BB8A24B51FA4DD480070322E /* MessageSectionHeader.m in Sources */,
 				BB5C96581FC473C900126DC9 /* LeftMenuTableViewCell.m in Sources */,
+				BBD8B6811FC5C243009EDD32 /* LeftSlideMenuViewController.m in Sources */,
 				BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */,
 				BB5C96551FC45D0F00126DC9 /* NavigationController.m in Sources */,
 				BBDC093D1F93B81300E5D9A2 /* OfferIntroViewController.m in Sources */,
@@ -562,7 +563,6 @@
 				BB7700F31FA4856B00EA76D2 /* NewsDetailsViewController.m in Sources */,
 				BB16A7C11FA77EA100AFA112 /* OrderDetailsHeaderSection.m in Sources */,
 				BBD8CCC51FC4FB6B00C75038 /* RightMenuTableViewCell.m in Sources */,
-				BB5C964C1FC4510000126DC9 /* LeftSideMenuViewController.m in Sources */,
 				BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */,
 				BB16A7C91FA788BE00AFA112 /* OrderDetailsFooetrSection.m in Sources */,
 				BB5C96521FC45AC900126DC9 /* MainViewController.m in Sources */,

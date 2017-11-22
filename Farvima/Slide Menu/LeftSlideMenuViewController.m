@@ -1,26 +1,26 @@
 //
-//  RightSideMenuViewController.m
+//  LeftSlideMenuViewController.m
 //  Farvima
 //
-//  Created by Rafay Hasan on 11/21/17.
+//  Created by Rafay Hasan on 11/22/17.
 //  Copyright © 2017 Rafay Hasan. All rights reserved.
 //
 
-#import "RightSideMenuViewController.h"
-#import "RightMenuTableViewCell.h"
+#import "LeftSlideMenuViewController.h"
+#import "LeftMenuTableViewCell.h"
 
-@interface RightSideMenuViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface LeftSlideMenuViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (strong, nonatomic) NSArray *menuArray;
 
 @end
 
-@implementation RightSideMenuViewController
+@implementation LeftSlideMenuViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-     self.menuArray = [[NSArray alloc]initWithObjects:@"VISTA ELENCO", @"VISTA GRIGLIA",nil];
+    self.menuArray = [[NSArray alloc]initWithObjects:@"CATEGORIA 1", @"CATEGORIA 2", @"CATEGORIA 3", @"CATEGORIA 4", @"CATEGORIA 5",nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,7 +47,7 @@
     return self.menuArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    RightMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"rightMenuCell" forIndexPath:indexPath];
+    LeftMenuTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"leftMenuCell" forIndexPath:indexPath];
     cell.categoryNameLabel.text = self.menuArray[indexPath.row];
     return cell;
 }
@@ -68,7 +68,6 @@
     footerView.backgroundColor = [UIColor clearColor];
     return footerView;
 }
-
 
 
 @end

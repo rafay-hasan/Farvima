@@ -3111,16 +3111,16 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="MKu-qv-8sJ">
-                                                    <rect key="frame" x="0.0" y="8" width="0.0" height="43.5"/>
+                                                    <rect key="frame" x="16" y="8" width="288" height="43.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1f-5Z-EMu">
-                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ss2-R9-uQE">
-                                                            <rect key="frame" x="0.0" y="24" width="0.0" height="19.5"/>
+                                                            <rect key="frame" x="0.0" y="24" width="288" height="19.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -5125,10 +5125,10 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
             </objects>
             <point key="canvasLocation" x="3542" y="168"/>
         </scene>
-        <!--Left Side Menu View Controller-->
+        <!--Left Slide Menu View Controller-->
         <scene sceneID="hxg-TY-9Q0">
             <objects>
-                <viewController storyboardIdentifier="leftMenu" automaticallyAdjustsScrollViewInsets="NO" id="y3E-tY-u3S" customClass="LeftSideMenuViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="leftMenu" automaticallyAdjustsScrollViewInsets="NO" id="y3E-tY-u3S" customClass="LeftSlideMenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yNT-8t-Oke">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -5174,8 +5174,8 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="y3E-tY-u3S" id="QbM-e2-TxY"/>
-                                    <outlet property="delegate" destination="y3E-tY-u3S" id="HHV-hj-nae"/>
+                                    <outlet property="dataSource" destination="y3E-tY-u3S" id="52L-ek-FZi"/>
+                                    <outlet property="delegate" destination="y3E-tY-u3S" id="MKf-6a-AEL"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -5188,9 +5188,6 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qvg-fT-d7A"/>
                     </view>
-                    <connections>
-                        <outlet property="leftMenuTableView" destination="PTk-8s-5ni" id="ndr-Rs-9v9"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wsr-IP-1pG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
