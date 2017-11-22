@@ -3111,16 +3111,16 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="MKu-qv-8sJ">
-                                                    <rect key="frame" x="16" y="8" width="288" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="8" width="0.0" height="43.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1f-5Z-EMu">
-                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ss2-R9-uQE">
-                                                            <rect key="frame" x="0.0" y="24" width="288" height="19.5"/>
+                                                            <rect key="frame" x="0.0" y="24" width="0.0" height="19.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -5128,26 +5128,26 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
         <!--Left Side Menu View Controller-->
         <scene sceneID="hxg-TY-9Q0">
             <objects>
-                <viewController storyboardIdentifier="leftMenu" id="y3E-tY-u3S" customClass="LeftSideMenuViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="leftMenu" automaticallyAdjustsScrollViewInsets="NO" id="y3E-tY-u3S" customClass="LeftSideMenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yNT-8t-Oke">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PTk-8s-5ni">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="PTk-8s-5ni">
                                 <rect key="frame" x="0.0" y="84" width="320" height="484"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="leftMenuCell" id="0Uk-hn-Diu" customClass="LeftMenuTableViewCell">
-                                        <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Uk-hn-Diu" id="6q8-zw-bSq">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4sK-GV-xyB">
-                                                    <rect key="frame" x="8" y="8" width="286" height="28"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                    <rect key="frame" x="16" y="8" width="278" height="28"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                     <color key="textColor" red="0.15686274509803921" green="0.23529411764705882" blue="0.58431372549019611" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -5161,7 +5161,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="4sK-GV-xyB" secondAttribute="bottom" constant="8" id="76e-4C-TRk"/>
-                                                <constraint firstItem="4sK-GV-xyB" firstAttribute="leading" secondItem="6q8-zw-bSq" secondAttribute="leading" constant="8" id="AJf-jm-tke"/>
+                                                <constraint firstItem="4sK-GV-xyB" firstAttribute="leading" secondItem="6q8-zw-bSq" secondAttribute="leading" constant="16" id="AJf-jm-tke"/>
                                                 <constraint firstItem="3h1-Na-K5d" firstAttribute="centerY" secondItem="6q8-zw-bSq" secondAttribute="centerY" id="JgP-kv-2Pj"/>
                                                 <constraint firstAttribute="trailing" secondItem="3h1-Na-K5d" secondAttribute="trailing" constant="8" id="MvA-Vr-fgN"/>
                                                 <constraint firstItem="4sK-GV-xyB" firstAttribute="top" secondItem="6q8-zw-bSq" secondAttribute="top" constant="8" id="UcP-VQ-nWV"/>
@@ -5199,17 +5199,70 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
         <!--Right Side Menu View Controller-->
         <scene sceneID="5uB-1M-y9S">
             <objects>
-                <viewController storyboardIdentifier="rightMenu" id="JID-9z-fsZ" customClass="RightSideMenuViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="rightMenu" automaticallyAdjustsScrollViewInsets="NO" id="JID-9z-fsZ" customClass="RightSideMenuViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TQL-Fb-KKC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gft-Ro-gMm">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="rightMenuCell" rowHeight="44" id="SWl-eB-vCp" customClass="RightMenuTableViewCell">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SWl-eB-vCp" id="1ys-gf-XZX">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightMenuIndicator" translatesAutoresizingMaskIntoConstraints="NO" id="tdv-Wt-hIM">
+                                                    <rect key="frame" x="8" y="14" width="11" height="16"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="16" id="56p-G8-ppa"/>
+                                                        <constraint firstAttribute="width" constant="11" id="9rz-kh-fX8"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2f4-zG-dQl">
+                                                    <rect key="frame" x="27" y="8" width="277" height="28"/>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                    <color key="textColor" red="0.15686274510000001" green="0.23529411759999999" blue="0.58431372550000005" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="2f4-zG-dQl" firstAttribute="leading" secondItem="tdv-Wt-hIM" secondAttribute="trailing" constant="8" id="1sv-Ot-qXL"/>
+                                                <constraint firstAttribute="bottom" secondItem="2f4-zG-dQl" secondAttribute="bottom" constant="8" id="Hy2-hh-USH"/>
+                                                <constraint firstItem="2f4-zG-dQl" firstAttribute="top" secondItem="1ys-gf-XZX" secondAttribute="top" constant="8" id="Pn0-J3-NOA"/>
+                                                <constraint firstItem="tdv-Wt-hIM" firstAttribute="leading" secondItem="1ys-gf-XZX" secondAttribute="leading" constant="8" id="V0k-Dh-Mei"/>
+                                                <constraint firstItem="tdv-Wt-hIM" firstAttribute="centerY" secondItem="1ys-gf-XZX" secondAttribute="centerY" id="Vyx-lJ-nGw"/>
+                                                <constraint firstAttribute="trailing" secondItem="2f4-zG-dQl" secondAttribute="trailing" constant="16" id="ziV-ra-BXI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="categoryNameLabel" destination="2f4-zG-dQl" id="Gqw-yA-qoZ"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="JID-9z-fsZ" id="Hhj-WG-BaA"/>
+                                    <outlet property="delegate" destination="JID-9z-fsZ" id="UWg-di-l8o"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="gft-Ro-gMm" firstAttribute="top" secondItem="Tyc-SL-maN" secondAttribute="top" constant="44" id="2o6-4L-dd5"/>
+                            <constraint firstItem="gft-Ro-gMm" firstAttribute="trailing" secondItem="Tyc-SL-maN" secondAttribute="trailing" id="40H-gG-dnU"/>
+                            <constraint firstItem="gft-Ro-gMm" firstAttribute="bottom" secondItem="Tyc-SL-maN" secondAttribute="bottom" id="5cM-ck-kiO"/>
+                            <constraint firstItem="gft-Ro-gMm" firstAttribute="leading" secondItem="Tyc-SL-maN" secondAttribute="leading" id="FbS-YZ-tlR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Tyc-SL-maN"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d6t-zh-X47" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1161" y="-746"/>
+            <point key="canvasLocation" x="1160.625" y="-746.83098591549299"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bGj-4r-4Ou">
@@ -5259,6 +5312,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
         <image name="pdf icon" width="47" height="54"/>
         <image name="productLogo" width="320" height="320"/>
         <image name="productSearchIcon" width="160" height="40"/>
+        <image name="rightMenuIndicator" width="10" height="16"/>
         <image name="searchProductBGButton" width="292" height="61"/>
         <image name="searchTextFieldBg" width="927" height="107"/>
         <image name="thumbsUp" width="16" height="17"/>

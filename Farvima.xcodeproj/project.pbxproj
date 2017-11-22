@@ -38,6 +38,7 @@
 		BB8A24B21FA4DCE30070322E /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24B11FA4DCE30070322E /* MessageTableViewCell.m */; };
 		BB8A24B51FA4DD480070322E /* MessageSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24B41FA4DD480070322E /* MessageSectionHeader.m */; };
 		BB8A24B71FA4DD5E0070322E /* MessageSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */; };
+		BBD8CCC51FC4FB6B00C75038 /* RightMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD8CCC41FC4FB6B00C75038 /* RightMenuTableViewCell.m */; };
 		BBDC092D1F93B37000E5D9A2 /* PharmaIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */; };
 		BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09351F93B7C600E5D9A2 /* NewsIntroViewController.m */; };
 		BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09391F93B7F100E5D9A2 /* EventIntroViewController.m */; };
@@ -116,6 +117,8 @@
 		BB8A24B31FA4DD480070322E /* MessageSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageSectionHeader.h; sourceTree = "<group>"; };
 		BB8A24B41FA4DD480070322E /* MessageSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageSectionHeader.m; sourceTree = "<group>"; };
 		BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageSectionHeader.xib; sourceTree = "<group>"; };
+		BBD8CCC31FC4FB6B00C75038 /* RightMenuTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RightMenuTableViewCell.h; sourceTree = "<group>"; };
+		BBD8CCC41FC4FB6B00C75038 /* RightMenuTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RightMenuTableViewCell.m; sourceTree = "<group>"; };
 		BBDC092B1F93B37000E5D9A2 /* PharmaIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmaIntroViewController.h; sourceTree = "<group>"; };
 		BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PharmaIntroViewController.m; sourceTree = "<group>"; };
 		BBDC09341F93B7C600E5D9A2 /* NewsIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsIntroViewController.h; sourceTree = "<group>"; };
@@ -226,6 +229,8 @@
 				BB5C96571FC473C900126DC9 /* LeftMenuTableViewCell.m */,
 				BB5C964D1FC4511300126DC9 /* RightSideMenuViewController.h */,
 				BB5C964E1FC4511300126DC9 /* RightSideMenuViewController.m */,
+				BBD8CCC31FC4FB6B00C75038 /* RightMenuTableViewCell.h */,
+				BBD8CCC41FC4FB6B00C75038 /* RightMenuTableViewCell.m */,
 			);
 			path = "Slide Menu";
 			sourceTree = "<group>";
@@ -556,6 +561,7 @@
 				BB64463E1FA61D19006F2B92 /* SearchProductDetailsViewController.m in Sources */,
 				BB7700F31FA4856B00EA76D2 /* NewsDetailsViewController.m in Sources */,
 				BB16A7C11FA77EA100AFA112 /* OrderDetailsHeaderSection.m in Sources */,
+				BBD8CCC51FC4FB6B00C75038 /* RightMenuTableViewCell.m in Sources */,
 				BB5C964C1FC4510000126DC9 /* LeftSideMenuViewController.m in Sources */,
 				BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */,
 				BB16A7C91FA788BE00AFA112 /* OrderDetailsFooetrSection.m in Sources */,
