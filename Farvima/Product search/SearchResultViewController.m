@@ -8,12 +8,20 @@
 
 #import "SearchResultViewController.h"
 #import "SearchResultCollectionViewCell.h"
-@interface SearchResultViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+#import <LGSideMenuController/UIViewController+LGSideMenuController.h>
+#import <LGSideMenuController/LGSideMenuController.h>
+#import "FarmVimaSlideMenuSingletone.h"
+#import "SearchResultTableViewCell.h"
 
+@interface SearchResultViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, LGSideMenuControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+
+@property (strong, nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)productSearchButtonAction:(id)sender;
-
 @property (weak, nonatomic) IBOutlet UICollectionView *productSearchCollectionView;
+- (IBAction)productOrientationButtonAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *searchResultTableview;
+
 
 @end
 
@@ -22,6 +30,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.slideMenuSharedManager = [FarmVimaSlideMenuSingletone sharedManager];
+    self.sideMenuController.delegate = self;
+    self.searchResultTableview.hidden = NO;
+    self.productSearchCollectionView.hidden = YES;
+    NSLog(@"%d",self.slideMenuSharedManager.isListSelected);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,6 +51,35 @@
     // Pass the selected object to the new view controller.
 }
 */
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 15;
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 1;
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    SearchResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchResultCell" forIndexPath:indexPath];
+    return cell;
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    UIView *headerView = [[UIView alloc] init];
+    headerView.backgroundColor = [UIColor clearColor];
+    return headerView;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
+{
+    UIView *footerView = [[UIView alloc] init];
+    footerView.backgroundColor = [UIColor colorWithRed:6.0/255.0 green:39.0/255.0 blue:156.0/255.0 alpha:1];
+    return footerView;
+}
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -66,7 +108,7 @@
         return CGSizeMake(110, 170);
     }
     else if (size == 2208) {
-       // printf("iPhone 6+/6S+/7+/8+");
+        // printf("iPhone 6+/6S+/7+/8+");
         return CGSizeMake(110, 170);
     }
     else if (size == 2436) {
@@ -97,5 +139,19 @@
 
 - (IBAction)productSearchButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+- (void)didHideRightView:(nonnull UIView *)rightView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    NSLog(@"%d",self.slideMenuSharedManager.isListSelected);
+    if (self.slideMenuSharedManager.isListSelected) {
+        self.searchResultTableview.hidden = NO;
+        self.productSearchCollectionView.hidden = YES;
+    }
+    else {
+        self.searchResultTableview.hidden = YES;
+        self.productSearchCollectionView.hidden = NO;
+    }
+}
+- (IBAction)productOrientationButtonAction:(id)sender {
+    [self.sideMenuController showRightViewAnimated:YES completionHandler:nil];
 }
 @end
