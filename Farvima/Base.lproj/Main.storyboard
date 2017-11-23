@@ -1535,7 +1535,7 @@
                                                 <rect key="frame" x="16" y="221.5" width="288" height="94"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6KU-90-A8Z">
-                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="17"/>
+                                                        <rect key="frame" x="-16" y="0.0" width="288" height="17"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="data" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="La5-bl-9ci">
                                                                 <rect key="frame" x="0.0" y="0.0" width="141.5" height="14.5"/>
@@ -1544,7 +1544,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 MAGGIO" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHL-pM-USs">
-                                                                <rect key="frame" x="146.5" y="0.0" width="141.5" height="17"/>
+                                                                <rect key="frame" x="162.5" y="0.0" width="141.5" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                 <color key="textColor" red="0.19607843137254902" green="0.28627450980392155" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -4275,6 +4275,9 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
                                                 <constraint firstItem="E5b-q1-ZKZ" firstAttribute="top" secondItem="I4Q-yG-0MR" secondAttribute="top" constant="8" id="Osl-Uh-62J"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="mW7-Hi-Uek" kind="show" id="5JS-qz-b9Y"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -5442,4 +5445,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
         <image name="upload" width="16" height="14"/>
         <image name="viewIcon" width="29" height="16"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5JS-qz-b9Y"/>
+    </inferredMetricsTieBreakers>
 </document>
