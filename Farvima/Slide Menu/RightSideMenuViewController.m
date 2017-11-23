@@ -8,8 +8,11 @@
 
 #import "RightSideMenuViewController.h"
 #import "RightMenuTableViewCell.h"
+#import "FarmVimaSlideMenuSingletone.h"
 
 @interface RightSideMenuViewController () <UITableViewDelegate, UITableViewDataSource>
+
+@property (strong, nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
 
 @property (strong, nonatomic) NSArray *menuArray;
 
@@ -20,7 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-     self.menuArray = [[NSArray alloc]initWithObjects:@"VISTA ELENCO", @"VISTA GRIGLIA",nil];
+    self.slideMenuSharedManager = [FarmVimaSlideMenuSingletone sharedManager];
+    self.menuArray = [[NSArray alloc]initWithObjects:@"VISTA ELENCO", @"VISTA GRIGLIA",nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -54,6 +58,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 0) {
+        self.slideMenuSharedManager.isListSelected = true;
+    }
+    else {
+        self.slideMenuSharedManager.isListSelected = false;
+    }
+    NSLog(@"%d",self.slideMenuSharedManager.isListSelected);
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     

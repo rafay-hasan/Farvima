@@ -8,8 +8,13 @@
 
 #import "SearchResultViewController.h"
 #import "SearchResultCollectionViewCell.h"
-@interface SearchResultViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+#import <LGSideMenuController/UIViewController+LGSideMenuController.h>
+#import <LGSideMenuController/LGSideMenuController.h>
+#import "FarmVimaSlideMenuSingletone.h"
 
+@interface SearchResultViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, LGSideMenuControllerDelegate>
+
+@property (strong, nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)productSearchButtonAction:(id)sender;
 
@@ -22,6 +27,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.slideMenuSharedManager = [FarmVimaSlideMenuSingletone sharedManager];
+    self.sideMenuController.delegate = self;
+    NSLog(@"%d",self.slideMenuSharedManager.isListSelected);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,5 +105,8 @@
 
 - (IBAction)productSearchButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+- (void)didHideRightView:(nonnull UIView *)rightView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    NSLog(@"%d",self.slideMenuSharedManager.isListSelected);
 }
 @end

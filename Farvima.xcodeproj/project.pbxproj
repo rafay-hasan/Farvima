@@ -38,6 +38,7 @@
 		BB8A24B51FA4DD480070322E /* MessageSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24B41FA4DD480070322E /* MessageSectionHeader.m */; };
 		BB8A24B71FA4DD5E0070322E /* MessageSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */; };
 		BBD8B6811FC5C243009EDD32 /* LeftSlideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD8B6801FC5C243009EDD32 /* LeftSlideMenuViewController.m */; };
+		BBD8B6841FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD8B6831FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m */; };
 		BBD8CCC51FC4FB6B00C75038 /* RightMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD8CCC41FC4FB6B00C75038 /* RightMenuTableViewCell.m */; };
 		BBDC092D1F93B37000E5D9A2 /* PharmaIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC092C1F93B37000E5D9A2 /* PharmaIntroViewController.m */; };
 		BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09351F93B7C600E5D9A2 /* NewsIntroViewController.m */; };
@@ -117,6 +118,8 @@
 		BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageSectionHeader.xib; sourceTree = "<group>"; };
 		BBD8B67F1FC5C243009EDD32 /* LeftSlideMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftSlideMenuViewController.h; sourceTree = "<group>"; };
 		BBD8B6801FC5C243009EDD32 /* LeftSlideMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftSlideMenuViewController.m; sourceTree = "<group>"; };
+		BBD8B6821FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FarmVimaSlideMenuSingletone.h; sourceTree = "<group>"; };
+		BBD8B6831FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FarmVimaSlideMenuSingletone.m; sourceTree = "<group>"; };
 		BBD8CCC31FC4FB6B00C75038 /* RightMenuTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RightMenuTableViewCell.h; sourceTree = "<group>"; };
 		BBD8CCC41FC4FB6B00C75038 /* RightMenuTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RightMenuTableViewCell.m; sourceTree = "<group>"; };
 		BBDC092B1F93B37000E5D9A2 /* PharmaIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmaIntroViewController.h; sourceTree = "<group>"; };
@@ -373,6 +376,8 @@
 			children = (
 				BBFD43C01F93AABD00A7E265 /* AppDelegate.h */,
 				BBFD43C11F93AABD00A7E265 /* AppDelegate.m */,
+				BBD8B6821FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.h */,
+				BBD8B6831FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m */,
 				BB5C96491FC450A500126DC9 /* Slide Menu */,
 				BBDC092A1F93B34900E5D9A2 /* Start up guide */,
 				BB13E8291F9CD77000BDA4EB /* Pharma Home */,
@@ -532,6 +537,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BBFD43D61F93AABD00A7E265 /* main.m in Sources */,
+				BBD8B6841FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m in Sources */,
 				BB5C964F1FC4511300126DC9 /* RightSideMenuViewController.m in Sources */,
 				BB0DEA371F9F9045009E8420 /* OfferViewController.m in Sources */,
 				BB8A24B21FA4DCE30070322E /* MessageTableViewCell.m in Sources */,
