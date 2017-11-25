@@ -11,10 +11,13 @@
 #import "FarmVimaSlideMenuSingletone.h"
 #import "UIViewController+LGSideMenuController.h"
 #import "MainViewController.h"
+#import "FarmaciaHomeViewController.h"
+
 
 @interface PharmacyListViewController () <UITableViewDelegate,UITableViewDataSource,LGSideMenuControllerDelegate>
 
 @property (strong,nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
+- (IBAction)associateButtonAction:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UILabel *orientationHeaderLabel;
 
@@ -117,4 +120,24 @@
     }
 }
 
+-(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        if ([vc isKindOfClass:targetViewController.class]) {
+            [self.navigationController popToViewController:vc animated:NO];
+            return YES;
+        }
+    }
+    return NO;
+}
+
+- (IBAction)associateButtonAction:(id)sender {
+    
+    FarmaciaHomeViewController *notificationVc = [FarmaciaHomeViewController new];
+    if (![self isControllerAlreadyOnNavigationControllerStack:notificationVc]) {
+        //push controller
+        FarmaciaHomeViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"pharmaciaHome"];
+        [self.navigationController pushViewController:newView animated:YES];
+        
+    }
+}
 @end

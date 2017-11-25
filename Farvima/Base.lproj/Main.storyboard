@@ -1139,7 +1139,7 @@
         <!--Farmacia Home View Controller-->
         <scene sceneID="AfX-cX-dNq">
             <objects>
-                <viewController id="cZo-n4-ZGL" customClass="FarmaciaHomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pharmaciaHome" id="cZo-n4-ZGL" customClass="FarmaciaHomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WEB-18-Ryc">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2912,6 +2912,9 @@
                                         <state key="normal" title="ASSOCIATI" backgroundImage="ButtonBackground">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="associateButtonAction:" destination="hJQ-e2-Sr9" eventType="touchUpInside" id="ixU-y9-59M"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -3204,16 +3207,16 @@
                                                 <rect key="frame" x="16" y="221.5" width="288" height="94"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6KU-90-A8Z">
-                                                        <rect key="frame" x="62.5" y="0.0" width="163" height="17"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="17"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="data" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="La5-bl-9ci">
-                                                                <rect key="frame" x="0.0" y="0.0" width="79" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="141.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 MAGGIO" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHL-pM-USs">
-                                                                <rect key="frame" x="84" y="0.0" width="79" height="17"/>
+                                                                <rect key="frame" x="146.5" y="0.0" width="141.5" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                 <color key="textColor" red="0.19607843137254902" green="0.28627450980392155" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -3221,16 +3224,16 @@
                                                         </subviews>
                                                     </stackView>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="XRd-YT-TXz">
-                                                        <rect key="frame" x="9" y="22" width="270" height="33.5"/>
+                                                        <rect key="frame" x="0.0" y="22" width="288" height="33.5"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ore" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="48q-Gb-tEy">
-                                                                <rect key="frame" x="0.0" y="0.0" width="132.5" height="14.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="141.5" height="14.5"/>
                                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                                                 <color key="textColor" red="0.0" green="0.0" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DALLE 10:00 ALLE: 18:00" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IBe-Qx-ety">
-                                                                <rect key="frame" x="137.5" y="0.0" width="132.5" height="33.5"/>
+                                                                <rect key="frame" x="146.5" y="0.0" width="141.5" height="33.5"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                 <color key="textColor" red="0.1960784314" green="0.28627450980000002" blue="0.54117647059999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -3306,7 +3309,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="9" height="20"/>
                                                                     </imageView>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="condividi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wt7-X3-AdB">
-                                                                        <rect key="frame" x="11" y="0.0" width="62" height="20"/>
+                                                                        <rect key="frame" x="11" y="0.0" width="0.0" height="20"/>
                                                                         <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                         <nil key="highlightedColor"/>
@@ -7121,10 +7124,10 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5JS-qz-b9Y"/>
-        <segue reference="WBL-0b-eg5"/>
-        <segue reference="tH7-ES-EPC"/>
-        <segue reference="HPR-Yc-8af"/>
-        <segue reference="F3P-kJ-vsm"/>
-        <segue reference="GYY-bM-aMD"/>
+        <segue reference="Bs1-9W-LrI"/>
+        <segue reference="hjK-sH-UmP"/>
+        <segue reference="tEq-Jv-WBS"/>
+        <segue reference="WTa-E5-hQ1"/>
+        <segue reference="W1w-gw-WYd"/>
     </inferredMetricsTieBreakers>
 </document>
