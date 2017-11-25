@@ -2097,7 +2097,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FARMACIA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UiW-Un-zaX">
                                         <rect key="frame" x="60" y="12.5" width="199" height="20.5"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                        <color key="textColor" red="0.26756882669999998" green="0.30511689190000002" blue="0.61247426270000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.26666666666666666" green="0.30588235294117649" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fme-Kb-MnG">
@@ -2203,91 +2203,85 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FARMACIA FREDDUCCI" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rf2-ef-LA5">
-                                                    <rect key="frame" x="24" y="8" width="288" height="67"/>
+                                                    <rect key="frame" x="24" y="8" width="288" height="18"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" red="0.26666666666666666" green="0.30588235294117649" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qK5-XD-x6M">
-                                                    <rect key="frame" x="24" y="83" width="151" height="59"/>
+                                                    <rect key="frame" x="24" y="34" width="151" height="108"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Via Rossi 3, 06128, Perugia, PG" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7J-IW-a9f">
-                                                            <rect key="frame" x="0.0" y="14.5" width="151" height="30.5"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Partia Iva: 0054433322" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geK-AY-cD4">
-                                                            <rect key="frame" x="0.0" y="0.0" width="151" height="14.5"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partia Iva: 0054433322" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMI-5Q-edT">
-                                                            <rect key="frame" x="0.0" y="45" width="151" height="14"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="aax-Mt-mRk">
+                                                            <rect key="frame" x="0.0" y="0.0" width="151" height="108"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Partia Iva: 0054433322" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="geK-AY-cD4">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="151" height="14.5"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                    <color key="textColor" red="0.26666666666666666" green="0.30588235294117649" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Via Rossi 3, 06128, Perugia, PG" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O7J-IW-a9f">
+                                                                    <rect key="frame" x="0.0" y="39" width="151" height="30.5"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                    <color key="textColor" red="0.26666666666666666" green="0.30588235294117649" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Partia Iva: 0054433322" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jMI-5Q-edT">
+                                                                    <rect key="frame" x="0.0" y="93.5" width="151" height="14.5"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                    <color key="textColor" red="0.26666666666666666" green="0.30588235294117649" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstItem="O7J-IW-a9f" firstAttribute="top" secondItem="geK-AY-cD4" secondAttribute="bottom" id="0rw-8v-ceY"/>
-                                                        <constraint firstItem="jMI-5Q-edT" firstAttribute="leading" secondItem="qK5-XD-x6M" secondAttribute="leading" id="3yk-UV-WpD"/>
-                                                        <constraint firstItem="O7J-IW-a9f" firstAttribute="top" secondItem="geK-AY-cD4" secondAttribute="bottom" id="9pw-vP-J43"/>
-                                                        <constraint firstAttribute="trailing" secondItem="O7J-IW-a9f" secondAttribute="trailing" id="Iv5-to-aPV"/>
-                                                        <constraint firstItem="O7J-IW-a9f" firstAttribute="leading" secondItem="qK5-XD-x6M" secondAttribute="leading" id="JF5-U3-eIa"/>
-                                                        <constraint firstItem="jMI-5Q-edT" firstAttribute="top" secondItem="O7J-IW-a9f" secondAttribute="bottom" id="Lhx-LP-qx4"/>
-                                                        <constraint firstAttribute="trailing" secondItem="jMI-5Q-edT" secondAttribute="trailing" id="Mks-ag-Cuc"/>
-                                                        <constraint firstAttribute="trailing" secondItem="geK-AY-cD4" secondAttribute="trailing" id="OQn-5U-AEB"/>
-                                                        <constraint firstAttribute="bottom" secondItem="jMI-5Q-edT" secondAttribute="bottom" id="YPs-Bj-prH"/>
-                                                        <constraint firstItem="geK-AY-cD4" firstAttribute="leading" secondItem="qK5-XD-x6M" secondAttribute="leading" id="Yge-Qd-0SM"/>
-                                                        <constraint firstItem="geK-AY-cD4" firstAttribute="top" secondItem="qK5-XD-x6M" secondAttribute="top" id="qXZ-VS-zdP"/>
-                                                        <constraint firstItem="jMI-5Q-edT" firstAttribute="top" secondItem="O7J-IW-a9f" secondAttribute="bottom" id="rl7-xi-XgF"/>
+                                                        <constraint firstAttribute="trailing" secondItem="aax-Mt-mRk" secondAttribute="trailing" id="NoZ-J4-X5j"/>
+                                                        <constraint firstItem="aax-Mt-mRk" firstAttribute="top" secondItem="qK5-XD-x6M" secondAttribute="top" id="R3D-Lf-vZK"/>
+                                                        <constraint firstAttribute="bottom" secondItem="aax-Mt-mRk" secondAttribute="bottom" id="cBk-bu-PYn"/>
+                                                        <constraint firstItem="aax-Mt-mRk" firstAttribute="leading" secondItem="qK5-XD-x6M" secondAttribute="leading" id="hHe-bv-nUP"/>
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RZd-5G-zfB">
-                                                    <rect key="frame" x="183" y="83" width="113" height="67"/>
+                                                    <rect key="frame" x="183" y="34" width="113" height="108"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orario di apertura" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5c-Wc-ph5">
-                                                            <rect key="frame" x="0.0" y="0.0" width="113" height="15"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8AM - 9PM" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPZ-Hn-sRD">
-                                                            <rect key="frame" x="0.0" y="15" width="113" height="14"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kQ-P1-bYm">
-                                                            <rect key="frame" x="0.5" y="29" width="112" height="30"/>
-                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="30" id="bUL-4h-bMl"/>
-                                                                <constraint firstAttribute="width" constant="112" id="gcl-Kv-Bkl"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                            <state key="normal" title="SALTA" backgroundImage="ButtonBackground">
-                                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            </state>
-                                                        </button>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="dSg-1f-nfW">
+                                                            <rect key="frame" x="0.0" y="0.0" width="113" height="108"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Orario di apertura" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E5c-Wc-ph5">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="113" height="38"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                    <color key="textColor" red="0.26666666666666666" green="0.30588235294117649" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8AM - 9PM" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pPZ-Hn-sRD">
+                                                                    <rect key="frame" x="0.0" y="51" width="113" height="14.5"/>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                                                    <color key="textColor" red="0.26666666666666666" green="0.30588235294117649" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5kQ-P1-bYm">
+                                                                    <rect key="frame" x="0.0" y="78" width="113" height="30"/>
+                                                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="30" id="obQ-5A-IyS"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                                                    <state key="normal" title="SALTA" backgroundImage="ButtonBackground">
+                                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                    </state>
+                                                                </button>
+                                                            </subviews>
+                                                        </stackView>
                                                     </subviews>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="pPZ-Hn-sRD" secondAttribute="trailing" id="Hh8-qG-5QH"/>
-                                                        <constraint firstItem="pPZ-Hn-sRD" firstAttribute="leading" secondItem="RZd-5G-zfB" secondAttribute="leading" id="JQ4-eV-iSD"/>
-                                                        <constraint firstItem="5kQ-P1-bYm" firstAttribute="top" secondItem="pPZ-Hn-sRD" secondAttribute="bottom" id="NaC-Cu-NMT"/>
-                                                        <constraint firstItem="pPZ-Hn-sRD" firstAttribute="top" secondItem="E5c-Wc-ph5" secondAttribute="bottom" id="S8O-XH-MEl"/>
+                                                        <constraint firstItem="dSg-1f-nfW" firstAttribute="leading" secondItem="RZd-5G-zfB" secondAttribute="leading" id="3Om-Zv-NNr"/>
+                                                        <constraint firstAttribute="bottom" secondItem="dSg-1f-nfW" secondAttribute="bottom" id="IDs-ym-vFe"/>
                                                         <constraint firstAttribute="width" constant="113" id="UQp-Rc-N6J"/>
-                                                        <constraint firstAttribute="bottom" secondItem="5kQ-P1-bYm" secondAttribute="bottom" constant="8" id="bXU-dJ-fOw"/>
-                                                        <constraint firstItem="E5c-Wc-ph5" firstAttribute="leading" secondItem="RZd-5G-zfB" secondAttribute="leading" id="cWI-Dy-R2e"/>
-                                                        <constraint firstItem="5kQ-P1-bYm" firstAttribute="centerX" secondItem="RZd-5G-zfB" secondAttribute="centerX" id="hZf-f9-BC0"/>
-                                                        <constraint firstItem="pPZ-Hn-sRD" firstAttribute="top" secondItem="E5c-Wc-ph5" secondAttribute="bottom" id="imE-ZA-as1"/>
-                                                        <constraint firstAttribute="trailing" secondItem="E5c-Wc-ph5" secondAttribute="trailing" id="kYG-Qv-OYg"/>
-                                                        <constraint firstItem="E5c-Wc-ph5" firstAttribute="top" secondItem="RZd-5G-zfB" secondAttribute="top" id="p2P-ya-Ays"/>
-                                                        <constraint firstItem="5kQ-P1-bYm" firstAttribute="top" secondItem="pPZ-Hn-sRD" secondAttribute="bottom" id="qDP-Jf-7PU"/>
+                                                        <constraint firstItem="dSg-1f-nfW" firstAttribute="top" secondItem="RZd-5G-zfB" secondAttribute="top" id="n5q-Gi-fHM"/>
+                                                        <constraint firstAttribute="trailing" secondItem="dSg-1f-nfW" secondAttribute="trailing" id="yZl-hx-j0Q"/>
                                                     </constraints>
                                                 </view>
                                             </subviews>
@@ -2297,7 +2291,7 @@
                                                 <constraint firstAttribute="trailing" secondItem="rf2-ef-LA5" secondAttribute="trailing" constant="8" id="4w3-60-BIf"/>
                                                 <constraint firstItem="qK5-XD-x6M" firstAttribute="top" secondItem="rf2-ef-LA5" secondAttribute="bottom" constant="8" id="DqR-TG-F7M"/>
                                                 <constraint firstItem="RZd-5G-zfB" firstAttribute="top" secondItem="rf2-ef-LA5" secondAttribute="bottom" constant="8" id="EqX-bW-NGW"/>
-                                                <constraint firstAttribute="bottom" secondItem="RZd-5G-zfB" secondAttribute="bottom" id="MhA-nX-Ya0"/>
+                                                <constraint firstAttribute="bottom" secondItem="RZd-5G-zfB" secondAttribute="bottom" constant="8" id="MhA-nX-Ya0"/>
                                                 <constraint firstItem="rf2-ef-LA5" firstAttribute="leading" secondItem="m00-cO-uhS" secondAttribute="leading" constant="24" id="XVC-ly-pE7"/>
                                                 <constraint firstItem="rf2-ef-LA5" firstAttribute="top" secondItem="m00-cO-uhS" secondAttribute="top" constant="8" id="rY0-Gh-6a0"/>
                                                 <constraint firstItem="RZd-5G-zfB" firstAttribute="leading" secondItem="qK5-XD-x6M" secondAttribute="trailing" constant="8" id="s2R-iP-LUP"/>
