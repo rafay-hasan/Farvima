@@ -277,6 +277,13 @@
 			path = "Choose Pharmacy";
 			sourceTree = "<group>";
 		};
+		BBC8860F1FC971C000D60612 /* Search by address */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Search by address";
+			sourceTree = "<group>";
+		};
 		BBDC092A1F93B34900E5D9A2 /* Start up guide */ = {
 			isa = PBXGroup;
 			children = (
@@ -406,6 +413,7 @@
 				BBF4DF071FA4EE6A00E0C811 /* Notification */,
 				BBE31AB61FA5A2B400E07440 /* Product search */,
 				BB8A59851FC960DC00468389 /* Choose Pharmacy */,
+				BBC8860F1FC971C000D60612 /* Search by address */,
 				BBFD43CC1F93AABD00A7E265 /* Main.storyboard */,
 				BB16A7BD1FA77E7300AFA112 /* OrderDetailsHeaderSection.xib */,
 				BB16A7C51FA787AA00AFA112 /* OrderDetailsFooterSection.xib */,
