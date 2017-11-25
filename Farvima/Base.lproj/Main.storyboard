@@ -1219,6 +1219,9 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfE-Zh-XaG">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="167"/>
+                                                <connections>
+                                                    <segue destination="3zs-4I-E0K" kind="show" id="Cai-Se-4Cy"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1248,6 +1251,9 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghv-0A-b61">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="166.5"/>
+                                                <connections>
+                                                    <segue destination="gVK-XP-Q2T" kind="show" id="lLy-Ij-R9e"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CERCA ATTORNO A ME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4C-2V-dLH">
                                                 <rect key="frame" x="0.0" y="112" width="288" height="38.5"/>
@@ -1787,6 +1793,36 @@
             </objects>
             <point key="canvasLocation" x="607.24637681159425" y="2261.413043478261"/>
         </scene>
+        <!--Search By Address View Controller-->
+        <scene sceneID="ARG-ap-bDE">
+            <objects>
+                <viewController id="3zs-4I-E0K" customClass="SearchByAddressViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="evi-S3-SkL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="DAF-ha-muX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JYV-95-inA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1093" y="3088"/>
+        </scene>
+        <!--Search By Location View Controller-->
+        <scene sceneID="WMf-pR-fmF">
+            <objects>
+                <viewController id="gVK-XP-Q2T" customClass="SearchByLocationViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9eW-zk-roT">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="fpu-BS-ANi"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gxQ-hC-0su" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-257" y="3088"/>
+        </scene>
         <!--Event Details View Controller-->
         <scene sceneID="BO0-li-bSm">
             <objects>
@@ -1868,7 +1904,7 @@
                                                 <rect key="frame" x="16" y="221.5" width="288" height="94"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6KU-90-A8Z">
-                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="17"/>
+                                                        <rect key="frame" x="-16" y="0.0" width="288" height="17"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="data" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="La5-bl-9ci">
                                                                 <rect key="frame" x="0.0" y="0.0" width="141.5" height="14.5"/>
@@ -1877,7 +1913,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 MAGGIO" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHL-pM-USs">
-                                                                <rect key="frame" x="146.5" y="0.0" width="141.5" height="17"/>
+                                                                <rect key="frame" x="162.5" y="0.0" width="141.5" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                 <color key="textColor" red="0.19607843137254902" green="0.28627450980392155" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>

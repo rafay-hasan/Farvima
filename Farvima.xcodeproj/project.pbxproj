@@ -39,6 +39,8 @@
 		BB8A24B71FA4DD5E0070322E /* MessageSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */; };
 		BB8A59881FC9610900468389 /* ChooseYourPharmacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A59871FC9610900468389 /* ChooseYourPharmacyViewController.m */; };
 		BBBC782A1FC7224600062F37 /* SearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBC78291FC7224600062F37 /* SearchResultTableViewCell.m */; };
+		BBC886131FC9729A00D60612 /* SearchByAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC886121FC9729A00D60612 /* SearchByAddressViewController.m */; };
+		BBC886161FC972B400D60612 /* SearchByLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC886151FC972B400D60612 /* SearchByLocationViewController.m */; };
 		BBD8B6811FC5C243009EDD32 /* LeftSlideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD8B6801FC5C243009EDD32 /* LeftSlideMenuViewController.m */; };
 		BBD8B6841FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD8B6831FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m */; };
 		BBD8CCC51FC4FB6B00C75038 /* RightMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD8CCC41FC4FB6B00C75038 /* RightMenuTableViewCell.m */; };
@@ -122,6 +124,10 @@
 		BB8A59871FC9610900468389 /* ChooseYourPharmacyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseYourPharmacyViewController.m; sourceTree = "<group>"; };
 		BBBC78281FC7224600062F37 /* SearchResultTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResultTableViewCell.h; sourceTree = "<group>"; };
 		BBBC78291FC7224600062F37 /* SearchResultTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultTableViewCell.m; sourceTree = "<group>"; };
+		BBC886111FC9729A00D60612 /* SearchByAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchByAddressViewController.h; sourceTree = "<group>"; };
+		BBC886121FC9729A00D60612 /* SearchByAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchByAddressViewController.m; sourceTree = "<group>"; };
+		BBC886141FC972B400D60612 /* SearchByLocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchByLocationViewController.h; sourceTree = "<group>"; };
+		BBC886151FC972B400D60612 /* SearchByLocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchByLocationViewController.m; sourceTree = "<group>"; };
 		BBD8B67F1FC5C243009EDD32 /* LeftSlideMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftSlideMenuViewController.h; sourceTree = "<group>"; };
 		BBD8B6801FC5C243009EDD32 /* LeftSlideMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftSlideMenuViewController.m; sourceTree = "<group>"; };
 		BBD8B6821FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FarmVimaSlideMenuSingletone.h; sourceTree = "<group>"; };
@@ -280,8 +286,19 @@
 		BBC8860F1FC971C000D60612 /* Search by address */ = {
 			isa = PBXGroup;
 			children = (
+				BBC886111FC9729A00D60612 /* SearchByAddressViewController.h */,
+				BBC886121FC9729A00D60612 /* SearchByAddressViewController.m */,
 			);
 			path = "Search by address";
+			sourceTree = "<group>";
+		};
+		BBC886101FC9727A00D60612 /* Search by location */ = {
+			isa = PBXGroup;
+			children = (
+				BBC886141FC972B400D60612 /* SearchByLocationViewController.h */,
+				BBC886151FC972B400D60612 /* SearchByLocationViewController.m */,
+			);
+			path = "Search by location";
 			sourceTree = "<group>";
 		};
 		BBDC092A1F93B34900E5D9A2 /* Start up guide */ = {
@@ -414,6 +431,7 @@
 				BBE31AB61FA5A2B400E07440 /* Product search */,
 				BB8A59851FC960DC00468389 /* Choose Pharmacy */,
 				BBC8860F1FC971C000D60612 /* Search by address */,
+				BBC886101FC9727A00D60612 /* Search by location */,
 				BBFD43CC1F93AABD00A7E265 /* Main.storyboard */,
 				BB16A7BD1FA77E7300AFA112 /* OrderDetailsHeaderSection.xib */,
 				BB16A7C51FA787AA00AFA112 /* OrderDetailsFooterSection.xib */,
@@ -586,6 +604,7 @@
 				BBDC09411F93B83500E5D9A2 /* PreBookIntroViewController.m in Sources */,
 				BB7700EE1FA475D600EA76D2 /* NewsSectionHeader.m in Sources */,
 				BBF4DF0A1FA4EE9A00E0C811 /* NotificationViewController.m in Sources */,
+				BBC886161FC972B400D60612 /* SearchByLocationViewController.m in Sources */,
 				BBF4DF0D1FA4F7DA00E0C811 /* NotificationTableViewCell.m in Sources */,
 				BBDC092D1F93B37000E5D9A2 /* PharmaIntroViewController.m in Sources */,
 				BBFD43C21F93AABD00A7E265 /* AppDelegate.m in Sources */,
@@ -597,6 +616,7 @@
 				BB7700F31FA4856B00EA76D2 /* NewsDetailsViewController.m in Sources */,
 				BB16A7C11FA77EA100AFA112 /* OrderDetailsHeaderSection.m in Sources */,
 				BBD8CCC51FC4FB6B00C75038 /* RightMenuTableViewCell.m in Sources */,
+				BBC886131FC9729A00D60612 /* SearchByAddressViewController.m in Sources */,
 				BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */,
 				BB16A7C91FA788BE00AFA112 /* OrderDetailsFooetrSection.m in Sources */,
 				BB5C96521FC45AC900126DC9 /* MainViewController.m in Sources */,
