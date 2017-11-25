@@ -37,6 +37,7 @@
 		BB8A24B21FA4DCE30070322E /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24B11FA4DCE30070322E /* MessageTableViewCell.m */; };
 		BB8A24B51FA4DD480070322E /* MessageSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24B41FA4DD480070322E /* MessageSectionHeader.m */; };
 		BB8A24B71FA4DD5E0070322E /* MessageSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */; };
+		BB8A59881FC9610900468389 /* ChooseYourPharmacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A59871FC9610900468389 /* ChooseYourPharmacyViewController.m */; };
 		BBBC782A1FC7224600062F37 /* SearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBC78291FC7224600062F37 /* SearchResultTableViewCell.m */; };
 		BBD8B6811FC5C243009EDD32 /* LeftSlideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD8B6801FC5C243009EDD32 /* LeftSlideMenuViewController.m */; };
 		BBD8B6841FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD8B6831FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m */; };
@@ -117,6 +118,8 @@
 		BB8A24B31FA4DD480070322E /* MessageSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageSectionHeader.h; sourceTree = "<group>"; };
 		BB8A24B41FA4DD480070322E /* MessageSectionHeader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageSectionHeader.m; sourceTree = "<group>"; };
 		BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageSectionHeader.xib; sourceTree = "<group>"; };
+		BB8A59861FC9610900468389 /* ChooseYourPharmacyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseYourPharmacyViewController.h; sourceTree = "<group>"; };
+		BB8A59871FC9610900468389 /* ChooseYourPharmacyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseYourPharmacyViewController.m; sourceTree = "<group>"; };
 		BBBC78281FC7224600062F37 /* SearchResultTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResultTableViewCell.h; sourceTree = "<group>"; };
 		BBBC78291FC7224600062F37 /* SearchResultTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultTableViewCell.m; sourceTree = "<group>"; };
 		BBD8B67F1FC5C243009EDD32 /* LeftSlideMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftSlideMenuViewController.h; sourceTree = "<group>"; };
@@ -265,6 +268,15 @@
 			path = Message;
 			sourceTree = "<group>";
 		};
+		BB8A59851FC960DC00468389 /* Choose Pharmacy */ = {
+			isa = PBXGroup;
+			children = (
+				BB8A59861FC9610900468389 /* ChooseYourPharmacyViewController.h */,
+				BB8A59871FC9610900468389 /* ChooseYourPharmacyViewController.m */,
+			);
+			path = "Choose Pharmacy";
+			sourceTree = "<group>";
+		};
 		BBDC092A1F93B34900E5D9A2 /* Start up guide */ = {
 			isa = PBXGroup;
 			children = (
@@ -393,6 +405,7 @@
 				BB8A24AC1FA4D55A0070322E /* Message */,
 				BBF4DF071FA4EE6A00E0C811 /* Notification */,
 				BBE31AB61FA5A2B400E07440 /* Product search */,
+				BB8A59851FC960DC00468389 /* Choose Pharmacy */,
 				BBFD43CC1F93AABD00A7E265 /* Main.storyboard */,
 				BB16A7BD1FA77E7300AFA112 /* OrderDetailsHeaderSection.xib */,
 				BB16A7C51FA787AA00AFA112 /* OrderDetailsFooterSection.xib */,
@@ -554,6 +567,7 @@
 				BB16A7BC1FA777AD00AFA112 /* OrderDetailsViewController.m in Sources */,
 				BB8A24AF1FA4D5760070322E /* MessageViewController.m in Sources */,
 				BBFD43C51F93AABD00A7E265 /* Farvima.xcdatamodeld in Sources */,
+				BB8A59881FC9610900468389 /* ChooseYourPharmacyViewController.m in Sources */,
 				BB63834B1F9E504B007B56AF /* GallaryViewController.m in Sources */,
 				BB8A24B51FA4DD480070322E /* MessageSectionHeader.m in Sources */,
 				BB5C96581FC473C900126DC9 /* LeftMenuTableViewCell.m in Sources */,
