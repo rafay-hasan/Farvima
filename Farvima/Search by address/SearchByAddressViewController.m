@@ -10,6 +10,9 @@
 
 @interface SearchByAddressViewController ()
 
+- (IBAction)backButtonAction:(id)sender;
+
+
 @end
 
 @implementation SearchByAddressViewController
@@ -34,4 +37,7 @@
 }
 */
 
+- (IBAction)backButtonAction:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end
