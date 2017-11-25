@@ -33,6 +33,7 @@
 		BB7700EE1FA475D600EA76D2 /* NewsSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700ED1FA475D600EA76D2 /* NewsSectionHeader.m */; };
 		BB7700F01FA4762D00EA76D2 /* NewsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */; };
 		BB7700F31FA4856B00EA76D2 /* NewsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700F21FA4856B00EA76D2 /* NewsDetailsViewController.m */; };
+		BB877B1C1FC9B25A00E06020 /* FarmaciaHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB877B1B1FC9B25A00E06020 /* FarmaciaHomeViewController.m */; };
 		BB8A24AF1FA4D5760070322E /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24AE1FA4D5760070322E /* MessageViewController.m */; };
 		BB8A24B21FA4DCE30070322E /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24B11FA4DCE30070322E /* MessageTableViewCell.m */; };
 		BB8A24B51FA4DD480070322E /* MessageSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24B41FA4DD480070322E /* MessageSectionHeader.m */; };
@@ -115,6 +116,8 @@
 		BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsHeader.xib; sourceTree = "<group>"; };
 		BB7700F11FA4856B00EA76D2 /* NewsDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsDetailsViewController.h; sourceTree = "<group>"; };
 		BB7700F21FA4856B00EA76D2 /* NewsDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsDetailsViewController.m; sourceTree = "<group>"; };
+		BB877B1A1FC9B25A00E06020 /* FarmaciaHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FarmaciaHomeViewController.h; sourceTree = "<group>"; };
+		BB877B1B1FC9B25A00E06020 /* FarmaciaHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FarmaciaHomeViewController.m; sourceTree = "<group>"; };
 		BB8A24AD1FA4D5760070322E /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
 		BB8A24AE1FA4D5760070322E /* MessageViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MessageViewController.m; sourceTree = "<group>"; };
 		BB8A24B01FA4DCE30070322E /* MessageTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageTableViewCell.h; sourceTree = "<group>"; };
@@ -265,6 +268,15 @@
 				BB63834D1F9E577B007B56AF /* GallaryCollectionViewCell.m */,
 			);
 			path = Galleria;
+			sourceTree = "<group>";
+		};
+		BB877B191FC9B22F00E06020 /* Farmacia Home */ = {
+			isa = PBXGroup;
+			children = (
+				BB877B1A1FC9B25A00E06020 /* FarmaciaHomeViewController.h */,
+				BB877B1B1FC9B25A00E06020 /* FarmaciaHomeViewController.m */,
+			);
+			path = "Farmacia Home";
 			sourceTree = "<group>";
 		};
 		BB8A24AC1FA4D55A0070322E /* Message */ = {
@@ -440,6 +452,7 @@
 				BB5C96491FC450A500126DC9 /* Slide Menu */,
 				BBDC092A1F93B34900E5D9A2 /* Start up guide */,
 				BB13E8291F9CD77000BDA4EB /* Pharma Home */,
+				BB877B191FC9B22F00E06020 /* Farmacia Home */,
 				BB6383481F9E502D007B56AF /* Galleria */,
 				BB0DEA341F9F902A009E8420 /* Offerete */,
 				84A607EF1FA305E800D7E3D7 /* News */,
@@ -617,6 +630,7 @@
 				BB5C96581FC473C900126DC9 /* LeftMenuTableViewCell.m in Sources */,
 				BBD8B6811FC5C243009EDD32 /* LeftSlideMenuViewController.m in Sources */,
 				BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */,
+				BB877B1C1FC9B25A00E06020 /* FarmaciaHomeViewController.m in Sources */,
 				BB5C96551FC45D0F00126DC9 /* NavigationController.m in Sources */,
 				BBDC093D1F93B81300E5D9A2 /* OfferIntroViewController.m in Sources */,
 				BBDC09411F93B83500E5D9A2 /* PreBookIntroViewController.m in Sources */,

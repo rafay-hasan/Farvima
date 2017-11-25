@@ -30,8 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.searchResultTableview.hidden = YES;
-    self.productSearchCollectionView.hidden = NO;
+    self.searchResultTableview.hidden = NO;
+    self.productSearchCollectionView.hidden = YES;
     [self resetSlideRightmenuForSearchResultPage];
 }
 
@@ -56,6 +56,7 @@
     [self.slideMenuSharedManager.rightSideMenuArray removeAllObjects];
     [self.slideMenuSharedManager.rightSideMenuArray addObject:@"VISTA ELENCO"];
     [self.slideMenuSharedManager.rightSideMenuArray addObject:@"VISTA GRIGLIA"];
+    self.slideMenuSharedManager.isListSelected = YES;
     self.sideMenuController.delegate = self;
     
 }
@@ -150,7 +151,6 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)didHideRightView:(nonnull UIView *)rightView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-    NSLog(@"%d",self.slideMenuSharedManager.isListSelected);
     if (self.slideMenuSharedManager.isListSelected) {
         self.searchResultTableview.hidden = NO;
         self.productSearchCollectionView.hidden = YES;

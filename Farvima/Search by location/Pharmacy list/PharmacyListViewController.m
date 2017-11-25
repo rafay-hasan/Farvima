@@ -12,13 +12,17 @@
 #import "UIViewController+LGSideMenuController.h"
 #import "MainViewController.h"
 
-@interface PharmacyListViewController () <UITableViewDelegate,UITableViewDataSource>
+@interface PharmacyListViewController () <UITableViewDelegate,UITableViewDataSource,LGSideMenuControllerDelegate>
 
 @property (strong,nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
 
+@property (weak, nonatomic) IBOutlet UILabel *orientationHeaderLabel;
+
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)rightSlideMenuAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UITableView *pharmacyListTableview;
 
+@property (weak, nonatomic) IBOutlet UIView *mapContainerView;
 
 @end
 
@@ -27,8 +31,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.mapContainerView.hidden = YES;
+    self.pharmacyListTableview.hidden = NO;
     [self resetSlideRightmenu];
 }
+
+-(void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSLog(@"View did appear called");
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -39,6 +51,8 @@
     [self.slideMenuSharedManager.rightSideMenuArray removeAllObjects];
     [self.slideMenuSharedManager.rightSideMenuArray addObject:@"VISTA ELENCO"];
     [self.slideMenuSharedManager.rightSideMenuArray addObject:@"VISTA MAPPA"];
+    self.slideMenuSharedManager.isListSelected = YES;
+    self.sideMenuController.delegate = self;
 }
 
 /*
@@ -89,4 +103,18 @@
     self.sideMenuController.rightViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightMenu"];
     [self.sideMenuController showRightViewAnimated:YES completionHandler:nil];
 }
+
+- (void)didHideRightView:(nonnull UIView *)rightView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    if (self.slideMenuSharedManager.isListSelected) {
+        self.pharmacyListTableview.hidden = NO;
+        self.mapContainerView.hidden = YES;
+        self.orientationHeaderLabel.text = @"VISTA ELENCO";
+    }
+    else {
+        self.pharmacyListTableview.hidden = YES;
+        self.mapContainerView.hidden = NO;
+        self.orientationHeaderLabel.text = @"VISTA MAPPA";
+    }
+}
+
 @end
