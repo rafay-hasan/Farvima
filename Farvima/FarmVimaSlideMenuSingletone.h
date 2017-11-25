@@ -11,6 +11,7 @@
 @interface FarmVimaSlideMenuSingletone : NSObject
 
 @property (nonatomic) BOOL isListSelected;
+@property (strong,nonatomic) NSMutableArray *rightSideMenuArray;
 + (id)sharedManager;
 
 @end

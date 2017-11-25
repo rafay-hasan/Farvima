@@ -30,12 +30,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.slideMenuSharedManager = [FarmVimaSlideMenuSingletone sharedManager];
-    self.sideMenuController.delegate = self;
-    self.searchResultTableview.hidden = NO;
-    self.productSearchCollectionView.hidden = YES;
-    NSLog(@"%d",self.slideMenuSharedManager.isListSelected);
+    self.searchResultTableview.hidden = YES;
+    self.productSearchCollectionView.hidden = NO;
+    [self resetSlideRightmenuForSearchResultPage];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -51,6 +50,16 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void) resetSlideRightmenuForSearchResultPage {
+    self.slideMenuSharedManager = [FarmVimaSlideMenuSingletone sharedManager];
+    [self.slideMenuSharedManager.rightSideMenuArray removeAllObjects];
+    [self.slideMenuSharedManager.rightSideMenuArray addObject:@"VISTA ELENCO"];
+    [self.slideMenuSharedManager.rightSideMenuArray addObject:@"VISTA GRIGLIA"];
+    self.sideMenuController.delegate = self;
+    
+}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 15;
@@ -152,6 +161,7 @@
     }
 }
 - (IBAction)productOrientationButtonAction:(id)sender {
+    self.sideMenuController.rightViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightMenu"];
     [self.sideMenuController showRightViewAnimated:YES completionHandler:nil];
 }
 @end

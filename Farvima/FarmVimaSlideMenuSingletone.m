@@ -24,6 +24,7 @@
 - (id)init {
     if (self = [super init]) {
         self.isListSelected = false;
+        self.rightSideMenuArray = [NSMutableArray new];
     }
     return self;
 }

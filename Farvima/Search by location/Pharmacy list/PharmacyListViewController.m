@@ -8,10 +8,16 @@
 
 #import "PharmacyListViewController.h"
 #import "PharmacyListTableViewCell.h"
+#import "FarmVimaSlideMenuSingletone.h"
+#import "UIViewController+LGSideMenuController.h"
+#import "MainViewController.h"
 
 @interface PharmacyListViewController () <UITableViewDelegate,UITableViewDataSource>
 
+@property (strong,nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
+
 - (IBAction)backButtonAction:(id)sender;
+- (IBAction)rightSlideMenuAction:(id)sender;
 
 
 @end
@@ -21,11 +27,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self resetSlideRightmenu];
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(void) resetSlideRightmenu {
+    self.slideMenuSharedManager = [FarmVimaSlideMenuSingletone sharedManager];
+    [self.slideMenuSharedManager.rightSideMenuArray removeAllObjects];
+    [self.slideMenuSharedManager.rightSideMenuArray addObject:@"VISTA ELENCO"];
+    [self.slideMenuSharedManager.rightSideMenuArray addObject:@"VISTA MAPPA"];
 }
 
 /*
@@ -70,5 +83,10 @@
 
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)rightSlideMenuAction:(id)sender {
+    self.sideMenuController.rightViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightMenu"];
+    [self.sideMenuController showRightViewAnimated:YES completionHandler:nil];
 }
 @end

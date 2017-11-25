@@ -2044,7 +2044,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="hJQ-e2-Sr9" kind="show" id="o96-f8-Ixm"/>
+                                    <action selector="searchButtonAction:" destination="3zs-4I-E0K" eventType="touchUpInside" id="k3x-6t-Q7H"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -2067,6 +2067,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="DAF-ha-muX"/>
                     </view>
+                    <connections>
+                        <segue destination="hJQ-e2-Sr9" kind="show" id="Swb-QB-hao"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JYV-95-inA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2075,7 +2078,7 @@
         <!--Pharmacy List View Controller-->
         <scene sceneID="d0h-N4-ED2">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="hJQ-e2-Sr9" customClass="PharmacyListViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="pharmacyListPage" automaticallyAdjustsScrollViewInsets="NO" id="hJQ-e2-Sr9" customClass="PharmacyListViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="6LX-JK-AiF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2155,6 +2158,9 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W9R-rN-OaA">
                                                 <rect key="frame" x="0.0" y="0.0" width="58" height="38"/>
+                                                <connections>
+                                                    <action selector="rightSlideMenuAction:" destination="hJQ-e2-Sr9" eventType="touchUpInside" id="ZhS-S5-FMt"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2576,7 +2582,7 @@
                                                 <rect key="frame" x="16" y="221.5" width="288" height="94"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="6KU-90-A8Z">
-                                                        <rect key="frame" x="0.0" y="0.0" width="288" height="17"/>
+                                                        <rect key="frame" x="-16" y="0.0" width="288" height="17"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="data" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="La5-bl-9ci">
                                                                 <rect key="frame" x="0.0" y="0.0" width="141.5" height="14.5"/>
@@ -2585,7 +2591,7 @@
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="20 MAGGIO" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xHL-pM-USs">
-                                                                <rect key="frame" x="146.5" y="0.0" width="141.5" height="17"/>
+                                                                <rect key="frame" x="162.5" y="0.0" width="141.5" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
                                                                 <color key="textColor" red="0.19607843137254902" green="0.28627450980392155" blue="0.54117647058823526" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>

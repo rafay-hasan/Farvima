@@ -11,6 +11,7 @@
 @interface SearchByAddressViewController ()
 
 - (IBAction)backButtonAction:(id)sender;
+- (IBAction)searchButtonAction:(id)sender;
 
 
 @end
@@ -39,5 +40,9 @@
 
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)searchButtonAction:(id)sender {
+    [self.navigationController pushViewController:[self.storyboard instantiateViewControllerWithIdentifier:@"pharmacyListPage"] animated:YES];
 }
 @end
