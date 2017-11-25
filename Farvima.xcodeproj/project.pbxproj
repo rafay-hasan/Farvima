@@ -50,6 +50,7 @@
 		BBDC093D1F93B81300E5D9A2 /* OfferIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC093C1F93B81300E5D9A2 /* OfferIntroViewController.m */; };
 		BBDC09411F93B83500E5D9A2 /* PreBookIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09401F93B83500E5D9A2 /* PreBookIntroViewController.m */; };
 		BBE31AB91FA5A2D700E07440 /* ProductSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE31AB81FA5A2D700E07440 /* ProductSearchViewController.m */; };
+		BBF2D2961FC97B2B007EE3FC /* PharmacyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF2D2951FC97B2B007EE3FC /* PharmacyListViewController.m */; };
 		BBF4DF0A1FA4EE9A00E0C811 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4DF091FA4EE9A00E0C811 /* NotificationViewController.m */; };
 		BBF4DF0D1FA4F7DA00E0C811 /* NotificationTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4DF0C1FA4F7DA00E0C811 /* NotificationTableViewCell.m */; };
 		BBFD43C21F93AABD00A7E265 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BBFD43C11F93AABD00A7E265 /* AppDelegate.m */; };
@@ -146,6 +147,8 @@
 		BBDC09401F93B83500E5D9A2 /* PreBookIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreBookIntroViewController.m; sourceTree = "<group>"; };
 		BBE31AB71FA5A2D700E07440 /* ProductSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductSearchViewController.h; sourceTree = "<group>"; };
 		BBE31AB81FA5A2D700E07440 /* ProductSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductSearchViewController.m; sourceTree = "<group>"; };
+		BBF2D2941FC97B2B007EE3FC /* PharmacyListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmacyListViewController.h; sourceTree = "<group>"; };
+		BBF2D2951FC97B2B007EE3FC /* PharmacyListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PharmacyListViewController.m; sourceTree = "<group>"; };
 		BBF4DF081FA4EE9A00E0C811 /* NotificationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationViewController.h; sourceTree = "<group>"; };
 		BBF4DF091FA4EE9A00E0C811 /* NotificationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationViewController.m; sourceTree = "<group>"; };
 		BBF4DF0B1FA4F7DA00E0C811 /* NotificationTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationTableViewCell.h; sourceTree = "<group>"; };
@@ -297,6 +300,7 @@
 			children = (
 				BBC886141FC972B400D60612 /* SearchByLocationViewController.h */,
 				BBC886151FC972B400D60612 /* SearchByLocationViewController.m */,
+				BBF2D2931FC97AF6007EE3FC /* Pharmacy list */,
 			);
 			path = "Search by location";
 			sourceTree = "<group>";
@@ -381,6 +385,15 @@
 				BB16A7C81FA788BE00AFA112 /* OrderDetailsFooetrSection.m */,
 			);
 			path = "Product search";
+			sourceTree = "<group>";
+		};
+		BBF2D2931FC97AF6007EE3FC /* Pharmacy list */ = {
+			isa = PBXGroup;
+			children = (
+				BBF2D2941FC97B2B007EE3FC /* PharmacyListViewController.h */,
+				BBF2D2951FC97B2B007EE3FC /* PharmacyListViewController.m */,
+			);
+			path = "Pharmacy list";
 			sourceTree = "<group>";
 		};
 		BBF4DF071FA4EE6A00E0C811 /* Notification */ = {
@@ -619,6 +632,7 @@
 				BBC886131FC9729A00D60612 /* SearchByAddressViewController.m in Sources */,
 				BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */,
 				BB16A7C91FA788BE00AFA112 /* OrderDetailsFooetrSection.m in Sources */,
+				BBF2D2961FC97B2B007EE3FC /* PharmacyListViewController.m in Sources */,
 				BB5C96521FC45AC900126DC9 /* MainViewController.m in Sources */,
 				BBE31AB91FA5A2D700E07440 /* ProductSearchViewController.m in Sources */,
 				BB3425CF1FB209A8000FD88C /* EventDetailsViewController.m in Sources */,
