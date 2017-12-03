@@ -6,6 +6,8 @@ target 'Farvima' do
   # use_frameworks!
   pod 'IQKeyboardManager'
   pod 'LGSideMenuController'
+  pod 'AFNetworking', '~> 3.0'
+  pod 'SVProgressHUD'
   # Pods for Farvima
 
 end

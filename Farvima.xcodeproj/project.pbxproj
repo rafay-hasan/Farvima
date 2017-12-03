@@ -33,6 +33,7 @@
 		BB7700EE1FA475D600EA76D2 /* NewsSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700ED1FA475D600EA76D2 /* NewsSectionHeader.m */; };
 		BB7700F01FA4762D00EA76D2 /* NewsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */; };
 		BB7700F31FA4856B00EA76D2 /* NewsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700F21FA4856B00EA76D2 /* NewsDetailsViewController.m */; };
+		BB7C7FE91FD3CCC600515EBC /* RHWebServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7C7FE81FD3CCC600515EBC /* RHWebServiceManager.m */; };
 		BB877B1C1FC9B25A00E06020 /* FarmaciaHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB877B1B1FC9B25A00E06020 /* FarmaciaHomeViewController.m */; };
 		BB8A24AF1FA4D5760070322E /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24AE1FA4D5760070322E /* MessageViewController.m */; };
 		BB8A24B21FA4DCE30070322E /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24B11FA4DCE30070322E /* MessageTableViewCell.m */; };
@@ -42,6 +43,7 @@
 		BBBC782A1FC7224600062F37 /* SearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBC78291FC7224600062F37 /* SearchResultTableViewCell.m */; };
 		BBC886131FC9729A00D60612 /* SearchByAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC886121FC9729A00D60612 /* SearchByAddressViewController.m */; };
 		BBC886161FC972B400D60612 /* SearchByLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC886151FC972B400D60612 /* SearchByLocationViewController.m */; };
+		BBD52BF91FD3FA5700EC3A76 /* User Details.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD52BF71FD3FA5600EC3A76 /* User Details.m */; };
 		BBD8B6811FC5C243009EDD32 /* LeftSlideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD8B6801FC5C243009EDD32 /* LeftSlideMenuViewController.m */; };
 		BBD8B6841FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD8B6831FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m */; };
 		BBD8CCC51FC4FB6B00C75038 /* RightMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD8CCC41FC4FB6B00C75038 /* RightMenuTableViewCell.m */; };
@@ -116,6 +118,8 @@
 		BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsHeader.xib; sourceTree = "<group>"; };
 		BB7700F11FA4856B00EA76D2 /* NewsDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsDetailsViewController.h; sourceTree = "<group>"; };
 		BB7700F21FA4856B00EA76D2 /* NewsDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsDetailsViewController.m; sourceTree = "<group>"; };
+		BB7C7FE71FD3CCC600515EBC /* RHWebServiceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RHWebServiceManager.h; sourceTree = "<group>"; };
+		BB7C7FE81FD3CCC600515EBC /* RHWebServiceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RHWebServiceManager.m; sourceTree = "<group>"; };
 		BB877B1A1FC9B25A00E06020 /* FarmaciaHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FarmaciaHomeViewController.h; sourceTree = "<group>"; };
 		BB877B1B1FC9B25A00E06020 /* FarmaciaHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FarmaciaHomeViewController.m; sourceTree = "<group>"; };
 		BB8A24AD1FA4D5760070322E /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
@@ -133,6 +137,8 @@
 		BBC886121FC9729A00D60612 /* SearchByAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchByAddressViewController.m; sourceTree = "<group>"; };
 		BBC886141FC972B400D60612 /* SearchByLocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchByLocationViewController.h; sourceTree = "<group>"; };
 		BBC886151FC972B400D60612 /* SearchByLocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchByLocationViewController.m; sourceTree = "<group>"; };
+		BBD52BF71FD3FA5600EC3A76 /* User Details.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User Details.m"; sourceTree = "<group>"; };
+		BBD52BF81FD3FA5700EC3A76 /* User Details.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User Details.h"; sourceTree = "<group>"; };
 		BBD8B67F1FC5C243009EDD32 /* LeftSlideMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftSlideMenuViewController.h; sourceTree = "<group>"; };
 		BBD8B6801FC5C243009EDD32 /* LeftSlideMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftSlideMenuViewController.m; sourceTree = "<group>"; };
 		BBD8B6821FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FarmVimaSlideMenuSingletone.h; sourceTree = "<group>"; };
@@ -270,6 +276,15 @@
 			path = Galleria;
 			sourceTree = "<group>";
 		};
+		BB7C7FEA1FD3CCE100515EBC /* Webservice */ = {
+			isa = PBXGroup;
+			children = (
+				BB7C7FE71FD3CCC600515EBC /* RHWebServiceManager.h */,
+				BB7C7FE81FD3CCC600515EBC /* RHWebServiceManager.m */,
+			);
+			path = Webservice;
+			sourceTree = "<group>";
+		};
 		BB877B191FC9B22F00E06020 /* Farmacia Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -318,6 +333,15 @@
 				BBF2D2931FC97AF6007EE3FC /* Pharmacy list */,
 			);
 			path = "Search by location";
+			sourceTree = "<group>";
+		};
+		BBD52BFA1FD3FA5F00EC3A76 /* User Shared Manager */ = {
+			isa = PBXGroup;
+			children = (
+				BBD52BF81FD3FA5700EC3A76 /* User Details.h */,
+				BBD52BF71FD3FA5600EC3A76 /* User Details.m */,
+			);
+			path = "User Shared Manager";
 			sourceTree = "<group>";
 		};
 		BBDC092A1F93B34900E5D9A2 /* Start up guide */ = {
@@ -449,6 +473,8 @@
 				BBFD43C11F93AABD00A7E265 /* AppDelegate.m */,
 				BBD8B6821FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.h */,
 				BBD8B6831FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m */,
+				BBD52BFA1FD3FA5F00EC3A76 /* User Shared Manager */,
+				BB7C7FEA1FD3CCE100515EBC /* Webservice */,
 				BB5C96491FC450A500126DC9 /* Slide Menu */,
 				BBDC092A1F93B34900E5D9A2 /* Start up guide */,
 				BB13E8291F9CD77000BDA4EB /* Pharma Home */,
@@ -631,6 +657,7 @@
 				BBD8B6811FC5C243009EDD32 /* LeftSlideMenuViewController.m in Sources */,
 				BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */,
 				BB877B1C1FC9B25A00E06020 /* FarmaciaHomeViewController.m in Sources */,
+				BB7C7FE91FD3CCC600515EBC /* RHWebServiceManager.m in Sources */,
 				BB5C96551FC45D0F00126DC9 /* NavigationController.m in Sources */,
 				BBDC093D1F93B81300E5D9A2 /* OfferIntroViewController.m in Sources */,
 				BBDC09411F93B83500E5D9A2 /* PreBookIntroViewController.m in Sources */,
@@ -654,6 +681,7 @@
 				BB16A7C91FA788BE00AFA112 /* OrderDetailsFooetrSection.m in Sources */,
 				BBF2D2961FC97B2B007EE3FC /* PharmacyListViewController.m in Sources */,
 				BB5C96521FC45AC900126DC9 /* MainViewController.m in Sources */,
+				BBD52BF91FD3FA5700EC3A76 /* User Details.m in Sources */,
 				BBE31AB91FA5A2D700E07440 /* ProductSearchViewController.m in Sources */,
 				BB3425CF1FB209A8000FD88C /* EventDetailsViewController.m in Sources */,
 				BB16A7C41FA781C400AFA112 /* OrderDetailsTableViewCell.m in Sources */,
@@ -795,6 +823,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Farvima/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Rafay.Farvima;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -811,6 +840,7 @@
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Farvima/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Rafay.Farvima;
 				PRODUCT_NAME = "$(TARGET_NAME)";

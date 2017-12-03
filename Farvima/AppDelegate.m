@@ -8,8 +8,14 @@
 
 #import "AppDelegate.h"
 #import "IQKeyboardManager.h"
+#import "RHWebServiceManager.h"
+#import "SVProgressHUD.h"
+#import "User Details.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<RHWebServiceDelegate>
+
+@property (strong,nonatomic) RHWebServiceManager *myWebserviceManager;
+@property (strong,nonatomic) User_Details *userManager;
 
 @end
 
@@ -19,11 +25,88 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [IQKeyboardManager sharedManager].enable = YES;
-
+    self.userManager = [User_Details sharedInstance];
+     [self CallUserDetailsWebserviceWithUDID:[[[UIDevice currentDevice] identifierForVendor] UUIDString] forDeviceToken:@"123456789"];
+    
+    [application registerForRemoteNotifications];
+    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+    {
+        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:(UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge) categories:nil]];
+        
+        [[UIApplication sharedApplication] registerForRemoteNotifications];
+        
+    }
+    else
+    {
+        [[UIApplication sharedApplication] registerForRemoteNotificationTypes: (UIRemoteNotificationTypeNewsstandContentAvailability| UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+        NSLog(@"TESTING: %@", @"SUmon");
+    }
+    
 //    UINavigationController *masterNavigationController = splitViewController.viewControllers[0];
 //    MasterViewController *controller = (MasterViewController *)masterNavigationController.topViewController;
 //    controller.managedObjectContext = self.persistentContainer.viewContext;
     return YES;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    NSLog(@"Did Register for Remote Notifications with Device Token (%@)", deviceToken);
+    NSString* myToken = [[[NSString stringWithFormat:@"%@",deviceToken]
+                          stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSString *thisToken = [NSString stringWithFormat: @"%@", myToken];
+    [self CallUserDetailsWebserviceWithUDID:[[[UIDevice currentDevice] identifierForVendor] UUIDString] forDeviceToken:thisToken];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    
+    NSLog(@"Did Fail to Register for Remote Notifications");
+    NSLog(@"%@, %@", error, error.localizedDescription);
+}
+
+-(void) application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
+    NSLog(@"%@",userInfo);
+}
+
+-(void) CallUserDetailsWebserviceWithUDID:(NSString *)ID forDeviceToken:(NSString *)deviceToken
+{
+     NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:ID,@"device_unique_id",@"123456",@"device_push_token",nil];
+    [SVProgressHUD show];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL_API,UserDetails_URL_API];
+    self.myWebserviceManager = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestypeUserDetails Delegate:self];
+    [self.myWebserviceManager getPostDataFromWebURLWithUrlString:urlStr dictionaryData:postData];
+}
+
+-(void) dataFromWebReceivedSuccessfully:(id) responseObj
+{
+    [SVProgressHUD dismiss];
+    NSLog(@"%@",responseObj);
+
+    if ([[responseObj valueForKey:@"app_user_id"] isKindOfClass:[NSString class]]) {
+        self.userManager.appUserId = [responseObj valueForKey:@"app_user_id"];
+    }
+    else {
+        self.userManager.appUserId = @"";
+    }
+    
+    if ([[responseObj valueForKey:@"app_user_pharmacy_id"] isKindOfClass:[NSString class]]) {
+        self.userManager.pharmacyId = [responseObj valueForKey:@"app_user_pharmacy_id"];
+    }
+    else {
+        self.userManager.pharmacyId = @"";
+    }
+    
+    if ([[responseObj valueForKey:@"ref_app_user_pharmacy_pharmacy_id"] isKindOfClass:[NSString class]]) {
+        self.userManager.referenceAppUserPharmacyId = [responseObj valueForKey:@"ref_app_user_pharmacy_pharmacy_id"];
+    }
+    else {
+        self.userManager.referenceAppUserPharmacyId = @"";
+    }
+}
+
+
+-(void) dataFromWebReceiptionFailed:(NSError*) error
+{
+    [SVProgressHUD dismiss];
 }
 
 
