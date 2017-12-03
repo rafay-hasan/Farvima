@@ -11,12 +11,15 @@
 
 #define BASE_URL_API @"http://farmadevelopment.switchyapp.com/"
 #define UserDetails_URL_API @"ios_store_device_id_tokens"
+#define Gallery_URL_API @"app_gallery_images/"
+#define Event_URL_API @"app_all_events_by_limit/"
 
 
 
 enum {
     HTTPRequestypeUserDetails,
-    HTTPRequestTypeGeneralMessages
+    HTTPRequestTypeGallery,
+    HTTPRequestTypeEvents
 };
 typedef NSUInteger HTTPRequestType;
 
@@ -42,7 +45,7 @@ typedef NSUInteger HTTPRequestType;
 
 -(id) initWebserviceWithRequestType: (HTTPRequestType )reqType Delegate:(id) del;
 
-//-(void)getDataFromWebURL:(NSString *)requestURL;
+-(void)getDataFromWebURLWithUrlString:(NSString *)requestURL;
 
 -(void)getPostDataFromWebURLWithUrlString:(NSString *)requestURL dictionaryData:(NSDictionary *)postDataDic;
 

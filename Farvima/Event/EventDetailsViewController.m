@@ -9,10 +9,19 @@
 #import "EventDetailsViewController.h"
 #import "MessageViewController.h"
 #import "NotificationViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "UILabel+FormattedText.h"
 
 @interface EventDetailsViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UITextView *eventDetailsTextView;
+@property (weak, nonatomic) IBOutlet UIImageView *eventImageView;
+@property (weak, nonatomic) IBOutlet UILabel *eventNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eventdateLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eventTimeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *eventLocationLabel;
+
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewHeight;
 
 - (IBAction)backButtonAction:(id)sender;
@@ -29,7 +38,7 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-    [self adjustLayoutForViewController];
+    [self loadEventDetailsdata];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -45,6 +54,58 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (void) loadEventDetailsdata {
+    if (self.object.imageUel.length > 0) {
+        [self.eventImageView sd_setImageWithURL:[NSURL URLWithString:self.object.imageUel]
+                               placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    }
+    else {
+        self.eventImageView.image = nil;
+    }
+    
+    if (self.object.name.length > 0) {
+        self.eventNameLabel.text = self.object.name;
+    }
+    else {
+        self.eventNameLabel.text = nil;
+    }
+    
+    if (self.object.locationDate.length > 0) {
+        self.eventdateLabel.text = [NSString stringWithFormat:@"data %@",self.object.locationDate];
+        [self.eventdateLabel setTextColor:[UIColor colorWithRed:40.0/255.0 green:67.0/255.0 blue:135.0/255.0 alpha:1] String:@"data "];
+        [self.eventdateLabel setFont:[UIFont systemFontOfSize:13 weight:UIFontWeightSemibold] afterOccurenceOfString:@"data "];
+        [self.eventdateLabel setTextColor:[UIColor colorWithRed:0.0/255.0 green:41.0/255.0 blue:128.0/255.0 alpha:1] String:self.object.locationDate];
+        [self.eventdateLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption1] beforeOccurenceOfString:self.object.locationDate];
+        
+    }
+    else {
+        self.eventdateLabel.text = @"data ";
+    }
+    
+    NSString *startEndTime =  [NSString stringWithFormat:@"Dalle %@ Alle %@",self.object.startTime,self.object.endTime];
+    self.eventTimeLabel.text = [NSString stringWithFormat:@"ore %@",startEndTime];
+    [self.eventTimeLabel setTextColor:[UIColor colorWithRed:40.0/255.0 green:67.0/255.0 blue:135.0/255.0 alpha:1] String:@"ore "];
+    [self.eventTimeLabel setFont:[UIFont systemFontOfSize:13 weight:UIFontWeightSemibold] afterOccurenceOfString:@"ore "];
+    [self.eventTimeLabel setTextColor:[UIColor colorWithRed:0.0/255.0 green:41.0/255.0 blue:128.0/255.0 alpha:1] String:startEndTime];
+    [self.eventTimeLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption1] beforeOccurenceOfString:startEndTime];
+    
+    
+    if (self.object.location.length > 0) {
+        self.eventLocationLabel.text = [NSString stringWithFormat:@"presso %@",self.object.location];
+        [self.eventLocationLabel setTextColor:[UIColor colorWithRed:40.0/255.0 green:67.0/255.0 blue:135.0/255.0 alpha:1] String:@"presso "];
+        [self.eventLocationLabel setFont:[UIFont systemFontOfSize:13 weight:UIFontWeightSemibold] afterOccurenceOfString:@"presso "];
+        [self.eventLocationLabel setTextColor:[UIColor colorWithRed:0.0/255.0 green:41.0/255.0 blue:128.0/255.0 alpha:1] String:self.object.location];
+        [self.eventLocationLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption1] beforeOccurenceOfString:self.object.location];
+        
+    }
+    else {
+        self.eventLocationLabel.text = @"presso ";
+    }
+    
+    self.eventDetailsTextView.text = self.object.details;
+    [self adjustLayoutForViewController];
+}
 
 -(void) adjustLayoutForViewController {
     self.eventDetailsTextView.scrollEnabled = NO;

@@ -9,9 +9,19 @@
 #import "GallaryViewController.h"
 #import "MessageViewController.h"
 #import "NotificationViewController.h"
+#import "RHWebServiceManager.h"
+#import "SVProgressHUD.h"
+#import "User Details.h"
+#import <SDWebImage/UIImageView+WebCache.h>
+#import "GalleryObject.h"
+#import "GallaryCollectionViewCell.h"
 
-@interface GallaryViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface GallaryViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,RHWebServiceDelegate>
 
+@property (strong,nonatomic) RHWebServiceManager *myWebService;
+@property (strong,nonatomic) GalleryObject *galleryObject;
+@property (strong,nonatomic) NSMutableArray *gallaryArray;
+@property (strong,nonatomic) User_Details *userManager;
 @property (weak, nonatomic) IBOutlet UICollectionView *galleryCollectionView;
 
 - (IBAction)backButtonAction:(id)sender;
@@ -25,12 +35,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.userManager = [User_Details sharedInstance];
+    self.galleryObject = [GalleryObject new];
+    self.gallaryArray = [NSMutableArray new];
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self CallGalleryWebservice];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 /*
 #pragma mark - Navigation
@@ -48,11 +68,19 @@
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 15;
+    return self.gallaryArray.count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gallaryCell" forIndexPath:indexPath];
+    GallaryCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"gallaryCell" forIndexPath:indexPath];
+    self.galleryObject = [self.gallaryArray objectAtIndex:indexPath.row];
+    if (self.galleryObject.imageUel.length > 0) {
+        [cell.galleryImageView sd_setImageWithURL:[NSURL URLWithString:self.galleryObject.imageUel]
+                     placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    }
+    else {
+        cell.galleryImageView.image = nil;
+    }
     cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
@@ -126,6 +154,57 @@
         }
     }
     return NO;
+}
+
+#pragma mark All Web service
+
+-(void) CallGalleryWebservice
+{
+    [SVProgressHUD show];
+    NSString *startingLimit = [NSString stringWithFormat:@"%li",self.gallaryArray.count];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,Gallery_URL_API,self.userManager.appUserId,startingLimit];
+    self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeGallery Delegate:self];
+    [self.myWebService getDataFromWebURLWithUrlString:urlStr];
+    
+}
+
+-(void) dataFromWebReceivedSuccessfully:(id) responseObj
+{
+    NSLog(@"%@",responseObj);
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    if(self.myWebService.requestType == HTTPRequestTypeGallery)
+    {
+        [self.gallaryArray addObjectsFromArray:(NSArray *)responseObj];
+        
+    }
+    [self.galleryCollectionView reloadData];
+}
+
+-(void) dataFromWebReceiptionFailed:(NSError*) error
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    
+    NSInteger currentOffset = scrollView.contentOffset.y;
+    NSInteger maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+    if (maximumOffset - currentOffset <= -40) {
+        
+        [self CallGalleryWebservice];
+        
+    }
 }
 
 

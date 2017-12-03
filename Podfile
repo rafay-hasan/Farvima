@@ -8,6 +8,7 @@ target 'Farvima' do
   pod 'LGSideMenuController'
   pod 'AFNetworking', '~> 3.0'
   pod 'SVProgressHUD'
+  pod 'SDWebImage', '~> 4.0'
   # Pods for Farvima
 
 end

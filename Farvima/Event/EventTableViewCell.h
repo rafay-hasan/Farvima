@@ -10,4 +10,10 @@
 
 @interface EventTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *eventImageView;
+
+@property (weak, nonatomic) IBOutlet UILabel *eventname;
+@property (weak, nonatomic) IBOutlet UILabel *eventLocation;
+@property (weak, nonatomic) IBOutlet UILabel *eventDate;
+
 @end

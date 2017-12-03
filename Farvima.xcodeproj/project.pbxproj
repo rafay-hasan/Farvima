@@ -44,6 +44,9 @@
 		BBC886131FC9729A00D60612 /* SearchByAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC886121FC9729A00D60612 /* SearchByAddressViewController.m */; };
 		BBC886161FC972B400D60612 /* SearchByLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC886151FC972B400D60612 /* SearchByLocationViewController.m */; };
 		BBD52BF91FD3FA5700EC3A76 /* User Details.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD52BF71FD3FA5600EC3A76 /* User Details.m */; };
+		BBD52C011FD409B400EC3A76 /* GalleryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD52C001FD409B400EC3A76 /* GalleryObject.m */; };
+		BBD52C041FD40F6E00EC3A76 /* EventObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD52C031FD40F6E00EC3A76 /* EventObject.m */; };
+		BBD52C081FD41D9F00EC3A76 /* UILabel+FormattedText.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD52C061FD41D9E00EC3A76 /* UILabel+FormattedText.m */; };
 		BBD8B6811FC5C243009EDD32 /* LeftSlideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD8B6801FC5C243009EDD32 /* LeftSlideMenuViewController.m */; };
 		BBD8B6841FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD8B6831FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m */; };
 		BBD8CCC51FC4FB6B00C75038 /* RightMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD8CCC41FC4FB6B00C75038 /* RightMenuTableViewCell.m */; };
@@ -139,6 +142,12 @@
 		BBC886151FC972B400D60612 /* SearchByLocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchByLocationViewController.m; sourceTree = "<group>"; };
 		BBD52BF71FD3FA5600EC3A76 /* User Details.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User Details.m"; sourceTree = "<group>"; };
 		BBD52BF81FD3FA5700EC3A76 /* User Details.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User Details.h"; sourceTree = "<group>"; };
+		BBD52BFF1FD409B400EC3A76 /* GalleryObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryObject.h; sourceTree = "<group>"; };
+		BBD52C001FD409B400EC3A76 /* GalleryObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GalleryObject.m; sourceTree = "<group>"; };
+		BBD52C021FD40F6E00EC3A76 /* EventObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventObject.h; sourceTree = "<group>"; };
+		BBD52C031FD40F6E00EC3A76 /* EventObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventObject.m; sourceTree = "<group>"; };
+		BBD52C061FD41D9E00EC3A76 /* UILabel+FormattedText.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UILabel+FormattedText.m"; sourceTree = "<group>"; };
+		BBD52C071FD41D9F00EC3A76 /* UILabel+FormattedText.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UILabel+FormattedText.h"; sourceTree = "<group>"; };
 		BBD8B67F1FC5C243009EDD32 /* LeftSlideMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftSlideMenuViewController.h; sourceTree = "<group>"; };
 		BBD8B6801FC5C243009EDD32 /* LeftSlideMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftSlideMenuViewController.m; sourceTree = "<group>"; };
 		BBD8B6821FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FarmVimaSlideMenuSingletone.h; sourceTree = "<group>"; };
@@ -281,6 +290,8 @@
 			children = (
 				BB7C7FE71FD3CCC600515EBC /* RHWebServiceManager.h */,
 				BB7C7FE81FD3CCC600515EBC /* RHWebServiceManager.m */,
+				BBD52C051FD40F7200EC3A76 /* EventObject */,
+				BBD52BFE1FD4097400EC3A76 /* GalleryObject */,
 			);
 			path = Webservice;
 			sourceTree = "<group>";
@@ -342,6 +353,24 @@
 				BBD52BF71FD3FA5600EC3A76 /* User Details.m */,
 			);
 			path = "User Shared Manager";
+			sourceTree = "<group>";
+		};
+		BBD52BFE1FD4097400EC3A76 /* GalleryObject */ = {
+			isa = PBXGroup;
+			children = (
+				BBD52BFF1FD409B400EC3A76 /* GalleryObject.h */,
+				BBD52C001FD409B400EC3A76 /* GalleryObject.m */,
+			);
+			path = GalleryObject;
+			sourceTree = "<group>";
+		};
+		BBD52C051FD40F7200EC3A76 /* EventObject */ = {
+			isa = PBXGroup;
+			children = (
+				BBD52C021FD40F6E00EC3A76 /* EventObject.h */,
+				BBD52C031FD40F6E00EC3A76 /* EventObject.m */,
+			);
+			path = EventObject;
 			sourceTree = "<group>";
 		};
 		BBDC092A1F93B34900E5D9A2 /* Start up guide */ = {
@@ -499,6 +528,8 @@
 				BBFD43D41F93AABD00A7E265 /* Info.plist */,
 				BBFD43D51F93AABD00A7E265 /* main.m */,
 				BBFD43C31F93AABD00A7E265 /* Farvima.xcdatamodeld */,
+				BBD52C071FD41D9F00EC3A76 /* UILabel+FormattedText.h */,
+				BBD52C061FD41D9E00EC3A76 /* UILabel+FormattedText.m */,
 			);
 			path = Farvima;
 			sourceTree = "<group>";
@@ -667,6 +698,7 @@
 				BBF4DF0D1FA4F7DA00E0C811 /* NotificationTableViewCell.m in Sources */,
 				BBDC092D1F93B37000E5D9A2 /* PharmaIntroViewController.m in Sources */,
 				BBFD43C21F93AABD00A7E265 /* AppDelegate.m in Sources */,
+				BBD52C081FD41D9F00EC3A76 /* UILabel+FormattedText.m in Sources */,
 				BB7700DC1FA45E3200EA76D2 /* NewsTableViewCell.m in Sources */,
 				BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */,
 				BB6446381FA5FD7F006F2B92 /* SearchResultViewController.m in Sources */,
@@ -674,12 +706,14 @@
 				BB64463E1FA61D19006F2B92 /* SearchProductDetailsViewController.m in Sources */,
 				BB7700F31FA4856B00EA76D2 /* NewsDetailsViewController.m in Sources */,
 				BB16A7C11FA77EA100AFA112 /* OrderDetailsHeaderSection.m in Sources */,
+				BBD52C041FD40F6E00EC3A76 /* EventObject.m in Sources */,
 				BBD8CCC51FC4FB6B00C75038 /* RightMenuTableViewCell.m in Sources */,
 				BBC886131FC9729A00D60612 /* SearchByAddressViewController.m in Sources */,
 				BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */,
 				BBF2D2991FC98114007EE3FC /* PharmacyListTableViewCell.m in Sources */,
 				BB16A7C91FA788BE00AFA112 /* OrderDetailsFooetrSection.m in Sources */,
 				BBF2D2961FC97B2B007EE3FC /* PharmacyListViewController.m in Sources */,
+				BBD52C011FD409B400EC3A76 /* GalleryObject.m in Sources */,
 				BB5C96521FC45AC900126DC9 /* MainViewController.m in Sources */,
 				BBD52BF91FD3FA5700EC3A76 /* User Details.m in Sources */,
 				BBE31AB91FA5A2D700E07440 /* ProductSearchViewController.m in Sources */,

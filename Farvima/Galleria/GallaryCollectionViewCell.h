@@ -10,4 +10,7 @@
 
 @interface GallaryCollectionViewCell : UICollectionViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *galleryImageView;
+
+
 @end

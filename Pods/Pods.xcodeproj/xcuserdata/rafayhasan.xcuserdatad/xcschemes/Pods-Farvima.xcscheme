@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '54D15A3BA5D4800A993592CDFAF276D7'
+               BlueprintIdentifier = '6BEAD514A5B591E86C866D479777B020'
                BlueprintName = 'Pods-Farvima'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-Farvima.a'>
