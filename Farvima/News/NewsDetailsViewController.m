@@ -9,17 +9,19 @@
 #import "NewsDetailsViewController.h"
 #import "MessageViewController.h"
 #import "NotificationViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface NewsDetailsViewController ()
 
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)messageButtonAction:(id)sender;
 - (IBAction)notificationButtonAction:(id)sender;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *newsDetailsTextviewHeight;
 
+@property (weak, nonatomic) IBOutlet UITextView *newsDetailsTextview;
 @property (weak, nonatomic) IBOutlet UIImageView *newsImageView;
 @property (weak, nonatomic) IBOutlet UILabel *newsHeaderLabel;
 @property (weak, nonatomic) IBOutlet UILabel *newsPublisDateLabel;
-@property (weak, nonatomic) IBOutlet UILabel *newsDetailsLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *ScrollContainerViewHeight;
 
 
@@ -31,7 +33,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self loadNewsDetailsView];
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -51,10 +52,44 @@
 
 - (void) loadNewsDetailsView
 {
-//    self.newsDetailsLabel.text = @"C'era un'atmosfera sombera negli stadi italiani il mercoledì sera durante un minuto di silenzio, seguito da quegli estratti del diario di Anne Frank, vittima dell'olocausto, che veniva letto attraverso altoparlanti prima di tutte le principali partite di calcio. I giocatori indossavano magliette con lo slogan No all'antisemitismo, con una foto di Anne Frank stampata su di essi, mentre le copie del suo diario sono state distribuite ai tifosi dello stadio.";
-    [self.view setNeedsLayout];
-    self.ScrollContainerViewHeight.constant = self.newsDetailsLabel.frame.origin.y + self.newsDetailsLabel.frame.size.height + 32;
-    NSLog(@"%@",self.ScrollContainerViewHeight);
+    if (self.object.imageUel.length > 0) {
+        [self.newsImageView sd_setImageWithURL:[NSURL URLWithString:self.object.imageUel]
+                               placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    }
+    else {
+        self.newsImageView.image = nil;
+    }
+    
+    if (self.object.name.length > 0) {
+        self.newsHeaderLabel.text = self.object.name;
+    }
+    else {
+        self.newsHeaderLabel.text = nil;
+    }
+    
+    if (self.object.creationDate.length > 0) {
+        self.newsPublisDateLabel.text = self.object.creationDate;
+    }
+    else {
+        self.newsPublisDateLabel.text = nil;
+    }
+    
+    if (self.object.details.length > 0) {
+        self.newsDetailsTextview.text = self.object.details;
+    }
+    else {
+        self.newsDetailsTextview.text = nil;
+    }
+    
+   [self adjustLayoutForViewController];
+}
+
+-(void) adjustLayoutForViewController {
+    self.newsDetailsTextview.scrollEnabled = NO;
+    CGSize sizeThatFitsTextView = [self.newsDetailsTextview sizeThatFits:CGSizeMake(self.newsDetailsTextview.frame.size.width, MAXFLOAT)];
+    self.newsDetailsTextviewHeight.constant = sizeThatFitsTextView.height;
+    self.ScrollContainerViewHeight.constant = self.newsDetailsTextview.frame.origin.y + self.newsDetailsTextviewHeight.constant;
+    [self.view layoutIfNeeded];
 }
 
 - (IBAction)backButtonAction:(id)sender {

@@ -202,13 +202,11 @@
 
 -(void) dataFromWebReceivedSuccessfully:(id) responseObj
 {
-    NSLog(@"%@",responseObj);
     [SVProgressHUD dismiss];
     self.view.userInteractionEnabled = YES;
     if(self.myWebService.requestType == HTTPRequestTypeEvents)
     {
         [self.eventsArray addObjectsFromArray:(NSArray *)responseObj];
-        
     }
     [self.eventtableView reloadData];
 }

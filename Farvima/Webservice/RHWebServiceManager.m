@@ -9,6 +9,7 @@
 #import "RHWebServiceManager.h"
 #import "GalleryObject.h"
 #import "EventObject.h"
+#import "NewsObject.h"
 
 @implementation RHWebServiceManager
 
@@ -45,6 +46,13 @@
                 {
                     
                     [self.delegate dataFromWebReceivedSuccessfully:[self parseAllEventItems:responseObject]];
+                }
+            }
+            else if(self.requestType == HTTPRequestTypeNews)
+            {
+                if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
+                {
+                    [self.delegate dataFromWebReceivedSuccessfully:[self parseAllNewsItems:responseObject]];
                 }
             }
         }
@@ -145,6 +153,62 @@
     }
     return galleryItemsArray;
 
+}
+
+-(NSMutableArray *) parseAllNewsItems :(id) response
+{
+    NSMutableArray *newsItemsArray = [NSMutableArray new];
+    
+    if([[response valueForKey:@"news"] isKindOfClass:[NSArray class]])
+    {
+        NSArray *tempArray = [(NSArray *)response valueForKey:@"news"];
+        
+        for(NSInteger i = 0; i < tempArray.count; i++)
+        {
+            NewsObject *object = [NewsObject new];
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"news_title"] isKindOfClass:[NSString class]])
+            {
+                object.name = [[tempArray objectAtIndex:i] valueForKey:@"news_title"];
+            }
+            else
+            {
+                object.name = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"news_description"] isKindOfClass:[NSString class]])
+            {
+                object.details = [[tempArray objectAtIndex:i] valueForKey:@"news_description"];
+            }
+            else
+            {
+                object.details = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"news_image_location"] isKindOfClass:[NSString class]])
+            {
+                object.imageUel = [NSString stringWithFormat:@"%@%@",BASE_URL_API,[[tempArray objectAtIndex:i] valueForKey:@"news_image_location"]];
+            }
+            else
+            {
+                object.imageUel = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"news_created_edited_date_time"] isKindOfClass:[NSString class]])
+            {
+                object.creationDate = [[tempArray objectAtIndex:i] valueForKey:@"news_created_edited_date_time"];
+            }
+            else
+            {
+                object.creationDate = @"";
+            }
+            
+            [newsItemsArray addObject:object];
+        }
+        
+    }
+    return newsItemsArray;
+    
 }
 
 -(NSMutableArray *) parseAllEventItems :(id) response

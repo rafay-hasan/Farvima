@@ -13,13 +13,15 @@
 #define UserDetails_URL_API @"ios_store_device_id_tokens"
 #define Gallery_URL_API @"app_gallery_images/"
 #define Event_URL_API @"app_all_events_by_limit/"
+#define News_URL_API @"app_all_news_by_limit/"
 
 
 
 enum {
     HTTPRequestypeUserDetails,
     HTTPRequestTypeGallery,
-    HTTPRequestTypeEvents
+    HTTPRequestTypeEvents,
+    HTTPRequestTypeNews
 };
 typedef NSUInteger HTTPRequestType;
 

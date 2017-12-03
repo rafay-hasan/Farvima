@@ -56,6 +56,7 @@
 		BBDC093D1F93B81300E5D9A2 /* OfferIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC093C1F93B81300E5D9A2 /* OfferIntroViewController.m */; };
 		BBDC09411F93B83500E5D9A2 /* PreBookIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09401F93B83500E5D9A2 /* PreBookIntroViewController.m */; };
 		BBE31AB91FA5A2D700E07440 /* ProductSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE31AB81FA5A2D700E07440 /* ProductSearchViewController.m */; };
+		BBE5E7EF1FD458FF0026DDB5 /* NewsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE5E7EE1FD458FF0026DDB5 /* NewsObject.m */; };
 		BBF2D2961FC97B2B007EE3FC /* PharmacyListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF2D2951FC97B2B007EE3FC /* PharmacyListViewController.m */; };
 		BBF2D2991FC98114007EE3FC /* PharmacyListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF2D2981FC98114007EE3FC /* PharmacyListTableViewCell.m */; };
 		BBF4DF0A1FA4EE9A00E0C811 /* NotificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBF4DF091FA4EE9A00E0C811 /* NotificationViewController.m */; };
@@ -166,6 +167,8 @@
 		BBDC09401F93B83500E5D9A2 /* PreBookIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreBookIntroViewController.m; sourceTree = "<group>"; };
 		BBE31AB71FA5A2D700E07440 /* ProductSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductSearchViewController.h; sourceTree = "<group>"; };
 		BBE31AB81FA5A2D700E07440 /* ProductSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductSearchViewController.m; sourceTree = "<group>"; };
+		BBE5E7ED1FD458FF0026DDB5 /* NewsObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsObject.h; sourceTree = "<group>"; };
+		BBE5E7EE1FD458FF0026DDB5 /* NewsObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsObject.m; sourceTree = "<group>"; };
 		BBF2D2941FC97B2B007EE3FC /* PharmacyListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmacyListViewController.h; sourceTree = "<group>"; };
 		BBF2D2951FC97B2B007EE3FC /* PharmacyListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PharmacyListViewController.m; sourceTree = "<group>"; };
 		BBF2D2971FC98114007EE3FC /* PharmacyListTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmacyListTableViewCell.h; sourceTree = "<group>"; };
@@ -290,6 +293,7 @@
 			children = (
 				BB7C7FE71FD3CCC600515EBC /* RHWebServiceManager.h */,
 				BB7C7FE81FD3CCC600515EBC /* RHWebServiceManager.m */,
+				BBE5E7F01FD459040026DDB5 /* NewsObject */,
 				BBD52C051FD40F7200EC3A76 /* EventObject */,
 				BBD52BFE1FD4097400EC3A76 /* GalleryObject */,
 			);
@@ -453,6 +457,15 @@
 				BB16A7C81FA788BE00AFA112 /* OrderDetailsFooetrSection.m */,
 			);
 			path = "Product search";
+			sourceTree = "<group>";
+		};
+		BBE5E7F01FD459040026DDB5 /* NewsObject */ = {
+			isa = PBXGroup;
+			children = (
+				BBE5E7ED1FD458FF0026DDB5 /* NewsObject.h */,
+				BBE5E7EE1FD458FF0026DDB5 /* NewsObject.m */,
+			);
+			path = NewsObject;
 			sourceTree = "<group>";
 		};
 		BBF2D2931FC97AF6007EE3FC /* Pharmacy list */ = {
@@ -719,6 +732,7 @@
 				BBE31AB91FA5A2D700E07440 /* ProductSearchViewController.m in Sources */,
 				BB3425CF1FB209A8000FD88C /* EventDetailsViewController.m in Sources */,
 				BB16A7C41FA781C400AFA112 /* OrderDetailsTableViewCell.m in Sources */,
+				BBE5E7EF1FD458FF0026DDB5 /* NewsObject.m in Sources */,
 				84A607F21FA3062300D7E3D7 /* NewsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

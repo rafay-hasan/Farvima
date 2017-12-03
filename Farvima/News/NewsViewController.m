@@ -11,8 +11,20 @@
 #import "NewsSectionHeader.h"
 #import "MessageViewController.h"
 #import "NotificationViewController.h"
+#import "RHWebServiceManager.h"
+#import "SVProgressHUD.h"
+#import "User Details.h"
+#import "NewsObject.h"
+#import "NewsDetailsViewController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
-@interface NewsViewController ()<UITableViewDataSource,UITableViewDelegate>
+
+@interface NewsViewController ()<UITableViewDataSource,UITableViewDelegate,RHWebServiceDelegate>
+
+@property (strong,nonatomic) RHWebServiceManager *myWebService;
+@property (strong,nonatomic) NewsObject *newsObject;
+@property (strong,nonatomic) NSMutableArray *newsArray;
+@property (strong,nonatomic) User_Details *userManager;
 
 @property (weak, nonatomic) IBOutlet UITableView *newsTableView;
 
@@ -28,9 +40,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.userManager = [User_Details sharedInstance];
+    self.newsObject = [NewsObject new];
+    self.newsArray = [NSMutableArray new];
+    
     self.newsTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     UINib *newsHeaderXix = [UINib nibWithNibName:@"NewsHeader" bundle:nil];
     [self.newsTableView registerNib:newsHeaderXix forHeaderFooterViewReuseIdentifier:@"newsSectionHeader"];
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.newsArray.count == 0) {
+        [self CallNewsWebservice];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,19 +61,25 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"newsDetails"]) {
+        NSIndexPath *indexPath = (NSIndexPath *)sender;
+        NewsDetailsViewController *vc = [segue destinationViewController];
+        vc.object = [self.newsArray objectAtIndex:indexPath.section];
+        
+    }
 }
-*/
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 15;
+    return self.newsArray.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -58,18 +87,35 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NewsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"newsCell" forIndexPath:indexPath];
-    cell.newsDetailsLabel.text = @"C'era un'atmosfera sombera negli stadi italiani il mercoledì sera durante un minuto di silenzio, seguito da quegli estratti del diario di Anne Frank, vittima dell'olocausto, che veniva letto attraverso altoparlanti prima di tutte le principali partite di calcio. I giocatori indossavano magliette con lo slogan No all'antisemitismo, con una foto di Anne Frank stampata su di essi, mentre le copie del suo diario sono state distribuite ai tifosi dello stadio.";
+    self.newsObject = [self.newsArray objectAtIndex:indexPath.section];
+    if (self.newsObject.imageUel.length > 0) {
+        [cell.newsImageView sd_setImageWithURL:[NSURL URLWithString:self.newsObject.imageUel]
+                               placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    }
+    else {
+        cell.newsImageView.image = nil;
+    }
+    
+    if (self.newsObject.name.length > 0) {
+        cell.newsDetailsLabel.text = self.newsObject.details;
+    }
+    else {
+        cell.newsDetailsLabel.text = nil;
+    }
+    
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [self performSegueWithIdentifier:@"newsDetails" sender:indexPath];
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     NewsSectionHeader *newsHeaderView = [self.newsTableView dequeueReusableHeaderFooterViewWithIdentifier:@"newsSectionHeader"];
-    newsHeaderView.nameLabel.text = @"LA NUOVA SCIENZA";
-    newsHeaderView.timeLabel.text = @"02 GENNAIO 2017";
+    self.newsObject = [self.newsArray objectAtIndex:section];
+    newsHeaderView.nameLabel.text = self.newsObject.name;
+    newsHeaderView.timeLabel.text = self.newsObject.creationDate;
     return newsHeaderView;
 }
 
@@ -112,6 +158,56 @@
         }
     }
     return NO;
+}
+
+#pragma mark All Web service
+
+-(void) CallNewsWebservice
+{
+    [SVProgressHUD show];
+    NSString *startingLimit = [NSString stringWithFormat:@"%li",self.newsArray.count];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,News_URL_API,self.userManager.appUserId,startingLimit];
+    self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeNews Delegate:self];
+    [self.myWebService getDataFromWebURLWithUrlString:urlStr];
+    
+}
+
+-(void) dataFromWebReceivedSuccessfully:(id) responseObj
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    if(self.myWebService.requestType == HTTPRequestTypeNews)
+    {
+        [self.newsArray addObjectsFromArray:(NSArray *)responseObj];
+        
+    }
+    [self.newsTableView reloadData];
+}
+
+-(void) dataFromWebReceiptionFailed:(NSError*) error
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    
+    NSInteger currentOffset = scrollView.contentOffset.y;
+    NSInteger maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+    if (maximumOffset - currentOffset <= -40) {
+        
+        [self CallNewsWebservice];
+        
+    }
 }
 
 
