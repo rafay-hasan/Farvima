@@ -10,8 +10,18 @@
 #import "MessageTableViewCell.h"
 #import "MessageSectionHeader.h"
 #import "NotificationViewController.h"
+#import "RHWebServiceManager.h"
+#import "SVProgressHUD.h"
+#import "User Details.h"
+#import "MessageObject.h"
 
-@interface MessageViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MessageViewController ()<UITableViewDelegate,UITableViewDataSource,RHWebServiceDelegate>
+
+@property (strong,nonatomic) RHWebServiceManager *myWebService;
+@property (strong,nonatomic) MessageObject *messageObject;
+@property (strong,nonatomic) NSMutableArray *messageArray;
+@property (strong,nonatomic) User_Details *userManager;
+
 @property (weak, nonatomic) IBOutlet UITableView *messageTableview;
 - (IBAction)notificationButtonAction:(id)sender;
 
@@ -26,6 +36,17 @@
     self.messageTableview.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     UINib *messageHeaderXix = [UINib nibWithNibName:@"MessageSectionHeader" bundle:nil];
     [self.messageTableview registerNib:messageHeaderXix forHeaderFooterViewReuseIdentifier:@"messageSectionHeader"];
+    
+    self.userManager = [User_Details sharedInstance];
+    self.messageObject = [MessageObject new];
+    self.messageArray = [NSMutableArray new];
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    if (self.messageArray.count == 0) {
+        [self CallMessageWebservice];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -58,7 +79,7 @@
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 15;
+    return self.messageArray.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -66,8 +87,9 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"messageCell" forIndexPath:indexPath];
-    cell.dateLabel.text = @"02 GENNIO 2017";
-    cell.messageLabel.text = @"C'era un'atmosfera sombera negli stadi italiani il mercoledì sera durante un minuto di silenzio, seguito da quegli estratti del diario di Anne Frank, vittima dell'olocausto, che veniva letto attraverso altoparlanti prima di tutte le principali partite di calcio. I giocatori indossavano magliette con lo slogan No all'antisemitismo, con una foto di Anne Frank stampata su di essi, mentre le copie del suo diario sono state distribuite ai tifosi dello stadio.";
+    self.messageObject = [self.messageArray objectAtIndex:indexPath.section];
+    cell.dateLabel.text = self.messageObject.creationDate;
+    cell.messageLabel.text = self.messageObject.details;
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -77,8 +99,14 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
     MessageSectionHeader *messageHeaderView = [self.messageTableview dequeueReusableHeaderFooterViewWithIdentifier:@"messageSectionHeader"];
-    messageHeaderView.categotyNameLabel.text = @"Memo evento";
-    //messageHeaderView.messageCategoryImageview.image = @"02 GENNAIO 2017";
+    self.messageObject = [self.messageArray objectAtIndex:section];
+    messageHeaderView.categotyNameLabel.text = self.messageObject.name;
+    if (self.messageObject.referencePharmacyId.length > 0) {
+        messageHeaderView.messageCategoryImageview.image = [UIImage imageNamed:@"farmacia logo"];
+    }
+    else {
+        messageHeaderView.messageCategoryImageview.image = [UIImage imageNamed:@"farma logo"];
+    }
     return messageHeaderView;
 }
 
@@ -97,6 +125,55 @@
         }
     }
     return NO;
+}
+
+#pragma mark All Web service
+
+-(void) CallMessageWebservice
+{
+    [SVProgressHUD show];
+    NSString *startingLimit = [NSString stringWithFormat:@"%li",self.messageArray.count];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,Message_URL_API,self.userManager.appUserId,startingLimit];
+    self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeMessage Delegate:self];
+    [self.myWebService getDataFromWebURLWithUrlString:urlStr];
+    
+}
+
+-(void) dataFromWebReceivedSuccessfully:(id) responseObj
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    if(self.myWebService.requestType == HTTPRequestTypeMessage)
+    {
+        [self.messageArray addObjectsFromArray:(NSArray *)responseObj];
+    }
+    [self.messageTableview reloadData];
+}
+
+-(void) dataFromWebReceiptionFailed:(NSError*) error
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    
+    NSInteger currentOffset = scrollView.contentOffset.y;
+    NSInteger maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+    if (maximumOffset - currentOffset <= -40) {
+        
+        [self CallMessageWebservice];
+        
+    }
 }
 
 @end

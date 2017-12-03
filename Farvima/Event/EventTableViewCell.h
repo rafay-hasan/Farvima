@@ -15,5 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *eventname;
 @property (weak, nonatomic) IBOutlet UILabel *eventLocation;
 @property (weak, nonatomic) IBOutlet UILabel *eventDate;
+@property (weak, nonatomic) IBOutlet UIImageView *pharmacyTYpeImageview;
 
 @end

@@ -128,6 +128,13 @@
         cell.eventname.text = nil;
     }
     
+    if (self.eventObject.referencePharmacyId.length > 0) {
+        cell.pharmacyTYpeImageview.image = [UIImage imageNamed:@"farmacia logo"];
+    }
+    else {
+        cell.pharmacyTYpeImageview.image = [UIImage imageNamed:@"farma logo"];
+    }
+    
     if (self.eventObject.location.length > 0) {
         cell.eventLocation.text = [NSString stringWithFormat:@"presso %@",self.eventObject.location];
         [cell.eventLocation setTextColor:[UIColor colorWithRed:40.0/255.0 green:67.0/255.0 blue:135.0/255.0 alpha:1] String:@"presso "];

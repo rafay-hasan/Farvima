@@ -14,6 +14,7 @@
 #define Gallery_URL_API @"app_gallery_images/"
 #define Event_URL_API @"app_all_events_by_limit/"
 #define News_URL_API @"app_all_news_by_limit/"
+#define Message_URL_API @"app_message_list_by_app_user_id_limit/"
 
 
 
@@ -21,7 +22,8 @@ enum {
     HTTPRequestypeUserDetails,
     HTTPRequestTypeGallery,
     HTTPRequestTypeEvents,
-    HTTPRequestTypeNews
+    HTTPRequestTypeNews,
+    HTTPRequestTypeMessage
 };
 typedef NSUInteger HTTPRequestType;
 

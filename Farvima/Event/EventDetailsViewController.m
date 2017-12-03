@@ -35,11 +35,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
-
-- (void) viewDidAppear:(BOOL)animated {
     [self loadEventDetailsdata];
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -111,7 +109,7 @@
     self.eventDetailsTextView.scrollEnabled = NO;
     CGSize sizeThatFitsTextView = [self.eventDetailsTextView sizeThatFits:CGSizeMake(self.eventDetailsTextView.frame.size.width, MAXFLOAT)];
     self.textViewHeight.constant = sizeThatFitsTextView.height;
-    self.containerViewHeightConstraint.constant = self.eventDetailsTextView.frame.origin.y + self.textViewHeight.constant + 16;
+    self.containerViewHeightConstraint.constant = self.eventDetailsTextView.frame.origin.y + self.textViewHeight.constant + 32;
     [self.view layoutIfNeeded];
 }
 

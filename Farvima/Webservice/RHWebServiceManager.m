@@ -10,6 +10,7 @@
 #import "GalleryObject.h"
 #import "EventObject.h"
 #import "NewsObject.h"
+#import "MessageObject.h"
 
 @implementation RHWebServiceManager
 
@@ -53,6 +54,13 @@
                 if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
                 {
                     [self.delegate dataFromWebReceivedSuccessfully:[self parseAllNewsItems:responseObject]];
+                }
+            }
+            else if(self.requestType == HTTPRequestTypeMessage)
+            {
+                if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
+                {
+                    [self.delegate dataFromWebReceivedSuccessfully:[self parseAllMessageItems:responseObject]];
                 }
             }
         }
@@ -211,6 +219,62 @@
     
 }
 
+-(NSMutableArray *) parseAllMessageItems :(id) response
+{
+    NSMutableArray *messageItemsArray = [NSMutableArray new];
+    
+    if([[response valueForKey:@"message"] isKindOfClass:[NSArray class]])
+    {
+        NSArray *tempArray = [(NSArray *)response valueForKey:@"message"];
+        
+        for(NSInteger i = 0; i < tempArray.count; i++)
+        {
+            MessageObject *object = [MessageObject new];
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"message_title"] isKindOfClass:[NSString class]])
+            {
+                object.name = [[tempArray objectAtIndex:i] valueForKey:@"message_title"];
+            }
+            else
+            {
+                object.name = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"message_details"] isKindOfClass:[NSString class]])
+            {
+                object.details = [[tempArray objectAtIndex:i] valueForKey:@"message_details"];
+            }
+            else
+            {
+                object.details = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"message_created_date_time"] isKindOfClass:[NSString class]])
+            {
+                object.creationDate = [[tempArray objectAtIndex:i] valueForKey:@"message_created_date_time"];
+            }
+            else
+            {
+                object.creationDate = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"ref_message_pharmacy_id"] isKindOfClass:[NSString class]])
+            {
+                object.referencePharmacyId = [[tempArray objectAtIndex:i] valueForKey:@"ref_message_pharmacy_id"];
+            }
+            else
+            {
+                object.referencePharmacyId = @"";
+            }
+            
+            [messageItemsArray addObject:object];
+        }
+        
+    }
+    return messageItemsArray;
+    
+}
+
 -(NSMutableArray *) parseAllEventItems :(id) response
 {
     NSMutableArray *EventItemsArray = [NSMutableArray new];
@@ -284,6 +348,15 @@
             else
             {
                 object.endTime = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"ref_events_pharmacy_id"] isKindOfClass:[NSString class]])
+            {
+                object.referencePharmacyId = [[tempArray objectAtIndex:i] valueForKey:@"ref_events_pharmacy_id"];
+            }
+            else
+            {
+                object.referencePharmacyId = @"";
             }
             
             [EventItemsArray addObject:object];

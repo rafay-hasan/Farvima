@@ -1,5 +1,5 @@
 //
-//  EventObject.h
+//  MessageObject.h
 //  Farvima
 //
 //  Created by Rafay Hasan on 12/3/17.
@@ -8,15 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface EventObject : NSObject
+@interface MessageObject : NSObject
 
 @property (strong,nonatomic) NSString *name;
 @property (strong,nonatomic) NSString *details;
-@property (strong,nonatomic) NSString *imageUel;
-@property (strong,nonatomic) NSString *location;
-@property (strong,nonatomic) NSString *locationDate;
-@property (strong,nonatomic) NSString *startTime;
-@property (strong,nonatomic) NSString *endTime;
+@property (strong,nonatomic) NSString *creationDate;
 @property (strong,nonatomic) NSString *referencePharmacyId;
 
 @end
