@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SearchPharmacyObject.h"
 
 @interface PharmacyListViewController : UIViewController
+
+@property (strong,nonatomic) NSArray *pharmacyArray;
 
 @end

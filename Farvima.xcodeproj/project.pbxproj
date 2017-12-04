@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		84A607F21FA3062300D7E3D7 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A607F11FA3062300D7E3D7 /* NewsViewController.m */; };
+		BB04CDA31FD5A2BF008A70DC /* SearchPharmacyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BB04CDA21FD5A2BF008A70DC /* SearchPharmacyObject.m */; };
 		BB0DEA371F9F9045009E8420 /* OfferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0DEA361F9F9045009E8420 /* OfferViewController.m */; };
 		BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0DEA391F9F9726009E8420 /* OfferTableViewCell.m */; };
 		BB1159021FA4B07F0052107A /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1159011FA4B07F0052107A /* EventViewController.m */; };
@@ -76,6 +77,8 @@
 		6AF49D719E96AB9AC74CE0B4 /* Pods-Farvima.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farvima.release.xcconfig"; path = "Pods/Target Support Files/Pods-Farvima/Pods-Farvima.release.xcconfig"; sourceTree = "<group>"; };
 		84A607F01FA3062300D7E3D7 /* NewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		84A607F11FA3062300D7E3D7 /* NewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		BB04CDA11FD5A2BF008A70DC /* SearchPharmacyObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPharmacyObject.h; sourceTree = "<group>"; };
+		BB04CDA21FD5A2BF008A70DC /* SearchPharmacyObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPharmacyObject.m; sourceTree = "<group>"; };
 		BB0DEA351F9F9045009E8420 /* OfferViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfferViewController.h; sourceTree = "<group>"; };
 		BB0DEA361F9F9045009E8420 /* OfferViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfferViewController.m; sourceTree = "<group>"; };
 		BB0DEA381F9F9726009E8420 /* OfferTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfferTableViewCell.h; sourceTree = "<group>"; };
@@ -228,6 +231,15 @@
 			path = News;
 			sourceTree = "<group>";
 		};
+		BB04CDA41FD5A2C4008A70DC /* SearchPharmacyObject */ = {
+			isa = PBXGroup;
+			children = (
+				BB04CDA11FD5A2BF008A70DC /* SearchPharmacyObject.h */,
+				BB04CDA21FD5A2BF008A70DC /* SearchPharmacyObject.m */,
+			);
+			path = SearchPharmacyObject;
+			sourceTree = "<group>";
+		};
 		BB0DEA341F9F902A009E8420 /* Offerete */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +308,7 @@
 			children = (
 				BB7C7FE71FD3CCC600515EBC /* RHWebServiceManager.h */,
 				BB7C7FE81FD3CCC600515EBC /* RHWebServiceManager.m */,
+				BB04CDA41FD5A2C4008A70DC /* SearchPharmacyObject */,
 				BBE5E7F41FD46DF40026DDB5 /* MessageObject */,
 				BBE5E7F01FD459040026DDB5 /* NewsObject */,
 				BBD52C051FD40F7200EC3A76 /* EventObject */,
@@ -743,6 +756,7 @@
 				BBD52C011FD409B400EC3A76 /* GalleryObject.m in Sources */,
 				BB5C96521FC45AC900126DC9 /* MainViewController.m in Sources */,
 				BBD52BF91FD3FA5700EC3A76 /* User Details.m in Sources */,
+				BB04CDA31FD5A2BF008A70DC /* SearchPharmacyObject.m in Sources */,
 				BBE31AB91FA5A2D700E07440 /* ProductSearchViewController.m in Sources */,
 				BB3425CF1FB209A8000FD88C /* EventDetailsViewController.m in Sources */,
 				BB16A7C41FA781C400AFA112 /* OrderDetailsTableViewCell.m in Sources */,

@@ -15,15 +15,15 @@
 #define Event_URL_API @"app_all_events_by_limit/"
 #define News_URL_API @"app_all_news_by_limit/"
 #define Message_URL_API @"app_message_list_by_app_user_id_limit/"
-
-
+#define PharmacySearch_URL_API @"app_pharmacy_search"
 
 enum {
     HTTPRequestypeUserDetails,
     HTTPRequestTypeGallery,
     HTTPRequestTypeEvents,
     HTTPRequestTypeNews,
-    HTTPRequestTypeMessage
+    HTTPRequestTypeMessage,
+    HTTPRequestTypePharmacySearch
 };
 typedef NSUInteger HTTPRequestType;
 

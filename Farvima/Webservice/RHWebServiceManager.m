@@ -11,6 +11,7 @@
 #import "EventObject.h"
 #import "NewsObject.h"
 #import "MessageObject.h"
+#import "SearchPharmacyObject.h"
 
 @implementation RHWebServiceManager
 
@@ -94,6 +95,14 @@
                 {
                     
                     [self.delegate dataFromWebReceivedSuccessfully:responseObject];
+                }
+            }
+            else if(self.requestType == HTTPRequestTypePharmacySearch)
+            {
+                if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
+                {
+                    
+                    [self.delegate dataFromWebReceivedSuccessfully:[self parseAllPharmacyItems:responseObject]];
                 }
             }
         }
@@ -366,5 +375,125 @@
     return EventItemsArray;
     
 }
+
+-(NSMutableArray *) parseAllPharmacyItems :(id) response
+{
+    NSMutableArray *pharmacyItemsArray = [NSMutableArray new];
+    
+    if([[response valueForKey:@"pharmacy"] isKindOfClass:[NSArray class]])
+    {
+        NSArray *tempArray = [(NSArray *)response valueForKey:@"pharmacy"];
+        
+        for(NSInteger i = 0; i < tempArray.count; i++)
+        {
+            SearchPharmacyObject *object = [SearchPharmacyObject new];
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"pharmacy_id"] isKindOfClass:[NSString class]])
+            {
+                object.pharmacyId = [[tempArray objectAtIndex:i] valueForKey:@"pharmacy_id"];
+            }
+            else
+            {
+                object.pharmacyId = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"ragione_sociale"] isKindOfClass:[NSString class]])
+            {
+                object.name = [[tempArray objectAtIndex:i] valueForKey:@"ragione_sociale"];
+            }
+            else
+            {
+                object.name = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"indirizzo"] isKindOfClass:[NSString class]])
+            {
+                object.addres = [[tempArray objectAtIndex:i] valueForKey:@"indirizzo"];
+            }
+            else
+            {
+                object.addres = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"cap"] isKindOfClass:[NSString class]])
+            {
+                object.postalCode = [[tempArray objectAtIndex:i] valueForKey:@"cap"];
+            }
+            else
+            {
+                object.postalCode = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"piva"] isKindOfClass:[NSString class]])
+            {
+                object.vatNumber = [[tempArray objectAtIndex:i] valueForKey:@"piva"];
+            }
+            else
+            {
+                object.vatNumber = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"citta"] isKindOfClass:[NSString class]])
+            {
+                object.city = [[tempArray objectAtIndex:i] valueForKey:@"citta"];
+            }
+            else
+            {
+                object.city = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"provincia"] isKindOfClass:[NSString class]])
+            {
+                object.state = [[tempArray objectAtIndex:i] valueForKey:@"provincia"];
+            }
+            else
+            {
+                object.state = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"latitudine"] isKindOfClass:[NSString class]])
+            {
+                object.latitude = [[tempArray objectAtIndex:i] valueForKey:@"latitudine"];
+            }
+            else
+            {
+                object.latitude = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"longitudine"] isKindOfClass:[NSString class]])
+            {
+                object.longlitude = [[tempArray objectAtIndex:i] valueForKey:@"longitudine"];
+            }
+            else
+            {
+                object.longlitude = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"telefono"] isKindOfClass:[NSString class]])
+            {
+                object.phone = [[tempArray objectAtIndex:i] valueForKey:@"telefono"];
+            }
+            else
+            {
+                object.phone = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"email"] isKindOfClass:[NSString class]])
+            {
+                object.email = [[tempArray objectAtIndex:i] valueForKey:@"email"];
+            }
+            else
+            {
+                object.email = @"";
+            }
+            
+            [pharmacyItemsArray addObject:object];
+        }
+        
+    }
+    return pharmacyItemsArray;
+    
+}
+
 
 @end

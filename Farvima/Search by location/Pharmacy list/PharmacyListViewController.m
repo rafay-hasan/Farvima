@@ -12,19 +12,18 @@
 #import "UIViewController+LGSideMenuController.h"
 #import "MainViewController.h"
 #import "FarmaciaHomeViewController.h"
-
+#import "SearchPharmacyObject.h"
 
 @interface PharmacyListViewController () <UITableViewDelegate,UITableViewDataSource,LGSideMenuControllerDelegate>
 
 @property (strong,nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
+@property (strong, nonatomic) SearchPharmacyObject *object;
+
 - (IBAction)associateButtonAction:(id)sender;
-
 @property (weak, nonatomic) IBOutlet UILabel *orientationHeaderLabel;
-
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)rightSlideMenuAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *pharmacyListTableview;
-
 @property (weak, nonatomic) IBOutlet UIView *mapContainerView;
 
 @end
@@ -34,6 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.object = [SearchPharmacyObject new];
     self.mapContainerView.hidden = YES;
     self.pharmacyListTableview.hidden = NO;
     [self resetSlideRightmenu];
@@ -70,7 +70,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 15;
+    return self.pharmacyArray.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -78,6 +78,11 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     PharmacyListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PharmacyListCell" forIndexPath:indexPath];
+    self.object = [self.pharmacyArray objectAtIndex:indexPath.section];
+    cell.pharmacyNameLabel.text = self.object.name;
+    cell.pharmacyAddressLabel.text = self.object.addres;
+    cell.pharmacyVarNumberLabel.text = [NSString stringWithFormat:@"Partia Iva: %@",self.object.vatNumber];
+    cell.pharmacyPhoneLabel.text = [NSString stringWithFormat:@"Tel: %@",self.object.phone];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

@@ -10,4 +10,11 @@
 
 @interface PharmacyListTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *pharmacyNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pharmacyAddressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pharmacyVarNumberLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pharmacyPhoneLabel;
+@property (weak, nonatomic) IBOutlet UILabel *openingHourTimeFrameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *associateButton;
+
 @end
