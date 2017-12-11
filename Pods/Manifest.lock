@@ -14,6 +14,7 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
+  - DXCustomCallout-ObjC (0.2.0)
   - IQKeyboardManager (4.0.8)
   - LGSideMenuController (2.0.5)
   - SDWebImage (4.0.0):
@@ -23,6 +24,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
+  - DXCustomCallout-ObjC
   - IQKeyboardManager
   - LGSideMenuController
   - SDWebImage (~> 4.0)
@@ -30,11 +32,12 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
+  DXCustomCallout-ObjC: fb223603ee148365de51c2d69bb10443943ff89b
   IQKeyboardManager: 1a8189fa153bf09044355ee0ad36826f6767e7f7
   LGSideMenuController: 3cc82025a53b672926d3ffb3f428f4f3e15e3349
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
-PODFILE CHECKSUM: c2909f05eebd4b788fa2f6ccf4d88d2d6c6aecba
+PODFILE CHECKSUM: f85ad968bb517be82ddf44e1083e2414959dab05
 
 COCOAPODS: 1.2.0

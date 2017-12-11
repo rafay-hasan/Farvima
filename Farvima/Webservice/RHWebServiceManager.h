@@ -16,6 +16,7 @@
 #define News_URL_API @"app_all_news_by_limit/"
 #define Message_URL_API @"app_message_list_by_app_user_id_limit/"
 #define PharmacySearch_URL_API @"app_pharmacy_search"
+#define ChiSiamo_URL_API @"app_farma_about_us"
 
 enum {
     HTTPRequestypeUserDetails,
@@ -23,7 +24,8 @@ enum {
     HTTPRequestTypeEvents,
     HTTPRequestTypeNews,
     HTTPRequestTypeMessage,
-    HTTPRequestTypePharmacySearch
+    HTTPRequestTypePharmacySearch,
+    HTTPRequestTypeChiSiamo
 };
 typedef NSUInteger HTTPRequestType;
 

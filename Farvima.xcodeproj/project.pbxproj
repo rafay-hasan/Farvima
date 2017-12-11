@@ -20,6 +20,7 @@
 		BB16A7C41FA781C400AFA112 /* OrderDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB16A7C31FA781C400AFA112 /* OrderDetailsTableViewCell.m */; };
 		BB16A7C61FA787AA00AFA112 /* OrderDetailsFooterSection.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB16A7C51FA787AA00AFA112 /* OrderDetailsFooterSection.xib */; };
 		BB16A7C91FA788BE00AFA112 /* OrderDetailsFooetrSection.m in Sources */ = {isa = PBXBuildFile; fileRef = BB16A7C81FA788BE00AFA112 /* OrderDetailsFooetrSection.m */; };
+		BB2188071FDEEC5900501E19 /* ChiSiamoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2188061FDEEC5900501E19 /* ChiSiamoViewController.m */; };
 		BB3425CF1FB209A8000FD88C /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3425CE1FB209A8000FD88C /* EventDetailsViewController.m */; };
 		BB5C964F1FC4511300126DC9 /* RightSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C964E1FC4511300126DC9 /* RightSideMenuViewController.m */; };
 		BB5C96521FC45AC900126DC9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C96511FC45AC900126DC9 /* MainViewController.m */; };
@@ -30,6 +31,7 @@
 		BB6446381FA5FD7F006F2B92 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6446371FA5FD7F006F2B92 /* SearchResultViewController.m */; };
 		BB64463B1FA6077B006F2B92 /* SearchResultCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB64463A1FA6077B006F2B92 /* SearchResultCollectionViewCell.m */; };
 		BB64463E1FA61D19006F2B92 /* SearchProductDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB64463D1FA61D19006F2B92 /* SearchProductDetailsViewController.m */; };
+		BB691A951FD8522B00D5A489 /* customCalloutView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB691A941FD8522B00D5A489 /* customCalloutView.xib */; };
 		BB7700DC1FA45E3200EA76D2 /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700DB1FA45E3200EA76D2 /* NewsTableViewCell.m */; };
 		BB7700EE1FA475D600EA76D2 /* NewsSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700ED1FA475D600EA76D2 /* NewsSectionHeader.m */; };
 		BB7700F01FA4762D00EA76D2 /* NewsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */; };
@@ -99,6 +101,8 @@
 		BB16A7C51FA787AA00AFA112 /* OrderDetailsFooterSection.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderDetailsFooterSection.xib; sourceTree = "<group>"; };
 		BB16A7C71FA788BE00AFA112 /* OrderDetailsFooetrSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OrderDetailsFooetrSection.h; sourceTree = "<group>"; };
 		BB16A7C81FA788BE00AFA112 /* OrderDetailsFooetrSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OrderDetailsFooetrSection.m; sourceTree = "<group>"; };
+		BB2188051FDEEC5900501E19 /* ChiSiamoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChiSiamoViewController.h; sourceTree = "<group>"; };
+		BB2188061FDEEC5900501E19 /* ChiSiamoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChiSiamoViewController.m; sourceTree = "<group>"; };
 		BB3425CD1FB209A8000FD88C /* EventDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
 		BB3425CE1FB209A8000FD88C /* EventDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
 		BB5C964D1FC4511300126DC9 /* RightSideMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RightSideMenuViewController.h; sourceTree = "<group>"; };
@@ -119,6 +123,8 @@
 		BB64463A1FA6077B006F2B92 /* SearchResultCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultCollectionViewCell.m; sourceTree = "<group>"; };
 		BB64463C1FA61D19006F2B92 /* SearchProductDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchProductDetailsViewController.h; sourceTree = "<group>"; };
 		BB64463D1FA61D19006F2B92 /* SearchProductDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchProductDetailsViewController.m; sourceTree = "<group>"; };
+		BB691A931FD84E5300D5A489 /* myView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = myView.xib; sourceTree = "<group>"; };
+		BB691A941FD8522B00D5A489 /* customCalloutView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = customCalloutView.xib; sourceTree = "<group>"; };
 		BB7700DA1FA45E3200EA76D2 /* NewsTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsTableViewCell.h; sourceTree = "<group>"; };
 		BB7700DB1FA45E3200EA76D2 /* NewsTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsTableViewCell.m; sourceTree = "<group>"; };
 		BB7700EC1FA475D600EA76D2 /* NewsSectionHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsSectionHeader.h; sourceTree = "<group>"; };
@@ -271,6 +277,15 @@
 				BB13E82B1F9CD78D00BDA4EB /* PharmaHomeViewController.m */,
 			);
 			path = "Pharma Home";
+			sourceTree = "<group>";
+		};
+		BB2188041FDEEC3A00501E19 /* Chi Siamo */ = {
+			isa = PBXGroup;
+			children = (
+				BB2188051FDEEC5900501E19 /* ChiSiamoViewController.h */,
+				BB2188061FDEEC5900501E19 /* ChiSiamoViewController.m */,
+			);
+			path = "Chi Siamo";
 			sourceTree = "<group>";
 		};
 		BB5C96491FC450A500126DC9 /* Slide Menu */ = {
@@ -546,6 +561,7 @@
 				BB5C96491FC450A500126DC9 /* Slide Menu */,
 				BBDC092A1F93B34900E5D9A2 /* Start up guide */,
 				BB13E8291F9CD77000BDA4EB /* Pharma Home */,
+				BB2188041FDEEC3A00501E19 /* Chi Siamo */,
 				BB877B191FC9B22F00E06020 /* Farmacia Home */,
 				BB6383481F9E502D007B56AF /* Galleria */,
 				BB0DEA341F9F902A009E8420 /* Offerete */,
@@ -558,6 +574,8 @@
 				BBC8860F1FC971C000D60612 /* Search by address */,
 				BBC886101FC9727A00D60612 /* Search by location */,
 				BBFD43CC1F93AABD00A7E265 /* Main.storyboard */,
+				BB691A931FD84E5300D5A489 /* myView.xib */,
+				BB691A941FD8522B00D5A489 /* customCalloutView.xib */,
 				BB16A7BD1FA77E7300AFA112 /* OrderDetailsHeaderSection.xib */,
 				BB16A7C51FA787AA00AFA112 /* OrderDetailsFooterSection.xib */,
 				BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */,
@@ -642,6 +660,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB691A951FD8522B00D5A489 /* customCalloutView.xib in Resources */,
 				BB16A7C61FA787AA00AFA112 /* OrderDetailsFooterSection.xib in Resources */,
 				BBFD43D31F93AABD00A7E265 /* LaunchScreen.storyboard in Resources */,
 				BB7700F01FA4762D00EA76D2 /* NewsHeader.xib in Resources */,
@@ -722,6 +741,7 @@
 				BBE5E7F31FD46DF00026DDB5 /* MessageObject.m in Sources */,
 				BBFD43C51F93AABD00A7E265 /* Farvima.xcdatamodeld in Sources */,
 				BB8A59881FC9610900468389 /* ChooseYourPharmacyViewController.m in Sources */,
+				BB2188071FDEEC5900501E19 /* ChiSiamoViewController.m in Sources */,
 				BB63834B1F9E504B007B56AF /* GallaryViewController.m in Sources */,
 				BB8A24B51FA4DD480070322E /* MessageSectionHeader.m in Sources */,
 				BB5C96581FC473C900126DC9 /* LeftMenuTableViewCell.m in Sources */,

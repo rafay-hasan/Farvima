@@ -13,8 +13,17 @@
 #import "MainViewController.h"
 #import "FarmaciaHomeViewController.h"
 #import "SearchPharmacyObject.h"
+#import <MapKit/MapKit.h>
+#import <DXAnnotationView.h>
+#import <DXAnnotationSettings.h>
 
-@interface PharmacyListViewController () <UITableViewDelegate,UITableViewDataSource,LGSideMenuControllerDelegate>
+@interface DXAnnotation : NSObject <MKAnnotation>
+
+@property(nonatomic, assign) CLLocationCoordinate2D coordinate;
+
+@end
+
+@interface PharmacyListViewController () <UITableViewDelegate,UITableViewDataSource,LGSideMenuControllerDelegate,MKMapViewDelegate>
 
 @property (strong,nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
 @property (strong, nonatomic) SearchPharmacyObject *object;
@@ -25,6 +34,8 @@
 - (IBAction)rightSlideMenuAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *pharmacyListTableview;
 @property (weak, nonatomic) IBOutlet UIView *mapContainerView;
+@property (weak, nonatomic) IBOutlet MKMapView *pharmacyMapView;
+
 
 @end
 
@@ -37,6 +48,8 @@
     self.mapContainerView.hidden = YES;
     self.pharmacyListTableview.hidden = NO;
     [self resetSlideRightmenu];
+    [self setMapLocation];
+    
 }
 
 -(void) viewDidAppear:(BOOL)animated {
@@ -56,6 +69,71 @@
     [self.slideMenuSharedManager.rightSideMenuArray addObject:@"VISTA MAPPA"];
     self.slideMenuSharedManager.isListSelected = YES;
     self.sideMenuController.delegate = self;
+}
+
+- (void) setMapLocation {
+    
+    for(SearchPharmacyObject *object in self.pharmacyArray) {
+        DXAnnotation *annotation = [DXAnnotation new];
+        annotation.coordinate = CLLocationCoordinate2DMake([object.latitude doubleValue], [object.longlitude doubleValue]);
+        [self.pharmacyMapView addAnnotation:annotation];
+    }
+    if(self.pharmacyArray.count > 0)
+    {
+        DXAnnotation *annotation = [DXAnnotation new];
+        SearchPharmacyObject *object = [self.pharmacyArray objectAtIndex:0];
+        annotation.coordinate = CLLocationCoordinate2DMake([object.latitude doubleValue], [object.longlitude doubleValue]);
+       // [self.pharmacyMapView setRegion:MKCoordinateRegionMakeWithDistance(annotation.coordinate, 10000, 10000)];
+        [self.pharmacyMapView setCenterCoordinate:annotation.coordinate animated:YES];
+        //[self.pharmacyMapView setZoomEnabled:YES];
+    }
+    
+}
+
+- (MKAnnotationView *)mapView:(MKMapView *)mapView
+            viewForAnnotation:(id<MKAnnotation>)annotation {
+    
+    if ([annotation isKindOfClass:[DXAnnotation class]]) {
+        
+        UIImageView *pinView = nil;
+        
+        UIView *calloutView = nil;
+        
+        DXAnnotationView *annotationView = (DXAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass([DXAnnotationView class])];
+        if (!annotationView) {
+            pinView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pin"]];
+            calloutView = [[[NSBundle mainBundle] loadNibNamed:@"customCalloutView" owner:self options:nil] firstObject];
+            
+            annotationView = [[DXAnnotationView alloc] initWithAnnotation:annotation
+                                                          reuseIdentifier:NSStringFromClass([DXAnnotationView class])
+                                                                  pinView:pinView
+                                                              calloutView:calloutView
+                                                                 settings:[DXAnnotationSettings defaultSettings]];
+        }else {
+            
+            //Changing PinView's image to test the recycle
+            //pinView = (UIImageView *)annotationView.pinView;
+            pinView.image = [UIImage imageNamed:@"car-blue-icon"];
+        }
+        
+        
+        return annotationView;
+    }
+    return nil;
+}
+
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
+    if ([view isKindOfClass:[DXAnnotationView class]]) {
+        [((DXAnnotationView *)view)hideCalloutView];
+        view.layer.zPosition = -1;
+    }
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
+    if ([view isKindOfClass:[DXAnnotationView class]]) {
+        [((DXAnnotationView *)view)showCalloutView];
+        view.layer.zPosition = 0;
+    }
 }
 
 /*
@@ -145,4 +223,11 @@
         
     }
 }
+
+
+
+@end
+
+@implementation DXAnnotation
+
 @end
