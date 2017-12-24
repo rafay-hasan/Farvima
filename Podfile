@@ -9,7 +9,7 @@ target 'Farvima' do
   pod 'AFNetworking', '~> 3.0'
   pod 'SVProgressHUD'
   pod 'SDWebImage', '~> 4.0'
-  pod "DXCustomCallout-ObjC"
+  #pod "DXCustomCallout-ObjC"
   # Pods for Farvima
 
 end

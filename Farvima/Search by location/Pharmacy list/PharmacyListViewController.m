@@ -14,8 +14,6 @@
 #import "FarmaciaHomeViewController.h"
 #import "SearchPharmacyObject.h"
 #import <MapKit/MapKit.h>
-#import <DXAnnotationView.h>
-#import <DXAnnotationSettings.h>
 
 @interface DXAnnotation : NSObject <MKAnnotation>
 
@@ -90,50 +88,43 @@
     
 }
 
-- (MKAnnotationView *)mapView:(MKMapView *)mapView
-            viewForAnnotation:(id<MKAnnotation>)annotation {
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
+    static NSString *identifier = @"MyAnnotationView";
     
-    if ([annotation isKindOfClass:[DXAnnotation class]]) {
-        
-        UIImageView *pinView = nil;
-        
-        UIView *calloutView = nil;
-        
-        DXAnnotationView *annotationView = (DXAnnotationView *)[mapView dequeueReusableAnnotationViewWithIdentifier:NSStringFromClass([DXAnnotationView class])];
-        if (!annotationView) {
-            pinView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"pin"]];
-            calloutView = [[[NSBundle mainBundle] loadNibNamed:@"customCalloutView" owner:self options:nil] firstObject];
-            
-            annotationView = [[DXAnnotationView alloc] initWithAnnotation:annotation
-                                                          reuseIdentifier:NSStringFromClass([DXAnnotationView class])
-                                                                  pinView:pinView
-                                                              calloutView:calloutView
-                                                                 settings:[DXAnnotationSettings defaultSettings]];
-        }else {
-            
-            //Changing PinView's image to test the recycle
-            //pinView = (UIImageView *)annotationView.pinView;
-            pinView.image = [UIImage imageNamed:@"car-blue-icon"];
-        }
-        
-        
-        return annotationView;
+    if ([annotation isKindOfClass:[MKUserLocation class]]) {
+        return nil;
     }
-    return nil;
-}
-
-- (void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view {
-    if ([view isKindOfClass:[DXAnnotationView class]]) {
-        [((DXAnnotationView *)view)hideCalloutView];
-        view.layer.zPosition = -1;
+    
+    MKPinAnnotationView *view = (id)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
+    if (view) {
+        view.annotation = annotation;
+    } else {
+        view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
+        view.canShowCallout = false;  // note, we're not going to use the system callout
+        view.animatesDrop = true;
     }
+    
+    return view;
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-    if ([view isKindOfClass:[DXAnnotationView class]]) {
-        [((DXAnnotationView *)view)showCalloutView];
-        view.layer.zPosition = 0;
-    }
+//    PopoverController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AnnotationPopover"];
+//    controller.modalPresentationStyle = UIModalPresentationPopover;
+//
+//    controller.popoverPresentationController.sourceView = view;
+//
+//    // adjust sourceRect so it's centered over the annotation
+//
+//    CGRect sourceRect = CGRectZero;
+//    sourceRect.origin.x += [mapView convertCoordinate:view.annotation.coordinate toPointToView:mapView].x - view.frame.origin.x;
+//    sourceRect.size.height = view.frame.size.height;
+//    controller.popoverPresentationController.sourceRect = sourceRect;
+//
+//    controller.annotation = view.annotation;
+//
+//    [self presentViewController:controller animated:TRUE completion:nil];
+//
+//    [mapView deselectAnnotation:view.annotation animated:true];  // deselect the annotation so that when we dismiss the popover, the annotation won't still be selected
 }
 
 /*
