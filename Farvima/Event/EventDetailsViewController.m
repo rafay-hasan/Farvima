@@ -109,7 +109,7 @@
     self.eventDetailsTextView.scrollEnabled = NO;
     CGSize sizeThatFitsTextView = [self.eventDetailsTextView sizeThatFits:CGSizeMake(self.eventDetailsTextView.frame.size.width, MAXFLOAT)];
     self.textViewHeight.constant = sizeThatFitsTextView.height;
-    self.containerViewHeightConstraint.constant = self.eventDetailsTextView.frame.origin.y + self.textViewHeight.constant + 32;
+    self.containerViewHeightConstraint.constant = self.eventDetailsTextView.frame.origin.y + self.textViewHeight.constant;
     [self.view layoutIfNeeded];
 }
 
