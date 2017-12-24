@@ -96,10 +96,11 @@
 }
 
 -(void) adjustLayoutForViewController {
+    [self.view layoutIfNeeded];
     self.aboutUsTextView.scrollEnabled = NO;
     CGSize sizeThatFitsTextView = [self.aboutUsTextView sizeThatFits:CGSizeMake(self.aboutUsTextView.frame.size.width, MAXFLOAT)];
     self.aboutUsTextViewHeight.constant = sizeThatFitsTextView.height;
-    self.scrollContainerHeight.constant = self.aboutUsTextView.frame.origin.y + self.aboutUsTextViewHeight.constant + 32;
+    self.scrollContainerHeight.constant = self.aboutUsTextView.frame.origin.y + self.aboutUsTextViewHeight.constant + 16;
     [self.view layoutIfNeeded];
 }
 
