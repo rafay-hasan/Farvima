@@ -40,12 +40,9 @@
     self.userManager = [User_Details sharedInstance];
     self.galleryObject = [GalleryObject new];
     self.gallaryArray = [NSMutableArray new];
-}
-
--(void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
     [self CallGalleryWebservice];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

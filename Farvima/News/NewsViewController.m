@@ -48,14 +48,9 @@
     self.newsTableView.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     UINib *newsHeaderXix = [UINib nibWithNibName:@"NewsHeader" bundle:nil];
     [self.newsTableView registerNib:newsHeaderXix forHeaderFooterViewReuseIdentifier:@"newsSectionHeader"];
+    [self CallNewsWebservice];
 }
 
--(void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if (self.newsArray.count == 0) {
-        [self CallNewsWebservice];
-    }
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

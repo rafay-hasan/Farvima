@@ -42,14 +42,9 @@
     self.userManager = [User_Details sharedInstance];
     self.messageObject = [MessageObject new];
     self.messageArray = [NSMutableArray new];
+    [self CallMessageWebservice];
 }
 
--(void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if (self.messageArray.count == 0) {
-        [self CallMessageWebservice];
-    }
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

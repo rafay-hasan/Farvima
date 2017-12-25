@@ -44,14 +44,9 @@
     self.userManager = [User_Details sharedInstance];
     self.eventObject = [EventObject new];
     self.eventsArray = [NSMutableArray new];
+    [self CallEventWebservice];
 }
 
--(void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if (self.eventsArray.count == 0) {
-        [self CallEventWebservice];
-    }
-}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
