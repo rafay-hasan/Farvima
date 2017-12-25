@@ -9,6 +9,7 @@
 #import "LeftSlideMenuViewController.h"
 #import "LeftMenuTableViewCell.h"
 #import "FarmVimaSlideMenuSingletone.h"
+#import "UIViewController+LGSideMenuController.h"
 
 @interface LeftSlideMenuViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -57,6 +58,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    [[self sideMenuController] hideLeftViewAnimated:NULL];
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     

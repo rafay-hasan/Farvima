@@ -19,6 +19,7 @@
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)productSearchButtonAction:(id)sender;
 - (IBAction)leftSliderButtonAction:(id)sender;
+- (IBAction)categoryLeftSlideButtonAction:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *productSearchCollectionView;
 - (IBAction)productOrientationButtonAction:(id)sender;
@@ -37,6 +38,19 @@
     [self resetSlideRightmenuForSearchResultPage];
 }
 
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+    self.sideMenuController.rightViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightMenu"];
+    self.sideMenuController.leftViewSwipeGestureEnabled = NO;
+    self.sideMenuController.rightViewSwipeGestureEnabled = YES;
+}
+
+-(void) viewDidDisappear:(BOOL)animated {
+    self.sideMenuController.leftViewSwipeGestureEnabled = YES;
+    self.sideMenuController.rightViewSwipeGestureEnabled = NO;
+    [self.slideMenuSharedManager createLeftGeneralSlideMenu];
+    self.sideMenuController.leftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenu"];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -60,7 +74,6 @@
     [self.slideMenuSharedManager.rightSideMenuArray addObject:@"VISTA GRIGLIA"];
     self.slideMenuSharedManager.isListSelected = YES;
     self.sideMenuController.delegate = self;
-    
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -154,7 +167,16 @@
 }
 
 - (IBAction)leftSliderButtonAction:(id)sender {
-     [[self sideMenuController] showLeftViewAnimated:sender];
+    [self.slideMenuSharedManager createLeftGeneralSlideMenu];
+    self.sideMenuController.leftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenu"];
+    [[self sideMenuController] showLeftViewAnimated:sender];
+}
+
+- (IBAction)categoryLeftSlideButtonAction:(id)sender {
+    [self.slideMenuSharedManager createLeftGeneralSPpelizedSlideMenu];
+    self.sideMenuController.leftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenu"];
+    [[self sideMenuController] showLeftViewAnimated:sender];
+    
 }
 - (void)didHideRightView:(nonnull UIView *)rightView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
     if (self.slideMenuSharedManager.isListSelected) {
@@ -167,7 +189,6 @@
     }
 }
 - (IBAction)productOrientationButtonAction:(id)sender {
-    self.sideMenuController.rightViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightMenu"];
     [self.sideMenuController showRightViewAnimated:YES completionHandler:nil];
 }
 @end

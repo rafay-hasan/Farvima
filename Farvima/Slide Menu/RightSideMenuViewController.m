@@ -9,6 +9,7 @@
 #import "RightSideMenuViewController.h"
 #import "RightMenuTableViewCell.h"
 #import "FarmVimaSlideMenuSingletone.h"
+#import "UIViewController+LGSideMenuController.h"
 
 @interface RightSideMenuViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -64,7 +65,7 @@
     else {
         self.slideMenuSharedManager.isListSelected = false;
     }
-    NSLog(@"%d",self.slideMenuSharedManager.isListSelected);
+    [[self sideMenuController] hideRightViewAnimated:NULL];
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     

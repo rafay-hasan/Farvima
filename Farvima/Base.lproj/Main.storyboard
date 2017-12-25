@@ -5992,6 +5992,9 @@
                                             </imageView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v99-SV-fpP">
                                                 <rect key="frame" x="0.0" y="0.0" width="58" height="38"/>
+                                                <connections>
+                                                    <action selector="categoryLeftSlideButtonAction:" destination="FLS-Tq-RUZ" eventType="touchUpInside" id="uVl-M7-BBv"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
