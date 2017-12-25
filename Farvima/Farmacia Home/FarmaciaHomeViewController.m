@@ -7,6 +7,7 @@
 //
 
 #import "FarmaciaHomeViewController.h"
+#import "UIViewController+LGSideMenuController.h"
 
 @interface FarmaciaHomeViewController ()
 
@@ -17,6 +18,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:YES];
+    self.sideMenuController.leftViewSwipeGestureEnabled = NO;
+    self.sideMenuController.rightViewSwipeGestureEnabled = NO;
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:YES];
+    self.sideMenuController.leftViewSwipeGestureEnabled = YES;
 }
 
 - (void)didReceiveMemoryWarning {

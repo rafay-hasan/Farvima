@@ -12,5 +12,6 @@
 @interface EventDetailsViewController : UIViewController
 
 @property (strong,nonatomic) EventObject *object;
+- (IBAction)leftMenuButtonAction:(id)sender;
 
 @end

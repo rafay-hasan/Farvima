@@ -9,6 +9,7 @@
 #import "OfferViewController.h"
 #import "MessageViewController.h"
 #import "NotificationViewController.h"
+#import "UIViewController+LGSideMenuController.h"
 
 @interface OfferViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -17,6 +18,7 @@
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)messageButtonAction:(id)sender;
 - (IBAction)notificationButtonAction:(id)sender;
+- (IBAction)showLeftMenuAction:(id)sender;
 
 @end
 
@@ -83,6 +85,10 @@
         [self.navigationController pushViewController:newView animated:YES];
         
     }
+}
+
+- (IBAction)showLeftMenuAction:(id)sender {
+    [[self sideMenuController] showLeftViewAnimated:sender];
 }
 -(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
     for (UIViewController *vc in self.navigationController.viewControllers) {

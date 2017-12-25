@@ -11,6 +11,7 @@
 #import "NotificationViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UILabel+FormattedText.h"
+#import "UIViewController+LGSideMenuController.h"
 
 @interface EventDetailsViewController ()
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewHeightConstraint;
@@ -145,5 +146,8 @@
         }
     }
     return NO;
+}
+- (IBAction)leftMenuButtonAction:(id)sender {
+     [[self sideMenuController] showLeftViewAnimated:sender];
 }
 @end

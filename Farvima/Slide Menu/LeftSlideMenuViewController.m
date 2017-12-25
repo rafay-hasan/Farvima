@@ -8,9 +8,11 @@
 
 #import "LeftSlideMenuViewController.h"
 #import "LeftMenuTableViewCell.h"
+#import "FarmVimaSlideMenuSingletone.h"
 
 @interface LeftSlideMenuViewController ()<UITableViewDelegate,UITableViewDataSource>
 
+@property (strong, nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
 @property (strong, nonatomic) NSArray *menuArray;
 
 @end
@@ -20,7 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.menuArray = [[NSArray alloc]initWithObjects:@"CATEGORIA 1", @"CATEGORIA 2", @"CATEGORIA 3", @"CATEGORIA 4", @"CATEGORIA 5",nil];
+    self.slideMenuSharedManager = [FarmVimaSlideMenuSingletone sharedManager];
+    self.menuArray = [[NSArray alloc]initWithArray:self.slideMenuSharedManager.leftSideMenuArray];
 }
 
 - (void)didReceiveMemoryWarning {

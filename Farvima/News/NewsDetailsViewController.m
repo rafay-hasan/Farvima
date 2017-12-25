@@ -10,6 +10,7 @@
 #import "MessageViewController.h"
 #import "NotificationViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
+#import "UIViewController+LGSideMenuController.h"
 
 @interface NewsDetailsViewController ()
 

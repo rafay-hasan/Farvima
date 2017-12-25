@@ -34,7 +34,6 @@
 - (void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:YES];
     self.sideMenuController.leftViewSwipeGestureEnabled = YES;
-    self.sideMenuController.rightViewSwipeGestureEnabled = YES;
 }
 
 - (void)didReceiveMemoryWarning {

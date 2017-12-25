@@ -8,9 +8,11 @@
 
 #import "PreBookIntroViewController.h"
 #import "User Details.h"
+#import "FarmVimaSlideMenuSingletone.h"
 
 @interface PreBookIntroViewController ()
 
+@property (strong, nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
 @property (strong,nonatomic) User_Details *userManager;
 - (IBAction)saltaButtonAction:(id)sender;
 
@@ -22,6 +24,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.userManager = [User_Details sharedInstance];
+    self.slideMenuSharedManager = [FarmVimaSlideMenuSingletone sharedManager];
+    [self.slideMenuSharedManager createLeftGeneralSlideMenu];
 }
 
 - (void)didReceiveMemoryWarning {

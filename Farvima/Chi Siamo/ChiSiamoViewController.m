@@ -10,12 +10,14 @@
 #import "RHWebServiceManager.h"
 #import "SVProgressHUD.h"
 #import "User Details.h"
+#import "UIViewController+LGSideMenuController.h"
 
 @interface ChiSiamoViewController ()<RHWebServiceDelegate>
 
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 
 - (IBAction)backButtonAction:(id)sender;
+- (IBAction)leftMenuButtonAction:(id)sender;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollContainerHeight;
 @property (weak, nonatomic) IBOutlet UITextView *aboutUsTextView;
@@ -55,6 +57,10 @@
 - (IBAction)backButtonAction:(id)sender {
     
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)leftMenuButtonAction:(id)sender {
+    [[self sideMenuController] showLeftViewAnimated:sender];
 }
 
 #pragma mark All Web service

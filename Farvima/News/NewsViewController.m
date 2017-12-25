@@ -17,7 +17,7 @@
 #import "NewsObject.h"
 #import "NewsDetailsViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
-
+#import "UIViewController+LGSideMenuController.h"
 
 @interface NewsViewController ()<UITableViewDataSource,UITableViewDelegate,RHWebServiceDelegate>
 
@@ -31,6 +31,7 @@
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)messageButtonAction:(id)sender;
 - (IBAction)notificationButtonAction:(id)sender;
+- (IBAction)leftMenuButtonAction:(id)sender;
 
 @end
 
@@ -149,6 +150,12 @@
         [self.navigationController pushViewController:newView animated:YES];
         
     }
+}
+
+- (IBAction)leftMenuButtonAction:(id)sender {
+    
+    [[self sideMenuController] showLeftViewAnimated:sender];
+    
 }
 -(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
     for (UIViewController *vc in self.navigationController.viewControllers) {

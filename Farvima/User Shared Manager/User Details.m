@@ -12,6 +12,7 @@
 #import "PharmaHomeViewController.h"
 #import "FarmaciaHomeViewController.h"
 
+
 @implementation User_Details
 
 + (User_Details *) sharedInstance
@@ -52,8 +53,8 @@
     mainViewController.rightViewController = [sb instantiateViewControllerWithIdentifier:@"rightMenu"];
     mainViewController.leftViewBackgroundColor = [UIColor whiteColor];
     mainViewController.rightViewBackgroundColor = [UIColor whiteColor];
-    mainViewController.leftViewWidth = 180.0;
-    mainViewController.rightViewWidth = 180.0;
+    mainViewController.leftViewWidth = 200.0;
+    mainViewController.rightViewWidth = 200.0;
     mainViewController.swipeGestureArea = LGSideMenuSwipeGestureAreaFull;
     mainViewController.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideAbove;
     mainViewController.rightViewPresentationStyle = LGSideMenuPresentationStyleSlideAbove;

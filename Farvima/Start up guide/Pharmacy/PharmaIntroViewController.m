@@ -8,9 +8,11 @@
 
 #import "PharmaIntroViewController.h"
 #import "User Details.h"
+#import "FarmVimaSlideMenuSingletone.h"
 
 @interface PharmaIntroViewController ()
 
+@property (strong, nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
 @property (strong,nonatomic) User_Details *userManager;
 - (IBAction)saltaButtonAction:(id)sender;
 
@@ -28,6 +30,8 @@
     self.navigationController.navigationBar.translucent = YES;
     self.navigationController.view.backgroundColor = [UIColor clearColor];
     self.userManager = [User_Details sharedInstance];
+    self.slideMenuSharedManager = [FarmVimaSlideMenuSingletone sharedManager];
+    [self.slideMenuSharedManager createLeftGeneralSlideMenu];
 }
 
 - (void)didReceiveMemoryWarning {

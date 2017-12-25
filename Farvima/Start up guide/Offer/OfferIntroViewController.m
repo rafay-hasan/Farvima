@@ -8,10 +8,13 @@
 
 #import "OfferIntroViewController.h"
 #import "User Details.h"
+#import "FarmVimaSlideMenuSingletone.h"
 
 @interface OfferIntroViewController ()
 
+@property (strong, nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
 @property (strong,nonatomic) User_Details *userManager;
+
 - (IBAction)saltaButtonAction:(id)sender;
 
 @end
@@ -22,6 +25,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.userManager = [User_Details sharedInstance];
+    self.slideMenuSharedManager = [FarmVimaSlideMenuSingletone sharedManager];
+    [self.slideMenuSharedManager createLeftGeneralSlideMenu];
 }
 
 - (void)didReceiveMemoryWarning {

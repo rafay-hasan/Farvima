@@ -25,7 +25,29 @@
     if (self = [super init]) {
         self.isListSelected = false;
         self.rightSideMenuArray = [NSMutableArray new];
+        self.leftSideMenuArray = [NSMutableArray new];
     }
     return self;
 }
+
+-(void) createLeftGeneralSlideMenu {
+    [self.leftSideMenuArray removeAllObjects];
+    [self.leftSideMenuArray addObject:@"FARMACIA"];
+    [self.leftSideMenuArray addObject:@"OFFERTE"];
+    [self.leftSideMenuArray addObject:@"NEWS"];
+    [self.leftSideMenuArray addObject:@"PRENOTA E RITIRA"];
+    [self.leftSideMenuArray addObject:@"EVENTI"];
+    [self.leftSideMenuArray addObject:@"GALERIA"];
+}
+
+-(void) createLeftGeneralSPpelizedSlideMenu {
+    [self.leftSideMenuArray removeAllObjects];
+    [self.leftSideMenuArray addObject:@"CATEGORIA 1"];
+    [self.leftSideMenuArray addObject:@"CATEGORIA 2"];
+    [self.leftSideMenuArray addObject:@"CATEGORIA 3"];
+    [self.leftSideMenuArray addObject:@"CATEGORIA 4"];
+    [self.leftSideMenuArray addObject:@"CATEGORIA 5"];
+    [self.leftSideMenuArray addObject:@"CATEGORIA 6"];
+}
+
 @end

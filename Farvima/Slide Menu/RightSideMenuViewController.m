@@ -25,7 +25,6 @@
     // Do any additional setup after loading the view.
     self.slideMenuSharedManager = [FarmVimaSlideMenuSingletone sharedManager];
     self.menuArray = [[NSArray alloc]initWithArray:self.slideMenuSharedManager.rightSideMenuArray];
-    NSLog(@"Menu array is %@",self.menuArray);
 }
 
 - (void)didReceiveMemoryWarning {

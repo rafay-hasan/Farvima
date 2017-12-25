@@ -32,8 +32,8 @@
     self.rightViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightMenu"];
     self.leftViewBackgroundColor = [UIColor whiteColor];
     self.rightViewBackgroundColor = [UIColor whiteColor];
-    self.leftViewWidth = 180.0;
-    self.rightViewWidth = 180.0;
+    self.leftViewWidth = 250.0;
+    self.rightViewWidth = 250.0;
     self.swipeGestureArea = LGSideMenuSwipeGestureAreaBorders;
     self.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideAbove;
     self.rightViewPresentationStyle = LGSideMenuPresentationStyleSlideAbove;
