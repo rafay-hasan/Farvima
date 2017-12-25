@@ -7,10 +7,12 @@
 //
 
 #import "ChooseYourPharmacyViewController.h"
+#import "UIViewController+LGSideMenuController.h"
 
 @interface ChooseYourPharmacyViewController ()
 
 - (IBAction)backButtonAction:(id)sender;
+- (IBAction)leftSlideButtonAction:(id)sender;
 
 
 @end
@@ -39,5 +41,9 @@
 
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)leftSlideButtonAction:(id)sender {
+     [[self sideMenuController] showLeftViewAnimated:sender];
 }
 @end
