@@ -14,6 +14,7 @@
 #import "SVProgressHUD.h"
 #import "User Details.h"
 #import "MessageObject.h"
+#import "UIViewController+LGSideMenuController.h"
 
 @interface MessageViewController ()<UITableViewDelegate,UITableViewDataSource,RHWebServiceDelegate>
 
@@ -24,6 +25,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *messageTableview;
 - (IBAction)notificationButtonAction:(id)sender;
+- (IBAction)leftSliderButtonAction:(id)sender;
 
 - (IBAction)backButtonAction:(id)sender;
 @end
@@ -72,6 +74,10 @@
         [self.navigationController pushViewController:newView animated:YES];
         
     }
+}
+
+- (IBAction)leftSliderButtonAction:(id)sender {
+    [[self sideMenuController] showLeftViewAnimated:sender];
 }
 
 - (IBAction)backButtonAction:(id)sender {

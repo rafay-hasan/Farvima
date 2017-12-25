@@ -7,11 +7,13 @@
 //
 
 #import "ProductSearchViewController.h"
+#import "UIViewController+LGSideMenuController.h"
 
 @interface ProductSearchViewController ()
 
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)searchButtonAction:(id)sender;
+- (IBAction)leftSliderButtonAction:(id)sender;
 
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollContainerViewHeight;
@@ -51,5 +53,9 @@
 
 - (IBAction)searchButtonAction:(id)sender {
     [self performSegueWithIdentifier:@"searchResult" sender:self];
+}
+
+- (IBAction)leftSliderButtonAction:(id)sender {
+     [[self sideMenuController] showLeftViewAnimated:sender];
 }
 @end

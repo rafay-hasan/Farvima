@@ -4302,6 +4302,9 @@
                                             <constraint firstAttribute="width" constant="30" id="VfA-xE-GSm"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="menu"/>
+                                        <connections>
+                                            <action selector="leftSliderButtonAction:" destination="Fg7-g2-slk" eventType="touchUpInside" id="Izr-ok-3ZQ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -4864,6 +4867,9 @@
                                             <constraint firstAttribute="height" constant="24" id="s9Y-fy-oua"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="menu"/>
+                                        <connections>
+                                            <action selector="leftSliderButtonAction:" destination="GLp-kw-7kk" eventType="touchUpInside" id="Dco-Wi-vfj"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -5078,6 +5084,9 @@
                                             <constraint firstAttribute="height" constant="24" id="XIN-cH-Twx"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="menu"/>
+                                        <connections>
+                                            <action selector="leftSliderButtonAction:" destination="Qdv-4B-48a" eventType="touchUpInside" id="PGJ-5B-njx"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -5355,6 +5364,9 @@
                                             <constraint firstAttribute="height" constant="24" id="xS5-Ho-Lld"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="menu"/>
+                                        <connections>
+                                            <action selector="leftSliderButtonAction:" destination="k25-eH-xpN" eventType="touchUpInside" id="FN8-Tz-o2Z"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -5945,6 +5957,9 @@
                                             <constraint firstAttribute="height" constant="24" id="dhq-ei-Y01"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="menu"/>
+                                        <connections>
+                                            <action selector="leftSliderButtonAction:" destination="FLS-Tq-RUZ" eventType="touchUpInside" id="p3J-7U-IH7"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -6509,6 +6524,9 @@
                                             <constraint firstAttribute="height" constant="24" id="UHe-zm-XZj"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="menu"/>
+                                        <connections>
+                                            <action selector="leftSliderButtonAction:" destination="mW7-Hi-Uek" eventType="touchUpInside" id="qhB-Kb-xny"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

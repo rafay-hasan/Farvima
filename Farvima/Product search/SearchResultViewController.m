@@ -18,6 +18,8 @@
 @property (strong, nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)productSearchButtonAction:(id)sender;
+- (IBAction)leftSliderButtonAction:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UICollectionView *productSearchCollectionView;
 - (IBAction)productOrientationButtonAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *searchResultTableview;
@@ -149,6 +151,10 @@
 
 - (IBAction)productSearchButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)leftSliderButtonAction:(id)sender {
+     [[self sideMenuController] showLeftViewAnimated:sender];
 }
 - (void)didHideRightView:(nonnull UIView *)rightView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
     if (self.slideMenuSharedManager.isListSelected) {

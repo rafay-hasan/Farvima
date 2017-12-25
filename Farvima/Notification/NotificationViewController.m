@@ -15,6 +15,7 @@
 
 - (IBAction)messageButtonAction:(id)sender;
 - (IBAction)backButtonAction:(id)sender;
+- (IBAction)leftSliderButtonAction:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UITableView *notificationTableview;
 
@@ -66,6 +67,10 @@
 }
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)leftSliderButtonAction:(id)sender {
+    [[self sideMenuController] showLeftViewAnimated:sender];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {

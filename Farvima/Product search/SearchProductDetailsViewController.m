@@ -7,11 +7,14 @@
 //
 
 #import "SearchProductDetailsViewController.h"
+#import "UIViewController+LGSideMenuController.h"
 
 @interface SearchProductDetailsViewController ()
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollviewContainerHeight;
 - (IBAction)backButtonAction:(id)sender;
+- (IBAction)leftSliderButtonAction:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UIButton *purchaseButton;
 
 @end
@@ -47,5 +50,9 @@
 
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)leftSliderButtonAction:(id)sender {
+     [[self sideMenuController] showLeftViewAnimated:sender];
 }
 @end
