@@ -926,17 +926,12 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Php-mj-ZYA">
                                 <rect key="frame" x="55" y="412" width="210" height="64"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ButtonBackground" translatesAutoresizingMaskIntoConstraints="NO" id="1ak-2E-h12">
-                                        <rect key="frame" x="0.0" y="0.0" width="210" height="64"/>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SCEGLI LA TUA FARMACIA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1MM-bZ-6qf">
-                                        <rect key="frame" x="8" y="8" width="194" height="48"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rhn-bm-jBk">
                                         <rect key="frame" x="0.0" y="0.0" width="210" height="64"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <state key="normal" title="SCEGLI LA TUA FARMACIA" backgroundImage="ButtonBackground">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
                                         <connections>
                                             <segue destination="z9V-U6-TQY" kind="show" id="Yrj-il-OvC"/>
                                         </connections>
@@ -945,18 +940,10 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="Rhn-bm-jBk" firstAttribute="top" secondItem="Php-mj-ZYA" secondAttribute="top" id="0UE-Fe-Abv"/>
-                                    <constraint firstItem="1ak-2E-h12" firstAttribute="top" secondItem="Php-mj-ZYA" secondAttribute="top" id="6OM-cV-FJW"/>
                                     <constraint firstAttribute="width" constant="210" id="Bm7-mt-XYq"/>
                                     <constraint firstItem="Rhn-bm-jBk" firstAttribute="leading" secondItem="Php-mj-ZYA" secondAttribute="leading" id="HaG-YW-ZFX"/>
-                                    <constraint firstAttribute="trailing" secondItem="1ak-2E-h12" secondAttribute="trailing" id="KCo-hG-aoa"/>
-                                    <constraint firstAttribute="bottom" secondItem="1ak-2E-h12" secondAttribute="bottom" id="MaO-hO-xyP"/>
-                                    <constraint firstAttribute="trailing" secondItem="1MM-bZ-6qf" secondAttribute="trailing" constant="8" id="Oqe-OU-Qfs"/>
-                                    <constraint firstItem="1MM-bZ-6qf" firstAttribute="leading" secondItem="Php-mj-ZYA" secondAttribute="leading" constant="8" id="Prk-rf-Qzw"/>
                                     <constraint firstAttribute="bottom" secondItem="Rhn-bm-jBk" secondAttribute="bottom" id="VfU-zJ-MBd"/>
                                     <constraint firstAttribute="trailing" secondItem="Rhn-bm-jBk" secondAttribute="trailing" id="bWW-LN-Zfr"/>
-                                    <constraint firstItem="1ak-2E-h12" firstAttribute="leading" secondItem="Php-mj-ZYA" secondAttribute="leading" id="cLa-8j-PWw"/>
-                                    <constraint firstItem="1MM-bZ-6qf" firstAttribute="top" secondItem="Php-mj-ZYA" secondAttribute="top" constant="8" id="gDC-qe-V2G"/>
-                                    <constraint firstAttribute="bottom" secondItem="1MM-bZ-6qf" secondAttribute="bottom" constant="8" id="hmR-ng-iHX"/>
                                     <constraint firstAttribute="height" constant="64" id="yPs-MR-T6e"/>
                                 </constraints>
                             </view>
@@ -7467,10 +7454,10 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5JS-qz-b9Y"/>
-        <segue reference="WBL-0b-eg5"/>
-        <segue reference="tH7-ES-EPC"/>
-        <segue reference="HPR-Yc-8af"/>
-        <segue reference="F3P-kJ-vsm"/>
-        <segue reference="GYY-bM-aMD"/>
+        <segue reference="Bs1-9W-LrI"/>
+        <segue reference="hjK-sH-UmP"/>
+        <segue reference="tEq-Jv-WBS"/>
+        <segue reference="WTa-E5-hQ1"/>
+        <segue reference="W1w-gw-WYd"/>
     </inferredMetricsTieBreakers>
 </document>
