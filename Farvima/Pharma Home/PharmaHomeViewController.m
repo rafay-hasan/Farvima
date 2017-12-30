@@ -57,7 +57,6 @@
         //push controller
         MessageViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"messaggi"];
         [self.navigationController pushViewController:newView animated:YES];
-        
     }
 }
 
