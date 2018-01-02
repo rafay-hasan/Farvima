@@ -16,7 +16,11 @@
 #import "GalleryObject.h"
 #import "GallaryCollectionViewCell.h"
 #import "UIViewController+LGSideMenuController.h"
-
+#import "OfferViewController.h"
+#import "NewsViewController.h"
+#import "ProductSearchViewController.h"
+#import "EventViewController.h"
+#import "ChiSiamoViewController.h"
 @interface GallaryViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,RHWebServiceDelegate>
 
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
@@ -41,6 +45,17 @@
     self.galleryObject = [GalleryObject new];
     self.gallaryArray = [NSMutableArray new];
     [self CallGalleryWebservice];
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
+}
+
+-(void) viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -209,6 +224,50 @@
     }
 }
 
+-(void) LeftSlideMenutriggerAction:(NSNotification *) notification {
+    NSDictionary *dict = notification.userInfo;
+    NSString *menuname = [dict valueForKey:@"currentlySelectedLeftSlideMenu"];
+    if ([menuname isEqualToString:@"OFFERTE"]) {
+        OfferViewController *vc = [OfferViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+            OfferViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"offerte"];
+            [self.navigationController pushViewController:newView animated:YES];
+            
+        }
+    }
+    else if ([menuname isEqualToString:@"NEWS"]) {
+        NewsViewController *vc = [NewsViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+            NewsViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"news"];
+            [self.navigationController pushViewController:newView animated:YES];
+            
+        }
+    }
+    else if ([menuname isEqualToString:@"PRENOTA E RITIRA"]) {
+        ProductSearchViewController *vc = [ProductSearchViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+            ProductSearchViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"productSearch"];
+            [self.navigationController pushViewController:newView animated:YES];
+            
+        }
+    }
+    else if ([menuname isEqualToString:@"EVENTI"]) {
+        EventViewController *vc = [EventViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+            EventViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"event"];
+            [self.navigationController pushViewController:newView animated:YES];
+            
+        }
+    }
+    else if ([menuname isEqualToString:@"CHI SIAMO"]) {
+        ChiSiamoViewController *vc = [ChiSiamoViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+            ChiSiamoViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"chi Siamo"];
+            [self.navigationController pushViewController:newView animated:YES];
+            
+        }
+    }
+}
 
 
 @end

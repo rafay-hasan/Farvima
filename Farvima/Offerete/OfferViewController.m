@@ -10,7 +10,11 @@
 #import "MessageViewController.h"
 #import "NotificationViewController.h"
 #import "UIViewController+LGSideMenuController.h"
-
+#import "GallaryViewController.h"
+#import "NewsViewController.h"
+#import "ProductSearchViewController.h"
+#import "EventViewController.h"
+#import "ChiSiamoViewController.h"
 @interface OfferViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UITableView *offerTableview;
@@ -29,6 +33,17 @@
     // Do any additional setup after loading the view.
     self.offerTableview.estimatedRowHeight = 90;
     self.offerTableview.rowHeight = UITableViewAutomaticDimension;
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
+}
+
+-(void) viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -100,5 +115,49 @@
     return NO;
 }
 
+-(void) LeftSlideMenutriggerAction:(NSNotification *) notification {
+    NSDictionary *dict = notification.userInfo;
+    NSString *menuname = [dict valueForKey:@"currentlySelectedLeftSlideMenu"];
+    if ([menuname isEqualToString:@"GALERIA"]) {
+        GallaryViewController *vc = [GallaryViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+            GallaryViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"galleria"];
+            [self.navigationController pushViewController:newView animated:YES];
+            
+        }
+    }
+    else if ([menuname isEqualToString:@"NEWS"]) {
+        NewsViewController *vc = [NewsViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+            NewsViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"news"];
+            [self.navigationController pushViewController:newView animated:YES];
+            
+        }
+    }
+    else if ([menuname isEqualToString:@"PRENOTA E RITIRA"]) {
+        ProductSearchViewController *vc = [ProductSearchViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+            ProductSearchViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"productSearch"];
+            [self.navigationController pushViewController:newView animated:YES];
+            
+        }
+    }
+    else if ([menuname isEqualToString:@"EVENTI"]) {
+        EventViewController *vc = [EventViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+            EventViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"event"];
+            [self.navigationController pushViewController:newView animated:YES];
+            
+        }
+    }
+    else if ([menuname isEqualToString:@"CHI SIAMO"]) {
+        ChiSiamoViewController *vc = [ChiSiamoViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+            ChiSiamoViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"chi Siamo"];
+            [self.navigationController pushViewController:newView animated:YES];
+            
+        }
+    }
+}
 
 @end

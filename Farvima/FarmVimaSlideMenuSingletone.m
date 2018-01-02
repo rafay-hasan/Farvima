@@ -7,7 +7,6 @@
 //
 
 #import "FarmVimaSlideMenuSingletone.h"
-
 @implementation FarmVimaSlideMenuSingletone
 
 #pragma mark Singleton Methods
@@ -32,7 +31,12 @@
 
 -(void) createLeftGeneralSlideMenu {
     [self.leftSideMenuArray removeAllObjects];
-    [self.leftSideMenuArray addObject:@"FARMACIA"];
+    if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"referenceAppUserPharmacyId"] isKindOfClass:[NSString class]]) {
+        [self.leftSideMenuArray addObject:@"FARMACIA"];
+    }
+    else {
+        [self.leftSideMenuArray addObject:@"CHI SIAMO"];
+    }
     [self.leftSideMenuArray addObject:@"OFFERTE"];
     [self.leftSideMenuArray addObject:@"NEWS"];
     [self.leftSideMenuArray addObject:@"PRENOTA E RITIRA"];

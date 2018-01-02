@@ -60,6 +60,8 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [[self sideMenuController] hideLeftViewAnimated:NULL];
+    NSDictionary *dict = [NSDictionary dictionaryWithObject:self.menuArray[indexPath.row] forKey:@"currentlySelectedLeftSlideMenu"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"leftSlideSelectedMenu" object:nil userInfo:dict];
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
