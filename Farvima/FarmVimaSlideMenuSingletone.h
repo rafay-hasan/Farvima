@@ -15,5 +15,5 @@
 @property (strong,nonatomic) NSMutableArray *leftSideMenuArray;
 + (id)sharedManager;
 -(void) createLeftGeneralSlideMenu;
--(void) createLeftGeneralSPpelizedSlideMenu;
+-(void) createLeftGeneralSPpelizedSlideMenuWithArray:(NSMutableArray *)menuArray;
 @end

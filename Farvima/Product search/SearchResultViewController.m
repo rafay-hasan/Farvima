@@ -12,10 +12,14 @@
 #import <LGSideMenuController/LGSideMenuController.h>
 #import "FarmVimaSlideMenuSingletone.h"
 #import "SearchResultTableViewCell.h"
+#import "RHWebServiceManager.h"
+#import "SVProgressHUD.h"
 
-@interface SearchResultViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, LGSideMenuControllerDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface SearchResultViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, LGSideMenuControllerDelegate, UITableViewDataSource, UITableViewDelegate,RHWebServiceDelegate>
 
 @property (strong, nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
+@property (strong,nonatomic) RHWebServiceManager *myWebService;
+@property (strong,nonatomic) NSMutableArray *categoryMenuArray;
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)productSearchButtonAction:(id)sender;
 - (IBAction)leftSliderButtonAction:(id)sender;
@@ -36,6 +40,8 @@
     self.searchResultTableview.hidden = NO;
     self.productSearchCollectionView.hidden = YES;
     [self resetSlideRightmenuForSearchResultPage];
+    self.categoryMenuArray = [NSMutableArray new];
+    [self CallSlideMenuCategoryWebservice];
 }
 
 - (void) viewDidAppear:(BOOL)animated {
@@ -158,6 +164,51 @@
     return 16.0;
 }
 
+#pragma mark All Web service
+
+-(void) CallSlideMenuCategoryWebservice
+{
+    [SVProgressHUD show];
+    self.view.userInteractionEnabled = NO;
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL_API,SideMenuCategories_URL_API];
+    self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeSlideMenuCategory Delegate:self];
+    [self.myWebService getDataFromWebURLWithUrlString:urlStr];
+    
+}
+
+-(void) dataFromWebReceivedSuccessfully:(id) responseObj
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    if(self.myWebService.requestType == HTTPRequestTypeSlideMenuCategory)
+    {
+        NSArray *tempArray = (NSArray *)responseObj;
+        NSSortDescriptor *sortDescriptor;
+        sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"posizione"
+                                                     ascending:YES];
+        NSArray *sortedArray = [tempArray sortedArrayUsingDescriptors:@[sortDescriptor]];
+        for (id object in sortedArray) {
+            [self.categoryMenuArray addObject:[object valueForKey:@"descrizione"]];
+        }
+    }
+}
+
+-(void) dataFromWebReceiptionFailed:(NSError*) error
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+
+
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
@@ -173,7 +224,7 @@
 }
 
 - (IBAction)categoryLeftSlideButtonAction:(id)sender {
-    [self.slideMenuSharedManager createLeftGeneralSPpelizedSlideMenu];
+    [self.slideMenuSharedManager createLeftGeneralSPpelizedSlideMenuWithArray:self.categoryMenuArray];
     self.sideMenuController.leftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenu"];
     [[self sideMenuController] showLeftViewAnimated:sender];
     
