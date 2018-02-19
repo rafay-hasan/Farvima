@@ -69,7 +69,7 @@
 
 -(void) CallUserDetailsWebserviceWithUDID:(NSString *)ID forDeviceToken:(NSString *)deviceToken
 {
-     NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:ID,@"device_unique_id",@"123456",@"device_push_token",nil];
+     NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:ID,@"device_unique_id",@"12345678",@"device_push_token",nil];
     [SVProgressHUD show];
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL_API,UserDetails_URL_API];
     self.myWebserviceManager = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestypeUserDetails Delegate:self];
@@ -91,7 +91,7 @@
             self.userManager.appUserId = [[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"];
         }
     }
-    
+    NSLog(@"id is %@",self.userManager.appUserId);
     if ([[responseObj valueForKey:@"app_user_pharmacy_id"] isKindOfClass:[NSString class]]) {
         self.userManager.pharmacyId = [responseObj valueForKey:@"app_user_pharmacy_id"];
         [[NSUserDefaults standardUserDefaults] setObject:[responseObj valueForKey:@"app_user_pharmacy_id"] forKey:@"pharmacyId"];
@@ -118,6 +118,7 @@
 
 -(void) dataFromWebReceiptionFailed:(NSError*) error
 {
+    //NSLog(@"id is %@",error.localizedDescription,error.debugDescription);
     [SVProgressHUD dismiss];
     if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"] isKindOfClass:[NSString class]]) {
         self.userManager.appUserId = [[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"];

@@ -835,7 +835,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SQk-21-GK3">
                                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="64"/>
                                                                 <connections>
-                                                                    <segue destination="GLp-kw-7kk" kind="show" id="Bs1-9W-LrI"/>
+                                                                    <segue destination="FLS-Tq-RUZ" kind="show" id="XMT-zX-fkm"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -1397,7 +1397,7 @@
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DGR-NT-m11">
                                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="64"/>
                                                                 <connections>
-                                                                    <segue destination="GLp-kw-7kk" kind="show" id="WBL-0b-eg5"/>
+                                                                    <segue destination="FLS-Tq-RUZ" kind="show" id="dP1-0X-XeF"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -5028,12 +5028,11 @@
                     <connections>
                         <outlet property="scrollContainerViewHeight" destination="jIA-h0-aF0" id="cPB-cD-QJK"/>
                         <outlet property="searchButton" destination="doJ-5Z-Ypv" id="98r-zo-dvd"/>
-                        <segue destination="FLS-Tq-RUZ" kind="show" identifier="searchResult" id="Yo1-9C-GEi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jjd-6y-GCb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3889.8550724637685" y="2259.7826086956525"/>
+            <point key="canvasLocation" x="4504" y="2260"/>
         </scene>
         <!--Message View Controller-->
         <scene sceneID="ch9-tI-XB0">
@@ -5109,16 +5108,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="MKu-qv-8sJ">
-                                                    <rect key="frame" x="16" y="8" width="288" height="43.5"/>
+                                                    <rect key="frame" x="0.0" y="8" width="0.0" height="43.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1f-5Z-EMu">
-                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ss2-R9-uQE">
-                                                            <rect key="frame" x="0.0" y="24" width="288" height="19.5"/>
+                                                            <rect key="frame" x="0.0" y="24" width="0.0" height="19.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -6201,6 +6200,10 @@
                                             <constraint firstItem="U7s-6V-8TJ" firstAttribute="leading" secondItem="VQK-uT-6s4" secondAttribute="leading" id="snF-5I-fC8"/>
                                         </constraints>
                                         <connections>
+                                            <outlet property="categoryImageview" destination="uRg-Kb-Hd2" id="cuU-b5-5GD"/>
+                                            <outlet property="nameLabel" destination="lRV-24-feg" id="HeD-jq-EC4"/>
+                                            <outlet property="priceLabel" destination="VkV-Za-Clm" id="QiW-eI-ag0"/>
+                                            <outlet property="productImageView" destination="Dvw-1E-wcI" id="ztn-G9-wTz"/>
                                             <segue destination="mW7-Hi-Uek" kind="show" id="rAi-yV-ak7"/>
                                         </connections>
                                     </collectionViewCell>
@@ -6222,15 +6225,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="288" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="productLogo" translatesAutoresizingMaskIntoConstraints="NO" id="QlY-8g-zU2">
-                                                    <rect key="frame" x="0.0" y="0.0" width="78" height="80"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="productLogo" translatesAutoresizingMaskIntoConstraints="NO" id="QlY-8g-zU2">
+                                                    <rect key="frame" x="0.0" y="2" width="78" height="80"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="78" id="N43-5b-0ye"/>
                                                         <constraint firstAttribute="height" constant="80" id="i4v-EQ-4pp"/>
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="E5b-q1-ZKZ">
-                                                    <rect key="frame" x="86" y="8" width="194" height="63.5"/>
+                                                    <rect key="frame" x="86" y="8" width="194" height="43"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prodotto 1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NjJ-C0-n0S">
                                                             <rect key="frame" x="0.0" y="0.0" width="194" height="18"/>
@@ -6239,7 +6242,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7vQ-2I-hUq">
-                                                            <rect key="frame" x="0.0" y="42.5" width="194" height="21"/>
+                                                            <rect key="frame" x="0.0" y="22" width="194" height="21"/>
                                                             <subviews>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="IaR-xJ-zgn">
                                                                     <rect key="frame" x="0.0" y="0.0" width="165" height="21"/>
@@ -6261,7 +6264,7 @@
                                                                         </label>
                                                                     </subviews>
                                                                 </stackView>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farma logo" translatesAutoresizingMaskIntoConstraints="NO" id="YOe-yC-kbJ">
+                                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farmacia logo" translatesAutoresizingMaskIntoConstraints="NO" id="YOe-yC-kbJ">
                                                                     <rect key="frame" x="173" y="0.0" width="21" height="21"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" constant="21" id="AWn-pR-sSn"/>
@@ -6274,16 +6277,20 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="QlY-8g-zU2" firstAttribute="top" secondItem="I4Q-yG-0MR" secondAttribute="top" id="1VD-0Y-tXI"/>
+                                                <constraint firstItem="QlY-8g-zU2" firstAttribute="top" secondItem="I4Q-yG-0MR" secondAttribute="top" constant="2" id="1VD-0Y-tXI"/>
                                                 <constraint firstAttribute="bottom" secondItem="E5b-q1-ZKZ" secondAttribute="bottom" constant="8" id="AdP-I8-PAt"/>
                                                 <constraint firstItem="E5b-q1-ZKZ" firstAttribute="leading" secondItem="QlY-8g-zU2" secondAttribute="trailing" constant="8" id="Ch5-PE-rGr"/>
                                                 <constraint firstAttribute="trailing" secondItem="E5b-q1-ZKZ" secondAttribute="trailing" constant="8" id="E1t-2u-CEU"/>
                                                 <constraint firstItem="QlY-8g-zU2" firstAttribute="leading" secondItem="I4Q-yG-0MR" secondAttribute="leading" id="JXa-LD-XtI"/>
-                                                <constraint firstAttribute="bottom" secondItem="QlY-8g-zU2" secondAttribute="bottom" id="KiZ-Vk-t1X"/>
+                                                <constraint firstAttribute="bottom" secondItem="QlY-8g-zU2" secondAttribute="bottom" constant="2" id="KiZ-Vk-t1X"/>
                                                 <constraint firstItem="E5b-q1-ZKZ" firstAttribute="top" secondItem="I4Q-yG-0MR" secondAttribute="top" constant="8" id="Osl-Uh-62J"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="categoryTypeImage" destination="YOe-yC-kbJ" id="uzM-8D-Lxu"/>
+                                            <outlet property="productImageView" destination="QlY-8g-zU2" id="Ke5-5Z-Pqk"/>
+                                            <outlet property="productNameLabel" destination="NjJ-C0-n0S" id="ZqJ-2w-Wel"/>
+                                            <outlet property="productPriceLabel" destination="kCC-jR-Qcp" id="XZV-tz-onV"/>
                                             <segue destination="mW7-Hi-Uek" kind="show" id="5JS-qz-b9Y"/>
                                         </connections>
                                     </tableViewCell>
@@ -6476,7 +6483,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lj2-bo-d1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3888.75" y="3050.7042253521126"/>
+            <point key="canvasLocation" x="3789" y="2260"/>
         </scene>
         <!--Search Product Details View Controller-->
         <scene sceneID="rHY-r0-T1c">
@@ -7447,6 +7454,7 @@
         <image name="eventPhoto" width="388" height="275"/>
         <image name="farma logo" width="48" height="48"/>
         <image name="farmaLogo" width="280" height="76"/>
+        <image name="farmacia logo" width="47" height="47"/>
         <image name="leftMenuIndicator" width="10" height="16"/>
         <image name="menu" width="29" height="24"/>
         <image name="news Photo" width="413" height="413"/>
@@ -7463,10 +7471,10 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5JS-qz-b9Y"/>
-        <segue reference="Bs1-9W-LrI"/>
-        <segue reference="tH7-ES-EPC"/>
-        <segue reference="HPR-Yc-8af"/>
-        <segue reference="F3P-kJ-vsm"/>
-        <segue reference="GYY-bM-aMD"/>
+        <segue reference="XMT-zX-fkm"/>
+        <segue reference="hjK-sH-UmP"/>
+        <segue reference="tEq-Jv-WBS"/>
+        <segue reference="WTa-E5-hQ1"/>
+        <segue reference="W1w-gw-WYd"/>
     </inferredMetricsTieBreakers>
 </document>

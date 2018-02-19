@@ -14,12 +14,18 @@
 #import "SearchResultTableViewCell.h"
 #import "RHWebServiceManager.h"
 #import "SVProgressHUD.h"
+#import "User Details.h"
+#import "AllProductObject.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface SearchResultViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, LGSideMenuControllerDelegate, UITableViewDataSource, UITableViewDelegate,RHWebServiceDelegate>
 
 @property (strong, nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 @property (strong,nonatomic) NSMutableArray *categoryMenuArray;
+@property (strong,nonatomic) NSMutableArray *productsArray;
+@property (strong,nonatomic) User_Details *userManager;
+@property (strong,nonatomic) AllProductObject *productObject;
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)productSearchButtonAction:(id)sender;
 - (IBAction)leftSliderButtonAction:(id)sender;
@@ -37,6 +43,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.userManager = [User_Details sharedInstance];
+    self.productObject = [AllProductObject new];
+    self.productsArray = [NSMutableArray new];
+    
     self.searchResultTableview.hidden = NO;
     self.productSearchCollectionView.hidden = YES;
     [self resetSlideRightmenuForSearchResultPage];
@@ -84,7 +95,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 15;
+    return self.productsArray.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -92,6 +103,37 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SearchResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchResultCell" forIndexPath:indexPath];
+    self.productObject = [self.productsArray objectAtIndex:indexPath.row];
+    NSLog(@"%@",self.productObject.imageUel);
+    if (self.productObject.imageUel.length > 0) {
+        [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:self.productObject.imageUel]
+                               placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    }
+    else {
+        cell.productImageView.image = nil;
+    }
+    
+    if (self.productObject.name.length > 0) {
+        cell.productNameLabel.text = self.productObject.name;
+    }
+    else {
+        cell.productNameLabel.text = nil;
+    }
+    
+    if (self.productObject.price.length > 0) {
+        cell.productPriceLabel.text = self.productObject.price;
+    }
+    else {
+        cell.productPriceLabel.text = nil;
+    }
+    
+    if([self.productObject.pharmacyCategoryType isEqualToString:@"farmacia logo"]) {
+        cell.categoryTypeImage.image = [UIImage imageNamed:@"farmacia logo"];
+    }
+    else {
+        cell.categoryTypeImage.image = [UIImage imageNamed:@"farma logo"];
+    }
+    
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -118,11 +160,41 @@
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 15;
+    return self.productsArray.count;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     SearchResultCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchResultCell" forIndexPath:indexPath];
+    self.productObject = [self.productsArray objectAtIndex:indexPath.row];
+    NSLog(@"%@",self.productObject.imageUel);
+    if (self.productObject.imageUel.length > 0) {
+        [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:self.productObject.imageUel]
+                                 placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    }
+    else {
+        cell.productImageView.image = nil;
+    }
+    
+    if (self.productObject.name.length > 0) {
+        cell.nameLabel.text = self.productObject.name;
+    }
+    else {
+        cell.nameLabel.text = nil;
+    }
+    
+    if (self.productObject.price.length > 0) {
+        cell.priceLabel.text = self.productObject.price;
+    }
+    else {
+        cell.priceLabel.text = nil;
+    }
+    
+    if([self.productObject.pharmacyCategoryType isEqualToString:@"farmacia logo"]) {
+        cell.categoryImageview.image = [UIImage imageNamed:@"farmacia logo"];
+    }
+    else {
+        cell.categoryImageview.image = [UIImage imageNamed:@"farma logo"];
+    }
     cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
@@ -166,6 +238,17 @@
 
 #pragma mark All Web service
 
+-(void) CallAllProductsWebservice
+{
+    [SVProgressHUD show];
+    self.view.userInteractionEnabled = NO;
+    NSString *startingLimit = [NSString stringWithFormat:@"%li",self.productsArray.count];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,AllProducts_URL_API,self.userManager.appUserId,startingLimit];
+    self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeAllProducts Delegate:self];
+    [self.myWebService getDataFromWebURLWithUrlString:urlStr];
+    
+}
+
 -(void) CallSlideMenuCategoryWebservice
 {
     [SVProgressHUD show];
@@ -190,21 +273,32 @@
         for (id object in sortedArray) {
             [self.categoryMenuArray addObject:[object valueForKey:@"descrizione"]];
         }
+        [self CallAllProductsWebservice];
+    }
+    else {
+        [self.productsArray addObjectsFromArray:(NSArray *)responseObj];
+        [self.searchResultTableview reloadData];
+        [self.productSearchCollectionView reloadData];
     }
 }
 
 -(void) dataFromWebReceiptionFailed:(NSError*) error
 {
-    [SVProgressHUD dismiss];
-    self.view.userInteractionEnabled = YES;
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        
-        
-        [alert dismissViewControllerAnimated:YES completion:nil];
-    }];
-    [alert addAction:ok];
-    [self presentViewController:alert animated:YES completion:nil];
+    if (self.myWebService.requestType == HTTPRequestTypeSlideMenuCategory) {
+        [self CallAllProductsWebservice];
+    }
+    else {
+        [SVProgressHUD dismiss];
+        self.view.userInteractionEnabled = YES;
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            
+            [alert dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
 }
 
 
@@ -242,4 +336,16 @@
 - (IBAction)productOrientationButtonAction:(id)sender {
     [self.sideMenuController showRightViewAnimated:YES completionHandler:nil];
 }
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    
+    NSInteger currentOffset = scrollView.contentOffset.y;
+    NSInteger maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+    if (maximumOffset - currentOffset <= -40) {
+        
+        [self CallAllProductsWebservice];
+        
+    }
+}
+
 @end

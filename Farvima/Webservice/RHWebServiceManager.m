@@ -12,6 +12,7 @@
 #import "NewsObject.h"
 #import "MessageObject.h"
 #import "SearchPharmacyObject.h"
+#import "AllProductObject.h"
 
 @implementation RHWebServiceManager
 
@@ -62,6 +63,13 @@
                 if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
                 {
                     [self.delegate dataFromWebReceivedSuccessfully:[self parseAllMessageItems:responseObject]];
+                }
+            }
+            else if(self.requestType == HTTPRequestTypeAllProducts)
+            {
+                if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
+                {
+                    [self.delegate dataFromWebReceivedSuccessfully:[self parseAllProducts:responseObject]];
                 }
             }
             else {
@@ -231,6 +239,72 @@
         
     }
     return newsItemsArray;
+    
+}
+
+-(NSMutableArray *) parseAllProducts :(id) response
+{
+    NSMutableArray *productItemsArray = [NSMutableArray new];
+    
+    if([[response valueForKey:@"product"] isKindOfClass:[NSArray class]])
+    {
+        NSArray *tempArray = [(NSArray *)response valueForKey:@"product"];
+        
+        for(NSInteger i = 0; i < tempArray.count; i++)
+        {
+            AllProductObject *object = [AllProductObject new];
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"descrizione_ricerca"] isKindOfClass:[NSString class]])
+            {
+                object.name = [[tempArray objectAtIndex:i] valueForKey:@"descrizione_ricerca"];
+            }
+            else
+            {
+                object.name = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"descrizione_ricerca"] isKindOfClass:[NSString class]])
+            {
+                object.details = [[tempArray objectAtIndex:i] valueForKey:@"descrizione_ricerca"];
+            }
+            else
+            {
+                object.details = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"prezzo_web_lordo"] isKindOfClass:[NSString class]])
+            {
+                object.price = [[tempArray objectAtIndex:i] valueForKey:@"prezzo_web_lordo"];
+            }
+            else
+            {
+                object.price = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"linkImmagineProdotto"] isKindOfClass:[NSString class]])
+            {
+                object.imageUel = [[tempArray objectAtIndex:i] valueForKey:@"linkImmagineProdotto"];
+                object.imageUel = [object.imageUel stringByReplacingOccurrencesOfString:@"&minsan=973729775" withString:@""];
+            }
+            else
+            {
+                object.imageUel = @"";
+            }
+            
+            if((([[[tempArray objectAtIndex:i] valueForKey:@"product_from_json"] isKindOfClass:[NSString class]]) && [[[tempArray objectAtIndex:i] valueForKey:@"product_from_json"]  isEqual: @"1"]) || ([[[tempArray objectAtIndex:i] valueForKey:@"product_new_ref_pharmacy_id"] isKindOfClass:[NSNull class]]) || ([[[tempArray objectAtIndex:i] valueForKey:@"ref_product_free_text_pharmacy_id"] isKindOfClass:[NSNull class]]))
+            {
+                object.pharmacyCategoryType = @"farma logo";
+            }
+            else
+            {
+                object.pharmacyCategoryType = @"farmacia logo";
+            }
+            
+            [productItemsArray addObject:object];
+        }
+        
+    }
+    return productItemsArray;
     
 }
 
