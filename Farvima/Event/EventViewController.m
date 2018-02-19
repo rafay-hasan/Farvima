@@ -214,7 +214,6 @@
     NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,Event_URL_API,self.userManager.appUserId,startingLimit];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeEvents Delegate:self];
     [self.myWebService getDataFromWebURLWithUrlString:urlStr];
-    
 }
 
 -(void) dataFromWebReceivedSuccessfully:(id) responseObj
