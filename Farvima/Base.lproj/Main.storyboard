@@ -1242,7 +1242,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="64"/>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NewsIntro" translatesAutoresizingMaskIntoConstraints="NO" id="QvJ-9J-Jhq">
-                                                                <rect key="frame" x="50" y="8" width="37" height="33"/>
+                                                                <rect key="frame" x="49.5" y="8" width="37" height="33"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="33" id="Re2-Sk-ubw"/>
                                                                     <constraint firstAttribute="width" constant="37" id="z7U-or-jmn"/>
@@ -1287,7 +1287,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="64"/>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="EventIntro" translatesAutoresizingMaskIntoConstraints="NO" id="ngH-Ys-cn6">
-                                                                <rect key="frame" x="52" y="8" width="33" height="33"/>
+                                                                <rect key="frame" x="51.5" y="8" width="33" height="33"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="33" id="wdG-ZI-vJ1"/>
                                                                     <constraint firstAttribute="height" constant="33" id="xGo-9i-f6a"/>
@@ -1337,7 +1337,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="64"/>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="OffetIntroIcon" translatesAutoresizingMaskIntoConstraints="NO" id="b73-oR-uSf">
-                                                                <rect key="frame" x="53" y="8" width="31" height="32"/>
+                                                                <rect key="frame" x="52.5" y="8" width="31" height="32"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="31" id="5gD-9j-Pny"/>
                                                                     <constraint firstAttribute="height" constant="32" id="bjD-oZ-YE6"/>
@@ -1382,7 +1382,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="64"/>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookIntroIcon" translatesAutoresizingMaskIntoConstraints="NO" id="qEH-kV-crM">
-                                                                <rect key="frame" x="52" y="8" width="33" height="33"/>
+                                                                <rect key="frame" x="51.5" y="8" width="33" height="33"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="33" id="2L0-qk-Fqb"/>
                                                                     <constraint firstAttribute="width" constant="33" id="xnn-bg-ji7"/>
@@ -1427,7 +1427,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="64"/>
                                                             </imageView>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Galleria" translatesAutoresizingMaskIntoConstraints="NO" id="xV4-zI-0fY">
-                                                                <rect key="frame" x="53" y="8" width="31" height="33"/>
+                                                                <rect key="frame" x="52.5" y="8" width="31" height="33"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="31" id="6Wm-Xg-WbR"/>
                                                                     <constraint firstAttribute="height" constant="33" id="jov-i7-vk6"/>
@@ -1472,10 +1472,12 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="4BZ-Dd-hQv" firstAttribute="top" secondItem="57P-Ma-4ow" secondAttribute="top" id="311-F9-3pg"/>
-                                    <constraint firstItem="4BZ-Dd-hQv" firstAttribute="leading" secondItem="57P-Ma-4ow" secondAttribute="leading" id="GlS-KP-Bqd"/>
-                                    <constraint firstAttribute="trailing" secondItem="4BZ-Dd-hQv" secondAttribute="trailing" id="WOR-JY-zoD"/>
-                                    <constraint firstAttribute="bottom" secondItem="4BZ-Dd-hQv" secondAttribute="bottom" id="lJJ-da-21s"/>
+                                    <constraint firstAttribute="bottom" secondItem="4BZ-Dd-hQv" secondAttribute="bottom" id="5rp-9c-ge1"/>
+                                    <constraint firstItem="4BZ-Dd-hQv" firstAttribute="leading" secondItem="57P-Ma-4ow" secondAttribute="leading" id="Bg9-BV-zuk"/>
+                                    <constraint firstAttribute="trailing" secondItem="4BZ-Dd-hQv" secondAttribute="trailing" id="JZK-3h-Dtp"/>
+                                    <constraint firstItem="4BZ-Dd-hQv" firstAttribute="centerY" secondItem="57P-Ma-4ow" secondAttribute="centerY" id="b9F-74-Aay"/>
+                                    <constraint firstItem="4BZ-Dd-hQv" firstAttribute="top" secondItem="57P-Ma-4ow" secondAttribute="top" id="kTi-ql-Ix6"/>
+                                    <constraint firstItem="4BZ-Dd-hQv" firstAttribute="centerX" secondItem="57P-Ma-4ow" secondAttribute="centerX" id="udX-xm-7dh"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ftZ-sv-Jm6">
@@ -5913,7 +5915,7 @@
         <!--Search Result View Controller-->
         <scene sceneID="FHx-XA-WSz">
             <objects>
-                <viewController id="FLS-Tq-RUZ" customClass="SearchResultViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AllProducts" id="FLS-Tq-RUZ" customClass="SearchResultViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9U1-OV-zBa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -7476,10 +7478,10 @@
         <image name="viewIcon" width="29" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XMT-zX-fkm"/>
-        <segue reference="hjK-sH-UmP"/>
-        <segue reference="tEq-Jv-WBS"/>
-        <segue reference="WTa-E5-hQ1"/>
-        <segue reference="W1w-gw-WYd"/>
+        <segue reference="dP1-0X-XeF"/>
+        <segue reference="tH7-ES-EPC"/>
+        <segue reference="HPR-Yc-8af"/>
+        <segue reference="F3P-kJ-vsm"/>
+        <segue reference="GYY-bM-aMD"/>
     </inferredMetricsTieBreakers>
 </document>

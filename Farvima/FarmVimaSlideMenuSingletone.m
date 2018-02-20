@@ -7,6 +7,7 @@
 //
 
 #import "FarmVimaSlideMenuSingletone.h"
+#import "User Details.h"
 @implementation FarmVimaSlideMenuSingletone
 
 #pragma mark Singleton Methods
@@ -31,7 +32,7 @@
 
 -(void) createLeftGeneralSlideMenu {
     [self.leftSideMenuArray removeAllObjects];
-    if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"referenceAppUserPharmacyId"] isKindOfClass:[NSString class]]) {
+    if ([User_Details sharedInstance].referenceAppUserPharmacyId.length > 0) {
         [self.leftSideMenuArray addObject:@"FARMACIA"];
     }
     else {

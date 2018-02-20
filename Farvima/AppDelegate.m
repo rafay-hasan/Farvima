@@ -69,7 +69,7 @@
 
 -(void) CallUserDetailsWebserviceWithUDID:(NSString *)ID forDeviceToken:(NSString *)deviceToken
 {
-     NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:ID,@"device_unique_id",@"12345678",@"device_push_token",nil];
+     NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:@"4323",@"device_unique_id",@"53456689",@"device_push_token",nil];
     [SVProgressHUD show];
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL_API,UserDetails_URL_API];
     self.myWebserviceManager = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestypeUserDetails Delegate:self];
@@ -91,16 +91,16 @@
             self.userManager.appUserId = [[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"];
         }
     }
-    NSLog(@"id is %@",self.userManager.appUserId);
+    
     if ([[responseObj valueForKey:@"app_user_pharmacy_id"] isKindOfClass:[NSString class]]) {
         self.userManager.pharmacyId = [responseObj valueForKey:@"app_user_pharmacy_id"];
         [[NSUserDefaults standardUserDefaults] setObject:[responseObj valueForKey:@"app_user_pharmacy_id"] forKey:@"pharmacyId"];
     }
     else {
-        self.userManager.pharmacyId = @"";
-        if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"app_user_pharmacy_id"] isKindOfClass:[NSString class]]) {
-            self.userManager.pharmacyId = [[NSUserDefaults standardUserDefaults] valueForKey:@"app_user_pharmacy_id"];
-        }
+        self.userManager.pharmacyId = nil;
+//        if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"app_user_pharmacy_id"] isKindOfClass:[NSString class]]) {
+//            self.userManager.pharmacyId = [[NSUserDefaults standardUserDefaults] valueForKey:@"app_user_pharmacy_id"];
+//        }
     }
     
     if ([[responseObj valueForKey:@"ref_app_user_pharmacy_pharmacy_id"] isKindOfClass:[NSString class]]) {
@@ -108,27 +108,27 @@
         [[NSUserDefaults standardUserDefaults] setObject:[responseObj valueForKey:@"ref_app_user_pharmacy_pharmacy_id"] forKey:@"referenceAppUserPharmacyId"];
     }
     else {
-        self.userManager.referenceAppUserPharmacyId = @"";
-        if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"ref_app_user_pharmacy_pharmacy_id"] isKindOfClass:[NSString class]]) {
-            self.userManager.referenceAppUserPharmacyId = [[NSUserDefaults standardUserDefaults] valueForKey:@"ref_app_user_pharmacy_pharmacy_id"];
-        }
+        self.userManager.referenceAppUserPharmacyId = nil;
+//        if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"ref_app_user_pharmacy_pharmacy_id"] isKindOfClass:[NSString class]]) {
+//            self.userManager.referenceAppUserPharmacyId = [[NSUserDefaults standardUserDefaults] valueForKey:@"ref_app_user_pharmacy_pharmacy_id"];
+//        }
     }
     [[NSUserDefaults standardUserDefaults] synchronize];;
 }
 
 -(void) dataFromWebReceiptionFailed:(NSError*) error
 {
-    //NSLog(@"id is %@",error.localizedDescription,error.debugDescription);
+    NSLog(@"id is %@",error.localizedDescription,error.debugDescription);
     [SVProgressHUD dismiss];
     if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"] isKindOfClass:[NSString class]]) {
         self.userManager.appUserId = [[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"];
     }
-    if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"app_user_pharmacy_id"] isKindOfClass:[NSString class]]) {
-        self.userManager.pharmacyId = [[NSUserDefaults standardUserDefaults] valueForKey:@"app_user_pharmacy_id"];
-    }
-    if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"ref_app_user_pharmacy_pharmacy_id"] isKindOfClass:[NSString class]]) {
-        self.userManager.referenceAppUserPharmacyId = [[NSUserDefaults standardUserDefaults] valueForKey:@"ref_app_user_pharmacy_pharmacy_id"];
-    }
+//    if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"app_user_pharmacy_id"] isKindOfClass:[NSString class]]) {
+//        self.userManager.pharmacyId = [[NSUserDefaults standardUserDefaults] valueForKey:@"app_user_pharmacy_id"];
+//    }
+//    if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"ref_app_user_pharmacy_pharmacy_id"] isKindOfClass:[NSString class]]) {
+//        self.userManager.referenceAppUserPharmacyId = [[NSUserDefaults standardUserDefaults] valueForKey:@"ref_app_user_pharmacy_pharmacy_id"];
+//    }
 }
 
 

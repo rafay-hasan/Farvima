@@ -44,7 +44,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
     self.userManager = [User_Details sharedInstance];
     self.eventObject = [EventObject new];
     self.eventsArray = [NSMutableArray new];
@@ -59,7 +60,7 @@
 
 -(void) viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    //[[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -276,7 +277,7 @@
     else if ([menuname isEqualToString:@"PRENOTA E RITIRA"]) {
         ProductSearchViewController *vc = [ProductSearchViewController new];
         if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            ProductSearchViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"productSearch"];
+            ProductSearchViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"AllProducts"];
             [self.navigationController pushViewController:newView animated:YES];
             
         }

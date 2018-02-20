@@ -14,14 +14,17 @@
 #import "FarmaciaHomeViewController.h"
 #import "SearchPharmacyObject.h"
 #import <MapKit/MapKit.h>
+#import "User Details.h"
+#import "RHWebServiceManager.h"
+#import "SVProgressHUD.h"
+#import "NavigationController.h"
 
 @interface DXAnnotation : NSObject <MKAnnotation>
 
 @property(nonatomic, assign) CLLocationCoordinate2D coordinate;
-
 @end
 
-@interface PharmacyListViewController () <UITableViewDelegate,UITableViewDataSource,LGSideMenuControllerDelegate,MKMapViewDelegate>
+@interface PharmacyListViewController () <UITableViewDelegate,UITableViewDataSource,LGSideMenuControllerDelegate,MKMapViewDelegate,RHWebServiceDelegate>
 
 @property (strong,nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
 @property (strong, nonatomic) SearchPharmacyObject *object;
@@ -33,7 +36,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *pharmacyListTableview;
 @property (weak, nonatomic) IBOutlet UIView *mapContainerView;
 @property (weak, nonatomic) IBOutlet MKMapView *pharmacyMapView;
-
+@property (strong,nonatomic) RHWebServiceManager *myWebService;
+@property (strong,nonatomic) User_Details *userManager;
 
 @end
 
@@ -42,6 +46,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.userManager = [User_Details sharedInstance];
+    
     self.object = [SearchPharmacyObject new];
     self.mapContainerView.hidden = YES;
     self.pharmacyListTableview.hidden = NO;
@@ -53,6 +59,13 @@
 -(void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     NSLog(@"View did appear called");
+}
+
+-(void) viewDidDisappear:(BOOL)animated {
+    self.sideMenuController.leftViewSwipeGestureEnabled = NO;
+    self.sideMenuController.rightViewSwipeGestureEnabled = NO;
+    [self.slideMenuSharedManager createLeftGeneralSlideMenu];
+    self.sideMenuController.leftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenu"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -152,6 +165,8 @@
     cell.pharmacyAddressLabel.text = self.object.addres;
     cell.pharmacyVarNumberLabel.text = [NSString stringWithFormat:@"Partia Iva: %@",self.object.vatNumber];
     cell.pharmacyPhoneLabel.text = [NSString stringWithFormat:@"Tel: %@",self.object.phone];
+    cell.associateButton.tag = 1000 + indexPath.section;
+    [cell.associateButton addTarget:self action:@selector(makePharmacyAssociate:) forControlEvents:UIControlEventTouchUpInside];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -171,6 +186,76 @@
     footerView.backgroundColor = [UIColor colorWithRed:6.0/255.0 green:39.0/255.0 blue:156.0/255.0 alpha:1];
     return footerView;
 }
+
+-(void) makePharmacyAssociate:(UIButton *)sender {
+    
+    self.object = [self.pharmacyArray objectAtIndex:sender.tag - 1000];
+    [self CallPharmacyAssociateWebserviceWith:self.object.pharmacyId forAppUser:self.userManager.appUserId];
+}
+
+-(void) CallPharmacyAssociateWebserviceWith:(NSString *)pharmacyId forAppUser:(NSString *)appUserId
+{
+    NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:pharmacyId,@"pharmacy_id",appUserId,@"app_user_id",nil];
+    [SVProgressHUD show];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL_API,AssociatePharmacy_URL_API];
+    self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeAssociatePharmacy Delegate:self];
+    [self.myWebService getPostDataFromWebURLWithUrlString:urlStr dictionaryData:postData];
+}
+
+-(void) dataFromWebReceivedSuccessfully:(id) responseObj
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    if(self.myWebService.requestType == HTTPRequestTypeAssociatePharmacy)
+    {
+        [self changeHomePage];
+    }
+}
+
+-(void) dataFromWebReceiptionFailed:(NSError*) error
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void) changeHomePage {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *rootView = [UIViewController new];
+    rootView = [sb instantiateViewControllerWithIdentifier:@"pharmaciaHome"];
+    NavigationController *navigationController = [[NavigationController alloc] initWithRootViewController:rootView];
+    navigationController.navigationBarHidden = YES;
+    MainViewController *mainViewController = [MainViewController new];
+    mainViewController.rootViewController = navigationController;
+    mainViewController.leftViewController = [sb instantiateViewControllerWithIdentifier:@"leftMenu"];
+    mainViewController.rightViewController = [sb instantiateViewControllerWithIdentifier:@"rightMenu"];
+    mainViewController.leftViewBackgroundColor = [UIColor whiteColor];
+    mainViewController.rightViewBackgroundColor = [UIColor whiteColor];
+    mainViewController.leftViewWidth = 200.0;
+    mainViewController.rightViewWidth = 200.0;
+    mainViewController.swipeGestureArea = LGSideMenuSwipeGestureAreaFull;
+    mainViewController.leftViewPresentationStyle = LGSideMenuPresentationStyleSlideAbove;
+    mainViewController.rightViewPresentationStyle = LGSideMenuPresentationStyleSlideAbove;
+    
+    UIWindow *window = UIApplication.sharedApplication.delegate.window;
+    window.rootViewController = mainViewController;
+    
+    [UIView transitionWithView:window
+                      duration:0.3
+                       options:UIViewAnimationOptionTransitionCrossDissolve
+                    animations:nil
+                    completion:nil];
+}
+
+
+
 
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

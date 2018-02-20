@@ -23,12 +23,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.sideMenuController.leftViewSwipeGestureEnabled = NO;
+    self.sideMenuController.rightViewSwipeGestureEnabled = NO;
 }
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
     self.sideMenuController.leftViewSwipeGestureEnabled = NO;
     self.sideMenuController.rightViewSwipeGestureEnabled = NO;
+    NSLog(@"total views are %li",self.navigationController.viewControllers.count);
 }
 
 - (void) viewWillDisappear:(BOOL)animated {

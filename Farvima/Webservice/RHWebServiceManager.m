@@ -127,6 +127,12 @@
                     [self.delegate dataFromWebReceivedSuccessfully:[self parseAllProducts:responseObject]];
                 }
             }
+            else {
+                if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
+                {
+                    [self.delegate dataFromWebReceivedSuccessfully:responseObject];
+                }
+            }
         }
     } failure:^(NSURLSessionTask *operation, NSError *error) {
         if([self.delegate conformsToProtocol:@protocol(RHWebServiceDelegate)])
