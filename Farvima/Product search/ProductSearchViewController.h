@@ -8,6 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ProductSearchControllerDelegate <NSObject>
+@required
+- (void)resultOfSearchedData:(NSArray *)dataArray;
+@end
+
 @interface ProductSearchViewController : UIViewController
+
+@property (nonatomic, weak) id<ProductSearchControllerDelegate> delegate;
 
 @end

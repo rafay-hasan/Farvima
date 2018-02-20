@@ -8,6 +8,7 @@
 
 #import "SearchProductDetailsViewController.h"
 #import "UIViewController+LGSideMenuController.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @interface SearchProductDetailsViewController ()
 
@@ -16,6 +17,13 @@
 - (IBAction)leftSliderButtonAction:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *purchaseButton;
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *productImageView;
+@property (weak, nonatomic) IBOutlet UILabel *productNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *productDetailsTaxtView;
+@property (weak, nonatomic) IBOutlet UILabel *productPriceLabel;
+
 
 @end
 
@@ -45,6 +53,34 @@
 
 - (void) loadNewsDetailsView
 {
+    if (self.productObject.imageUel.length > 0) {
+        [self.productImageView sd_setImageWithURL:[NSURL URLWithString:self.productObject.imageUel]
+                                 placeholderImage:[UIImage imageNamed:@"placeholder"]];
+    }
+    else {
+        self.productImageView.image = [UIImage imageNamed:@"placeholder"];
+    }
+    
+    if (self.productObject.name.length > 0) {
+        self.productNameLabel.text = self.productObject.name;
+    }
+    else {
+        self.productNameLabel.text = nil;
+    }
+    
+    if (self.productObject.details.length > 0) {
+        self.productDetailsTaxtView.text = self.productObject.details;
+    }
+    else {
+        self.productDetailsTaxtView.text = nil;
+    }
+    
+    if (self.productObject.price.length > 0) {
+        self.productPriceLabel.text = self.productObject.price;
+    }
+    else {
+        self.productPriceLabel.text = nil;
+    }
     self.scrollviewContainerHeight.constant = self.purchaseButton.frame.origin.y + self.purchaseButton.frame.size.height + 52;
 }
 

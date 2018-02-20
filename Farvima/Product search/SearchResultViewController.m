@@ -16,13 +16,15 @@
 #import "SVProgressHUD.h"
 #import "User Details.h"
 #import "AllProductObject.h"
+#import "ProductSearchViewController.h"
+#import "SearchProductDetailsViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@interface SearchResultViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, LGSideMenuControllerDelegate, UITableViewDataSource, UITableViewDelegate,RHWebServiceDelegate>
+@interface SearchResultViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, LGSideMenuControllerDelegate, UITableViewDataSource, UITableViewDelegate,RHWebServiceDelegate,ProductSearchControllerDelegate>
 
 @property (strong, nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
-@property (strong,nonatomic) NSMutableArray *categoryMenuArray;
+@property (strong,nonatomic) NSMutableArray *categoryMenuArray,*categoryMenuIdArray;
 @property (strong,nonatomic) NSMutableArray *productsArray;
 @property (strong,nonatomic) User_Details *userManager;
 @property (strong,nonatomic) AllProductObject *productObject;
@@ -34,6 +36,8 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *productSearchCollectionView;
 - (IBAction)productOrientationButtonAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *searchResultTableview;
+@property (strong,nonatomic) NSString *currentlySelected;
+@property (strong,nonatomic) NSString *selectedCategoryId;
 
 
 @end
@@ -47,11 +51,16 @@
     self.userManager = [User_Details sharedInstance];
     self.productObject = [AllProductObject new];
     self.productsArray = [NSMutableArray new];
+    self.currentlySelected = @"";
+    self.selectedCategoryId = @"";
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(leftCategorySlideMenuSelected:) name:@"leftSlideSelectedMenu" object:nil];
     
     self.searchResultTableview.hidden = NO;
     self.productSearchCollectionView.hidden = YES;
     [self resetSlideRightmenuForSearchResultPage];
     self.categoryMenuArray = [NSMutableArray new];
+    self.categoryMenuIdArray = [NSMutableArray new];
     [self CallSlideMenuCategoryWebservice];
 }
 
@@ -74,15 +83,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+//    if ([segue.identifier isEqualToString:@"productDetails"]) {
+//        int *index = (int *)sender;
+//        SearchProductDetailsViewController *vc = [segue destinationViewController];
+//        vc.productObject = [self.productsArray objectAtIndex:index];
+//    }
 }
-*/
+
 
 -(void) resetSlideRightmenuForSearchResultPage {
     self.slideMenuSharedManager = [FarmVimaSlideMenuSingletone sharedManager];
@@ -103,14 +118,15 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SearchResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchResultCell" forIndexPath:indexPath];
-    self.productObject = [self.productsArray objectAtIndex:indexPath.row];
+    self.productObject = [self.productsArray objectAtIndex:indexPath.section];
     NSLog(@"%@",self.productObject.imageUel);
+    //self.productObject.imageUel = [self.productObject.imageUel re]
     if (self.productObject.imageUel.length > 0) {
         [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:self.productObject.imageUel]
-                               placeholderImage:[UIImage imageNamed:@"placeholder"]];
+                                 placeholderImage:[UIImage imageNamed:@"placeholder"]];
     }
     else {
-        cell.productImageView.image = nil;
+        cell.productImageView.image = [UIImage imageNamed:@"placeholder"];
     }
     
     if (self.productObject.name.length > 0) {
@@ -139,6 +155,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    SearchProductDetailsViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"productDetails"];
+    vc.productObject = [self.productsArray objectAtIndex:indexPath.section];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
@@ -172,7 +191,7 @@
                                  placeholderImage:[UIImage imageNamed:@"placeholder"]];
     }
     else {
-        cell.productImageView.image = nil;
+        cell.productImageView.image = [UIImage imageNamed:@"placeholder"];
     }
     
     if (self.productObject.name.length > 0) {
@@ -197,6 +216,12 @@
     }
     cell.backgroundColor = [UIColor clearColor];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    SearchProductDetailsViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"productDetails"];
+    vc.productObject = [self.productsArray objectAtIndex:indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -238,10 +263,23 @@
 
 #pragma mark All Web service
 
+-(void) CallCategoryProductsWebservicewithCategoryId:(NSString *)categoryId
+{
+    [SVProgressHUD show];
+    self.view.userInteractionEnabled = NO;
+    self.currentlySelected = @"Category Products";
+    NSString *startingLimit = [NSString stringWithFormat:@"%li",self.productsArray.count];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@/%@",BASE_URL_API,CategoryProducts_URL_API,self.userManager.appUserId,categoryId,startingLimit];
+    self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeCategoryProducts Delegate:self];
+    [self.myWebService getDataFromWebURLWithUrlString:urlStr];
+    
+}
+
 -(void) CallAllProductsWebservice
 {
     [SVProgressHUD show];
     self.view.userInteractionEnabled = NO;
+    self.currentlySelected = @"All Products";
     NSString *startingLimit = [NSString stringWithFormat:@"%li",self.productsArray.count];
     NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,AllProducts_URL_API,self.userManager.appUserId,startingLimit];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeAllProducts Delegate:self];
@@ -272,13 +310,16 @@
         NSArray *sortedArray = [tempArray sortedArrayUsingDescriptors:@[sortDescriptor]];
         for (id object in sortedArray) {
             [self.categoryMenuArray addObject:[object valueForKey:@"descrizione"]];
+            [self.categoryMenuIdArray addObject:object];
         }
+        NSLog(@"id is %@",self.categoryMenuIdArray);
         [self CallAllProductsWebservice];
     }
     else {
         [self.productsArray addObjectsFromArray:(NSArray *)responseObj];
         [self.searchResultTableview reloadData];
         [self.productSearchCollectionView reloadData];
+        NSLog(@"total product count is %lu",(unsigned long)self.productsArray.count);
     }
 }
 
@@ -292,8 +333,6 @@
         self.view.userInteractionEnabled = YES;
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
         UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-            
-            
             [alert dismissViewControllerAnimated:YES completion:nil];
         }];
         [alert addAction:ok];
@@ -308,7 +347,21 @@
 }
 
 - (IBAction)productSearchButtonAction:(id)sender {
-    [self.navigationController popViewControllerAnimated:YES];
+    ProductSearchViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"productSearch"];
+    newView.delegate = self;
+    [self.navigationController pushViewController:newView animated:YES];
+}
+
+- (void)resultOfSearchedData:(NSArray *)dataArray {
+    self.currentlySelected = @"";
+    [self.productsArray removeAllObjects];
+    [self.productsArray addObjectsFromArray:(NSArray *)dataArray];
+    for(AllProductObject *object in self.productsArray)
+    {
+        NSLog(@"name is %@",object.name);
+    }
+    [self.searchResultTableview reloadData];
+    [self.productSearchCollectionView reloadData];
 }
 
 - (IBAction)leftSliderButtonAction:(id)sender {
@@ -321,8 +374,22 @@
     [self.slideMenuSharedManager createLeftGeneralSPpelizedSlideMenuWithArray:self.categoryMenuArray];
     self.sideMenuController.leftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenu"];
     [[self sideMenuController] showLeftViewAnimated:sender];
-    
 }
+
+-(void) leftCategorySlideMenuSelected:(NSNotification *)notification {
+    NSDictionary *userInfo = notification.userInfo;
+    NSLog(@"menu is %@",[userInfo objectForKey:@"currentlySelectedLeftSlideMenu"]);
+    
+    for (id object in self.categoryMenuIdArray) {
+        if ([[object valueForKey:@"descrizione"] isEqualToString:[userInfo objectForKey:@"currentlySelectedLeftSlideMenu"]]) {
+            self.selectedCategoryId = [object valueForKey:@"codice_categoria"];
+            [self.productsArray removeAllObjects];
+            [self CallCategoryProductsWebservicewithCategoryId:self.selectedCategoryId];
+            break;
+        }
+    }
+}
+
 - (void)didHideRightView:(nonnull UIView *)rightView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
     if (self.slideMenuSharedManager.isListSelected) {
         self.searchResultTableview.hidden = NO;
@@ -342,8 +409,12 @@
     NSInteger currentOffset = scrollView.contentOffset.y;
     NSInteger maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
     if (maximumOffset - currentOffset <= -40) {
-        
-        [self CallAllProductsWebservice];
+        if ([self.currentlySelected isEqualToString:@"All Products"]) {
+            [self CallAllProductsWebservice];
+        }
+        else if ([self.currentlySelected isEqualToString:@"Category Products"]) {
+            [self CallCategoryProductsWebservicewithCategoryId:self.selectedCategoryId];
+        }
         
     }
 }

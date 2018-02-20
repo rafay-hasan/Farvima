@@ -5026,6 +5026,9 @@
                         <viewLayoutGuide key="safeArea" id="FcM-GV-J3a"/>
                     </view>
                     <connections>
+                        <outlet property="categoryTextField" destination="bPN-x2-ltb" id="Tz4-2X-5Eq"/>
+                        <outlet property="codeTextField" destination="cxZ-5o-fgF" id="cX3-27-hN2"/>
+                        <outlet property="nameTextField" destination="Qgi-z5-Van" id="VcY-sG-BWA"/>
                         <outlet property="scrollContainerViewHeight" destination="jIA-h0-aF0" id="cPB-cD-QJK"/>
                         <outlet property="searchButton" destination="doJ-5Z-Ypv" id="98r-zo-dvd"/>
                     </connections>
@@ -5108,16 +5111,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="MKu-qv-8sJ">
-                                                    <rect key="frame" x="0.0" y="8" width="0.0" height="43.5"/>
+                                                    <rect key="frame" x="16" y="8" width="288" height="43.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c1f-5Z-EMu">
-                                                            <rect key="frame" x="0.0" y="0.0" width="0.0" height="20"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="288" height="20"/>
                                                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.47843137254901957" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ss2-R9-uQE">
-                                                            <rect key="frame" x="0.0" y="24" width="0.0" height="19.5"/>
+                                                            <rect key="frame" x="0.0" y="24" width="288" height="19.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.47843137250000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -6204,7 +6207,6 @@
                                             <outlet property="nameLabel" destination="lRV-24-feg" id="HeD-jq-EC4"/>
                                             <outlet property="priceLabel" destination="VkV-Za-Clm" id="QiW-eI-ag0"/>
                                             <outlet property="productImageView" destination="Dvw-1E-wcI" id="ztn-G9-wTz"/>
-                                            <segue destination="mW7-Hi-Uek" kind="show" id="rAi-yV-ak7"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -6291,7 +6293,6 @@
                                             <outlet property="productImageView" destination="QlY-8g-zU2" id="Ke5-5Z-Pqk"/>
                                             <outlet property="productNameLabel" destination="NjJ-C0-n0S" id="ZqJ-2w-Wel"/>
                                             <outlet property="productPriceLabel" destination="kCC-jR-Qcp" id="XZV-tz-onV"/>
-                                            <segue destination="mW7-Hi-Uek" kind="show" id="5JS-qz-b9Y"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -6479,6 +6480,7 @@
                     <connections>
                         <outlet property="productSearchCollectionView" destination="fRm-0L-odo" id="HAD-vK-e7V"/>
                         <outlet property="searchResultTableview" destination="eFX-GZ-fxb" id="6Ay-o7-uJV"/>
+                        <segue destination="mW7-Hi-Uek" kind="show" identifier="productDetails" id="QNa-0T-wbR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lj2-bo-d1Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -6488,7 +6490,7 @@
         <!--Search Product Details View Controller-->
         <scene sceneID="rHY-r0-T1c">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="mW7-Hi-Uek" customClass="SearchProductDetailsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="productDetails" automaticallyAdjustsScrollViewInsets="NO" id="mW7-Hi-Uek" customClass="SearchProductDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2Xq-H3-RP6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -6800,6 +6802,10 @@
                         <viewLayoutGuide key="safeArea" id="DAk-lB-Gt8"/>
                     </view>
                     <connections>
+                        <outlet property="productDetailsTaxtView" destination="ulS-r5-8hU" id="akw-3Z-kk9"/>
+                        <outlet property="productImageView" destination="iy5-eX-VZB" id="KDl-be-45S"/>
+                        <outlet property="productNameLabel" destination="O6X-5b-rD8" id="smK-Ul-MST"/>
+                        <outlet property="productPriceLabel" destination="s00-C0-YSC" id="f9A-6g-dYA"/>
                         <outlet property="purchaseButton" destination="Rbr-Ip-1S2" id="jDX-lm-iAe"/>
                         <outlet property="scrollviewContainerHeight" destination="cQA-1X-fMi" id="dzr-Wa-lCr"/>
                     </connections>
@@ -7470,7 +7476,6 @@
         <image name="viewIcon" width="29" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="5JS-qz-b9Y"/>
         <segue reference="XMT-zX-fkm"/>
         <segue reference="hjK-sH-UmP"/>
         <segue reference="tEq-Jv-WBS"/>

@@ -19,6 +19,8 @@
 #define ChiSiamo_URL_API @"app_farma_about_us"
 #define SideMenuCategories_URL_API @"app_all_categories"
 #define AllProducts_URL_API @"app_product_list_by_limit/"
+#define CategoryProducts_URL_API @"app_category_product_list_by_limit/"
+#define CategoryProductSearch_URL_API @"app_search_product"
 
 enum {
     HTTPRequestypeUserDetails,
@@ -29,7 +31,9 @@ enum {
     HTTPRequestTypePharmacySearch,
     HTTPRequestTypeChiSiamo,
     HTTPRequestTypeSlideMenuCategory,
-    HTTPRequestTypeAllProducts
+    HTTPRequestTypeAllProducts,
+    HTTPRequestTypeCategoryProducts,
+    HTTPRequestTypeProductSearch
 };
 typedef NSUInteger HTTPRequestType;
 

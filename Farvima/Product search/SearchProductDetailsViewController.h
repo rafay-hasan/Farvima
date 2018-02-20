@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AllProductObject.h"
 
 @interface SearchProductDetailsViewController : UIViewController
+
+@property (strong,nonatomic) AllProductObject *productObject;
 
 @end

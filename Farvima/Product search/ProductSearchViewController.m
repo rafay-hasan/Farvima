@@ -14,7 +14,10 @@
 #import "EventViewController.h"
 #import "OfferViewController.h"
 #import "ChiSiamoViewController.h"
-@interface ProductSearchViewController ()
+#import "RHWebServiceManager.h"
+#import "SVProgressHUD.h"
+
+@interface ProductSearchViewController ()<RHWebServiceDelegate>
 
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)searchButtonAction:(id)sender;
@@ -23,6 +26,11 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollContainerViewHeight;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
+
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+@property (weak, nonatomic) IBOutlet UITextField *codeTextField;
+@property (weak, nonatomic) IBOutlet UITextField *categoryTextField;
+@property (strong,nonatomic) RHWebServiceManager *myWebService;
 
 @end
 
@@ -66,7 +74,55 @@
 }
 
 - (IBAction)searchButtonAction:(id)sender {
-    [self performSegueWithIdentifier:@"searchResult" sender:self];
+    if (self.nameTextField.text.length >0 || self.codeTextField.text.length > 0 || self.categoryTextField.text.length > 0) {
+       // [self.delegate resultOfSearchedData:@"data received"];
+       // [self.navigationController popViewControllerAnimated:YES];
+        [self CallProductSearchWebserviceWithName:self.nameTextField.text OrWithCode:self.codeTextField.text OrWithCategory:self.categoryTextField.text];
+    }
+    else {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:@"Please enter data" preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+            
+            
+            [alert dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [alert addAction:ok];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
+-(void) CallProductSearchWebserviceWithName:(NSString *)name OrWithCode:(NSString *)code OrWithCategory:(NSString *)category
+{
+    NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:name,@"product_name",code,@"codice_ministeriale",category,@"categoria_merciologica",nil];
+    [SVProgressHUD show];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL_API,CategoryProductSearch_URL_API];
+    self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeProductSearch Delegate:self];
+    [self.myWebService getPostDataFromWebURLWithUrlString:urlStr dictionaryData:postData];
+}
+
+-(void) dataFromWebReceivedSuccessfully:(id) responseObj
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    if(self.myWebService.requestType == HTTPRequestTypeProductSearch)
+    {
+        [self.delegate resultOfSearchedData:responseObj];
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
+-(void) dataFromWebReceiptionFailed:(NSError*) error
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (IBAction)leftSliderButtonAction:(id)sender {
