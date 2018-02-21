@@ -16,11 +16,16 @@
 #import "SVProgressHUD.h"
 #import "User Details.h"
 #import "AllProductObject.h"
+#import "GallaryViewController.h"
+#import "OfferViewController.h"
+#import "NewsViewController.h"
+#import "ChiSiamoViewController.h"
 #import "ProductSearchViewController.h"
+#import "EventViewController.h"
 #import "SearchProductDetailsViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@interface SearchResultViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, LGSideMenuControllerDelegate, UITableViewDataSource, UITableViewDelegate,RHWebServiceDelegate,ProductSearchControllerDelegate>
+@interface SearchResultViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UITableViewDataSource, UITableViewDelegate,RHWebServiceDelegate,ProductSearchControllerDelegate>
 
 @property (strong, nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
@@ -28,6 +33,7 @@
 @property (strong,nonatomic) NSMutableArray *productsArray;
 @property (strong,nonatomic) User_Details *userManager;
 @property (strong,nonatomic) AllProductObject *productObject;
+@property (nonatomic) BOOL generalLeftMenuSelected;
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)productSearchButtonAction:(id)sender;
 - (IBAction)leftSliderButtonAction:(id)sender;
@@ -54,7 +60,8 @@
     self.currentlySelected = @"";
     self.selectedCategoryId = @"";
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(leftCategorySlideMenuSelected:) name:@"leftSlideSelectedMenu" object:nil];
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
     
     self.searchResultTableview.hidden = NO;
     self.productSearchCollectionView.hidden = YES;
@@ -66,12 +73,16 @@
 
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
+    [[NSNotificationCenter defaultCenter]
+     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
     self.sideMenuController.rightViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightMenu"];
     self.sideMenuController.leftViewSwipeGestureEnabled = NO;
     self.sideMenuController.rightViewSwipeGestureEnabled = YES;
 }
 
 -(void) viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     self.sideMenuController.leftViewSwipeGestureEnabled = YES;
     self.sideMenuController.rightViewSwipeGestureEnabled = NO;
     [self.slideMenuSharedManager createLeftGeneralSlideMenu];
@@ -105,7 +116,7 @@
     [self.slideMenuSharedManager.rightSideMenuArray addObject:@"VISTA ELENCO"];
     [self.slideMenuSharedManager.rightSideMenuArray addObject:@"VISTA GRIGLIA"];
     self.slideMenuSharedManager.isListSelected = YES;
-    self.sideMenuController.delegate = self;
+    //self.sideMenuController.delegate = self;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -365,41 +376,99 @@
 }
 
 - (IBAction)leftSliderButtonAction:(id)sender {
+    self.generalLeftMenuSelected = YES;
     [self.slideMenuSharedManager createLeftGeneralSlideMenu];
     self.sideMenuController.leftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenu"];
     [[self sideMenuController] showLeftViewAnimated:sender];
 }
 
 - (IBAction)categoryLeftSlideButtonAction:(id)sender {
+    self.generalLeftMenuSelected = NO;
     [self.slideMenuSharedManager createLeftGeneralSPpelizedSlideMenuWithArray:self.categoryMenuArray];
     self.sideMenuController.leftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenu"];
     [[self sideMenuController] showLeftViewAnimated:sender];
 }
 
--(void) leftCategorySlideMenuSelected:(NSNotification *)notification {
-    NSDictionary *userInfo = notification.userInfo;
-    NSLog(@"menu is %@",[userInfo objectForKey:@"currentlySelectedLeftSlideMenu"]);
+-(void) LeftSlideMenutriggerAction:(NSNotification *) notification {
+    NSDictionary *dict = notification.userInfo;
+    NSString *menuname = [dict valueForKey:@"currentlySelectedLeftSlideMenu"];
     
-    for (id object in self.categoryMenuIdArray) {
-        if ([[object valueForKey:@"descrizione"] isEqualToString:[userInfo objectForKey:@"currentlySelectedLeftSlideMenu"]]) {
-            self.selectedCategoryId = [object valueForKey:@"codice_categoria"];
-            [self.productsArray removeAllObjects];
-            [self CallCategoryProductsWebservicewithCategoryId:self.selectedCategoryId];
-            break;
+    if (self.generalLeftMenuSelected) {
+        if ([menuname isEqualToString:@"GALERIA"]) {
+            GallaryViewController *vc = [GallaryViewController new];
+            if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+                GallaryViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"galleria"];
+                [self.navigationController pushViewController:newView animated:YES];
+                
+            }
+        }
+        else if ([menuname isEqualToString:@"OFFERTE"]) {
+            OfferViewController *vc = [OfferViewController new];
+            if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+                OfferViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"offerte"];
+                [self.navigationController pushViewController:newView animated:YES];
+                
+            }
+        }
+        else if ([menuname isEqualToString:@"EVENTI"]) {
+            EventViewController *vc = [EventViewController new];
+            if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+                EventViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"event"];
+                [self.navigationController pushViewController:newView animated:YES];
+                
+            }
+        }
+        else if ([menuname isEqualToString:@"NEWS"]) {
+            NewsViewController *vc = [NewsViewController new];
+            if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+                NewsViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"news"];
+                [self.navigationController pushViewController:newView animated:YES];
+                
+            }
+        }
+        else if ([menuname isEqualToString:@"CHI SIAMO"]) {
+            ChiSiamoViewController *vc = [ChiSiamoViewController new];
+            if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+                ChiSiamoViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"chi Siamo"];
+                [self.navigationController pushViewController:newView animated:YES];
+                
+            }
+        }
+    }
+    else {
+        for (id object in self.categoryMenuIdArray) {
+            if ([[object valueForKey:@"descrizione"] isEqualToString:[dict objectForKey:@"currentlySelectedLeftSlideMenu"]]) {
+                self.selectedCategoryId = [object valueForKey:@"codice_categoria"];
+                [self.productsArray removeAllObjects];
+                [self CallCategoryProductsWebservicewithCategoryId:self.selectedCategoryId];
+                break;
+            }
         }
     }
 }
 
-- (void)didHideRightView:(nonnull UIView *)rightView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-    if (self.slideMenuSharedManager.isListSelected) {
-        self.searchResultTableview.hidden = NO;
-        self.productSearchCollectionView.hidden = YES;
+-(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        NSLog(@"%@",vc);
+        if ([vc isKindOfClass:targetViewController.class]) {
+            [self.navigationController popToViewController:vc animated:NO];
+            return YES;
+        }
     }
-    else {
-        self.searchResultTableview.hidden = YES;
-        self.productSearchCollectionView.hidden = NO;
-    }
+    return NO;
 }
+
+
+//- (void)didHideRightView:(nonnull UIView *)rightView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+//    if (self.slideMenuSharedManager.isListSelected) {
+//        self.searchResultTableview.hidden = NO;
+//        self.productSearchCollectionView.hidden = YES;
+//    }
+//    else {
+//        self.searchResultTableview.hidden = YES;
+//        self.productSearchCollectionView.hidden = NO;
+//    }
+//}
 - (IBAction)productOrientationButtonAction:(id)sender {
     [self.sideMenuController showRightViewAnimated:YES completionHandler:nil];
 }

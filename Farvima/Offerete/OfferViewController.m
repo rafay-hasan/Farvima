@@ -13,6 +13,7 @@
 #import "GallaryViewController.h"
 #import "NewsViewController.h"
 #import "ProductSearchViewController.h"
+#import "SearchResultViewController.h"
 #import "EventViewController.h"
 #import "ChiSiamoViewController.h"
 @interface OfferViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -23,6 +24,10 @@
 - (IBAction)messageButtonAction:(id)sender;
 - (IBAction)notificationButtonAction:(id)sender;
 - (IBAction)showLeftMenuAction:(id)sender;
+- (IBAction)searchProductButtonAction:(id)sender;
+- (IBAction)busketButtonAction:(id)sender;
+- (IBAction)tutteLeOfferteButtonAction:(id)sender;
+
 
 @end
 
@@ -107,6 +112,23 @@
 - (IBAction)showLeftMenuAction:(id)sender {
     [[self sideMenuController] showLeftViewAnimated:sender];
 }
+
+- (IBAction)searchProductButtonAction:(id)sender {
+    
+    ProductSearchViewController *messageVc = [ProductSearchViewController new];
+    if (![self isControllerAlreadyOnNavigationControllerStack:messageVc]) {
+        //push controller
+        ProductSearchViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"productSearch"];
+        [self.navigationController pushViewController:newView animated:YES];
+        
+    }
+}
+
+- (IBAction)busketButtonAction:(id)sender {
+}
+
+- (IBAction)tutteLeOfferteButtonAction:(id)sender {
+}
 -(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
     for (UIViewController *vc in self.navigationController.viewControllers) {
         if ([vc isKindOfClass:targetViewController.class]) {
@@ -137,9 +159,9 @@
         }
     }
     else if ([menuname isEqualToString:@"PRENOTA E RITIRA"]) {
-        ProductSearchViewController *vc = [ProductSearchViewController new];
+        SearchResultViewController *vc = [SearchResultViewController new];
         if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            ProductSearchViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"AllProducts"];
+            SearchResultViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"AllProducts"];
             [self.navigationController pushViewController:newView animated:YES];
             
         }

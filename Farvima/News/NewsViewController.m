@@ -20,7 +20,7 @@
 #import "UIViewController+LGSideMenuController.h"
 #import "GallaryViewController.h"
 #import "OfferViewController.h"
-#import "ProductSearchViewController.h"
+#import "SearchResultViewController.h"
 #import "EventViewController.h"
 #import "ChiSiamoViewController.h"
 
@@ -186,10 +186,9 @@
 {
     [SVProgressHUD show];
     NSString *startingLimit = [NSString stringWithFormat:@"%li",self.newsArray.count];
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,News_URL_API,self.userManager.appUserId,startingLimit];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,News_URL_API,startingLimit];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeNews Delegate:self];
     [self.myWebService getDataFromWebURLWithUrlString:urlStr];
-    
 }
 
 -(void) dataFromWebReceivedSuccessfully:(id) responseObj
@@ -250,9 +249,9 @@
         }
     }
     else if ([menuname isEqualToString:@"PRENOTA E RITIRA"]) {
-        ProductSearchViewController *vc = [ProductSearchViewController new];
+        SearchResultViewController *vc = [SearchResultViewController new];
         if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            ProductSearchViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"AllProducts"];
+            SearchResultViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"AllProducts"];
             [self.navigationController pushViewController:newView animated:YES];
             
         }

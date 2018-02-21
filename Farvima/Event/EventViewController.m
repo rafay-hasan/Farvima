@@ -20,7 +20,7 @@
 #import "EventDetailsViewController.h"
 #import "GallaryViewController.h"
 #import "NewsViewController.h"
-#import "ProductSearchViewController.h"
+#import "SearchResultViewController.h"
 #import "OfferViewController.h"
 #import "ChiSiamoViewController.h"
 @interface EventViewController ()<UITableViewDataSource,UITableViewDelegate,RHWebServiceDelegate>
@@ -198,6 +198,7 @@
 
 -(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
     for (UIViewController *vc in self.navigationController.viewControllers) {
+        NSLog(@"%@",vc);
         if ([vc isKindOfClass:targetViewController.class]) {
             [self.navigationController popToViewController:vc animated:NO];
             return YES;
@@ -275,9 +276,9 @@
         }
     }
     else if ([menuname isEqualToString:@"PRENOTA E RITIRA"]) {
-        ProductSearchViewController *vc = [ProductSearchViewController new];
+        SearchResultViewController *vc = [SearchResultViewController new];
         if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            ProductSearchViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"AllProducts"];
+            SearchResultViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"AllProducts"];
             [self.navigationController pushViewController:newView animated:YES];
             
         }

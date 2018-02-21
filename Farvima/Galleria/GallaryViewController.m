@@ -18,7 +18,7 @@
 #import "UIViewController+LGSideMenuController.h"
 #import "OfferViewController.h"
 #import "NewsViewController.h"
-#import "ProductSearchViewController.h"
+#import "SearchResultViewController.h"
 #import "EventViewController.h"
 #import "ChiSiamoViewController.h"
 @interface GallaryViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,RHWebServiceDelegate>
@@ -51,6 +51,7 @@
 
 -(void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    NSLog(@"Gallery did appear called");
     [[NSNotificationCenter defaultCenter]
      addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
 }
@@ -246,9 +247,9 @@
         }
     }
     else if ([menuname isEqualToString:@"PRENOTA E RITIRA"]) {
-        ProductSearchViewController *vc = [ProductSearchViewController new];
+        SearchResultViewController *vc = [SearchResultViewController new];
         if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            ProductSearchViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"AllProducts"];
+            SearchResultViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"AllProducts"];
             [self.navigationController pushViewController:newView animated:YES];
             
         }

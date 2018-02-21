@@ -13,7 +13,7 @@
 #import "EventViewController.h"
 #import "GallaryViewController.h"
 #import "NewsViewController.h"
-#import "ProductSearchViewController.h"
+#import "SearchResultViewController.h"
 #import "OfferViewController.h"
 #import "ChiSiamoViewController.h"
 
@@ -172,9 +172,9 @@
         }
     }
     else if ([menuname isEqualToString:@"PRENOTA E RITIRA"]) {
-        ProductSearchViewController *vc = [ProductSearchViewController new];
+        SearchResultViewController *vc = [SearchResultViewController new];
         if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            ProductSearchViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"AllProducts"];
+            SearchResultViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"AllProducts"];
             [self.navigationController pushViewController:newView animated:YES];
             
         }

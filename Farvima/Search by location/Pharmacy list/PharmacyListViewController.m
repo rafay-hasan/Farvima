@@ -208,6 +208,9 @@
     self.view.userInteractionEnabled = YES;
     if(self.myWebService.requestType == HTTPRequestTypeAssociatePharmacy)
     {
+        NSLog(@"%@",responseObj);
+        [User_Details sharedInstance].referenceAppUserPharmacyId = @"1234";
+        [self.slideMenuSharedManager createLeftGeneralSlideMenu];
         [self changeHomePage];
     }
 }

@@ -16,6 +16,7 @@
 #import "ChiSiamoViewController.h"
 #import "RHWebServiceManager.h"
 #import "SVProgressHUD.h"
+#import "SearchResultViewController.h"
 
 @interface ProductSearchViewController ()<RHWebServiceDelegate>
 
@@ -170,6 +171,13 @@
             ChiSiamoViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"chi Siamo"];
             [self.navigationController pushViewController:newView animated:YES];
             
+        }
+    }
+    else if ([menuname isEqualToString:@"PRENOTA E RITIRA"]) {
+        SearchResultViewController *vc = [SearchResultViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+            SearchResultViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"AllProducts"];
+            [self.navigationController pushViewController:newView animated:YES];
         }
     }
 }
