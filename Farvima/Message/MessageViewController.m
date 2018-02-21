@@ -22,7 +22,7 @@
 #import "OfferViewController.h"
 #import "ChiSiamoViewController.h"
 
-@interface MessageViewController ()<UITableViewDelegate,UITableViewDataSource,RHWebServiceDelegate>
+@interface MessageViewController ()<UITableViewDelegate,UITableViewDataSource,RHWebServiceDelegate,LGSideMenuControllerDelegate>
 
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 @property (strong,nonatomic) MessageObject *messageObject;
@@ -41,9 +41,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
     self.messageTableview.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     UINib *messageHeaderXix = [UINib nibWithNibName:@"MessageSectionHeader" bundle:nil];
     [self.messageTableview registerNib:messageHeaderXix forHeaderFooterViewReuseIdentifier:@"messageSectionHeader"];
@@ -53,15 +50,9 @@
     self.messageArray = [NSMutableArray new];
     [self CallMessageWebservice];
 }
--(void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
-}
-
--(void) viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.sideMenuController.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -195,9 +186,8 @@
     }
 }
 
--(void) LeftSlideMenutriggerAction:(NSNotification *) notification {
-    NSDictionary *dict = notification.userInfo;
-    NSString *menuname = [dict valueForKey:@"currentlySelectedLeftSlideMenu"];
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    NSString *menuname = [User_Details sharedInstance].currentlySelectedLeftSlideMenu;
     if ([menuname isEqualToString:@"GALERIA"]) {
         GallaryViewController *vc = [GallaryViewController new];
         if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
@@ -247,6 +237,5 @@
         }
     }
 }
-
 
 @end

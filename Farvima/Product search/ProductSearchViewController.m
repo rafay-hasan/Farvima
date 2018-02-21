@@ -17,8 +17,9 @@
 #import "RHWebServiceManager.h"
 #import "SVProgressHUD.h"
 #import "SearchResultViewController.h"
+#import "User Details.h"
 
-@interface ProductSearchViewController ()<RHWebServiceDelegate>
+@interface ProductSearchViewController ()<RHWebServiceDelegate,LGSideMenuControllerDelegate>
 
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)searchButtonAction:(id)sender;
@@ -45,16 +46,13 @@
 -(void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
     self.scrollContainerViewHeight.constant = self.searchButton.frame.origin.y + self.searchButton.frame.size.height + 20;
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
 }
 
 
--(void) viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.sideMenuController.delegate = self;
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -130,9 +128,8 @@
      [[self sideMenuController] showLeftViewAnimated:sender];
 }
 
--(void) LeftSlideMenutriggerAction:(NSNotification *) notification {
-    NSDictionary *dict = notification.userInfo;
-    NSString *menuname = [dict valueForKey:@"currentlySelectedLeftSlideMenu"];
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    NSString *menuname = [User_Details sharedInstance].currentlySelectedLeftSlideMenu;
     if ([menuname isEqualToString:@"GALERIA"]) {
         GallaryViewController *vc = [GallaryViewController new];
         if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {

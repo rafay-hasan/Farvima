@@ -10,7 +10,7 @@
 #import "LeftMenuTableViewCell.h"
 #import "FarmVimaSlideMenuSingletone.h"
 #import "UIViewController+LGSideMenuController.h"
-
+#import "User Details.h"
 
 @interface LeftSlideMenuViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -58,10 +58,10 @@
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [User_Details sharedInstance].currentlySelectedLeftSlideMenu = self.menuArray[indexPath.row];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     [[self sideMenuController] hideLeftViewAnimated:NULL];
-    NSDictionary *dict = [NSDictionary dictionaryWithObject:self.menuArray[indexPath.row] forKey:@"currentlySelectedLeftSlideMenu"];
-    [[NSNotificationCenter defaultCenter] postNotificationName:@"leftSlideSelectedMenu" object:nil userInfo:dict];
+    
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
@@ -76,6 +76,7 @@
     footerView.backgroundColor = [UIColor clearColor];
     return footerView;
 }
+
 
 
 @end

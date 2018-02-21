@@ -16,8 +16,9 @@
 #import "SearchResultViewController.h"
 #import "EventViewController.h"
 #import "GallaryViewController.h"
-#import "MainViewController.h"
-@interface ChiSiamoViewController ()<RHWebServiceDelegate>
+#import "User Details.h"
+
+@interface ChiSiamoViewController ()<RHWebServiceDelegate,LGSideMenuControllerDelegate>
 
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 
@@ -35,25 +36,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
     [self CallChiSiamoWebservice];
 }
 
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-}
-
--(void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    NSLog(@"CHI SIMO didappear called");
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
-}
-
--(void) viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    self.sideMenuController.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -129,9 +117,21 @@
     [self.view layoutIfNeeded];
 }
 
--(void) LeftSlideMenutriggerAction:(NSNotification *) notification {
-    NSDictionary *dict = notification.userInfo;
-    NSString *menuname = [dict valueForKey:@"currentlySelectedLeftSlideMenu"];
+-(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
+   // MainViewController *mainViewController = [MainViewController new];
+    //UINavigationController *nav = (UINavigationController *) mainViewController.rootViewController;
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        if ([vc isKindOfClass:targetViewController.class]) {
+            [self.navigationController popToViewController:vc animated:NO];
+            return YES;
+        }
+    }
+    return NO;
+}
+
+
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    NSString *menuname = [User_Details sharedInstance].currentlySelectedLeftSlideMenu;
     if ([menuname isEqualToString:@"OFFERTE"]) {
         OfferViewController *vc = [OfferViewController new];
         if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
@@ -172,18 +172,6 @@
             
         }
     }
-}
-
--(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
-   // MainViewController *mainViewController = [MainViewController new];
-    //UINavigationController *nav = (UINavigationController *) mainViewController.rootViewController;
-    for (UIViewController *vc in self.navigationController.viewControllers) {
-        if ([vc isKindOfClass:targetViewController.class]) {
-            [self.navigationController popToViewController:vc animated:NO];
-            return YES;
-        }
-    }
-    return NO;
 }
 
 @end

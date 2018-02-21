@@ -24,7 +24,7 @@
 #import "EventViewController.h"
 #import "ChiSiamoViewController.h"
 
-@interface NewsViewController ()<UITableViewDataSource,UITableViewDelegate,RHWebServiceDelegate>
+@interface NewsViewController ()<UITableViewDataSource,UITableViewDelegate,RHWebServiceDelegate,LGSideMenuControllerDelegate>
 
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 @property (strong,nonatomic) NewsObject *newsObject;
@@ -46,8 +46,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
     self.userManager = [User_Details sharedInstance];
     self.newsObject = [NewsObject new];
     self.newsArray = [NSMutableArray new];
@@ -58,16 +56,9 @@
     [self CallNewsWebservice];
 }
 
-
--(void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
-}
-
--(void) viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.sideMenuController.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -229,9 +220,9 @@
     }
 }
 
--(void) LeftSlideMenutriggerAction:(NSNotification *) notification {
-    NSDictionary *dict = notification.userInfo;
-    NSString *menuname = [dict valueForKey:@"currentlySelectedLeftSlideMenu"];
+
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    NSString *menuname = [User_Details sharedInstance].currentlySelectedLeftSlideMenu;
     if ([menuname isEqualToString:@"GALERIA"]) {
         GallaryViewController *vc = [GallaryViewController new];
         if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {

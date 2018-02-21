@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 @interface User_Details : NSObject
-@property (strong,nonatomic) NSString *appUserId,*pharmacyId,*referenceAppUserPharmacyId;
+@property (strong,nonatomic) NSString *appUserId,*pharmacyId,*referenceAppUserPharmacyId,*currentlySelectedLeftSlideMenu;
 + (User_Details *) sharedInstance;
 -(void) makeSaltaButtonAction;
 @end

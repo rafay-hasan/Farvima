@@ -31,6 +31,7 @@
     self.appUserId = [NSString new];
     self.pharmacyId = [NSString new];
     self.referenceAppUserPharmacyId = [NSString new];
+    self.currentlySelectedLeftSlideMenu = [NSString new];
     return self;
 }
 

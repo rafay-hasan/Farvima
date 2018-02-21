@@ -21,7 +21,7 @@
 #import "SearchResultViewController.h"
 #import "EventViewController.h"
 #import "ChiSiamoViewController.h"
-@interface GallaryViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,RHWebServiceDelegate>
+@interface GallaryViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,RHWebServiceDelegate,LGSideMenuControllerDelegate>
 
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 @property (strong,nonatomic) GalleryObject *galleryObject;
@@ -41,24 +41,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
     self.userManager = [User_Details sharedInstance];
     self.galleryObject = [GalleryObject new];
     self.gallaryArray = [NSMutableArray new];
     [self CallGalleryWebservice];
 }
 
--(void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    NSLog(@"Gallery did appear called");
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
-}
-
--(void) viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.sideMenuController.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -227,9 +218,8 @@
     }
 }
 
--(void) LeftSlideMenutriggerAction:(NSNotification *) notification {
-    NSDictionary *dict = notification.userInfo;
-    NSString *menuname = [dict valueForKey:@"currentlySelectedLeftSlideMenu"];
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    NSString *menuname = [User_Details sharedInstance].currentlySelectedLeftSlideMenu;
     if ([menuname isEqualToString:@"OFFERTE"]) {
         OfferViewController *vc = [OfferViewController new];
         if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
@@ -271,6 +261,5 @@
         }
     }
 }
-
 
 @end

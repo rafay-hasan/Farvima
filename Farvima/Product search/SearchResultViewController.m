@@ -25,7 +25,7 @@
 #import "SearchProductDetailsViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
-@interface SearchResultViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, UITableViewDataSource, UITableViewDelegate,RHWebServiceDelegate,ProductSearchControllerDelegate>
+@interface SearchResultViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITableViewDataSource, UITableViewDelegate,RHWebServiceDelegate,ProductSearchControllerDelegate,LGSideMenuControllerDelegate>
 
 @property (strong, nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
@@ -60,9 +60,6 @@
     self.currentlySelected = @"";
     self.selectedCategoryId = @"";
     
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
-    
     self.searchResultTableview.hidden = NO;
     self.productSearchCollectionView.hidden = YES;
     [self resetSlideRightmenuForSearchResultPage];
@@ -71,18 +68,21 @@
     [self CallSlideMenuCategoryWebservice];
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.sideMenuController.delegate = self;
+}
+
 - (void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:YES];
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
     self.sideMenuController.rightViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"rightMenu"];
     self.sideMenuController.leftViewSwipeGestureEnabled = NO;
     self.sideMenuController.rightViewSwipeGestureEnabled = YES;
 }
 
+
 -(void) viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
     self.sideMenuController.leftViewSwipeGestureEnabled = YES;
     self.sideMenuController.rightViewSwipeGestureEnabled = NO;
     [self.slideMenuSharedManager createLeftGeneralSlideMenu];
@@ -116,7 +116,7 @@
     [self.slideMenuSharedManager.rightSideMenuArray addObject:@"VISTA ELENCO"];
     [self.slideMenuSharedManager.rightSideMenuArray addObject:@"VISTA GRIGLIA"];
     self.slideMenuSharedManager.isListSelected = YES;
-    //self.sideMenuController.delegate = self;
+    self.sideMenuController.delegate = self;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -130,7 +130,6 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     SearchResultTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"searchResultCell" forIndexPath:indexPath];
     self.productObject = [self.productsArray objectAtIndex:indexPath.section];
-    NSLog(@"%@",self.productObject.imageUel);
     //self.productObject.imageUel = [self.productObject.imageUel re]
     if (self.productObject.imageUel.length > 0) {
         [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:self.productObject.imageUel]
@@ -196,7 +195,6 @@
 {
     SearchResultCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchResultCell" forIndexPath:indexPath];
     self.productObject = [self.productsArray objectAtIndex:indexPath.row];
-    NSLog(@"%@",self.productObject.imageUel);
     if (self.productObject.imageUel.length > 0) {
         [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:self.productObject.imageUel]
                                  placeholderImage:[UIImage imageNamed:@"placeholder"]];
@@ -389,9 +387,19 @@
     [[self sideMenuController] showLeftViewAnimated:sender];
 }
 
--(void) LeftSlideMenutriggerAction:(NSNotification *) notification {
-    NSDictionary *dict = notification.userInfo;
-    NSString *menuname = [dict valueForKey:@"currentlySelectedLeftSlideMenu"];
+-(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        NSLog(@"%@",vc);
+        if ([vc isKindOfClass:targetViewController.class]) {
+            [self.navigationController popToViewController:vc animated:NO];
+            return YES;
+        }
+    }
+    return NO;
+}
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    NSLog(@"showed");
+    NSString *menuname = [User_Details sharedInstance].currentlySelectedLeftSlideMenu;
     
     if (self.generalLeftMenuSelected) {
         if ([menuname isEqualToString:@"GALERIA"]) {
@@ -437,7 +445,7 @@
     }
     else {
         for (id object in self.categoryMenuIdArray) {
-            if ([[object valueForKey:@"descrizione"] isEqualToString:[dict objectForKey:@"currentlySelectedLeftSlideMenu"]]) {
+            if ([[object valueForKey:@"descrizione"] isEqualToString:[User_Details sharedInstance].currentlySelectedLeftSlideMenu]) {
                 self.selectedCategoryId = [object valueForKey:@"codice_categoria"];
                 [self.productsArray removeAllObjects];
                 [self CallCategoryProductsWebservicewithCategoryId:self.selectedCategoryId];
@@ -447,28 +455,16 @@
     }
 }
 
--(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
-    for (UIViewController *vc in self.navigationController.viewControllers) {
-        NSLog(@"%@",vc);
-        if ([vc isKindOfClass:targetViewController.class]) {
-            [self.navigationController popToViewController:vc animated:NO];
-            return YES;
-        }
+- (void)didHideRightView:(nonnull UIView *)rightView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    if (self.slideMenuSharedManager.isListSelected) {
+        self.searchResultTableview.hidden = NO;
+        self.productSearchCollectionView.hidden = YES;
     }
-    return NO;
+    else {
+        self.searchResultTableview.hidden = YES;
+        self.productSearchCollectionView.hidden = NO;
+    }
 }
-
-
-//- (void)didHideRightView:(nonnull UIView *)rightView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-//    if (self.slideMenuSharedManager.isListSelected) {
-//        self.searchResultTableview.hidden = NO;
-//        self.productSearchCollectionView.hidden = YES;
-//    }
-//    else {
-//        self.searchResultTableview.hidden = YES;
-//        self.productSearchCollectionView.hidden = NO;
-//    }
-//}
 - (IBAction)productOrientationButtonAction:(id)sender {
     [self.sideMenuController showRightViewAnimated:YES completionHandler:nil];
 }

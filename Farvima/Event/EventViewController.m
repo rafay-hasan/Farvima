@@ -23,7 +23,7 @@
 #import "SearchResultViewController.h"
 #import "OfferViewController.h"
 #import "ChiSiamoViewController.h"
-@interface EventViewController ()<UITableViewDataSource,UITableViewDelegate,RHWebServiceDelegate>
+@interface EventViewController ()<UITableViewDataSource,UITableViewDelegate,RHWebServiceDelegate,LGSideMenuControllerDelegate>
 
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 @property (strong,nonatomic) EventObject *eventObject;
@@ -44,24 +44,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
     self.userManager = [User_Details sharedInstance];
     self.eventObject = [EventObject new];
     self.eventsArray = [NSMutableArray new];
     [self CallEventWebservice];
 }
 
--(void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.sideMenuController.delegate = self;
 }
 
--(void) viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    //[[NSNotificationCenter defaultCenter] removeObserver:self];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -255,10 +248,8 @@
     }
 }
 
-
--(void) LeftSlideMenutriggerAction:(NSNotification *) notification {
-    NSDictionary *dict = notification.userInfo;
-    NSString *menuname = [dict valueForKey:@"currentlySelectedLeftSlideMenu"];
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    NSString *menuname = [User_Details sharedInstance].currentlySelectedLeftSlideMenu;
     if ([menuname isEqualToString:@"GALERIA"]) {
         GallaryViewController *vc = [GallaryViewController new];
         if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
@@ -300,5 +291,7 @@
         }
     }
 }
+
+
 
 @end

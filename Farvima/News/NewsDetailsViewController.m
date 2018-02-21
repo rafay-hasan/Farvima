@@ -14,11 +14,12 @@
 #import "EventViewController.h"
 #import "GallaryViewController.h"
 #import "NewsViewController.h"
-#import "ProductSearchViewController.h"
+#import "SearchResultViewController.h"
 #import "OfferViewController.h"
 #import "ChiSiamoViewController.h"
+#import "User Details.h"
 
-@interface NewsDetailsViewController ()
+@interface NewsDetailsViewController ()<LGSideMenuControllerDelegate>
 
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)messageButtonAction:(id)sender;
@@ -41,15 +42,10 @@
     // Do any additional setup after loading the view.
     [self loadNewsDetailsView];
 }
--(void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [[NSNotificationCenter defaultCenter]
-     addObserver:self selector:@selector(LeftSlideMenutriggerAction:) name:@"leftSlideSelectedMenu" object:nil];
-}
 
--(void) viewDidDisappear:(BOOL)animated {
-    [super viewDidDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.sideMenuController.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -142,9 +138,8 @@
     return NO;
 }
 
--(void) LeftSlideMenutriggerAction:(NSNotification *) notification {
-    NSDictionary *dict = notification.userInfo;
-    NSString *menuname = [dict valueForKey:@"currentlySelectedLeftSlideMenu"];
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    NSString *menuname = [User_Details sharedInstance].currentlySelectedLeftSlideMenu;
     if ([menuname isEqualToString:@"GALERIA"]) {
         GallaryViewController *vc = [GallaryViewController new];
         if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
@@ -186,9 +181,9 @@
         }
     }
     else if ([menuname isEqualToString:@"PRENOTA E RITIRA"]) {
-        ProductSearchViewController *vc = [ProductSearchViewController new];
+        SearchResultViewController *vc = [SearchResultViewController new];
         if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            ProductSearchViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"productSearch"];
+            SearchResultViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"AllProducts"];
             [self.navigationController pushViewController:newView animated:YES];
             
         }
