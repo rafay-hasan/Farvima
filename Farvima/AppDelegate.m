@@ -109,7 +109,6 @@
 
 -(void) dataFromWebReceiptionFailed:(NSError*) error
 {
-    NSLog(@"id is %@",error.localizedDescription,error.debugDescription);
     [SVProgressHUD dismiss];
     if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"] isKindOfClass:[NSString class]]) {
         self.userManager.appUserId = [[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"];
@@ -117,9 +116,9 @@
 //    if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"app_user_pharmacy_id"] isKindOfClass:[NSString class]]) {
 //        self.userManager.pharmacyId = [[NSUserDefaults standardUserDefaults] valueForKey:@"app_user_pharmacy_id"];
 //    }
-//    if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"ref_app_user_pharmacy_pharmacy_id"] isKindOfClass:[NSString class]]) {
-//        self.userManager.referenceAppUserPharmacyId = [[NSUserDefaults standardUserDefaults] valueForKey:@"ref_app_user_pharmacy_pharmacy_id"];
-//    }
+    if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"ref_app_user_pharmacy_pharmacy_id"] isKindOfClass:[NSString class]]) {
+        self.userManager.referenceAppUserPharmacyId = [[NSUserDefaults standardUserDefaults] valueForKey:@"ref_app_user_pharmacy_pharmacy_id"];
+    }
 }
 
 

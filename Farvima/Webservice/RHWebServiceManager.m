@@ -13,6 +13,7 @@
 #import "MessageObject.h"
 #import "SearchPharmacyObject.h"
 #import "AllProductObject.h"
+#import "AllOfferObject.h"
 
 @implementation RHWebServiceManager
 
@@ -70,6 +71,13 @@
                 if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
                 {
                     [self.delegate dataFromWebReceivedSuccessfully:[self parseAllProducts:responseObject]];
+                }
+            }
+            else if(self.requestType == HTTPRequestTypeOffer)
+            {
+                if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
+                {
+                    [self.delegate dataFromWebReceivedSuccessfully:[self parseAllOfferItems:responseObject]];
                 }
             }
             else {
@@ -253,6 +261,80 @@
         
     }
     return newsItemsArray;
+    
+}
+
+-(NSMutableArray *) parseAllOfferItems :(id) response
+{
+    NSMutableArray *offerItemsArray = [NSMutableArray new];
+    
+    if([[response valueForKey:@"offer_pdf"] isKindOfClass:[NSArray class]])
+    {
+        NSArray *tempArray = [(NSArray *)response valueForKey:@"offer_pdf"];
+        
+        for(NSInteger i = 0; i < tempArray.count; i++)
+        {
+            AllOfferObject *object = [AllOfferObject new];
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"offer_pdf_id"] isKindOfClass:[NSString class]])
+            {
+                object.offerId = [[tempArray objectAtIndex:i] valueForKey:@"offer_pdf_id"];
+            }
+            else
+            {
+                object.offerId = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"offer_pdf_title"] isKindOfClass:[NSString class]])
+            {
+                object.offerTitle = [[tempArray objectAtIndex:i] valueForKey:@"offer_pdf_title"];
+            }
+            else
+            {
+                object.offerTitle = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"offer_pdf_storage"] isKindOfClass:[NSString class]])
+            {
+                object.offerPdfLink = [[tempArray objectAtIndex:i] valueForKey:@"offer_pdf_storage"];
+            }
+            else
+            {
+                object.offerPdfLink = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"offer_pdf_starting_date_time"] isKindOfClass:[NSString class]])
+            {
+                object.startTime = [[tempArray objectAtIndex:i] valueForKey:@"offer_pdf_starting_date_time"];
+            }
+            else
+            {
+                object.startTime = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"offer_pdf_ending_date_time"] isKindOfClass:[NSString class]])
+            {
+                object.endTime = [[tempArray objectAtIndex:i] valueForKey:@"offer_pdf_ending_date_time"];
+            }
+            else
+            {
+                object.endTime = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"offer_pdf_from_farma"] isKindOfClass:[NSString class]] && [[[tempArray objectAtIndex:i] valueForKey:@"offer_pdf_from_farma"] isEqualToString:@"1"])
+            {
+                object.offerType = @"farma logo";
+            }
+            else
+            {
+                object.offerType = @"farmacia logo";
+            }
+            
+            [offerItemsArray addObject:object];
+        }
+        
+    }
+    return offerItemsArray;
     
 }
 

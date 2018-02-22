@@ -17,10 +17,17 @@
 #import "EventViewController.h"
 #import "ChiSiamoViewController.h"
 #import "User Details.h"
+#import "RHWebServiceManager.h"
+#import "SVProgressHUD.h"
+#import "AllOfferObject.h"
+#import "OfferTableViewCell.h"
 
-@interface OfferViewController ()<UITableViewDelegate,UITableViewDataSource,LGSideMenuControllerDelegate>
+@interface OfferViewController ()<UITableViewDelegate,UITableViewDataSource,LGSideMenuControllerDelegate,RHWebServiceDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *offerTableview;
+@property (strong,nonatomic) RHWebServiceManager *myWebService;
+@property (strong,nonatomic) AllOfferObject *offerObject;
+@property (strong,nonatomic) NSMutableArray *offerArray;
 
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)messageButtonAction:(id)sender;
@@ -40,6 +47,8 @@
     // Do any additional setup after loading the view.
     self.offerTableview.estimatedRowHeight = 90;
     self.offerTableview.rowHeight = UITableViewAutomaticDimension;
+    self.offerArray = [NSMutableArray new];
+    [self CallOfferWebservice];
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -62,19 +71,76 @@
 }
 */
 
+#pragma mark All Web service
+
+-(void) CallOfferWebservice
+{
+    [SVProgressHUD show];
+    //NSString *startingLimit = [NSString stringWithFormat:@"%li",self.offerArray.count];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,Offer_URL_API,[User_Details sharedInstance].appUserId];
+    self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeOffer Delegate:self];
+    [self.myWebService getDataFromWebURLWithUrlString:urlStr];
+    
+}
+
+-(void) dataFromWebReceivedSuccessfully:(id) responseObj
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    if(self.myWebService.requestType == HTTPRequestTypeOffer)
+    {
+        [self.offerArray removeAllObjects];
+        [self.offerArray addObjectsFromArray:(NSArray *)responseObj];
+    }
+    [self.offerTableview reloadData];
+}
+
+-(void) dataFromWebReceiptionFailed:(NSError*) error
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+
+//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+//
+//    NSInteger currentOffset = scrollView.contentOffset.y;
+//    NSInteger maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+//    if (maximumOffset - currentOffset <= -40) {
+//
+//        [self CallGalleryWebservice];
+//
+//    }
+//}
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 15;
+    return self.offerArray.count;
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"offerCell" forIndexPath:indexPath];
+    OfferTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"offerCell" forIndexPath:indexPath];
+    self.offerObject = [self.offerArray objectAtIndex:indexPath.row];
+    cell.pdfTitleLabel.text = self.offerObject.offerTitle;
+    cell.categoryTypeImageview.image = [UIImage imageNamed:self.offerObject.offerType];
+    cell.dateTimeLabel.text = self.offerObject.endTime;
     return cell;
 }
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }

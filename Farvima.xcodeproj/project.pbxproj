@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		84A607F21FA3062300D7E3D7 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A607F11FA3062300D7E3D7 /* NewsViewController.m */; };
+		84A725BE203E7F7F00224D75 /* AllOfferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A725BD203E7F7F00224D75 /* AllOfferObject.m */; };
 		BB04CDA31FD5A2BF008A70DC /* SearchPharmacyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BB04CDA21FD5A2BF008A70DC /* SearchPharmacyObject.m */; };
 		BB0DEA371F9F9045009E8420 /* OfferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0DEA361F9F9045009E8420 /* OfferViewController.m */; };
 		BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0DEA391F9F9726009E8420 /* OfferTableViewCell.m */; };
@@ -80,6 +81,8 @@
 		6AF49D719E96AB9AC74CE0B4 /* Pods-Farvima.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farvima.release.xcconfig"; path = "Pods/Target Support Files/Pods-Farvima/Pods-Farvima.release.xcconfig"; sourceTree = "<group>"; };
 		84A607F01FA3062300D7E3D7 /* NewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		84A607F11FA3062300D7E3D7 /* NewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
+		84A725BC203E7F7F00224D75 /* AllOfferObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllOfferObject.h; sourceTree = "<group>"; };
+		84A725BD203E7F7F00224D75 /* AllOfferObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllOfferObject.m; sourceTree = "<group>"; };
 		BB04CDA11FD5A2BF008A70DC /* SearchPharmacyObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPharmacyObject.h; sourceTree = "<group>"; };
 		BB04CDA21FD5A2BF008A70DC /* SearchPharmacyObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPharmacyObject.m; sourceTree = "<group>"; };
 		BB0DEA351F9F9045009E8420 /* OfferViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfferViewController.h; sourceTree = "<group>"; };
@@ -240,6 +243,15 @@
 			path = News;
 			sourceTree = "<group>";
 		};
+		84A725BB203E7F5200224D75 /* OfferObject */ = {
+			isa = PBXGroup;
+			children = (
+				84A725BC203E7F7F00224D75 /* AllOfferObject.h */,
+				84A725BD203E7F7F00224D75 /* AllOfferObject.m */,
+			);
+			path = OfferObject;
+			sourceTree = "<group>";
+		};
 		BB04CDA41FD5A2C4008A70DC /* SearchPharmacyObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +353,7 @@
 				BBD52C051FD40F7200EC3A76 /* EventObject */,
 				BBD52BFE1FD4097400EC3A76 /* GalleryObject */,
 				BB2B6754203B4F91008782FA /* ProductObject */,
+				84A725BB203E7F5200224D75 /* OfferObject */,
 			);
 			path = Webservice;
 			sourceTree = "<group>";
@@ -693,13 +706,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Farvima-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		22A52C9303DF4D73B1D285F5 /* [CP] Embed Pods Frameworks */ = {
@@ -723,9 +739,13 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Farvima/Pods-Farvima-resources.sh",
+				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -758,6 +778,7 @@
 				BB63834B1F9E504B007B56AF /* GallaryViewController.m in Sources */,
 				BB8A24B51FA4DD480070322E /* MessageSectionHeader.m in Sources */,
 				BB5C96581FC473C900126DC9 /* LeftMenuTableViewCell.m in Sources */,
+				84A725BE203E7F7F00224D75 /* AllOfferObject.m in Sources */,
 				BBD8B6811FC5C243009EDD32 /* LeftSlideMenuViewController.m in Sources */,
 				BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */,
 				BB877B1C1FC9B25A00E06020 /* FarmaciaHomeViewController.m in Sources */,

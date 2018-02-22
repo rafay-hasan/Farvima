@@ -12,6 +12,7 @@
 #define BASE_URL_API @"http://farmadevelopment.switchyapp.com/"
 #define UserDetails_URL_API @"ios_store_device_id_tokens"
 #define Gallery_URL_API @"app_gallery_images/"
+#define Offer_URL_API @"app_all_offer_pdf_list/"
 #define Event_URL_API @"app_all_events_by_limit/"
 #define News_URL_API @"app_all_news_by_limit/"
 #define Message_URL_API @"app_message_list_by_app_user_id_limit/"
@@ -26,6 +27,7 @@
 enum {
     HTTPRequestypeUserDetails,
     HTTPRequestTypeGallery,
+    HTTPRequestTypeOffer,
     HTTPRequestTypeEvents,
     HTTPRequestTypeNews,
     HTTPRequestTypeMessage,

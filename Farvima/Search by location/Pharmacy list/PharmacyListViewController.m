@@ -210,6 +210,8 @@
     {
         NSLog(@"%@",responseObj);
         [User_Details sharedInstance].referenceAppUserPharmacyId = @"1234";
+        [[NSUserDefaults standardUserDefaults] setObject:[User_Details sharedInstance].referenceAppUserPharmacyId forKey:@"referenceAppUserPharmacyId"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         [self.slideMenuSharedManager createLeftGeneralSlideMenu];
         [self changeHomePage];
     }
