@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		84A607F21FA3062300D7E3D7 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A607F11FA3062300D7E3D7 /* NewsViewController.m */; };
 		84A725BE203E7F7F00224D75 /* AllOfferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A725BD203E7F7F00224D75 /* AllOfferObject.m */; };
+		84A725C1203EB33100224D75 /* FileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A725C0203EB33000224D75 /* FileDownloader.m */; };
 		BB04CDA31FD5A2BF008A70DC /* SearchPharmacyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BB04CDA21FD5A2BF008A70DC /* SearchPharmacyObject.m */; };
 		BB0DEA371F9F9045009E8420 /* OfferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0DEA361F9F9045009E8420 /* OfferViewController.m */; };
 		BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0DEA391F9F9726009E8420 /* OfferTableViewCell.m */; };
@@ -83,6 +84,8 @@
 		84A607F11FA3062300D7E3D7 /* NewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		84A725BC203E7F7F00224D75 /* AllOfferObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllOfferObject.h; sourceTree = "<group>"; };
 		84A725BD203E7F7F00224D75 /* AllOfferObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllOfferObject.m; sourceTree = "<group>"; };
+		84A725BF203EB32F00224D75 /* FileDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDownloader.h; sourceTree = "<group>"; };
+		84A725C0203EB33000224D75 /* FileDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDownloader.m; sourceTree = "<group>"; };
 		BB04CDA11FD5A2BF008A70DC /* SearchPharmacyObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPharmacyObject.h; sourceTree = "<group>"; };
 		BB04CDA21FD5A2BF008A70DC /* SearchPharmacyObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPharmacyObject.m; sourceTree = "<group>"; };
 		BB0DEA351F9F9045009E8420 /* OfferViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfferViewController.h; sourceTree = "<group>"; };
@@ -582,6 +585,8 @@
 				BBFD43C11F93AABD00A7E265 /* AppDelegate.m */,
 				BBD8B6821FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.h */,
 				BBD8B6831FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m */,
+				84A725BF203EB32F00224D75 /* FileDownloader.h */,
+				84A725C0203EB33000224D75 /* FileDownloader.m */,
 				BBD52BFA1FD3FA5F00EC3A76 /* User Shared Manager */,
 				BB7C7FEA1FD3CCE100515EBC /* Webservice */,
 				BB5C96491FC450A500126DC9 /* Slide Menu */,
@@ -807,6 +812,7 @@
 				BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */,
 				BBF2D2991FC98114007EE3FC /* PharmacyListTableViewCell.m in Sources */,
 				BB16A7C91FA788BE00AFA112 /* OrderDetailsFooetrSection.m in Sources */,
+				84A725C1203EB33100224D75 /* FileDownloader.m in Sources */,
 				BBF2D2961FC97B2B007EE3FC /* PharmacyListViewController.m in Sources */,
 				BBD52C011FD409B400EC3A76 /* GalleryObject.m in Sources */,
 				BB5C96521FC45AC900126DC9 /* MainViewController.m in Sources */,
@@ -952,13 +958,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 79YLMQ62DM;
 				INFOPLIST_FILE = Farvima/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Rafay.Farvima;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nascenia.mcpdebug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "14ad0db3-2cef-4865-83a0-89127c6ae1b5";
+				PROVISIONING_PROFILE_SPECIFIER = "MCP Debug";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -969,13 +976,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 79YLMQ62DM;
 				INFOPLIST_FILE = Farvima/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Rafay.Farvima;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nascenia.mcpdebug;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "14ad0db3-2cef-4865-83a0-89127c6ae1b5";
+				PROVISIONING_PROFILE_SPECIFIER = "MCP Debug";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

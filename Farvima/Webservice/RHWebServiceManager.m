@@ -296,7 +296,7 @@
             
             if([[[tempArray objectAtIndex:i] valueForKey:@"offer_pdf_storage"] isKindOfClass:[NSString class]])
             {
-                object.offerPdfLink = [[tempArray objectAtIndex:i] valueForKey:@"offer_pdf_storage"];
+                object.offerPdfLink = [NSString stringWithFormat:@"%@%@",BASE_URL_API,[[tempArray objectAtIndex:i] valueForKey:@"offer_pdf_storage"]];
             }
             else
             {
