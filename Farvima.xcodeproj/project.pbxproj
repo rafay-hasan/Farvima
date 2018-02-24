@@ -11,6 +11,8 @@
 		84A725BE203E7F7F00224D75 /* AllOfferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A725BD203E7F7F00224D75 /* AllOfferObject.m */; };
 		84A725C1203EB33100224D75 /* FileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A725C0203EB33000224D75 /* FileDownloader.m */; };
 		BB04CDA31FD5A2BF008A70DC /* SearchPharmacyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BB04CDA21FD5A2BF008A70DC /* SearchPharmacyObject.m */; };
+		BB0B0D992041C53000D04803 /* FarmacistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0B0D982041C53000D04803 /* FarmacistTableViewCell.m */; };
+		BB0B0D9D2041C84D00D04803 /* FarmacistObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0B0D9C2041C84D00D04803 /* FarmacistObject.m */; };
 		BB0DEA371F9F9045009E8420 /* OfferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0DEA361F9F9045009E8420 /* OfferViewController.m */; };
 		BB0DEA3A1F9F9726009E8420 /* OfferTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0DEA391F9F9726009E8420 /* OfferTableViewCell.m */; };
 		BB1159021FA4B07F0052107A /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB1159011FA4B07F0052107A /* EventViewController.m */; };
@@ -93,6 +95,10 @@
 		84A725C0203EB33000224D75 /* FileDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDownloader.m; sourceTree = "<group>"; };
 		BB04CDA11FD5A2BF008A70DC /* SearchPharmacyObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPharmacyObject.h; sourceTree = "<group>"; };
 		BB04CDA21FD5A2BF008A70DC /* SearchPharmacyObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPharmacyObject.m; sourceTree = "<group>"; };
+		BB0B0D972041C53000D04803 /* FarmacistTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FarmacistTableViewCell.h; sourceTree = "<group>"; };
+		BB0B0D982041C53000D04803 /* FarmacistTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FarmacistTableViewCell.m; sourceTree = "<group>"; };
+		BB0B0D9B2041C84D00D04803 /* FarmacistObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FarmacistObject.h; sourceTree = "<group>"; };
+		BB0B0D9C2041C84D00D04803 /* FarmacistObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FarmacistObject.m; sourceTree = "<group>"; };
 		BB0DEA351F9F9045009E8420 /* OfferViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfferViewController.h; sourceTree = "<group>"; };
 		BB0DEA361F9F9045009E8420 /* OfferViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfferViewController.m; sourceTree = "<group>"; };
 		BB0DEA381F9F9726009E8420 /* OfferTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfferTableViewCell.h; sourceTree = "<group>"; };
@@ -279,6 +285,15 @@
 			path = SearchPharmacyObject;
 			sourceTree = "<group>";
 		};
+		BB0B0D9A2041C82E00D04803 /* FarmacistObject */ = {
+			isa = PBXGroup;
+			children = (
+				BB0B0D9B2041C84D00D04803 /* FarmacistObject.h */,
+				BB0B0D9C2041C84D00D04803 /* FarmacistObject.m */,
+			);
+			path = FarmacistObject;
+			sourceTree = "<group>";
+		};
 		BB0DEA341F9F902A009E8420 /* Offerete */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +350,8 @@
 			children = (
 				BB5198B52041BA3500B2BBC5 /* PharmacistViewController.h */,
 				BB5198B62041BA3500B2BBC5 /* PharmacistViewController.m */,
+				BB0B0D972041C53000D04803 /* FarmacistTableViewCell.h */,
+				BB0B0D982041C53000D04803 /* FarmacistTableViewCell.m */,
 			);
 			path = Pharmacist;
 			sourceTree = "<group>";
@@ -402,6 +419,7 @@
 				BBD52BFE1FD4097400EC3A76 /* GalleryObject */,
 				BB2B6754203B4F91008782FA /* ProductObject */,
 				84A725BB203E7F5200224D75 /* OfferObject */,
+				BB0B0D9A2041C82E00D04803 /* FarmacistObject */,
 			);
 			path = Webservice;
 			sourceTree = "<group>";
@@ -816,6 +834,7 @@
 				BB5198B72041BA3500B2BBC5 /* PharmacistViewController.m in Sources */,
 				BBFD43D61F93AABD00A7E265 /* main.m in Sources */,
 				BBD8B6841FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m in Sources */,
+				BB0B0D9D2041C84D00D04803 /* FarmacistObject.m in Sources */,
 				BB5C964F1FC4511300126DC9 /* RightSideMenuViewController.m in Sources */,
 				BB0DEA371F9F9045009E8420 /* OfferViewController.m in Sources */,
 				BB8A24B21FA4DCE30070322E /* MessageTableViewCell.m in Sources */,
@@ -829,6 +848,7 @@
 				BBE5E7F31FD46DF00026DDB5 /* MessageObject.m in Sources */,
 				BBFD43C51F93AABD00A7E265 /* Farvima.xcdatamodeld in Sources */,
 				BB8A59881FC9610900468389 /* ChooseYourPharmacyViewController.m in Sources */,
+				BB0B0D992041C53000D04803 /* FarmacistTableViewCell.m in Sources */,
 				BB2188071FDEEC5900501E19 /* ChiSiamoViewController.m in Sources */,
 				BB63834B1F9E504B007B56AF /* GallaryViewController.m in Sources */,
 				BB8A24B51FA4DD480070322E /* MessageSectionHeader.m in Sources */,

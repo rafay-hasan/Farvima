@@ -14,6 +14,7 @@
 #define Gallery_URL_API @"app_gallery_images/"
 #define Offer_URL_API @"app_all_offer_pdf_list/"
 #define Event_URL_API @"app_all_events_by_limit/"
+#define Farmacist_URL_API @"app_pharmacist_list/"
 #define News_URL_API @"app_all_news_by_limit/"
 #define Message_URL_API @"app_message_list_by_app_user_id_limit/"
 #define PharmacySearch_URL_API @"app_pharmacy_search"
@@ -39,7 +40,8 @@ enum {
     HTTPRequestTypeCategoryProducts,
     HTTPRequestTypeProductSearch,
     HTTPRequestTypeAssociatePharmacy,
-    HTTPRequestTypePharmacyDetails
+    HTTPRequestTypePharmacyDetails,
+    HTTPRequestTypeFarmacist
 };
 typedef NSUInteger HTTPRequestType;
 

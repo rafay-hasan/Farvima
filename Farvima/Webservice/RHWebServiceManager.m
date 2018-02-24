@@ -15,6 +15,7 @@
 #import "AllProductObject.h"
 #import "AllOfferObject.h"
 #import "PharmacyObject.h"
+#import "FarmacistObject.h"
 
 @implementation RHWebServiceManager
 
@@ -86,6 +87,13 @@
                 if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
                 {
                     [self.delegate dataFromWebReceivedSuccessfully:[self parsePharmacyDetailsItems:responseObject]];
+                }
+            }
+            else if(self.requestType == HTTPRequestTypeFarmacist)
+            {
+                if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
+                {
+                    [self.delegate dataFromWebReceivedSuccessfully:[self parseFarmacistItems:responseObject]];
                 }
             }
             else {
@@ -560,6 +568,62 @@
         
     }
     return messageItemsArray;
+    
+}
+
+-(NSMutableArray *) parseFarmacistItems :(id) response
+{
+    NSMutableArray *farmacistArray = [NSMutableArray new];
+    
+    if([[response valueForKey:@"pharmacists"] isKindOfClass:[NSArray class]])
+    {
+        NSArray *tempArray = [(NSArray *)response valueForKey:@"pharmacists"];
+        
+        for(NSInteger i = 0; i < tempArray.count; i++)
+        {
+            FarmacistObject *object = [FarmacistObject new];
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"farmacisti_first_name"] isKindOfClass:[NSString class]])
+            {
+                object.firstName = [[tempArray objectAtIndex:i] valueForKey:@"farmacisti_first_name"];
+            }
+            else
+            {
+                object.firstName = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"farmacisti_last_name"] isKindOfClass:[NSString class]])
+            {
+                object.lastName = [[tempArray objectAtIndex:i] valueForKey:@"farmacisti_last_name"];
+            }
+            else
+            {
+                object.lastName = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"farmacisti_job_position"] isKindOfClass:[NSString class]])
+            {
+                object.jobPosition = [[tempArray objectAtIndex:i] valueForKey:@"farmacisti_job_position"];
+            }
+            else
+            {
+                object.jobPosition = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"farmacisti_photo_location"] isKindOfClass:[NSString class]])
+            {
+                object.imagePath = [NSString stringWithFormat:@"%@%@",BASE_URL_API,[[tempArray objectAtIndex:i] valueForKey:@"farmacisti_photo_location"]];
+            }
+            else
+            {
+                object.imagePath = @"";
+            }
+            
+            [farmacistArray addObject:object];
+        }
+        
+    }
+    return farmacistArray;
     
 }
 
