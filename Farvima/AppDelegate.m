@@ -11,7 +11,7 @@
 #import "RHWebServiceManager.h"
 #import "SVProgressHUD.h"
 #import "User Details.h"
-
+#import "FarmVimaSlideMenuSingletone.h"
 @interface AppDelegate ()<RHWebServiceDelegate>
 
 @property (strong,nonatomic) RHWebServiceManager *myWebserviceManager;
@@ -69,7 +69,7 @@
 
 -(void) CallUserDetailsWebserviceWithUDID:(NSString *)ID forDeviceToken:(NSString *)deviceToken
 {
-     NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:@"53235889",@"device_unique_id",@"5340561869",@"device_push_token",nil];
+     NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:@"532358891",@"device_unique_id",@"5340541869",@"device_push_token",nil];
     [SVProgressHUD show];
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL_API,UserDetails_URL_API];
     self.myWebserviceManager = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestypeUserDetails Delegate:self];
@@ -104,21 +104,30 @@
     else {
         self.userManager.referenceAppUserPharmacyId = nil;
     }
-    [[NSUserDefaults standardUserDefaults] synchronize];;
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[FarmVimaSlideMenuSingletone sharedManager] createLeftGeneralSlideMenu];
 }
 
 -(void) dataFromWebReceiptionFailed:(NSError*) error
 {
     [SVProgressHUD dismiss];
     if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"] isKindOfClass:[NSString class]]) {
-        self.userManager.appUserId = [[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"];
+        NSString *str = [[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"];
+        if (str.length > 0) {
+            self.userManager.appUserId = str;
+        }
     }
 //    if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"app_user_pharmacy_id"] isKindOfClass:[NSString class]]) {
 //        self.userManager.pharmacyId = [[NSUserDefaults standardUserDefaults] valueForKey:@"app_user_pharmacy_id"];
 //    }
     if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"ref_app_user_pharmacy_pharmacy_id"] isKindOfClass:[NSString class]]) {
-        self.userManager.referenceAppUserPharmacyId = [[NSUserDefaults standardUserDefaults] valueForKey:@"ref_app_user_pharmacy_pharmacy_id"];
+        
+        NSString *str = [[NSUserDefaults standardUserDefaults] valueForKey:@"ref_app_user_pharmacy_pharmacy_id"];
+        if (str.length > 0) {
+            self.userManager.referenceAppUserPharmacyId = str;
+        }
     }
+    [[FarmVimaSlideMenuSingletone sharedManager] createLeftGeneralSlideMenu];
 }
 
 

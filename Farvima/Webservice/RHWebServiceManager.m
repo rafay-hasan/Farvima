@@ -591,6 +591,27 @@
             object.longlititude = @"";
         }
         
+        if ([[dic valueForKey:@"email"] isKindOfClass:[NSString class]]) {
+            object.emailAddress = [dic valueForKey:@"email"];
+        }
+        else {
+            object.emailAddress = @"";
+        }
+        
+        if ([[dic valueForKey:@"url"] isKindOfClass:[NSString class]]) {
+            object.webAddress = [dic valueForKey:@"url"];
+        }
+        else {
+            object.webAddress = @"";
+        }
+        
+        if ([[dic valueForKey:@"indirizzo"] isKindOfClass:[NSString class]]) {
+            object.location = [dic valueForKey:@"indirizzo"];
+        }
+        else {
+            object.location = @"";
+        }
+        
     }
     
     if([[response valueForKey:@"total_offers"] isKindOfClass:[NSString class]])

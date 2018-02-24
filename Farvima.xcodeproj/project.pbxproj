@@ -25,6 +25,7 @@
 		BB2188071FDEEC5900501E19 /* ChiSiamoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2188061FDEEC5900501E19 /* ChiSiamoViewController.m */; };
 		BB2B6757203B4FBE008782FA /* AllProductObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BB2B6756203B4FBE008782FA /* AllProductObject.m */; };
 		BB3425CF1FB209A8000FD88C /* EventDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB3425CE1FB209A8000FD88C /* EventDetailsViewController.m */; };
+		BB5198B72041BA3500B2BBC5 /* PharmacistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5198B62041BA3500B2BBC5 /* PharmacistViewController.m */; };
 		BB5C964F1FC4511300126DC9 /* RightSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C964E1FC4511300126DC9 /* RightSideMenuViewController.m */; };
 		BB5C96521FC45AC900126DC9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C96511FC45AC900126DC9 /* MainViewController.m */; };
 		BB5C96551FC45D0F00126DC9 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C96531FC45D0F00126DC9 /* NavigationController.m */; };
@@ -48,6 +49,8 @@
 		BB8A24B51FA4DD480070322E /* MessageSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24B41FA4DD480070322E /* MessageSectionHeader.m */; };
 		BB8A24B71FA4DD5E0070322E /* MessageSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */; };
 		BB8A59881FC9610900468389 /* ChooseYourPharmacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A59871FC9610900468389 /* ChooseYourPharmacyViewController.m */; };
+		BBB4065C20416D8100A2665A /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB4065B20416D8100A2665A /* CustomAnnotation.m */; };
+		BBB4065F2041826300A2665A /* PharmaciaMapInfoPopOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB4065E2041826300A2665A /* PharmaciaMapInfoPopOverViewController.m */; };
 		BBBC782A1FC7224600062F37 /* SearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBC78291FC7224600062F37 /* SearchResultTableViewCell.m */; };
 		BBC886131FC9729A00D60612 /* SearchByAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC886121FC9729A00D60612 /* SearchByAddressViewController.m */; };
 		BBC886161FC972B400D60612 /* SearchByLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC886151FC972B400D60612 /* SearchByLocationViewController.m */; };
@@ -116,6 +119,8 @@
 		BB2B6756203B4FBE008782FA /* AllProductObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllProductObject.m; sourceTree = "<group>"; };
 		BB3425CD1FB209A8000FD88C /* EventDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventDetailsViewController.h; sourceTree = "<group>"; };
 		BB3425CE1FB209A8000FD88C /* EventDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventDetailsViewController.m; sourceTree = "<group>"; };
+		BB5198B52041BA3500B2BBC5 /* PharmacistViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmacistViewController.h; sourceTree = "<group>"; };
+		BB5198B62041BA3500B2BBC5 /* PharmacistViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PharmacistViewController.m; sourceTree = "<group>"; };
 		BB5C964D1FC4511300126DC9 /* RightSideMenuViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RightSideMenuViewController.h; sourceTree = "<group>"; };
 		BB5C964E1FC4511300126DC9 /* RightSideMenuViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RightSideMenuViewController.m; sourceTree = "<group>"; };
 		BB5C96501FC45AC900126DC9 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
@@ -160,6 +165,10 @@
 		BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageSectionHeader.xib; sourceTree = "<group>"; };
 		BB8A59861FC9610900468389 /* ChooseYourPharmacyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseYourPharmacyViewController.h; sourceTree = "<group>"; };
 		BB8A59871FC9610900468389 /* ChooseYourPharmacyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseYourPharmacyViewController.m; sourceTree = "<group>"; };
+		BBB4065A20416D8100A2665A /* CustomAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
+		BBB4065B20416D8100A2665A /* CustomAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
+		BBB4065D2041826300A2665A /* PharmaciaMapInfoPopOverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmaciaMapInfoPopOverViewController.h; sourceTree = "<group>"; };
+		BBB4065E2041826300A2665A /* PharmaciaMapInfoPopOverViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PharmaciaMapInfoPopOverViewController.m; sourceTree = "<group>"; };
 		BBBC78281FC7224600062F37 /* SearchResultTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResultTableViewCell.h; sourceTree = "<group>"; };
 		BBBC78291FC7224600062F37 /* SearchResultTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultTableViewCell.m; sourceTree = "<group>"; };
 		BBC886111FC9729A00D60612 /* SearchByAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchByAddressViewController.h; sourceTree = "<group>"; };
@@ -321,6 +330,15 @@
 			path = ProductObject;
 			sourceTree = "<group>";
 		};
+		BB5198B42041BA1800B2BBC5 /* Pharmacist */ = {
+			isa = PBXGroup;
+			children = (
+				BB5198B52041BA3500B2BBC5 /* PharmacistViewController.h */,
+				BB5198B62041BA3500B2BBC5 /* PharmacistViewController.m */,
+			);
+			path = Pharmacist;
+			sourceTree = "<group>";
+		};
 		BB5C96491FC450A500126DC9 /* Slide Menu */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +392,8 @@
 			children = (
 				BB7C7FE71FD3CCC600515EBC /* RHWebServiceManager.h */,
 				BB7C7FE81FD3CCC600515EBC /* RHWebServiceManager.m */,
+				BBB4065A20416D8100A2665A /* CustomAnnotation.h */,
+				BBB4065B20416D8100A2665A /* CustomAnnotation.m */,
 				BB60284F204087DE00F06F9B /* PharmacyObject */,
 				BB04CDA41FD5A2C4008A70DC /* SearchPharmacyObject */,
 				BBE5E7F41FD46DF40026DDB5 /* MessageObject */,
@@ -431,6 +451,7 @@
 			children = (
 				BBC886141FC972B400D60612 /* SearchByLocationViewController.h */,
 				BBC886151FC972B400D60612 /* SearchByLocationViewController.m */,
+				BB5198B42041BA1800B2BBC5 /* Pharmacist */,
 				BBF2D2931FC97AF6007EE3FC /* Pharmacy list */,
 			);
 			path = "Search by location";
@@ -612,6 +633,8 @@
 				BBD8B6831FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m */,
 				84A725BF203EB32F00224D75 /* FileDownloader.h */,
 				84A725C0203EB33000224D75 /* FileDownloader.m */,
+				BBB4065D2041826300A2665A /* PharmaciaMapInfoPopOverViewController.h */,
+				BBB4065E2041826300A2665A /* PharmaciaMapInfoPopOverViewController.m */,
 				BBD52BFA1FD3FA5F00EC3A76 /* User Shared Manager */,
 				BB7C7FEA1FD3CCE100515EBC /* Webservice */,
 				BB5C96491FC450A500126DC9 /* Slide Menu */,
@@ -790,6 +813,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB5198B72041BA3500B2BBC5 /* PharmacistViewController.m in Sources */,
 				BBFD43D61F93AABD00A7E265 /* main.m in Sources */,
 				BBD8B6841FC5CAB7009EDD32 /* FarmVimaSlideMenuSingletone.m in Sources */,
 				BB5C964F1FC4511300126DC9 /* RightSideMenuViewController.m in Sources */,
@@ -821,11 +845,13 @@
 				BB7700EE1FA475D600EA76D2 /* NewsSectionHeader.m in Sources */,
 				BB6028522040880700F06F9B /* PharmacyObject.m in Sources */,
 				BBF4DF0A1FA4EE9A00E0C811 /* NotificationViewController.m in Sources */,
+				BBB4065C20416D8100A2665A /* CustomAnnotation.m in Sources */,
 				BBC886161FC972B400D60612 /* SearchByLocationViewController.m in Sources */,
 				BBF4DF0D1FA4F7DA00E0C811 /* NotificationTableViewCell.m in Sources */,
 				BBDC092D1F93B37000E5D9A2 /* PharmaIntroViewController.m in Sources */,
 				BBFD43C21F93AABD00A7E265 /* AppDelegate.m in Sources */,
 				BBD52C081FD41D9F00EC3A76 /* UILabel+FormattedText.m in Sources */,
+				BBB4065F2041826300A2665A /* PharmaciaMapInfoPopOverViewController.m in Sources */,
 				BB7700DC1FA45E3200EA76D2 /* NewsTableViewCell.m in Sources */,
 				BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */,
 				BB6446381FA5FD7F006F2B92 /* SearchResultViewController.m in Sources */,

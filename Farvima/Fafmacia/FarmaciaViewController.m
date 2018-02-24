@@ -15,22 +15,22 @@
 #import "EventObject.h"
 #import "EventTableViewCell.h"
 #import "UILabel+FormattedText.h"
+#import "CustomAnnotation.h"
+#import "PharmaciaMapInfoPopOverViewController.h"
 #import <MapKit/MapKit.h>
+#import <MessageUI/MessageUI.h>
 
-@interface DXAnnotation : NSObject <MKAnnotation>
+@interface FarmaciaViewController ()<RHWebServiceDelegate,MKMapViewDelegate,InfoPopOverDelegate,UIPopoverPresentationControllerDelegate,MFMailComposeViewControllerDelegate>
 
-@property(nonatomic, assign) CLLocationCoordinate2D coordinate;
-@end
-
-
-@interface FarmaciaViewController ()<RHWebServiceDelegate,MKMapViewDelegate>
-
+@property(nonatomic,retain)UIPopoverPresentationController *dateTimePopover8;
+@property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 @property (strong,nonatomic) PharmacyObject *pharmacy;
 @property (strong,nonatomic) EventObject *eventObject;
 - (IBAction)backButtonAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *pharmacyEventTable;
 @property (weak, nonatomic) IBOutlet MKMapView *pharmacyMapview;
+- (IBAction)mapInfoButtonAction:(id)sender;
 
 @end
 
@@ -47,15 +47,39 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    NSString *identifier = segue.identifier;
+    if ([identifier isEqualToString:@"mapPopOver"]) {
+        PharmaciaMapInfoPopOverViewController *dvc = segue.destinationViewController;
+        dvc.object = self.pharmacy;
+        dvc.delegate = self;
+        dvc.preferredContentSize = CGSizeMake(220.0, 116.0);
+        UIPopoverPresentationController *ppc = dvc.popoverPresentationController;
+        if (ppc) {
+            if ([sender isKindOfClass:[UIButton class]]) { // Assumes the popover is being triggered by a UIButton
+                ppc.sourceView = (UIButton *)sender;
+                ppc.sourceRect = [(UIButton *)sender bounds];
+            }
+            ppc.delegate = self;
+        }
+    }
+    
+//    if ([segue.identifier isEqualToString:@"mapPopOver"]) {
+//        UIViewController *dvc = segue.destinationViewController;
+//        UIPopoverPresentationController *controller = dvc.popoverPresentationController;
+//        if (controller) {
+//            controller.delegate = self;
+//        }
+//    }
 }
-*/
+
 
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -188,33 +212,26 @@
 
 - (void) setMap {
     
-    DXAnnotation *annotation = [DXAnnotation new];
+    CustomAnnotation *annotation = [CustomAnnotation new];
     annotation.coordinate = CLLocationCoordinate2DMake([self.pharmacy.latitude doubleValue], [self.pharmacy.longlititude doubleValue]);
     [self.pharmacyMapview addAnnotation:annotation];
     
     annotation.coordinate = CLLocationCoordinate2DMake([self.pharmacy.latitude doubleValue], [self.pharmacy.longlititude doubleValue]);
-    [self.pharmacyMapview setRegion:MKCoordinateRegionMakeWithDistance(annotation.coordinate, 10000, 10000)];
+    MKCoordinateRegion region;
+    region.center.latitude = [self.pharmacy.latitude doubleValue];
+    region.center.longitude = [self.pharmacy.longlititude doubleValue];
+    region.span.latitudeDelta = 0.02f;
+    region.span.longitudeDelta = 0.02f;
+    region = [self.pharmacyMapview regionThatFits:region];
+    [self.pharmacyMapview setRegion:region animated:YES];
+    [self.pharmacyMapview setZoomEnabled:YES];
+    //[self.pharmacyMapview setRegion:MKCoordinateRegionMakeWithDistance(annotation.coordinate, 10000, 10000)];
     [self.pharmacyMapview setCenterCoordinate:annotation.coordinate animated:YES];
     
 }
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
     static NSString *identifier = @"MyAnnotationView";
-    
-//    if ([annotation isKindOfClass:[MKUserLocation class]]) {
-//        return nil;
-//    }
-//
-//    MKPinAnnotationView *view = (id)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-//    if (view) {
-//        view.annotation = annotation;
-//    } else {
-//        view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
-//        view.canShowCallout = false;  // note, we're not going to use the system callout
-//        view.animatesDrop = true;
-//    }
-//
-//    return view;
     
     if ([annotation isKindOfClass:[MKUserLocation class]]) {
         return nil;
@@ -226,8 +243,7 @@
         {
             // if an existing pin view was not available, create one
             MKAnnotationView *customPinView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"annot"];
-            customPinView.image = [UIImage imageNamed:@"customPin"];
-            
+            customPinView.image = [UIImage imageNamed:@"custompin"];
             return customPinView;
         }
         else
@@ -237,16 +253,88 @@
         
         return pinView;
     }
-    
-    
 }
 
+- (void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views {
+    MKAnnotationView *aV;
+    for (aV in views) {
+        CGRect endFrame = aV.frame;
+        
+        aV.frame = CGRectMake(aV.frame.origin.x, aV.frame.origin.y - 230.0, aV.frame.size.width, aV.frame.size.height);
+        
+        [UIView beginAnimations:nil context:NULL];
+        [UIView setAnimationDuration:0.45];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [aV setFrame:endFrame];
+        [UIView commitAnimations];
+        
+    }
+}
+- (IBAction)mapInfoButtonAction:(id)sender {
+    PharmaciaMapInfoPopOverViewController *modal = [self.storyboard instantiateViewControllerWithIdentifier:@"mapPopOver"];
+    modal.modalPresentationStyle = UIModalPresentationPopover;
+    modal.preferredContentSize = CGSizeMake(220.0, 116.0);
+    //modal.transitioningDelegate = self;
+    modal.popoverPresentationController.sourceView = self.view;
+    modal.popoverPresentationController.sourceRect = CGRectZero;
+    //modal.popoverPresentationController.delegate = self;
 
+    [self presentViewController:modal animated:YES completion:nil];
 
+    
+   
+}
 
-@end
+-(void)valueSelectedFromOver:(NSUInteger )value {
+    if (value == 1002) {
+        NSString *phoneNumber = [@"tel://" stringByAppendingString:self.pharmacy.phone];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    }
+    else if (value == 1003) {
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: self.pharmacy.webAddress]];
+    }
+    else if (value == 1004) {
+        NSArray *toRecipents = [NSArray arrayWithObject:self.pharmacy.emailAddress];
+        if ([MFMailComposeViewController canSendMail]){
+            MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+            mc.mailComposeDelegate = self;
+            [mc setSubject:@""];
+            [mc setMessageBody:@"" isHTML:NO];
+            [mc setToRecipients:toRecipents];
+            
+            // Present mail view controller on screen
+            [self presentViewController:mc animated:YES completion:NULL];
+        }
+    }
+}
+- (UIModalPresentationStyle)adaptivePresentationStyleForPresentationController:(UIPresentationController *)controller {
+    
+    return UIModalPresentationNone;
+}
 
-@implementation DXAnnotation
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
 
 @end
 
