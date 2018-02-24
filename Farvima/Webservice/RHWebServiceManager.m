@@ -14,6 +14,7 @@
 #import "SearchPharmacyObject.h"
 #import "AllProductObject.h"
 #import "AllOfferObject.h"
+#import "PharmacyObject.h"
 
 @implementation RHWebServiceManager
 
@@ -78,6 +79,13 @@
                 if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
                 {
                     [self.delegate dataFromWebReceivedSuccessfully:[self parseAllOfferItems:responseObject]];
+                }
+            }
+            else if(self.requestType == HTTPRequestTypePharmacyDetails)
+            {
+                if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
+                {
+                    [self.delegate dataFromWebReceivedSuccessfully:[self parsePharmacyDetailsItems:responseObject]];
                 }
             }
             else {
@@ -552,6 +560,55 @@
         
     }
     return messageItemsArray;
+    
+}
+
+-(PharmacyObject *) parsePharmacyDetailsItems :(id) response
+{
+    PharmacyObject *object = [PharmacyObject new];
+    
+    if([[response valueForKey:@"pharmacy_details"] isKindOfClass:[NSDictionary class]])
+    {
+        NSDictionary *dic = [(NSDictionary *)response valueForKey:@"pharmacy_details"];
+        if ([[dic valueForKey:@"telefono"] isKindOfClass:[NSString class]]) {
+            object.phone = [dic valueForKey:@"telefono"];
+        }
+        else {
+            object.phone = @"";
+        }
+        
+        if ([[dic valueForKey:@"latitudine"] isKindOfClass:[NSString class]]) {
+            object.latitude = [dic valueForKey:@"latitudine"];
+        }
+        else {
+            object.latitude = @"";
+        }
+        
+        if ([[dic valueForKey:@"longitudine"] isKindOfClass:[NSString class]]) {
+            object.longlititude = [dic valueForKey:@"longitudine"];
+        }
+        else {
+            object.longlititude = @"";
+        }
+        
+    }
+    
+    if([[response valueForKey:@"total_offers"] isKindOfClass:[NSString class]])
+    {
+        object.totalOffer = [response valueForKey:@"total_offers"];
+    }
+    else {
+        object.totalOffer = @"0";
+    }
+    
+    if([[response valueForKey:@"event"] isKindOfClass:[NSArray class]])
+    {
+        object.eventArray = [self parseAllEventItems:[response valueForKey:@"event"]];
+    }
+    else {
+        object.eventArray = [NSArray new];
+    }
+    return object;
     
 }
 

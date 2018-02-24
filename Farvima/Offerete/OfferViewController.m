@@ -342,9 +342,6 @@
            // NSString* filePath = [WebPDFUtils pathWithFilename:fileName];
             [[UIApplication sharedApplication] openURL:[NSURL fileURLWithPath:downloadedFile]];
         }
-        
-        
-        
     });
     
     

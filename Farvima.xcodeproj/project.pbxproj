@@ -29,6 +29,8 @@
 		BB5C96521FC45AC900126DC9 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C96511FC45AC900126DC9 /* MainViewController.m */; };
 		BB5C96551FC45D0F00126DC9 /* NavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C96531FC45D0F00126DC9 /* NavigationController.m */; };
 		BB5C96581FC473C900126DC9 /* LeftMenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB5C96571FC473C900126DC9 /* LeftMenuTableViewCell.m */; };
+		BB60284E204068A400F06F9B /* FarmaciaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB60284D204068A400F06F9B /* FarmaciaViewController.m */; };
+		BB6028522040880700F06F9B /* PharmacyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6028512040880700F06F9B /* PharmacyObject.m */; };
 		BB63834B1F9E504B007B56AF /* GallaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB63834A1F9E504B007B56AF /* GallaryViewController.m */; };
 		BB63834E1F9E577B007B56AF /* GallaryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB63834D1F9E577B007B56AF /* GallaryCollectionViewCell.m */; };
 		BB6446381FA5FD7F006F2B92 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB6446371FA5FD7F006F2B92 /* SearchResultViewController.m */; };
@@ -122,6 +124,10 @@
 		BB5C96541FC45D0F00126DC9 /* NavigationController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavigationController.h; sourceTree = "<group>"; };
 		BB5C96561FC473C900126DC9 /* LeftMenuTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LeftMenuTableViewCell.h; sourceTree = "<group>"; };
 		BB5C96571FC473C900126DC9 /* LeftMenuTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LeftMenuTableViewCell.m; sourceTree = "<group>"; };
+		BB60284C204068A400F06F9B /* FarmaciaViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FarmaciaViewController.h; sourceTree = "<group>"; };
+		BB60284D204068A400F06F9B /* FarmaciaViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FarmaciaViewController.m; sourceTree = "<group>"; };
+		BB6028502040880700F06F9B /* PharmacyObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmacyObject.h; sourceTree = "<group>"; };
+		BB6028512040880700F06F9B /* PharmacyObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PharmacyObject.m; sourceTree = "<group>"; };
 		BB6383491F9E504B007B56AF /* GallaryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GallaryViewController.h; sourceTree = "<group>"; };
 		BB63834A1F9E504B007B56AF /* GallaryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GallaryViewController.m; sourceTree = "<group>"; };
 		BB63834C1F9E577B007B56AF /* GallaryCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GallaryCollectionViewCell.h; sourceTree = "<group>"; };
@@ -334,6 +340,24 @@
 			path = "Slide Menu";
 			sourceTree = "<group>";
 		};
+		BB60284B2040685900F06F9B /* Fafmacia */ = {
+			isa = PBXGroup;
+			children = (
+				BB60284C204068A400F06F9B /* FarmaciaViewController.h */,
+				BB60284D204068A400F06F9B /* FarmaciaViewController.m */,
+			);
+			path = Fafmacia;
+			sourceTree = "<group>";
+		};
+		BB60284F204087DE00F06F9B /* PharmacyObject */ = {
+			isa = PBXGroup;
+			children = (
+				BB6028502040880700F06F9B /* PharmacyObject.h */,
+				BB6028512040880700F06F9B /* PharmacyObject.m */,
+			);
+			path = PharmacyObject;
+			sourceTree = "<group>";
+		};
 		BB6383481F9E502D007B56AF /* Galleria */ = {
 			isa = PBXGroup;
 			children = (
@@ -350,6 +374,7 @@
 			children = (
 				BB7C7FE71FD3CCC600515EBC /* RHWebServiceManager.h */,
 				BB7C7FE81FD3CCC600515EBC /* RHWebServiceManager.m */,
+				BB60284F204087DE00F06F9B /* PharmacyObject */,
 				BB04CDA41FD5A2C4008A70DC /* SearchPharmacyObject */,
 				BBE5E7F41FD46DF40026DDB5 /* MessageObject */,
 				BBE5E7F01FD459040026DDB5 /* NewsObject */,
@@ -592,6 +617,7 @@
 				BB5C96491FC450A500126DC9 /* Slide Menu */,
 				BBDC092A1F93B34900E5D9A2 /* Start up guide */,
 				BB13E8291F9CD77000BDA4EB /* Pharma Home */,
+				BB60284B2040685900F06F9B /* Fafmacia */,
 				BB2188041FDEEC3A00501E19 /* Chi Siamo */,
 				BB877B191FC9B22F00E06020 /* Farmacia Home */,
 				BB6383481F9E502D007B56AF /* Galleria */,
@@ -664,7 +690,7 @@
 				TargetAttributes = {
 					BBFD43BC1F93AABD00A7E265 = {
 						CreatedOnToolsVersion = 9.0;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -786,12 +812,14 @@
 				84A725BE203E7F7F00224D75 /* AllOfferObject.m in Sources */,
 				BBD8B6811FC5C243009EDD32 /* LeftSlideMenuViewController.m in Sources */,
 				BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */,
+				BB60284E204068A400F06F9B /* FarmaciaViewController.m in Sources */,
 				BB877B1C1FC9B25A00E06020 /* FarmaciaHomeViewController.m in Sources */,
 				BB7C7FE91FD3CCC600515EBC /* RHWebServiceManager.m in Sources */,
 				BB5C96551FC45D0F00126DC9 /* NavigationController.m in Sources */,
 				BBDC093D1F93B81300E5D9A2 /* OfferIntroViewController.m in Sources */,
 				BBDC09411F93B83500E5D9A2 /* PreBookIntroViewController.m in Sources */,
 				BB7700EE1FA475D600EA76D2 /* NewsSectionHeader.m in Sources */,
+				BB6028522040880700F06F9B /* PharmacyObject.m in Sources */,
 				BBF4DF0A1FA4EE9A00E0C811 /* NotificationViewController.m in Sources */,
 				BBC886161FC972B400D60612 /* SearchByLocationViewController.m in Sources */,
 				BBF4DF0D1FA4F7DA00E0C811 /* NotificationTableViewCell.m in Sources */,
@@ -957,15 +985,16 @@
 			baseConfigurationReference = E2FB0FEBF165970D978B384F /* Pods-Farvima.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 79YLMQ62DM;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Farvima/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nascenia.mcpdebug;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nascenia.mcpd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "14ad0db3-2cef-4865-83a0-89127c6ae1b5";
-				PROVISIONING_PROFILE_SPECIFIER = "MCP Debug";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -975,15 +1004,16 @@
 			baseConfigurationReference = 6AF49D719E96AB9AC74CE0B4 /* Pods-Farvima.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 79YLMQ62DM;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Farvima/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.nascenia.mcpdebug;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nascenia.mcpd;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "14ad0db3-2cef-4865-83a0-89127c6ae1b5";
-				PROVISIONING_PROFILE_SPECIFIER = "MCP Debug";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
