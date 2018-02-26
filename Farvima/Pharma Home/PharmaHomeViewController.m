@@ -27,8 +27,8 @@
     self.sideMenuController.rightViewSwipeGestureEnabled = NO;
 }
 
-- (void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:YES];
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
     self.sideMenuController.leftViewSwipeGestureEnabled = NO;
     self.sideMenuController.rightViewSwipeGestureEnabled = NO;
 }

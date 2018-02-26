@@ -287,13 +287,14 @@
 
 -(void)valueSelectedFromOver:(NSUInteger )value {
     if (value == 1002) {
-        NSString *phoneNumber = [@"tel://" stringByAppendingString:self.pharmacy.phone];
+        NSString *phoneNumber = [@"telprompt://" stringByAppendingString:self.pharmacy.phone];
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
     }
     else if (value == 1003) {
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString: self.pharmacy.webAddress]];
     }
     else if (value == 1004) {
+        [self dismissViewControllerAnimated:YES completion:nil];
         NSArray *toRecipents = [NSArray arrayWithObject:self.pharmacy.emailAddress];
         if ([MFMailComposeViewController canSendMail]){
             MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];

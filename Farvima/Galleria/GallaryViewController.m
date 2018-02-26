@@ -91,6 +91,7 @@
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     NSInteger size = (int)[[UIScreen mainScreen] nativeBounds].size.height;
+    NSLog(@"%li",size);
     if (size == 1136) {
         printf("iPhone 5 or 5S or 5C");
         return CGSizeMake(135, 135);
@@ -212,6 +213,10 @@
         [self CallGalleryWebservice];
         
     }
+}
+
+- (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [User_Details sharedInstance].appUserId = @"";
 }
 
 - (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {

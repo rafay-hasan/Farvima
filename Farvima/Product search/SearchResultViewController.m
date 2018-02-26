@@ -338,6 +338,8 @@
         [self CallAllProductsWebservice];
     }
     else {
+        [self.searchResultTableview reloadData];
+        [self.productSearchCollectionView reloadData];
         [SVProgressHUD dismiss];
         self.view.userInteractionEnabled = YES;
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
@@ -352,6 +354,10 @@
 
 
 - (IBAction)backButtonAction:(id)sender {
+    self.sideMenuController.leftViewSwipeGestureEnabled = NO;
+    self.sideMenuController.rightViewSwipeGestureEnabled = YES;
+    [self.slideMenuSharedManager createLeftGeneralSlideMenu];
+    self.sideMenuController.leftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenu"];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -397,6 +403,11 @@
     }
     return NO;
 }
+
+- (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [User_Details sharedInstance].appUserId = @"";
+}
+
 - (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
     NSLog(@"showed");
     NSString *menuname = [User_Details sharedInstance].currentlySelectedLeftSlideMenu;

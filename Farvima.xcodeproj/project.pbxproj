@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		84079E3220440607009998CF /* AllOfersViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84079E3120440607009998CF /* AllOfersViewController.m */; };
+		84079E3520440B17009998CF /* OfferTypeObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84079E3420440B17009998CF /* OfferTypeObject.m */; };
 		84A607F21FA3062300D7E3D7 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A607F11FA3062300D7E3D7 /* NewsViewController.m */; };
 		84A725BE203E7F7F00224D75 /* AllOfferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A725BD203E7F7F00224D75 /* AllOfferObject.m */; };
 		84A725C1203EB33100224D75 /* FileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A725C0203EB33000224D75 /* FileDownloader.m */; };
@@ -87,6 +89,10 @@
 /* Begin PBXFileReference section */
 		1C923C4B9424231A7D810D82 /* libPods-Farvima.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Farvima.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6AF49D719E96AB9AC74CE0B4 /* Pods-Farvima.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Farvima.release.xcconfig"; path = "Pods/Target Support Files/Pods-Farvima/Pods-Farvima.release.xcconfig"; sourceTree = "<group>"; };
+		84079E3020440607009998CF /* AllOfersViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllOfersViewController.h; sourceTree = "<group>"; };
+		84079E3120440607009998CF /* AllOfersViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllOfersViewController.m; sourceTree = "<group>"; };
+		84079E3320440B17009998CF /* OfferTypeObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OfferTypeObject.h; sourceTree = "<group>"; };
+		84079E3420440B17009998CF /* OfferTypeObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfferTypeObject.m; sourceTree = "<group>"; };
 		84A607F01FA3062300D7E3D7 /* NewsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsViewController.h; sourceTree = "<group>"; };
 		84A607F11FA3062300D7E3D7 /* NewsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsViewController.m; sourceTree = "<group>"; };
 		84A725BC203E7F7F00224D75 /* AllOfferObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AllOfferObject.h; sourceTree = "<group>"; };
@@ -272,6 +278,8 @@
 			children = (
 				84A725BC203E7F7F00224D75 /* AllOfferObject.h */,
 				84A725BD203E7F7F00224D75 /* AllOfferObject.m */,
+				84079E3320440B17009998CF /* OfferTypeObject.h */,
+				84079E3420440B17009998CF /* OfferTypeObject.m */,
 			);
 			path = OfferObject;
 			sourceTree = "<group>";
@@ -301,6 +309,8 @@
 				BB0DEA361F9F9045009E8420 /* OfferViewController.m */,
 				BB0DEA381F9F9726009E8420 /* OfferTableViewCell.h */,
 				BB0DEA391F9F9726009E8420 /* OfferTableViewCell.m */,
+				84079E3020440607009998CF /* AllOfersViewController.h */,
+				84079E3120440607009998CF /* AllOfersViewController.m */,
 			);
 			path = Offerete;
 			sourceTree = "<group>";
@@ -840,6 +850,7 @@
 				BB8A24B21FA4DCE30070322E /* MessageTableViewCell.m in Sources */,
 				BB13E82C1F9CD78D00BDA4EB /* PharmaHomeViewController.m in Sources */,
 				BBBC782A1FC7224600062F37 /* SearchResultTableViewCell.m in Sources */,
+				84079E3220440607009998CF /* AllOfersViewController.m in Sources */,
 				BB1159021FA4B07F0052107A /* EventViewController.m in Sources */,
 				BB63834E1F9E577B007B56AF /* GallaryCollectionViewCell.m in Sources */,
 				BB1159051FA4B5D30052107A /* EventTableViewCell.m in Sources */,
@@ -877,6 +888,7 @@
 				BB6446381FA5FD7F006F2B92 /* SearchResultViewController.m in Sources */,
 				BB64463B1FA6077B006F2B92 /* SearchResultCollectionViewCell.m in Sources */,
 				BB2B6757203B4FBE008782FA /* AllProductObject.m in Sources */,
+				84079E3520440B17009998CF /* OfferTypeObject.m in Sources */,
 				BB64463E1FA61D19006F2B92 /* SearchProductDetailsViewController.m in Sources */,
 				BB7700F31FA4856B00EA76D2 /* NewsDetailsViewController.m in Sources */,
 				BB16A7C11FA77EA100AFA112 /* OrderDetailsHeaderSection.m in Sources */,

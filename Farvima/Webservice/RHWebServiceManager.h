@@ -13,6 +13,8 @@
 #define UserDetails_URL_API @"ios_store_device_id_tokens"
 #define Gallery_URL_API @"app_gallery_images/"
 #define Offer_URL_API @"app_all_offer_pdf_list/"
+#define All_OfferList_URL_API @"app_all_offer_products/"
+#define PDF_OfferList_URL_API @"app_offer_pdf_products/"
 #define Event_URL_API @"app_all_events_by_limit/"
 #define Farmacist_URL_API @"app_pharmacist_list/"
 #define News_URL_API @"app_all_news_by_limit/"
@@ -22,6 +24,7 @@
 #define SideMenuCategories_URL_API @"app_all_categories"
 #define AllProducts_URL_API @"app_product_list_by_limit/"
 #define CategoryProducts_URL_API @"app_category_product_list_by_limit/"
+#define CategoryOfferProducts_URL_API @"app_category_offer_products/"
 #define CategoryProductSearch_URL_API @"app_search_product"
 #define AssociatePharmacy_URL_API @"app_associate_pharmacy"
 #define PharmacyDetails_URL_API @"app_get_pharmacy_details_by_app_user_id/"
@@ -38,10 +41,12 @@ enum {
     HTTPRequestTypeSlideMenuCategory,
     HTTPRequestTypeAllProducts,
     HTTPRequestTypeCategoryProducts,
+    HTTPRequestTypeCategoryOfferProducts,
     HTTPRequestTypeProductSearch,
     HTTPRequestTypeAssociatePharmacy,
     HTTPRequestTypePharmacyDetails,
-    HTTPRequestTypeFarmacist
+    HTTPRequestTypeFarmacist,
+    HTTPRequestTypeAllOffer
 };
 typedef NSUInteger HTTPRequestType;
 

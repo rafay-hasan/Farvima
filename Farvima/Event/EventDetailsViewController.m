@@ -161,6 +161,10 @@
      [[self sideMenuController] showLeftViewAnimated:sender];
 }
 
+- (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [User_Details sharedInstance].appUserId = @"";
+}
+
 - (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
     [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
 }

@@ -17,6 +17,7 @@
 #import "AllOfferObject.h"
 #import "OfferTableViewCell.h"
 #import "FileDownloader.h"
+#import "AllOfersViewController.h"
 
 @interface OfferViewController ()<UITableViewDelegate,UITableViewDataSource,LGSideMenuControllerDelegate,RHWebServiceDelegate,fileDownloaderDelegate,UIDocumentInteractionControllerDelegate>
 
@@ -41,7 +42,6 @@
 - (IBAction)showLeftMenuAction:(id)sender;
 - (IBAction)searchProductButtonAction:(id)sender;
 - (IBAction)busketButtonAction:(id)sender;
-- (IBAction)tutteLeOfferteButtonAction:(id)sender;
 - (IBAction)downloadCancelButtonAction:(id)sender;
 
 
@@ -75,15 +75,26 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    if ([segue.identifier isEqualToString:@"pdfOffers"]) {
+        NSIndexPath *selectedIndexPath = [self.offerTableview indexPathForSelectedRow];
+        self.offerObject = [self.offerArray objectAtIndex:selectedIndexPath.row];
+        AllOfersViewController *vc = [segue destinationViewController];
+        vc.offerUrlString = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,PDF_OfferList_URL_API,self.offerObject.offerId];
+    }
+    else if ([segue.identifier isEqualToString:@"allOfer"]) {
+        AllOfersViewController *vc = [segue destinationViewController];
+        vc.offerUrlString = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,All_OfferList_URL_API,[User_Details sharedInstance].appUserId];
+    }
 }
-*/
+
 
 #pragma mark All Web service
 
@@ -104,7 +115,7 @@
     if(self.myWebService.requestType == HTTPRequestTypeOffer)
     {
         [self.offerArray removeAllObjects];
-        [self.offerArray addObjectsFromArray:(NSArray *)responseObj];
+        self.offerArray = [[NSMutableArray alloc]initWithArray:(NSArray *)responseObj];
     }
     [self.offerTableview reloadData];
 }
@@ -169,13 +180,9 @@
 //    if(fileExists)
 //    {
 //        dispatch_async(dispatch_get_main_queue(), ^{
-////            self.docController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:downloadedFile]];
-////            self.docController.delegate = self;
-////            [self.docController presentOpenInMenuFromRect:CGRectZero inView:self.view animated:YES];
-//
 //            self.docController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:downloadedFile]];
 //            self.docController.delegate = self;
-//            [self.docController presentOptionsMenuFromRect:self.view.frame inView:self.view animated:YES];
+//            [self.docController presentOpenInMenuFromRect:CGRectZero inView:self.view animated:YES];
 //            });
 //    }
 //    else {
@@ -235,9 +242,6 @@
 - (IBAction)busketButtonAction:(id)sender {
 }
 
-- (IBAction)tutteLeOfferteButtonAction:(id)sender {
-}
-
 - (IBAction)downloadCancelButtonAction:(id)sender {
     
     if(self.downloading)
@@ -259,6 +263,9 @@
     return NO;
 }
 
+- (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [User_Details sharedInstance].appUserId = @"";
+}
 
 - (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
     [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
@@ -291,12 +298,9 @@
         BOOL fileExists = [[NSFileManager defaultManager] fileExistsAtPath:downloadedFile];
         if(fileExists)
         {
-//            self.docController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:downloadedFile]];
-//            self.docController.delegate = self;
-//            [self.docController presentOpenInMenuFromRect:CGRectZero inView:self.view animated:YES];
-            
-           // NSString* filePath = [WebPDFUtils pathWithFilename:fileName];
-            [[UIApplication sharedApplication] openURL:[NSURL fileURLWithPath:downloadedFile]];
+            self.docController = [UIDocumentInteractionController interactionControllerWithURL:[NSURL fileURLWithPath:downloadedFile]];
+            self.docController.delegate = self;
+            [self.docController presentOpenInMenuFromRect:CGRectZero inView:self.view animated:YES];
         }
     });
     

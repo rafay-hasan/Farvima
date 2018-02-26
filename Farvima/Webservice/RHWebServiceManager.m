@@ -16,6 +16,7 @@
 #import "AllOfferObject.h"
 #import "PharmacyObject.h"
 #import "FarmacistObject.h"
+#import "OfferTypeObject.h"
 
 @implementation RHWebServiceManager
 
@@ -80,6 +81,13 @@
                 if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
                 {
                     [self.delegate dataFromWebReceivedSuccessfully:[self parseAllOfferItems:responseObject]];
+                }
+            }
+            else if(self.requestType == HTTPRequestTypeAllOffer || self.requestType == HTTPRequestTypeCategoryOfferProducts)
+            {
+                if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
+                {
+                    [self.delegate dataFromWebReceivedSuccessfully:[self parseAllOfferTypeItems:responseObject]];
                 }
             }
             else if(self.requestType == HTTPRequestTypePharmacyDetails)
@@ -354,6 +362,168 @@
     
 }
 
+-(NSMutableArray *) parseAllOfferTypeItems :(id ) response
+{
+    NSMutableArray *offerItemsArray = [NSMutableArray new];
+    NSMutableArray *tempArray = [NSMutableArray new];
+    
+    if ([[response valueForKey:@"all_offer_products"] isKindOfClass:[NSArray class]]) {
+        tempArray = [(NSArray *)response valueForKey:@"all_offer_products"];
+    }
+    else if ([[response valueForKey:@"offer_pdf_products"] isKindOfClass:[NSArray class]]) {
+        tempArray = [(NSArray *)response valueForKey:@"offer_pdf_products"];
+    }
+    
+    for(NSInteger i = 0; i < tempArray.count; i++)
+    {
+        OfferTypeObject *object = [OfferTypeObject new];
+        
+        if([[[tempArray objectAtIndex:i] valueForKey:@"product_id"] isKindOfClass:[NSString class]])
+        {
+            if([[[tempArray objectAtIndex:i] valueForKey:@"descrizione_h1"] isKindOfClass:[NSString class]])
+            {
+                object.name = [[tempArray objectAtIndex:i] valueForKey:@"descrizione_h1"];
+            }
+            else
+            {
+                object.name = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"descrizione_ricerca"] isKindOfClass:[NSString class]])
+            {
+                object.details = [[tempArray objectAtIndex:i] valueForKey:@"descrizione_ricerca"];
+            }
+            else
+            {
+                object.details = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"prezzo_web_lordo"] isKindOfClass:[NSString class]])
+            {
+                object.price = [[tempArray objectAtIndex:i] valueForKey:@"prezzo_web_lordo"];
+            }
+            else
+            {
+                object.price = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"linkImmagineProdotto"] isKindOfClass:[NSString class]])
+            {
+                object.imageUel = [[tempArray objectAtIndex:i] valueForKey:@"linkImmagineProdotto"];
+            }
+            else
+            {
+                object.imageUel = @"";
+            }
+            
+            if((([[[tempArray objectAtIndex:i] valueForKey:@"product_from_json"] isKindOfClass:[NSString class]]) && [[[tempArray objectAtIndex:i] valueForKey:@"product_from_json"]  isEqual: @"1"]) || ([[[tempArray objectAtIndex:i] valueForKey:@"product_new_ref_pharmacy_id"] isKindOfClass:[NSNull class]]) || ([[[tempArray objectAtIndex:i] valueForKey:@"ref_product_free_text_pharmacy_id"] isKindOfClass:[NSNull class]]))
+            {
+                object.pharmacyCategoryType = @"farma logo";
+            }
+            else
+            {
+                object.pharmacyCategoryType = @"farmacia logo";
+            }
+        }
+        else if ([[[tempArray objectAtIndex:i] valueForKey:@"product_new_id"] isKindOfClass:[NSString class]]) {
+            if([[[tempArray objectAtIndex:i] valueForKey:@"product_new_descrizione_h1"] isKindOfClass:[NSString class]])
+            {
+                object.name = [[tempArray objectAtIndex:i] valueForKey:@"product_new_descrizione_h1"];
+            }
+            else
+            {
+                object.name = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"product_new_descrizione_ricerca"] isKindOfClass:[NSString class]])
+            {
+                object.details = [[tempArray objectAtIndex:i] valueForKey:@"product_new_descrizione_ricerca"];
+            }
+            else
+            {
+                object.details = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"product_new_prezzo_web_netto"] isKindOfClass:[NSString class]])
+            {
+                object.price = [[tempArray objectAtIndex:i] valueForKey:@"product_new_prezzo_web_netto"];
+            }
+            else
+            {
+                object.price = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"product_new_linkImmagineProdotto"] isKindOfClass:[NSString class]])
+            {
+                object.imageUel = [[tempArray objectAtIndex:i] valueForKey:@"product_new_linkImmagineProdotto"];
+            }
+            else
+            {
+                object.imageUel = @"";
+            }
+            
+            if((([[[tempArray objectAtIndex:i] valueForKey:@"product_from_json"] isKindOfClass:[NSString class]]) && [[[tempArray objectAtIndex:i] valueForKey:@"product_from_json"]  isEqual: @"1"]) || ([[[tempArray objectAtIndex:i] valueForKey:@"product_new_ref_pharmacy_id"] isKindOfClass:[NSNull class]]) || ([[[tempArray objectAtIndex:i] valueForKey:@"ref_product_free_text_pharmacy_id"] isKindOfClass:[NSNull class]]))
+            {
+                object.pharmacyCategoryType = @"farma logo";
+            }
+            else
+            {
+                object.pharmacyCategoryType = @"farmacia logo";
+            }
+        }
+        else if ([[[tempArray objectAtIndex:i] valueForKey:@"product_free_text_id"] isKindOfClass:[NSString class]]) {
+            if([[[tempArray objectAtIndex:i] valueForKey:@"product_free_text_name"] isKindOfClass:[NSString class]])
+            {
+                object.name = [[tempArray objectAtIndex:i] valueForKey:@"product_free_text_name"];
+            }
+            else
+            {
+                object.name = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"product_free_text_description"] isKindOfClass:[NSString class]])
+            {
+                object.details = [[tempArray objectAtIndex:i] valueForKey:@"product_free_text_description"];
+            }
+            else
+            {
+                object.details = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"product_free_text_price"] isKindOfClass:[NSString class]])
+            {
+                object.price = [[tempArray objectAtIndex:i] valueForKey:@"product_free_text_price"];
+            }
+            else
+            {
+                object.price = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"product_free_text_image_storage_path"] isKindOfClass:[NSString class]])
+            {
+                object.imageUel = [NSString stringWithFormat:@"%@%@",BASE_URL_API, [[tempArray objectAtIndex:i] valueForKey:@"product_free_text_image_storage_path"]];
+            }
+            else
+            {
+                object.imageUel = @"";
+            }
+            
+            if((([[[tempArray objectAtIndex:i] valueForKey:@"product_from_json"] isKindOfClass:[NSString class]]) && [[[tempArray objectAtIndex:i] valueForKey:@"product_from_json"]  isEqual: @"1"]) || ([[[tempArray objectAtIndex:i] valueForKey:@"product_new_ref_pharmacy_id"] isKindOfClass:[NSNull class]]) || ([[[tempArray objectAtIndex:i] valueForKey:@"ref_product_free_text_pharmacy_id"] isKindOfClass:[NSNull class]]))
+            {
+                object.pharmacyCategoryType = @"farma logo";
+            }
+            else
+            {
+                object.pharmacyCategoryType = @"farmacia logo";
+            }
+        }
+        [offerItemsArray addObject:object];
+    }
+    return offerItemsArray;
+    
+}
+
+
 -(NSMutableArray *) parseAllProducts :(id) response
 {
     NSLog(@"response is %@",response);
@@ -490,7 +660,7 @@
                 
                 if([[[tempArray objectAtIndex:i] valueForKey:@"product_free_text_image_storage_path"] isKindOfClass:[NSString class]])
                 {
-                    object.imageUel = [[tempArray objectAtIndex:i] valueForKey:@"product_free_text_image_storage_path"];
+                    object.imageUel = [NSString stringWithFormat:@"%@%@",BASE_URL_API, [[tempArray objectAtIndex:i] valueForKey:@"product_free_text_image_storage_path"]];
                 }
                 else
                 {
