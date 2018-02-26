@@ -13,4 +13,6 @@
 @property (strong,nonatomic) NSString *appUserId,*pharmacyId,*referenceAppUserPharmacyId,*currentlySelectedLeftSlideMenu;
 + (User_Details *) sharedInstance;
 -(void) makeSaltaButtonAction;
+-(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController navigationController:(UINavigationController *)navController;
+-(void) makePushOrPopViewControllertoNavigationStack:(UINavigationController *)navigatiionController;
 @end

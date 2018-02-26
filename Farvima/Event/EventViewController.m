@@ -18,11 +18,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UILabel+FormattedText.h"
 #import "EventDetailsViewController.h"
-#import "GallaryViewController.h"
-#import "NewsViewController.h"
-#import "SearchResultViewController.h"
-#import "OfferViewController.h"
-#import "ChiSiamoViewController.h"
+
 @interface EventViewController ()<UITableViewDataSource,UITableViewDelegate,RHWebServiceDelegate,LGSideMenuControllerDelegate>
 
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
@@ -249,47 +245,7 @@
 }
 
 - (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-    NSString *menuname = [User_Details sharedInstance].currentlySelectedLeftSlideMenu;
-    if ([menuname isEqualToString:@"GALERIA"]) {
-        GallaryViewController *vc = [GallaryViewController new];
-        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            GallaryViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"galleria"];
-            [self.navigationController pushViewController:newView animated:YES];
-            
-        }
-    }
-    else if ([menuname isEqualToString:@"OFFERTE"]) {
-        OfferViewController *vc = [OfferViewController new];
-        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            OfferViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"offerte"];
-            [self.navigationController pushViewController:newView animated:YES];
-            
-        }
-    }
-    else if ([menuname isEqualToString:@"PRENOTA E RITIRA"]) {
-        SearchResultViewController *vc = [SearchResultViewController new];
-        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            SearchResultViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"AllProducts"];
-            [self.navigationController pushViewController:newView animated:YES];
-            
-        }
-    }
-    else if ([menuname isEqualToString:@"NEWS"]) {
-        NewsViewController *vc = [NewsViewController new];
-        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            NewsViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"news"];
-            [self.navigationController pushViewController:newView animated:YES];
-            
-        }
-    }
-    else if ([menuname isEqualToString:@"CHI SIAMO"]) {
-        ChiSiamoViewController *vc = [ChiSiamoViewController new];
-        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            ChiSiamoViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"chi Siamo"];
-            [self.navigationController pushViewController:newView animated:YES];
-            
-        }
-    }
+    [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
 }
 
 

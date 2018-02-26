@@ -12,13 +12,8 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UILabel+FormattedText.h"
 #import "UIViewController+LGSideMenuController.h"
-#import "EventViewController.h"
-#import "GallaryViewController.h"
-#import "NewsViewController.h"
-#import "SearchResultViewController.h"
-#import "OfferViewController.h"
-#import "ChiSiamoViewController.h"
 #import "User Details.h"
+
 @interface EventDetailsViewController ()<LGSideMenuControllerDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UITextView *eventDetailsTextView;
@@ -67,6 +62,9 @@
 */
 
 - (void) loadEventDetailsdata {
+    UIColor *color = [UIColor colorWithRed:11.0/255.0 green:72.0/255.0 blue:155.0/255.0 alpha:1];
+    [self.eventImageView.layer setBorderColor: color.CGColor];
+    [self.eventImageView.layer setBorderWidth: 2.0];
     if (self.object.imageUel.length > 0) {
         [self.eventImageView sd_setImageWithURL:[NSURL URLWithString:self.object.imageUel]
                                placeholderImage:[UIImage imageNamed:@"placeholder"]];
@@ -164,55 +162,7 @@
 }
 
 - (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-    NSString *menuname = [User_Details sharedInstance].currentlySelectedLeftSlideMenu;
-    if ([menuname isEqualToString:@"GALERIA"]) {
-        GallaryViewController *vc = [GallaryViewController new];
-        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            GallaryViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"galleria"];
-            [self.navigationController pushViewController:newView animated:YES];
-            
-        }
-    }
-    else if ([menuname isEqualToString:@"OFFERTE"]) {
-        OfferViewController *vc = [OfferViewController new];
-        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            OfferViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"offerte"];
-            [self.navigationController pushViewController:newView animated:YES];
-            
-        }
-    }
-    else if ([menuname isEqualToString:@"EVENTI"]) {
-        EventViewController *vc = [EventViewController new];
-        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            EventViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"event"];
-            [self.navigationController pushViewController:newView animated:YES];
-            
-        }
-    }
-    else if ([menuname isEqualToString:@"NEWS"]) {
-        NewsViewController *vc = [NewsViewController new];
-        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            NewsViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"news"];
-            [self.navigationController pushViewController:newView animated:YES];
-            
-        }
-    }
-    else if ([menuname isEqualToString:@"CHI SIAMO"]) {
-        ChiSiamoViewController *vc = [ChiSiamoViewController new];
-        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            ChiSiamoViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"chi Siamo"];
-            [self.navigationController pushViewController:newView animated:YES];
-            
-        }
-    }
-    else if ([menuname isEqualToString:@"PRENOTA E RITIRA"]) {
-        SearchResultViewController *vc = [SearchResultViewController new];
-        if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-            SearchResultViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"AllProducts"];
-            [self.navigationController pushViewController:newView animated:YES];
-            
-        }
-    }
+    [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
 }
 
 @end

@@ -402,46 +402,7 @@
     NSString *menuname = [User_Details sharedInstance].currentlySelectedLeftSlideMenu;
     
     if (self.generalLeftMenuSelected) {
-        if ([menuname isEqualToString:@"GALERIA"]) {
-            GallaryViewController *vc = [GallaryViewController new];
-            if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-                GallaryViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"galleria"];
-                [self.navigationController pushViewController:newView animated:YES];
-                
-            }
-        }
-        else if ([menuname isEqualToString:@"OFFERTE"]) {
-            OfferViewController *vc = [OfferViewController new];
-            if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-                OfferViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"offerte"];
-                [self.navigationController pushViewController:newView animated:YES];
-                
-            }
-        }
-        else if ([menuname isEqualToString:@"EVENTI"]) {
-            EventViewController *vc = [EventViewController new];
-            if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-                EventViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"event"];
-                [self.navigationController pushViewController:newView animated:YES];
-                
-            }
-        }
-        else if ([menuname isEqualToString:@"NEWS"]) {
-            NewsViewController *vc = [NewsViewController new];
-            if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-                NewsViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"news"];
-                [self.navigationController pushViewController:newView animated:YES];
-                
-            }
-        }
-        else if ([menuname isEqualToString:@"CHI SIAMO"]) {
-            ChiSiamoViewController *vc = [ChiSiamoViewController new];
-            if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
-                ChiSiamoViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"chi Siamo"];
-                [self.navigationController pushViewController:newView animated:YES];
-                
-            }
-        }
+        [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
     }
     else {
         for (id object in self.categoryMenuIdArray) {

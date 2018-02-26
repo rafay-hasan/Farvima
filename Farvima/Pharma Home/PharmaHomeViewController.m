@@ -31,7 +31,6 @@
     [super viewDidAppear:YES];
     self.sideMenuController.leftViewSwipeGestureEnabled = NO;
     self.sideMenuController.rightViewSwipeGestureEnabled = NO;
-    NSLog(@"total views are %li",self.navigationController.viewControllers.count);
 }
 
 - (void) viewWillDisappear:(BOOL)animated {

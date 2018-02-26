@@ -11,7 +11,13 @@
 #import "NavigationController.h"
 #import "PharmaHomeViewController.h"
 #import "FarmaciaHomeViewController.h"
-
+#import "OfferViewController.h"
+#import "NewsViewController.h"
+#import "SearchResultViewController.h"
+#import "EventViewController.h"
+#import "GallaryViewController.h"
+#import "ChiSiamoViewController.h"
+#import "FarmaciaViewController.h"
 
 @implementation User_Details
 
@@ -69,5 +75,79 @@
                     animations:nil
                     completion:nil];
 }
+
+
+-(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController navigationController:(UINavigationController *)navController{
+    for (UIViewController *vc in navController.viewControllers) {
+        if ([vc isKindOfClass:targetViewController.class]) {
+            [navController popToViewController:vc animated:NO];
+            return YES;
+        }
+    }
+    return NO;
+}
+
+-(void) makePushOrPopViewControllertoNavigationStack:(UINavigationController *)navigatiionController {
+    NSString *menuname = self.currentlySelectedLeftSlideMenu;
+    UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    if ([menuname isEqualToString:@"OFFERTE"]) {
+        OfferViewController *vc = [OfferViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc navigationController:navigatiionController]) {
+            OfferViewController *newView = [mystoryboard instantiateViewControllerWithIdentifier:@"offerte"];
+            [navigatiionController pushViewController:newView animated:YES];
+            
+        }
+    }
+    else if ([menuname isEqualToString:@"NEWS"]) {
+        NewsViewController *vc = [NewsViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc navigationController:navigatiionController]) {
+            NewsViewController *newView = [mystoryboard instantiateViewControllerWithIdentifier:@"news"];
+            [navigatiionController pushViewController:newView animated:YES];
+            
+        }
+    }
+    else if ([menuname isEqualToString:@"PRENOTA E RITIRA"]) {
+        SearchResultViewController *vc = [SearchResultViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc navigationController:navigatiionController]) {
+            SearchResultViewController *newView = [mystoryboard instantiateViewControllerWithIdentifier:@"AllProducts"];
+            [navigatiionController pushViewController:newView animated:YES];
+            
+        }
+    }
+    else if ([menuname isEqualToString:@"EVENTI"]) {
+        EventViewController *vc = [EventViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc navigationController:navigatiionController]) {
+            EventViewController *newView = [mystoryboard instantiateViewControllerWithIdentifier:@"event"];
+            [navigatiionController pushViewController:newView animated:YES];
+            
+        }
+    }
+    else if ([menuname isEqualToString:@"GALERIA"]) {
+        GallaryViewController *vc = [GallaryViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc navigationController:navigatiionController]) {
+            GallaryViewController *newView = [mystoryboard instantiateViewControllerWithIdentifier:@"galleria"];
+            [navigatiionController pushViewController:newView animated:YES];
+            
+        }
+    }
+    else if ([menuname isEqualToString:@"CHI SIAMO"]) {
+        ChiSiamoViewController *vc = [ChiSiamoViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc navigationController:navigatiionController]) {
+            ChiSiamoViewController *newView = [mystoryboard instantiateViewControllerWithIdentifier:@"chi Siamo"];
+            [navigatiionController pushViewController:newView animated:YES];
+            
+        }
+    }
+    else if ([menuname isEqualToString:@"FARMACIA"]) {
+        FarmaciaViewController *vc = [FarmaciaViewController new];
+        if (![self isControllerAlreadyOnNavigationControllerStack:vc navigationController:navigatiionController]) {
+            FarmaciaViewController *newView = [mystoryboard instantiateViewControllerWithIdentifier:@"pharmacy"];
+            [navigatiionController pushViewController:newView animated:YES];
+            
+        }
+    }
+}
+
+
 
 @end

@@ -69,7 +69,7 @@
 
 -(void) CallUserDetailsWebserviceWithUDID:(NSString *)ID forDeviceToken:(NSString *)deviceToken
 {
-     NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:@"532358891",@"device_unique_id",@"5340541869",@"device_push_token",nil];
+     NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:@"971652",@"device_unique_id",@"6340541869",@"device_push_token",nil];
     [SVProgressHUD show];
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL_API,UserDetails_URL_API];
     self.myWebserviceManager = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestypeUserDetails Delegate:self];
@@ -110,6 +110,8 @@
 
 -(void) dataFromWebReceiptionFailed:(NSError*) error
 {
+    self.userManager.appUserId = @"80"; // Need to remove this line after testing
+    
     [SVProgressHUD dismiss];
     if ([[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"] isKindOfClass:[NSString class]]) {
         NSString *str = [[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"];
