@@ -10,6 +10,7 @@
 
 @interface AllProductObject : NSObject
 
+@property (strong,nonatomic) NSString *finalProductId;
 @property (strong,nonatomic) NSString *name;
 @property (strong,nonatomic) NSString *details;
 @property (strong,nonatomic) NSString *imageUel;

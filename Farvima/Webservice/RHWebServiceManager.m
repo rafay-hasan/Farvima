@@ -36,6 +36,7 @@
 {
     requestURL = [requestURL stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", nil];
     [manager GET:requestURL parameters:nil progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         if([self.delegate conformsToProtocol:@protocol(RHWebServiceDelegate)])
         {
@@ -526,7 +527,6 @@
 
 -(NSMutableArray *) parseAllProducts :(id) response
 {
-    NSLog(@"response is %@",response);
     NSMutableArray *productItemsArray = [NSMutableArray new];
     
     if([[response valueForKey:@"product"] isKindOfClass:[NSArray class]])
@@ -536,6 +536,14 @@
         for(NSInteger i = 0; i < tempArray.count; i++)
         {
             AllProductObject *object = [AllProductObject new];
+            if([[[tempArray objectAtIndex:i] valueForKey:@"final_product_id"] isKindOfClass:[NSString class]])
+            {
+                object.finalProductId = [NSString stringWithFormat:@"%@",[[tempArray objectAtIndex:i] valueForKey:@"final_product_id"]];
+            }
+            else
+            {
+                object.finalProductId = @"";
+            }
             
             if([[[tempArray objectAtIndex:i] valueForKey:@"product_id"] isKindOfClass:[NSString class]])
             {

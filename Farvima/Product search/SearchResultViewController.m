@@ -16,12 +16,7 @@
 #import "SVProgressHUD.h"
 #import "User Details.h"
 #import "AllProductObject.h"
-#import "GallaryViewController.h"
-#import "OfferViewController.h"
-#import "NewsViewController.h"
-#import "ChiSiamoViewController.h"
 #import "ProductSearchViewController.h"
-#import "EventViewController.h"
 #import "SearchProductDetailsViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 

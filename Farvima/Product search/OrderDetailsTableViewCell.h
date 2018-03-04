@@ -10,4 +10,12 @@
 
 @interface OrderDetailsTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UILabel *productNameLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *categoryTypeImageView;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UILabel *quantityLabel;
+@property (weak, nonatomic) IBOutlet UIButton *incrementButton;
+@property (weak, nonatomic) IBOutlet UIButton *decrementButton;
+
+
 @end

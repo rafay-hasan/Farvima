@@ -10,4 +10,7 @@
 
 @interface OrderDetailsFooetrSection : UITableViewHeaderFooterView
 
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
+
+
 @end

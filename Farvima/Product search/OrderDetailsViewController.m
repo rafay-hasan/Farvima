@@ -12,8 +12,12 @@
 #import "OrderDetailsTableViewCell.h"
 #import "MessageViewController.h"
 #import "NotificationViewController.h"
+#import "AppDelegate.h"
 
-@interface OrderDetailsViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface OrderDetailsViewController ()<UITableViewDelegate,UITableViewDataSource> {
+    AppDelegate *appDelegate;
+}
+@property (strong,nonatomic) NSArray *orderArray;
 @property (weak, nonatomic) IBOutlet UITableView *orderTableview;
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)messageButtonAction:(id)sender;
@@ -27,12 +31,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
+    self.orderArray = [appDelegate retrieveAllOrder];
     self.orderTableview.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     UINib *orderTableHeaderXib = [UINib nibWithNibName:@"OrderDetailsHeaderSection" bundle:nil];
     [self.orderTableview registerNib:orderTableHeaderXib forHeaderFooterViewReuseIdentifier:@"orderTableSectionHeader"];
     UINib *orderTableFooterXib = [UINib nibWithNibName:@"OrderDetailsFooterSection" bundle:nil];
     [self.orderTableview registerNib:orderTableFooterXib forHeaderFooterViewReuseIdentifier:@"orderTableSectionFooter"];
+    [self.orderTableview reloadData];
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -54,7 +62,7 @@
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 18;
+    return self.orderArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     OrderDetailsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"orderDetailsCell" forIndexPath:indexPath];
@@ -66,6 +74,11 @@
         cell.backgroundColor = [UIColor whiteColor];
         //cell.notificationTYpeImageView.image = [UIImage imageNamed:@"farmacia logo"];
     }
+    cell.productNameLabel.text = [[self.orderArray objectAtIndex:indexPath.row] valueForKey:@"name"];
+    cell.categoryTypeImageView.image = [UIImage imageNamed:[[self.orderArray objectAtIndex:indexPath.row] valueForKey:@"type"]];
+    cell.priceLabel.text = [NSString stringWithFormat:@"%@€",[[self.orderArray objectAtIndex:indexPath.row] valueForKey:@"price"]];
+    
+    
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -80,8 +93,15 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
-    OrderDetailsFooetrSection *orderHeaderView = [self.orderTableview dequeueReusableHeaderFooterViewWithIdentifier:@"orderTableSectionFooter"];
-    return orderHeaderView;
+    OrderDetailsFooetrSection *orderFooterView = [self.orderTableview dequeueReusableHeaderFooterViewWithIdentifier:@"orderTableSectionFooter"];
+    NSInteger total = 0;
+    for (id object in self.orderArray) {
+        NSString *price = [object valueForKey:@"price"];
+        total = total + [price integerValue];
+    }
+    NSLog(@"%ld",total);
+    orderFooterView.totalAmountLabel.text = [NSString stringWithFormat:@"%ld€",total];
+    return orderFooterView;
 }
 
 

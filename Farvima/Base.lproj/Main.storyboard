@@ -2066,7 +2066,7 @@
         <!--Choose Your Pharmacy View Controller-->
         <scene sceneID="pXD-LD-cXo">
             <objects>
-                <viewController id="z9V-U6-TQY" customClass="ChooseYourPharmacyViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="choosePharmacy" id="z9V-U6-TQY" customClass="ChooseYourPharmacyViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wka-Af-4p8">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -8060,6 +8060,9 @@
                                                 <state key="normal" title="PRENOTA" backgroundImage="searchProductBGButton">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="purchaseButtonAction:" destination="mW7-Hi-Uek" eventType="touchUpInside" id="SBh-BP-G4m"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -8276,7 +8279,7 @@
         <!--Order Details View Controller-->
         <scene sceneID="1Hp-0S-ntZ">
             <objects>
-                <viewController automaticallyAdjustsScrollViewInsets="NO" id="27t-Ai-O3D" customClass="OrderDetailsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="confirmOrder" automaticallyAdjustsScrollViewInsets="NO" id="27t-Ai-O3D" customClass="OrderDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gsc-CM-cY7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -8344,7 +8347,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="GUe-B0-1Ph">
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="GUe-B0-1Ph">
                                                     <rect key="frame" x="16" y="8" width="288" height="48"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aspirina" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NV5-8Y-2Xw">
@@ -8356,7 +8359,7 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CMJ-RJ-ipj">
                                                             <rect key="frame" x="81.5" y="0.0" width="77" height="48"/>
                                                             <subviews>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CJ-Gd-XaB">
+                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9CJ-Gd-XaB">
                                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="48"/>
                                                                     <state key="normal" title="-">
                                                                         <color key="titleColor" red="0.0" green="0.0" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
@@ -8400,6 +8403,14 @@
                                                 <constraint firstAttribute="trailing" secondItem="GUe-B0-1Ph" secondAttribute="trailing" constant="16" id="uvB-hX-ycR"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="categoryTypeImageView" destination="DGc-sN-CQv" id="hUS-me-Dsf"/>
+                                            <outlet property="decrementButton" destination="9CJ-Gd-XaB" id="tKL-kk-Ypm"/>
+                                            <outlet property="incrementButton" destination="uzf-jN-DUI" id="Aqx-rV-PIk"/>
+                                            <outlet property="priceLabel" destination="s7b-Jv-Gku" id="3Zf-Ja-eoo"/>
+                                            <outlet property="productNameLabel" destination="NV5-8Y-2Xw" id="nkG-D8-qez"/>
+                                            <outlet property="quantityLabel" destination="J6Q-zO-33V" id="yvm-lD-SmO"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
