@@ -7,8 +7,6 @@
 //
 
 #import "GallaryViewController.h"
-#import "MessageViewController.h"
-#import "NotificationViewController.h"
 #import "RHWebServiceManager.h"
 #import "SVProgressHUD.h"
 #import "User Details.h"
@@ -26,9 +24,8 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *galleryCollectionView;
 
 - (IBAction)backButtonAction:(id)sender;
-- (IBAction)messageButtonAction:(id)sender;
-- (IBAction)notificationButtonAction:(id)sender;
 - (IBAction)leftSliderButtonAction:(id)sender;
+- (IBAction)galleryBottomTabMenuButtonAction:(UIButton *)sender;
 
 @end
 
@@ -131,29 +128,13 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)messageButtonAction:(id)sender {
-    MessageViewController *messageVc = [MessageViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:messageVc]) {
-        //push controller
-        MessageViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"messaggi"];
-        [self.navigationController pushViewController:newView animated:YES];
-        
-    }
-}
-
-- (IBAction)notificationButtonAction:(id)sender {
-    NotificationViewController *notificationVc = [NotificationViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:notificationVc]) {
-        //push controller
-        NotificationViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"notification"];
-        [self.navigationController pushViewController:newView animated:YES];
-        
-    }
-}
-
 - (IBAction)leftSliderButtonAction:(id)sender {
     [[self sideMenuController] showLeftViewAnimated:sender];
     
+}
+
+- (IBAction)galleryBottomTabMenuButtonAction:(UIButton *)sender {
+    [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
 -(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
     for (UIViewController *vc in self.navigationController.viewControllers) {

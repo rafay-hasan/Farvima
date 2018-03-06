@@ -7,19 +7,16 @@
 //
 
 #import "NewsDetailsViewController.h"
-#import "MessageViewController.h"
-#import "NotificationViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UIViewController+LGSideMenuController.h"
 #import "User Details.h"
 
 @interface NewsDetailsViewController ()<LGSideMenuControllerDelegate>
 
-- (IBAction)backButtonAction:(id)sender;
-- (IBAction)messageButtonAction:(id)sender;
-- (IBAction)notificationButtonAction:(id)sender;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *newsDetailsTextviewHeight;
+- (IBAction)newsDetailsBottomTabButtonAction:(UIButton *)sender;
 
+- (IBAction)backButtonAction:(id)sender;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *newsDetailsTextviewHeight;
 @property (weak, nonatomic) IBOutlet UITextView *newsDetailsTextview;
 @property (weak, nonatomic) IBOutlet UIImageView *newsImageView;
 @property (weak, nonatomic) IBOutlet UILabel *newsHeaderLabel;
@@ -103,29 +100,15 @@
     [self.view layoutIfNeeded];
 }
 
+- (IBAction)newsDetailsBottomTabButtonAction:(UIButton *)sender {
+    [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
+}
+
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)messageButtonAction:(id)sender {
-    MessageViewController *messageVc = [MessageViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:messageVc]) {
-        //push controller
-        MessageViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"messaggi"];
-        [self.navigationController pushViewController:newView animated:YES];
-        
-    }
-}
 
-- (IBAction)notificationButtonAction:(id)sender {
-    NotificationViewController *notificationVc = [NotificationViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:notificationVc]) {
-        //push controller
-        NotificationViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"notification"];
-        [self.navigationController pushViewController:newView animated:YES];
-        
-    }
-}
 -(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
     for (UIViewController *vc in self.navigationController.viewControllers) {
         if ([vc isKindOfClass:targetViewController.class]) {

@@ -7,8 +7,6 @@
 //
 
 #import "EventDetailsViewController.h"
-#import "MessageViewController.h"
-#import "NotificationViewController.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "UILabel+FormattedText.h"
 #import "UIViewController+LGSideMenuController.h"
@@ -27,8 +25,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewHeight;
 
 - (IBAction)backButtonAction:(id)sender;
-- (IBAction)messageButtonAction:(id)sender;
-- (IBAction)notificationButtonAction:(id)sender;
+- (IBAction)eventDetailsPageBottomTabButtonAction:(UIButton *)sender;
 
 @end
 
@@ -129,25 +126,10 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)messageButtonAction:(id)sender {
-    MessageViewController *messageVc = [MessageViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:messageVc]) {
-        //push controller
-        MessageViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"messaggi"];
-        [self.navigationController pushViewController:newView animated:YES];
-        
-    }
+- (IBAction)eventDetailsPageBottomTabButtonAction:(UIButton *)sender {
+    [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
 
-- (IBAction)notificationButtonAction:(id)sender {
-    NotificationViewController *notificationVc = [NotificationViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:notificationVc]) {
-        //push controller
-        NotificationViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"notification"];
-        [self.navigationController pushViewController:newView animated:YES];
-        
-    }
-}
 -(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
     for (UIViewController *vc in self.navigationController.viewControllers) {
         if ([vc isKindOfClass:targetViewController.class]) {

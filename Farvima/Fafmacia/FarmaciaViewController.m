@@ -30,7 +30,8 @@
 - (IBAction)backButtonAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *pharmacyEventTable;
 @property (weak, nonatomic) IBOutlet MKMapView *pharmacyMapview;
-- (IBAction)mapInfoButtonAction:(id)sender;
+- (IBAction)FarmaciaInfoPageBottomTabMenuButtonAction:(UIButton *)sender;
+
 
 @end
 
@@ -270,20 +271,6 @@
         
     }
 }
-- (IBAction)mapInfoButtonAction:(id)sender {
-    PharmaciaMapInfoPopOverViewController *modal = [self.storyboard instantiateViewControllerWithIdentifier:@"mapPopOver"];
-    modal.modalPresentationStyle = UIModalPresentationPopover;
-    modal.preferredContentSize = CGSizeMake(220.0, 116.0);
-    //modal.transitioningDelegate = self;
-    modal.popoverPresentationController.sourceView = self.view;
-    modal.popoverPresentationController.sourceRect = CGRectZero;
-    //modal.popoverPresentationController.delegate = self;
-
-    [self presentViewController:modal animated:YES completion:nil];
-
-    
-   
-}
 
 -(void)valueSelectedFromOver:(NSUInteger )value {
     if (value == 1002) {
@@ -337,5 +324,8 @@
     [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
+- (IBAction)FarmaciaInfoPageBottomTabMenuButtonAction:(UIButton *)sender {
+    [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
+}
 @end
 

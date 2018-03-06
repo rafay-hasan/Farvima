@@ -28,11 +28,14 @@
 
 @property (strong,nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
 @property (strong, nonatomic) SearchPharmacyObject *object;
+- (IBAction)leftMenuButtonAction:(id)sender;
 
 - (IBAction)associateButtonAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *orientationHeaderLabel;
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)rightSlideMenuAction:(id)sender;
+- (IBAction)PharmacyListBottomTabButtonAction:(UIButton *)sender;
+
 @property (weak, nonatomic) IBOutlet UITableView *pharmacyListTableview;
 @property (weak, nonatomic) IBOutlet UIView *mapContainerView;
 @property (weak, nonatomic) IBOutlet MKMapView *pharmacyMapView;
@@ -271,6 +274,10 @@
     [self.sideMenuController showRightViewAnimated:YES completionHandler:nil];
 }
 
+- (IBAction)PharmacyListBottomTabButtonAction:(UIButton *)sender {
+    [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
+}
+
 - (void)didHideRightView:(nonnull UIView *)rightView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
     if (self.slideMenuSharedManager.isListSelected) {
         self.pharmacyListTableview.hidden = NO;
@@ -292,6 +299,9 @@
         }
     }
     return NO;
+}
+
+- (IBAction)leftMenuButtonAction:(id)sender {
 }
 
 - (IBAction)associateButtonAction:(id)sender {

@@ -8,8 +8,6 @@
 
 #import "EventViewController.h"
 #import "EventTableViewCell.h"
-#import "MessageViewController.h"
-#import "NotificationViewController.h"
 #import "UIViewController+LGSideMenuController.h"
 #import "RHWebServiceManager.h"
 #import "SVProgressHUD.h"
@@ -29,9 +27,9 @@
 @property (weak, nonatomic) IBOutlet UITableView *eventtableView;
 
 - (IBAction)backButtonAction:(id)sender;
-- (IBAction)messageButtonAction:(id)sender;
-- (IBAction)notificationButtonAction:(id)sender;
 - (IBAction)leftMenuButtonAction:(id)sender;
+- (IBAction)EventBottomTabButtonAction:(UIButton *)sender;
+
 
 @end
 
@@ -77,28 +75,13 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)messageButtonAction:(id)sender {
-    MessageViewController *messageVc = [MessageViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:messageVc]) {
-        //push controller
-        MessageViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"messaggi"];
-        [self.navigationController pushViewController:newView animated:YES];
-        
-    }
-}
-
-- (IBAction)notificationButtonAction:(id)sender {
-    NotificationViewController *notificationVc = [NotificationViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:notificationVc]) {
-        //push controller
-        NotificationViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"notification"];
-        [self.navigationController pushViewController:newView animated:YES];
-        
-    }
-}
 
 - (IBAction)leftMenuButtonAction:(id)sender {
     [[self sideMenuController] showLeftViewAnimated:sender];
+}
+
+- (IBAction)EventBottomTabButtonAction:(UIButton *)sender {
+    [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView

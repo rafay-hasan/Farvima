@@ -57,7 +57,6 @@
 		BBB4065F2041826300A2665A /* PharmaciaMapInfoPopOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB4065E2041826300A2665A /* PharmaciaMapInfoPopOverViewController.m */; };
 		BBBC782A1FC7224600062F37 /* SearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBC78291FC7224600062F37 /* SearchResultTableViewCell.m */; };
 		BBC886131FC9729A00D60612 /* SearchByAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC886121FC9729A00D60612 /* SearchByAddressViewController.m */; };
-		BBC886161FC972B400D60612 /* SearchByLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC886151FC972B400D60612 /* SearchByLocationViewController.m */; };
 		BBD52BF91FD3FA5700EC3A76 /* User Details.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD52BF71FD3FA5600EC3A76 /* User Details.m */; };
 		BBD52C011FD409B400EC3A76 /* GalleryObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD52C001FD409B400EC3A76 /* GalleryObject.m */; };
 		BBD52C041FD40F6E00EC3A76 /* EventObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BBD52C031FD40F6E00EC3A76 /* EventObject.m */; };
@@ -185,8 +184,6 @@
 		BBBC78291FC7224600062F37 /* SearchResultTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultTableViewCell.m; sourceTree = "<group>"; };
 		BBC886111FC9729A00D60612 /* SearchByAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchByAddressViewController.h; sourceTree = "<group>"; };
 		BBC886121FC9729A00D60612 /* SearchByAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchByAddressViewController.m; sourceTree = "<group>"; };
-		BBC886141FC972B400D60612 /* SearchByLocationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchByLocationViewController.h; sourceTree = "<group>"; };
-		BBC886151FC972B400D60612 /* SearchByLocationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchByLocationViewController.m; sourceTree = "<group>"; };
 		BBD52BF71FD3FA5600EC3A76 /* User Details.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "User Details.m"; sourceTree = "<group>"; };
 		BBD52BF81FD3FA5700EC3A76 /* User Details.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "User Details.h"; sourceTree = "<group>"; };
 		BBD52BFF1FD409B400EC3A76 /* GalleryObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GalleryObject.h; sourceTree = "<group>"; };
@@ -477,8 +474,6 @@
 		BBC886101FC9727A00D60612 /* Search by location */ = {
 			isa = PBXGroup;
 			children = (
-				BBC886141FC972B400D60612 /* SearchByLocationViewController.h */,
-				BBC886151FC972B400D60612 /* SearchByLocationViewController.m */,
 				BB5198B42041BA1800B2BBC5 /* Pharmacist */,
 				BBF2D2931FC97AF6007EE3FC /* Pharmacy list */,
 			);
@@ -877,7 +872,6 @@
 				BB6028522040880700F06F9B /* PharmacyObject.m in Sources */,
 				BBF4DF0A1FA4EE9A00E0C811 /* NotificationViewController.m in Sources */,
 				BBB4065C20416D8100A2665A /* CustomAnnotation.m in Sources */,
-				BBC886161FC972B400D60612 /* SearchByLocationViewController.m in Sources */,
 				BBF4DF0D1FA4F7DA00E0C811 /* NotificationTableViewCell.m in Sources */,
 				BBDC092D1F93B37000E5D9A2 /* PharmaIntroViewController.m in Sources */,
 				BBFD43C21F93AABD00A7E265 /* AppDelegate.m in Sources */,

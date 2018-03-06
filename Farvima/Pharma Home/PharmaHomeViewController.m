@@ -7,14 +7,13 @@
 //
 
 #import "PharmaHomeViewController.h"
-#import "MessageViewController.h"
-#import "NotificationViewController.h"
 #import "UIViewController+LGSideMenuController.h"
+#import "User Details.h"
 
 @interface PharmaHomeViewController ()
 
-- (IBAction)messageButtonAction:(id)sender;
-- (IBAction)notificationButtonAction:(id)sender;
+
+- (IBAction)farmaHomeBottomTabMenuButtonAction:(UIButton *)sender;
 
 @end
 
@@ -53,23 +52,9 @@
 }
 */
 
-- (IBAction)messageButtonAction:(id)sender {
-    MessageViewController *messageVc = [MessageViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:messageVc]) {
-        //push controller
-        MessageViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"messaggi"];
-        [self.navigationController pushViewController:newView animated:YES];
-    }
-}
 
-- (IBAction)notificationButtonAction:(id)sender {
-    NotificationViewController *notificationVc = [NotificationViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:notificationVc]) {
-        //push controller
-        NotificationViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"notification"];
-        [self.navigationController pushViewController:newView animated:YES];
-
-    }
+- (IBAction)farmaHomeBottomTabMenuButtonAction:(UIButton *)sender {
+    [[User_Details sharedInstance] makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
 
 -(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{

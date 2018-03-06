@@ -18,6 +18,7 @@
 @interface PharmacistViewController ()<RHWebServiceDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *farmacistTableview;
 - (IBAction)backButtonAction:(id)sender;
+- (IBAction)farmacistPageBottomTabMenuButtonAction:(UIButton *)sender;
 
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 @property (strong,nonatomic) NSArray *farmacistArray;
@@ -142,5 +143,9 @@
 
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)farmacistPageBottomTabMenuButtonAction:(UIButton *)sender {
+    [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
 @end

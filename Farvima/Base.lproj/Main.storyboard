@@ -966,8 +966,11 @@
                                                             <constraint firstAttribute="width" constant="24" id="EXF-Nq-Uad"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-up-hAs">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tgs-up-hAs">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="farmaHomeBottomTabMenuButtonAction:" destination="ERg-Tf-mpw" eventType="touchUpInside" id="XML-h9-M9k"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -997,10 +1000,10 @@
                                                             <constraint firstAttribute="height" constant="18" id="caW-kO-9lS"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2m-e7-aDJ">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2m-e7-aDJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="ERg-Tf-mpw" eventType="touchUpInside" id="5rP-Q8-C3e"/>
+                                                            <action selector="farmaHomeBottomTabMenuButtonAction:" destination="ERg-Tf-mpw" eventType="touchUpInside" id="KcB-bk-bDK"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1031,10 +1034,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="Nxa-fY-Cja"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2m-Sz-9sV">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v2m-Sz-9sV">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="ERg-Tf-mpw" eventType="touchUpInside" id="e28-ei-pSd"/>
+                                                            <action selector="farmaHomeBottomTabMenuButtonAction:" destination="ERg-Tf-mpw" eventType="touchUpInside" id="m6A-l1-mZr"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1065,8 +1068,11 @@
                                                             <constraint firstAttribute="width" constant="21" id="pZG-Rf-RMg"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZK9-0V-Ynv">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZK9-0V-Ynv">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="farmaHomeBottomTabMenuButtonAction:" destination="ERg-Tf-mpw" eventType="touchUpInside" id="gyc-nd-oWP"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1142,10 +1148,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DeZ-pa-fZi">
-                                <rect key="frame" x="0.0" y="8" width="320" height="122"/>
+                                <rect key="frame" x="0.0" y="8" width="320" height="150"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farmaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="fAd-6A-8kK">
-                                        <rect key="frame" x="19" y="0.0" width="282" height="76"/>
+                                        <rect key="frame" x="19" y="28" width="282" height="76"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="76" id="OfT-rq-kW9"/>
                                             <constraint firstAttribute="width" constant="282" id="YsY-jc-BVy"/>
@@ -1153,14 +1159,14 @@
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMP-yu-Mgz">
-                                        <rect key="frame" x="16" y="84" width="288" height="2"/>
+                                        <rect key="frame" x="16" y="112" width="288" height="2"/>
                                         <color key="backgroundColor" red="0.0" green="0.043137254899999998" blue="0.55294117649999996" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="2" id="I53-v6-UiC"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dYD-Cc-YTI">
-                                        <rect key="frame" x="79" y="94" width="162" height="20"/>
+                                        <rect key="frame" x="79" y="122" width="162" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Powered by" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xc9-H1-yMo">
                                                 <rect key="frame" x="0.0" y="0.0" width="85" height="20"/>
@@ -1184,7 +1190,7 @@
                                     <constraint firstItem="FMP-yu-Mgz" firstAttribute="top" secondItem="fAd-6A-8kK" secondAttribute="bottom" constant="8" id="FCX-RD-4Vk"/>
                                     <constraint firstItem="FMP-yu-Mgz" firstAttribute="leading" secondItem="DeZ-pa-fZi" secondAttribute="leading" constant="16" id="Haw-3E-KzQ"/>
                                     <constraint firstAttribute="bottom" secondItem="dYD-Cc-YTI" secondAttribute="bottom" constant="8" id="Sqt-fp-Ajv"/>
-                                    <constraint firstItem="fAd-6A-8kK" firstAttribute="top" secondItem="DeZ-pa-fZi" secondAttribute="top" id="fN7-RN-NvR"/>
+                                    <constraint firstItem="fAd-6A-8kK" firstAttribute="top" secondItem="DeZ-pa-fZi" secondAttribute="top" constant="28" id="fN7-RN-NvR"/>
                                     <constraint firstItem="dYD-Cc-YTI" firstAttribute="top" secondItem="FMP-yu-Mgz" secondAttribute="bottom" constant="8" id="hCk-pe-ivh"/>
                                     <constraint firstItem="dYD-Cc-YTI" firstAttribute="centerX" secondItem="DeZ-pa-fZi" secondAttribute="centerX" id="nzb-nb-ku7"/>
                                     <constraint firstAttribute="trailing" secondItem="FMP-yu-Mgz" secondAttribute="trailing" constant="16" id="qlu-Qj-R9f"/>
@@ -1192,10 +1198,10 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="57P-Ma-4ow">
-                                <rect key="frame" x="16" y="146" width="288" height="234"/>
+                                <rect key="frame" x="16" y="174" width="288" height="206"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="4BZ-Dd-hQv">
-                                        <rect key="frame" x="0.0" y="5" width="288" height="224"/>
+                                        <rect key="frame" x="0.0" y="-9" width="288" height="224"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wUK-3X-bcs">
                                                 <rect key="frame" x="0.0" y="0.0" width="136" height="224"/>
@@ -1571,8 +1577,11 @@
                                                             <constraint firstAttribute="width" constant="24" id="w5Y-3y-pR7"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydj-Cx-7iF">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ydj-Cx-7iF">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="FarmaciaHomeBottomTabMenuAction:" destination="cZo-n4-ZGL" eventType="touchUpInside" id="fIP-Pa-fvu"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1602,10 +1611,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="ypO-5M-Kqh"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z56-qC-J2d">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z56-qC-J2d">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="ERg-Tf-mpw" eventType="touchUpInside" id="DT3-Sw-vNP"/>
+                                                            <action selector="FarmaciaHomeBottomTabMenuAction:" destination="cZo-n4-ZGL" eventType="touchUpInside" id="mPw-s4-aFD"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1636,10 +1645,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="wJS-H5-Wsy"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bov-9W-TCj">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bov-9W-TCj">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="ERg-Tf-mpw" eventType="touchUpInside" id="ecV-kc-JTe"/>
+                                                            <action selector="FarmaciaHomeBottomTabMenuAction:" destination="cZo-n4-ZGL" eventType="touchUpInside" id="3ZP-FF-oW9"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1670,8 +1679,11 @@
                                                             <constraint firstAttribute="height" constant="25" id="rhy-jj-QTl"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OnN-1a-Xjm">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OnN-1a-Xjm">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="FarmaciaHomeBottomTabMenuAction:" destination="cZo-n4-ZGL" eventType="touchUpInside" id="reb-h8-OwW"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1807,8 +1819,11 @@
                                                             <constraint firstAttribute="height" constant="24" id="rdh-la-cSw"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFC-DA-f5U">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MFC-DA-f5U">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="ChiShimoBottonTabButtonAction:" destination="d3z-45-V2h" eventType="touchUpInside" id="qdu-kI-9Mb"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1838,10 +1853,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="ke8-4F-fI6"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agg-ee-Lh4">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Agg-ee-Lh4">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="eLQ-Lw-4cH" eventType="touchUpInside" id="3dp-xG-EY0"/>
+                                                            <action selector="ChiShimoBottonTabButtonAction:" destination="d3z-45-V2h" eventType="touchUpInside" id="Ev1-1V-T3D"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1872,10 +1887,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="KOn-4H-1VI"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8e-SP-Cl4">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S8e-SP-Cl4">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="eLQ-Lw-4cH" eventType="touchUpInside" id="LKc-Wf-PHp"/>
+                                                            <action selector="ChiShimoBottonTabButtonAction:" destination="d3z-45-V2h" eventType="touchUpInside" id="6mx-Zd-yaR"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1906,8 +1921,11 @@
                                                             <constraint firstAttribute="height" constant="25" id="hoU-nL-eJn"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjv-0j-EjK">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zjv-0j-EjK">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="ChiShimoBottonTabButtonAction:" destination="d3z-45-V2h" eventType="touchUpInside" id="s42-vU-7aE"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2237,8 +2255,11 @@
                                                             <constraint firstAttribute="width" constant="24" id="fwf-9u-vZO"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKc-k5-Twa">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VKc-k5-Twa">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="ChoosePharmacyBottomTabAction:" destination="z9V-U6-TQY" eventType="touchUpInside" id="kSM-SD-EGh"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2268,10 +2289,10 @@
                                                             <constraint firstAttribute="height" constant="18" id="csw-i7-lqf"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBl-MA-0Dd">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KBl-MA-0Dd">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="eLQ-Lw-4cH" eventType="touchUpInside" id="k8K-zL-8ga"/>
+                                                            <action selector="ChoosePharmacyBottomTabAction:" destination="z9V-U6-TQY" eventType="touchUpInside" id="oYo-HF-4cK"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -2305,7 +2326,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A1E-qf-gvC">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="eLQ-Lw-4cH" eventType="touchUpInside" id="td4-ZV-IAz"/>
+                                                            <action selector="ChoosePharmacyBottomTabAction:" destination="z9V-U6-TQY" eventType="touchUpInside" id="Buw-Fs-0S4"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -2336,8 +2357,11 @@
                                                             <constraint firstAttribute="width" constant="21" id="xUX-zS-IYN"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsx-f7-pco">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dsx-f7-pco">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="ChoosePharmacyBottomTabAction:" destination="z9V-U6-TQY" eventType="touchUpInside" id="8CU-ED-LnQ"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2552,8 +2576,11 @@
                                                             <constraint firstAttribute="height" constant="24" id="o3U-jK-nbN"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paE-hK-K25">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="paE-hK-K25">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="EventBottomTabButtonAction:" destination="eLQ-Lw-4cH" eventType="touchUpInside" id="OAA-ll-VSd"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2583,10 +2610,10 @@
                                                             <constraint firstAttribute="height" constant="18" id="gdq-Io-18x"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeV-Yf-lGm">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xeV-Yf-lGm">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="eLQ-Lw-4cH" eventType="touchUpInside" id="sxI-Gu-Wqg"/>
+                                                            <action selector="EventBottomTabButtonAction:" destination="eLQ-Lw-4cH" eventType="touchUpInside" id="LQR-7e-AQA"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -2617,10 +2644,10 @@
                                                             <constraint firstAttribute="height" constant="23" id="Qef-4T-ClK"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGp-3D-OaY">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XGp-3D-OaY">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="eLQ-Lw-4cH" eventType="touchUpInside" id="z9x-LW-wey"/>
+                                                            <action selector="EventBottomTabButtonAction:" destination="eLQ-Lw-4cH" eventType="touchUpInside" id="vfN-5z-4UM"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -2651,8 +2678,11 @@
                                                             <constraint firstAttribute="width" constant="21" id="rc7-HR-elu"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9f-nd-VgI">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9f-nd-VgI">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="EventBottomTabButtonAction:" destination="eLQ-Lw-4cH" eventType="touchUpInside" id="sFM-kc-wqU"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2817,8 +2847,11 @@
                                                             <constraint firstAttribute="height" constant="24" id="wWU-Yu-lBf"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGO-1H-zIh">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lGO-1H-zIh">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="productSearchPageBottomTabBarButtonAction:" destination="3zs-4I-E0K" eventType="touchUpInside" id="BYI-Sw-gYj"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -2848,10 +2881,10 @@
                                                             <constraint firstAttribute="height" constant="18" id="ltV-2I-BlH"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehV-X7-LYI">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehV-X7-LYI">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="eLQ-Lw-4cH" eventType="touchUpInside" id="nYh-Cs-kwQ"/>
+                                                            <action selector="productSearchPageBottomTabBarButtonAction:" destination="3zs-4I-E0K" eventType="touchUpInside" id="3Q8-js-sRl"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -2882,10 +2915,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="eej-5d-4Ga"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4G-V2-N6B">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B4G-V2-N6B">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="eLQ-Lw-4cH" eventType="touchUpInside" id="uDU-UR-XWa"/>
+                                                            <action selector="productSearchPageBottomTabBarButtonAction:" destination="3zs-4I-E0K" eventType="touchUpInside" id="BYk-A6-yyq"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -2916,8 +2949,11 @@
                                                             <constraint firstAttribute="height" constant="25" id="QQ4-Gq-hRW"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgB-4x-MXu">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CgB-4x-MXu">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="productSearchPageBottomTabBarButtonAction:" destination="3zs-4I-E0K" eventType="touchUpInside" id="ATq-SJ-J2X"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -3034,7 +3070,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="menu"/>
                                         <connections>
-                                            <action selector="leftMenuButtonAction:" destination="eLQ-Lw-4cH" eventType="touchUpInside" id="3TX-k4-b4W"/>
+                                            <action selector="leftMenuButtonAction:" destination="hJQ-e2-Sr9" eventType="touchUpInside" id="qBJ-PU-AAv"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -3289,8 +3325,11 @@
                                                             <constraint firstAttribute="width" constant="24" id="jG4-bV-c7Q"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9x8-pB-q7z">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9x8-pB-q7z">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="PharmacyListBottomTabButtonAction:" destination="hJQ-e2-Sr9" eventType="touchUpInside" id="gLY-Gk-th8"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -3320,10 +3359,10 @@
                                                             <constraint firstAttribute="height" constant="18" id="40L-H3-QLO"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFG-mD-qAt">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yFG-mD-qAt">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="eLQ-Lw-4cH" eventType="touchUpInside" id="Kh0-jm-SMC"/>
+                                                            <action selector="PharmacyListBottomTabButtonAction:" destination="hJQ-e2-Sr9" eventType="touchUpInside" id="8Fg-9z-UYy"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -3354,10 +3393,10 @@
                                                             <constraint firstAttribute="height" constant="23" id="Wo1-Ju-07n"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDk-Do-lAq">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DDk-Do-lAq">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="eLQ-Lw-4cH" eventType="touchUpInside" id="wZs-Yv-GCE"/>
+                                                            <action selector="PharmacyListBottomTabButtonAction:" destination="hJQ-e2-Sr9" eventType="touchUpInside" id="xq7-LB-Ka5"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -3388,8 +3427,11 @@
                                                             <constraint firstAttribute="height" constant="25" id="uw4-62-F0P"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EsJ-mI-V8d">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EsJ-mI-V8d">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="PharmacyListBottomTabButtonAction:" destination="hJQ-e2-Sr9" eventType="touchUpInside" id="l4T-nu-IIc"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -3452,7 +3494,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhJ-2S-6X8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1093.125" y="3864.0845070422538"/>
+            <point key="canvasLocation" x="-1093" y="4068"/>
         </scene>
         <!--All Ofers View Controller-->
         <scene sceneID="5T5-hA-RXe">
@@ -3864,8 +3906,11 @@
                                                             <constraint firstAttribute="width" constant="24" id="ctO-hx-198"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVG-K8-UGz">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eVG-K8-UGz">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="allOfferBottomTabButtonAction:" destination="EJQ-Lq-PL2" eventType="touchUpInside" id="kr9-44-aRj"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -3895,10 +3940,10 @@
                                                             <constraint firstAttribute="height" constant="18" id="a0o-dg-u5k"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9w-FT-Ucb">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9w-FT-Ucb">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="ezI-OT-zNz" eventType="touchUpInside" id="aNc-vS-3eR"/>
+                                                            <action selector="allOfferBottomTabButtonAction:" destination="EJQ-Lq-PL2" eventType="touchUpInside" id="hi7-6E-Yjn"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -3929,10 +3974,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="efK-UP-bnU"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Azl-lI-096">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Azl-lI-096">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="ezI-OT-zNz" eventType="touchUpInside" id="FS0-26-hKd"/>
+                                                            <action selector="allOfferBottomTabButtonAction:" destination="EJQ-Lq-PL2" eventType="touchUpInside" id="D9c-qO-i3F"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -3963,8 +4008,11 @@
                                                             <constraint firstAttribute="height" constant="25" id="8hf-HF-hN8"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jg3-RU-33N">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jg3-RU-33N">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="allOfferBottomTabButtonAction:" destination="EJQ-Lq-PL2" eventType="touchUpInside" id="9OO-Bx-Zgj"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -4029,21 +4077,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IWo-kT-5fh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1445.625" y="3087.676056338028"/>
-        </scene>
-        <!--Search By Location View Controller-->
-        <scene sceneID="WMf-pR-fmF">
-            <objects>
-                <viewController id="gVK-XP-Q2T" customClass="SearchByLocationViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9eW-zk-roT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <viewLayoutGuide key="safeArea" id="fpu-BS-ANi"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gxQ-hC-0su" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-257" y="3088"/>
         </scene>
         <!--Event Details View Controller-->
         <scene sceneID="BO0-li-bSm">
@@ -4284,8 +4317,11 @@
                                                             <constraint firstAttribute="width" constant="24" id="W7H-ZE-mDP"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJr-Ba-Dqc">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pJr-Ba-Dqc">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="eventDetailsPageBottomTabButtonAction:" destination="Onz-dy-eTE" eventType="touchUpInside" id="PHF-gK-JBi"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -4315,11 +4351,8 @@
                                                             <constraint firstAttribute="width" constant="24" id="oit-yq-OpE"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njj-PE-f11">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Njj-PE-f11">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
-                                                        <connections>
-                                                            <action selector="messageButtonAction:" destination="Onz-dy-eTE" eventType="touchUpInside" id="hfd-4D-opS"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -4349,11 +4382,8 @@
                                                             <constraint firstAttribute="height" constant="23" id="s4q-EW-wy3"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJE-Ym-xLT">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uJE-Ym-xLT">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
-                                                        <connections>
-                                                            <action selector="notificationButtonAction:" destination="Onz-dy-eTE" eventType="touchUpInside" id="Wbk-4o-kyj"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -4383,7 +4413,7 @@
                                                             <constraint firstAttribute="height" constant="25" id="J9j-7o-Zjp"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tL4-hP-NuA">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tL4-hP-NuA">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                     </button>
                                                 </subviews>
@@ -4709,8 +4739,11 @@
                                                             <constraint firstAttribute="width" constant="24" id="hy2-4K-ef9"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMh-za-RtJ">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sMh-za-RtJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="AllOferBottomTabMenuButtonAction:" destination="VBC-H1-1t6" eventType="touchUpInside" id="lfw-p5-N2b"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -4740,10 +4773,10 @@
                                                             <constraint firstAttribute="height" constant="18" id="bMB-G8-oK7"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUz-Ms-f4y">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUz-Ms-f4y">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="VBC-H1-1t6" eventType="touchUpInside" id="fqj-wD-y8x"/>
+                                                            <action selector="AllOferBottomTabMenuButtonAction:" destination="VBC-H1-1t6" eventType="touchUpInside" id="eOg-5v-4JZ"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -4774,10 +4807,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="gO2-IO-6sD"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alx-wd-9jj">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Alx-wd-9jj">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="VBC-H1-1t6" eventType="touchUpInside" id="4oh-sE-L20"/>
+                                                            <action selector="AllOferBottomTabMenuButtonAction:" destination="VBC-H1-1t6" eventType="touchUpInside" id="Jhy-YA-RIz"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -4808,8 +4841,11 @@
                                                             <constraint firstAttribute="height" constant="25" id="OmY-ty-6xS"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AY6-p1-t09">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AY6-p1-t09">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="AllOferBottomTabMenuButtonAction:" destination="VBC-H1-1t6" eventType="touchUpInside" id="mWX-DE-qx3"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -5030,8 +5066,11 @@
                                                             <constraint firstAttribute="width" constant="24" id="nPQ-vg-GnM"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WrO-wu-t0J">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WrO-wu-t0J">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="galleryBottomTabMenuButtonAction:" destination="Fg7-g2-slk" eventType="touchUpInside" id="hMr-aq-sQB"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -5061,10 +5100,10 @@
                                                             <constraint firstAttribute="height" constant="18" id="p8k-Wy-1Ld"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzH-9G-TU9">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wzH-9G-TU9">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="Fg7-g2-slk" eventType="touchUpInside" id="Uoz-uj-kCq"/>
+                                                            <action selector="galleryBottomTabMenuButtonAction:" destination="Fg7-g2-slk" eventType="touchUpInside" id="0nd-2z-VqS"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -5095,10 +5134,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="iRM-S9-nQ7"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40W-Xm-RXm">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="40W-Xm-RXm">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="Fg7-g2-slk" eventType="touchUpInside" id="C5w-rP-j5W"/>
+                                                            <action selector="galleryBottomTabMenuButtonAction:" destination="Fg7-g2-slk" eventType="touchUpInside" id="sMG-A1-fg3"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -5129,8 +5168,11 @@
                                                             <constraint firstAttribute="height" constant="25" id="k83-oV-0ix"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9y-cJ-BhW">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9y-cJ-BhW">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="galleryBottomTabMenuButtonAction:" destination="Fg7-g2-slk" eventType="touchUpInside" id="52F-HH-5aH"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -5355,8 +5397,11 @@
                                                             <constraint firstAttribute="height" constant="24" id="ehL-jo-NpP"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I00-Tk-Olg">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I00-Tk-Olg">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="NewsBottomTabMenuButtonAction:" destination="eFD-tp-307" eventType="touchUpInside" id="R6F-eg-dr7"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -5386,10 +5431,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="dU6-9o-kFs"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkt-x3-dHy">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkt-x3-dHy">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="eFD-tp-307" eventType="touchUpInside" id="CYu-bY-gtW"/>
+                                                            <action selector="NewsBottomTabMenuButtonAction:" destination="eFD-tp-307" eventType="touchUpInside" id="riX-yw-WlS"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -5420,10 +5465,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="y3H-ii-xnW"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pID-Mj-iYy">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pID-Mj-iYy">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="eFD-tp-307" eventType="touchUpInside" id="9AN-Q0-TZN"/>
+                                                            <action selector="NewsBottomTabMenuButtonAction:" destination="eFD-tp-307" eventType="touchUpInside" id="EHL-rJ-YtA"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -5454,8 +5499,11 @@
                                                             <constraint firstAttribute="width" constant="21" id="nxJ-Ee-9vG"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqm-qK-gQ8">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dqm-qK-gQ8">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="NewsBottomTabMenuButtonAction:" destination="eFD-tp-307" eventType="touchUpInside" id="iJx-aw-PhG"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -6029,8 +6077,11 @@
                                                             <constraint firstAttribute="width" constant="24" id="b4S-Xa-h8x"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXj-Bs-3bh">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jXj-Bs-3bh">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="FarmaciaInfoPageBottomTabMenuButtonAction:" destination="HcR-X4-gih" eventType="touchUpInside" id="V5O-Ly-DDc"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -6060,10 +6111,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="mHt-xe-TrQ"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcr-lD-VJt">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jcr-lD-VJt">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="ezI-OT-zNz" eventType="touchUpInside" id="gWg-ZU-Zkd"/>
+                                                            <action selector="FarmaciaInfoPageBottomTabMenuButtonAction:" destination="HcR-X4-gih" eventType="touchUpInside" id="rzY-t9-gGO"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -6094,10 +6145,10 @@
                                                             <constraint firstAttribute="height" constant="23" id="kSX-iZ-urI"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uqm-5h-Uaf">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uqm-5h-Uaf">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="ezI-OT-zNz" eventType="touchUpInside" id="BXf-QI-KCO"/>
+                                                            <action selector="FarmaciaInfoPageBottomTabMenuButtonAction:" destination="HcR-X4-gih" eventType="touchUpInside" id="gGF-QY-Fyp"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -6128,8 +6179,11 @@
                                                             <constraint firstAttribute="width" constant="21" id="kWX-qD-a2z"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHP-40-jWe">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LHP-40-jWe">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="FarmaciaInfoPageBottomTabMenuButtonAction:" destination="HcR-X4-gih" eventType="touchUpInside" id="NWy-t4-26M"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -6341,8 +6395,11 @@
                                                             <constraint firstAttribute="width" constant="24" id="rI6-uW-ydu"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9C-WP-ieB">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9C-WP-ieB">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="farmacistPageBottomTabMenuButtonAction:" destination="pAj-pE-qiF" eventType="touchUpInside" id="MGM-nk-YPi"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -6372,10 +6429,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="bak-rN-eby"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTv-1V-hn7">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mTv-1V-hn7">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="27t-Ai-O3D" eventType="touchUpInside" id="S2g-bC-9dZ"/>
+                                                            <action selector="farmacistPageBottomTabMenuButtonAction:" destination="pAj-pE-qiF" eventType="touchUpInside" id="NE0-J4-EIj"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -6406,10 +6463,10 @@
                                                             <constraint firstAttribute="height" constant="23" id="tvR-yW-5Ai"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEi-82-pHX">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oEi-82-pHX">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="27t-Ai-O3D" eventType="touchUpInside" id="XhS-XG-Kzu"/>
+                                                            <action selector="farmacistPageBottomTabMenuButtonAction:" destination="pAj-pE-qiF" eventType="touchUpInside" id="8RY-hV-vrK"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -6440,8 +6497,11 @@
                                                             <constraint firstAttribute="width" constant="21" id="pcH-Lb-sbg"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYU-JL-pWu">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QYU-JL-pWu">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="farmacistPageBottomTabMenuButtonAction:" destination="pAj-pE-qiF" eventType="touchUpInside" id="M66-cD-T18"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -6494,7 +6554,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tBT-Ha-e9W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5525.625" y="3853.5211267605632"/>
+            <point key="canvasLocation" x="5940" y="4068"/>
         </scene>
         <!--Message View Controller-->
         <scene sceneID="ch9-tI-XB0">
@@ -6624,8 +6684,11 @@
                                                             <constraint firstAttribute="width" constant="24" id="ysi-lz-qrJ"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCA-8h-VLO">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XCA-8h-VLO">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="MessageBottomTabMenuButtonAction:" destination="Qdv-4B-48a" eventType="touchUpInside" id="DnQ-L9-lST"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -6655,7 +6718,7 @@
                                                             <constraint firstAttribute="height" constant="18" id="i70-9c-rfC"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lU5-bd-Ofa">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lU5-bd-Ofa">
                                                         <rect key="frame" x="0.0" y="0.0" width="64.5" height="36"/>
                                                     </button>
                                                 </subviews>
@@ -6686,10 +6749,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="m6x-0M-jKP"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vfu-Sm-FIT">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vfu-Sm-FIT">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="Qdv-4B-48a" eventType="touchUpInside" id="dg1-Vf-IiT"/>
+                                                            <action selector="MessageBottomTabMenuButtonAction:" destination="Qdv-4B-48a" eventType="touchUpInside" id="RDD-cd-D19"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -6720,8 +6783,11 @@
                                                             <constraint firstAttribute="width" constant="21" id="HQm-Id-NkM"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="suF-D6-EvC">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="suF-D6-EvC">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="MessageBottomTabMenuButtonAction:" destination="Qdv-4B-48a" eventType="touchUpInside" id="V3l-0A-3RV"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -6903,8 +6969,11 @@
                                                             <constraint firstAttribute="width" constant="24" id="hTZ-CV-KEl"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ld-Lf-xY0">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ld-Lf-xY0">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="NoticeBottomTabMenuButtonAction:" destination="k25-eH-xpN" eventType="touchUpInside" id="M3c-YC-VeT"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -6934,10 +7003,10 @@
                                                             <constraint firstAttribute="height" constant="18" id="OAC-xo-iTG"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzB-SZ-MJr">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YzB-SZ-MJr">
                                                         <rect key="frame" x="0.0" y="0.0" width="64.5" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="k25-eH-xpN" eventType="touchUpInside" id="N4k-Nu-TSe"/>
+                                                            <action selector="NoticeBottomTabMenuButtonAction:" destination="k25-eH-xpN" eventType="touchUpInside" id="vyz-1J-v87"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -6968,7 +7037,7 @@
                                                             <constraint firstAttribute="width" constant="24" id="wiv-I5-TIt"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGx-vz-xRp">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGx-vz-xRp">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                     </button>
                                                 </subviews>
@@ -6999,8 +7068,11 @@
                                                             <constraint firstAttribute="height" constant="25" id="SDw-gC-8OU"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oW-ex-VKB">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1oW-ex-VKB">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="NoticeBottomTabMenuButtonAction:" destination="k25-eH-xpN" eventType="touchUpInside" id="fKs-Nx-y8s"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -7209,8 +7281,11 @@
                                                             <constraint firstAttribute="height" constant="24" id="lf6-q4-PBd"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkG-wA-QYG">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HkG-wA-QYG">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="newsDetailsBottomTabButtonAction:" destination="ezI-OT-zNz" eventType="touchUpInside" id="dAd-Gr-37U"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -7240,10 +7315,10 @@
                                                             <constraint firstAttribute="height" constant="18" id="Bfg-X9-WtX"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wxu-Mo-jYx">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wxu-Mo-jYx">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="ezI-OT-zNz" eventType="touchUpInside" id="Ipd-S2-0Wq"/>
+                                                            <action selector="newsDetailsBottomTabButtonAction:" destination="ezI-OT-zNz" eventType="touchUpInside" id="pKG-ob-pnX"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -7274,10 +7349,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="zZp-ra-8Ts"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0w-Jd-ePq">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0w-Jd-ePq">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="ezI-OT-zNz" eventType="touchUpInside" id="H1k-L3-HJd"/>
+                                                            <action selector="newsDetailsBottomTabButtonAction:" destination="ezI-OT-zNz" eventType="touchUpInside" id="VK2-0V-HN3"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -7308,8 +7383,11 @@
                                                             <constraint firstAttribute="width" constant="21" id="88c-XP-A6h"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2z-99-sqW">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M2z-99-sqW">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="newsDetailsBottomTabButtonAction:" destination="ezI-OT-zNz" eventType="touchUpInside" id="BOO-Bd-D04"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -7779,8 +7857,11 @@
                                                             <constraint firstAttribute="height" constant="24" id="god-lC-qnt"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoG-xf-8mk">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yoG-xf-8mk">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="PrenotaERitiraBottomTabMenuButtonAction:" destination="FLS-Tq-RUZ" eventType="touchUpInside" id="YtX-Hd-e7h"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -7810,10 +7891,10 @@
                                                             <constraint firstAttribute="height" constant="18" id="egd-T1-ydR"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hx9-jJ-uWc">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hx9-jJ-uWc">
                                                         <rect key="frame" x="0.0" y="0.0" width="64.5" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="ezI-OT-zNz" eventType="touchUpInside" id="ocf-Rz-4p1"/>
+                                                            <action selector="PrenotaERitiraBottomTabMenuButtonAction:" destination="FLS-Tq-RUZ" eventType="touchUpInside" id="KZk-eF-oFX"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -7844,10 +7925,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="PxE-aJ-JAl"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaW-2f-1vI">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qaW-2f-1vI">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="ezI-OT-zNz" eventType="touchUpInside" id="o3f-gf-nkU"/>
+                                                            <action selector="PrenotaERitiraBottomTabMenuButtonAction:" destination="FLS-Tq-RUZ" eventType="touchUpInside" id="TfJ-w8-hIw"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -7878,8 +7959,11 @@
                                                             <constraint firstAttribute="height" constant="25" id="W0t-c8-nyd"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P4-Mz-pvd">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7P4-Mz-pvd">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="PrenotaERitiraBottomTabMenuButtonAction:" destination="FLS-Tq-RUZ" eventType="touchUpInside" id="Sk2-re-v45"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -8115,8 +8199,11 @@
                                                             <constraint firstAttribute="width" constant="24" id="iBV-Rv-sie"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idR-8O-nZ1">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="idR-8O-nZ1">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="ProductDetilaPageBottomTabMenuButtonAction:" destination="mW7-Hi-Uek" eventType="touchUpInside" id="8Ud-0p-f6F"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -8146,10 +8233,10 @@
                                                             <constraint firstAttribute="height" constant="18" id="DbD-IS-R8T"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHm-T9-IbP">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHm-T9-IbP">
                                                         <rect key="frame" x="0.0" y="0.0" width="64.5" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="ezI-OT-zNz" eventType="touchUpInside" id="lls-zp-2h9"/>
+                                                            <action selector="ProductDetilaPageBottomTabMenuButtonAction:" destination="mW7-Hi-Uek" eventType="touchUpInside" id="2JB-kK-Hj2"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -8180,10 +8267,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="WWj-qa-HZV"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ozg-8p-6GD">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ozg-8p-6GD">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="ezI-OT-zNz" eventType="touchUpInside" id="cla-eu-2cq"/>
+                                                            <action selector="ProductDetilaPageBottomTabMenuButtonAction:" destination="mW7-Hi-Uek" eventType="touchUpInside" id="hY6-tK-ugs"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -8214,8 +8301,11 @@
                                                             <constraint firstAttribute="width" constant="21" id="wou-7K-0CY"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ze-6k-WqV">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ze-6k-WqV">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="ProductDetilaPageBottomTabMenuButtonAction:" destination="mW7-Hi-Uek" eventType="touchUpInside" id="Q5W-jm-cgt"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -8274,7 +8364,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YNz-c0-i32" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3889.8550724637685" y="3853.5326086956525"/>
+            <point key="canvasLocation" x="3840" y="4068"/>
         </scene>
         <!--Order Details View Controller-->
         <scene sceneID="1Hp-0S-ntZ">
@@ -8451,8 +8541,11 @@
                                                             <constraint firstAttribute="width" constant="24" id="zQ5-fJ-kKC"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2S-Tq-00x">
+                                                    <button opaque="NO" tag="1001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b2S-Tq-00x">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="ConfirmOrderPageBottomTabMenuButtonAction:" destination="27t-Ai-O3D" eventType="touchUpInside" id="ub1-h6-1cr"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -8482,10 +8575,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="y46-Dt-WGO"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIX-fO-Lp3">
+                                                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIX-fO-Lp3">
                                                         <rect key="frame" x="0.0" y="0.0" width="64.5" height="36"/>
                                                         <connections>
-                                                            <action selector="messageButtonAction:" destination="27t-Ai-O3D" eventType="touchUpInside" id="vmY-2F-Drq"/>
+                                                            <action selector="ConfirmOrderPageBottomTabMenuButtonAction:" destination="27t-Ai-O3D" eventType="touchUpInside" id="SGu-tM-6YJ"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -8516,10 +8609,10 @@
                                                             <constraint firstAttribute="width" constant="24" id="WLE-16-uwC"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzG-kI-XjE">
+                                                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzG-kI-XjE">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
                                                         <connections>
-                                                            <action selector="notificationButtonAction:" destination="27t-Ai-O3D" eventType="touchUpInside" id="M9T-hV-Vx3"/>
+                                                            <action selector="ConfirmOrderPageBottomTabMenuButtonAction:" destination="27t-Ai-O3D" eventType="touchUpInside" id="7fc-sW-BZ5"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -8550,8 +8643,11 @@
                                                             <constraint firstAttribute="width" constant="21" id="pxw-TG-9e4"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1G-6j-fM6">
+                                                    <button opaque="NO" tag="1004" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1G-6j-fM6">
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="36"/>
+                                                        <connections>
+                                                            <action selector="ConfirmOrderPageBottomTabMenuButtonAction:" destination="27t-Ai-O3D" eventType="touchUpInside" id="HiQ-Kj-Qen"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -8607,7 +8703,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mNF-bc-I4s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4705.7971014492759" y="3853.5326086956525"/>
+            <point key="canvasLocation" x="4774" y="4068"/>
         </scene>
         <!--Pre Book Intro View Controller-->
         <scene sceneID="uGO-ql-Csg">
@@ -9153,12 +9249,12 @@
         <image name="web" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="XMT-zX-fkm"/>
-        <segue reference="hjK-sH-UmP"/>
-        <segue reference="tEq-Jv-WBS"/>
-        <segue reference="WTa-E5-hQ1"/>
+        <segue reference="dP1-0X-XeF"/>
+        <segue reference="tH7-ES-EPC"/>
+        <segue reference="HPR-Yc-8af"/>
+        <segue reference="F3P-kJ-vsm"/>
         <segue reference="GSt-dJ-DOA"/>
         <segue reference="X2S-6a-e6P"/>
-        <segue reference="W1w-gw-WYd"/>
+        <segue reference="GYY-bM-aMD"/>
     </inferredMetricsTieBreakers>
 </document>

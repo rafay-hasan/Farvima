@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *searchTextfield;
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)searchButtonAction:(id)sender;
+- (IBAction)productSearchPageBottomTabBarButtonAction:(UIButton *)sender;
 
 
 @end
@@ -100,6 +101,10 @@
 
 - (IBAction)searchButtonAction:(id)sender {
     [self CallSearchPharmacyWebServicewithPharmacyName:self.searchTextfield.text];
+}
+
+- (IBAction)productSearchPageBottomTabBarButtonAction:(UIButton *)sender {
+    [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
 
 @end

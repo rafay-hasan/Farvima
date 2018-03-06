@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollviewContainerHeight;
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)leftSliderButtonAction:(id)sender;
+- (IBAction)ProductDetilaPageBottomTabMenuButtonAction:(UIButton *)sender;
 
 @property (weak, nonatomic) IBOutlet UIButton *purchaseButton;
 
@@ -102,6 +103,10 @@
 - (IBAction)leftSliderButtonAction:(id)sender {
      [[self sideMenuController] showLeftViewAnimated:sender];
 }
+
+- (IBAction)ProductDetilaPageBottomTabMenuButtonAction:(UIButton *)sender {
+    [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
+}
 - (IBAction)purchaseButtonAction:(id)sender {
     [self checkIfPharmacyIsAssociated];
 }
@@ -149,7 +154,6 @@
     else if (self.myWebService.requestType == HTTPRequestTypeLoginAuthentication) {
         NSString *userId = [[responseObj valueForKey:@"profile"] valueForKey:@"app_id"];
         if ([userId isEqualToString:[User_Details sharedInstance].appUserId]) {
-            NSLog(@"user is logged in %@",self.productObject.finalProductId);
             if([appDelegate saveProductDetailsWithID:self.productObject.finalProductId forProductName:self.productObject.name productPrice:self.productObject.price productType:self.productObject.pharmacyCategoryType]) {
                 
                 OrderDetailsViewController *notificationVc = [OrderDetailsViewController new];

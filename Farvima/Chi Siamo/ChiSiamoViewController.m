@@ -23,6 +23,9 @@
 @property (weak, nonatomic) IBOutlet UITextView *aboutUsTextView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *aboutUsTextViewHeight;
 
+- (IBAction)ChiShimoBottonTabButtonAction:(UIButton *)sender;
+
+
 @end
 
 @implementation ChiSiamoViewController
@@ -131,4 +134,7 @@
     [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
 }
 
+- (IBAction)ChiShimoBottonTabButtonAction:(UIButton *)sender {
+    [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
+}
 @end

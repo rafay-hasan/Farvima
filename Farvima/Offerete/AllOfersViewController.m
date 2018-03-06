@@ -27,7 +27,7 @@
 @property (strong,nonatomic) NSMutableArray *categoryMenuArray,*categoryMenuIdArray;
 @property (nonatomic) BOOL generalLeftMenuSelected;
 @property (strong,nonatomic) NSString *selectedCategoryId;
-
+@property (strong,nonatomic) NSString *currentlySelected;
 - (IBAction)productSearchButtonAction:(id)sender;
 - (IBAction)busketButtonAction:(id)sender;
 - (IBAction)ledtGeneralSlideButtonAction:(id)sender;
@@ -37,6 +37,7 @@
 - (IBAction)backButtonAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UITableView *offerTypeTableview;
 @property (weak, nonatomic) IBOutlet UICollectionView *offerTypeCollectionview;
+- (IBAction)allOfferBottomTabButtonAction:(UIButton *)sender;
 
 
 
@@ -47,6 +48,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.currentlySelected = [NSString new];
     [self resetSlideRightmenuForSearchResultPage];
     self.offerTypeTableview.hidden = NO;
     self.offerTypeCollectionview.hidden = YES;
@@ -60,6 +62,7 @@
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.sideMenuController.delegate = self;
+    self.currentlySelected = @"All Offer";
 }
 
 
@@ -129,12 +132,14 @@
 - (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
     if (self.generalLeftMenuSelected) {
         [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+        self.currentlySelected = @"All Offer";
     }
     else {
         for (id object in self.categoryMenuIdArray) {
             if ([[object valueForKey:@"descrizione"] isEqualToString:[User_Details sharedInstance].currentlySelectedLeftSlideMenu]) {
                 self.selectedCategoryId = [object valueForKey:@"codice_categoria"];
                 [self.offerArray removeAllObjects];
+                self.currentlySelected = @"Category Offer";
                 [self CallCategoryOfferWebservicewithCategoryId:self.selectedCategoryId];
                 break;
             }
@@ -390,5 +395,23 @@
     return 16.0;
 }
 
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
+    
+    NSInteger currentOffset = scrollView.contentOffset.y;
+    NSInteger maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+    if (maximumOffset - currentOffset <= -40) {
+        if ([self.currentlySelected isEqualToString:@"All Offer"]) {
+            [self CallAllOfferWebservice];
+        }
+        else if ([self.currentlySelected isEqualToString:@"Category Offer"]) {
+            [self CallCategoryOfferWebservicewithCategoryId:self.selectedCategoryId];
+        }
+        
+    }
+}
 
+
+- (IBAction)allOfferBottomTabButtonAction:(UIButton *)sender {
+    [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
+}
 @end

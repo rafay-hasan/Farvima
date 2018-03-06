@@ -18,6 +18,10 @@
 #import "GallaryViewController.h"
 #import "ChiSiamoViewController.h"
 #import "FarmaciaViewController.h"
+#import "MessageViewController.h"
+#import "NotificationViewController.h"
+#import "ChooseYourPharmacyViewController.h"
+
 
 @implementation User_Details
 
@@ -148,6 +152,35 @@
     }
 }
 
+-(void) makePushOrPopForBottomTabMenuToNavigationStack:(UINavigationController *)navigatiionController forTag:(NSInteger )buttonTag {
+    UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    UIViewController *targetViewController = [UIViewController new];
+    if(buttonTag == 1001) {
+        targetViewController = [mystoryboard instantiateViewControllerWithIdentifier:@"choosePharmacy"];
+    }
+    else if (buttonTag == 1002) {
+        targetViewController = [mystoryboard instantiateViewControllerWithIdentifier:@"messaggi"];
+    }
+    else if (buttonTag == 1003) {
+        targetViewController = [mystoryboard instantiateViewControllerWithIdentifier:@"notification"];
+    }
+    
+    if (![self isControllerAlreadyOnNavigationControllerStack:targetViewController navigationController:navigatiionController]) {
+        if (buttonTag == 1001) {
+            ChooseYourPharmacyViewController *choosePharmacyView = [mystoryboard instantiateViewControllerWithIdentifier:@"choosePharmacy"];
+            [navigatiionController pushViewController:choosePharmacyView animated:YES];
+        }
+        else if (buttonTag == 1002) {
+            MessageViewController *messageView = [mystoryboard instantiateViewControllerWithIdentifier:@"messaggi"];
+            [navigatiionController pushViewController:messageView animated:YES];
+        }
+        else if (buttonTag == 1003) {
+            NotificationViewController *notificationView = [mystoryboard instantiateViewControllerWithIdentifier:@"notification"];
+            [navigatiionController pushViewController:notificationView animated:YES];
+        }
+    }
+    
+}
 
 
 @end

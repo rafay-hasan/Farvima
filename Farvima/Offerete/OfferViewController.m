@@ -7,8 +7,6 @@
 //
 
 #import "OfferViewController.h"
-#import "MessageViewController.h"
-#import "NotificationViewController.h"
 #import "UIViewController+LGSideMenuController.h"
 #import "ProductSearchViewController.h"
 #import "User Details.h"
@@ -37,12 +35,11 @@
 @property (strong,nonatomic) NSString* selectedDownloadFileName;
 
 - (IBAction)backButtonAction:(id)sender;
-- (IBAction)messageButtonAction:(id)sender;
-- (IBAction)notificationButtonAction:(id)sender;
 - (IBAction)showLeftMenuAction:(id)sender;
 - (IBAction)searchProductButtonAction:(id)sender;
 - (IBAction)busketButtonAction:(id)sender;
 - (IBAction)downloadCancelButtonAction:(id)sender;
+- (IBAction)AllOferBottomTabMenuButtonAction:(UIButton *)sender;
 
 
 @end
@@ -203,25 +200,6 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)messageButtonAction:(id)sender {
-    MessageViewController *messageVc = [MessageViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:messageVc]) {
-        //push controller
-        MessageViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"messaggi"];
-        [self.navigationController pushViewController:newView animated:YES];
-        
-    }
-}
-
-- (IBAction)notificationButtonAction:(id)sender {
-    NotificationViewController *notificationVc = [NotificationViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:notificationVc]) {
-        //push controller
-        NotificationViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"notification"];
-        [self.navigationController pushViewController:newView animated:YES];
-        
-    }
-}
 
 - (IBAction)showLeftMenuAction:(id)sender {
     [[self sideMenuController] showLeftViewAnimated:sender];
@@ -251,6 +229,10 @@
     
     self.downloaderBgView.hidden = YES;
     self.downloadProgressContainerView.hidden = YES;
+}
+
+- (IBAction)AllOferBottomTabMenuButtonAction:(UIButton *)sender {
+    [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
 -(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
     for (UIViewController *vc in self.navigationController.viewControllers) {

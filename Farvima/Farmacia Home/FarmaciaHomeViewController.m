@@ -8,8 +8,12 @@
 
 #import "FarmaciaHomeViewController.h"
 #import "UIViewController+LGSideMenuController.h"
+#import "User Details.h"
 
 @interface FarmaciaHomeViewController ()
+
+- (IBAction)FarmaciaHomeBottomTabMenuAction:(UIButton *)sender;
+
 
 @end
 
@@ -48,4 +52,7 @@
 }
 */
 
+- (IBAction)FarmaciaHomeBottomTabMenuAction:(UIButton *)sender {
+    [[User_Details sharedInstance] makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
+}
 @end

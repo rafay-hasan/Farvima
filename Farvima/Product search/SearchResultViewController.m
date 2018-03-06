@@ -33,6 +33,7 @@
 - (IBAction)productSearchButtonAction:(id)sender;
 - (IBAction)leftSliderButtonAction:(id)sender;
 - (IBAction)categoryLeftSlideButtonAction:(id)sender;
+- (IBAction)PrenotaERitiraBottomTabMenuButtonAction:(UIButton *)sender;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *productSearchCollectionView;
 - (IBAction)productOrientationButtonAction:(id)sender;
@@ -386,6 +387,10 @@
     [self.slideMenuSharedManager createLeftGeneralSPpelizedSlideMenuWithArray:self.categoryMenuArray];
     self.sideMenuController.leftViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenu"];
     [[self sideMenuController] showLeftViewAnimated:sender];
+}
+
+- (IBAction)PrenotaERitiraBottomTabMenuButtonAction:(UIButton *)sender {
+    [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
 
 -(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{

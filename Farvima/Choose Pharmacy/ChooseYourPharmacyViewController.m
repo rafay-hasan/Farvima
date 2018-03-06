@@ -18,6 +18,8 @@
     CLLocationManager *locationManager;
 }
 
+- (IBAction)ChoosePharmacyBottomTabAction:(UIButton *)sender;
+
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)leftSlideButtonAction:(id)sender;
 - (IBAction)searchPharmacyByLocationButtonAction:(id)sender;
@@ -68,6 +70,10 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+- (IBAction)ChoosePharmacyBottomTabAction:(UIButton *)sender {
+    [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
+}
 
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

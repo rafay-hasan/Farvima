@@ -9,7 +9,6 @@
 #import "MessageViewController.h"
 #import "MessageTableViewCell.h"
 #import "MessageSectionHeader.h"
-#import "NotificationViewController.h"
 #import "RHWebServiceManager.h"
 #import "SVProgressHUD.h"
 #import "User Details.h"
@@ -25,8 +24,8 @@
 @property (strong,nonatomic) User_Details *userManager;
 
 @property (weak, nonatomic) IBOutlet UITableView *messageTableview;
-- (IBAction)notificationButtonAction:(id)sender;
 - (IBAction)leftSliderButtonAction:(id)sender;
+- (IBAction)MessageBottomTabMenuButtonAction:(UIButton *)sender;
 
 - (IBAction)backButtonAction:(id)sender;
 @end
@@ -65,18 +64,13 @@
 }
 */
 
-- (IBAction)notificationButtonAction:(id)sender {
-    NotificationViewController *notificationVc = [NotificationViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:notificationVc]) {
-        //push controller
-        NotificationViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"notification"];
-        [self.navigationController pushViewController:newView animated:YES];
-        
-    }
-}
 
 - (IBAction)leftSliderButtonAction:(id)sender {
     [[self sideMenuController] showLeftViewAnimated:sender];
+}
+
+- (IBAction)MessageBottomTabMenuButtonAction:(UIButton *)sender {
+    [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
 
 - (IBAction)backButtonAction:(id)sender {

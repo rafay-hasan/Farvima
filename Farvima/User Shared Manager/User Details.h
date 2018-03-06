@@ -15,4 +15,5 @@
 -(void) makeSaltaButtonAction;
 -(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController navigationController:(UINavigationController *)navController;
 -(void) makePushOrPopViewControllertoNavigationStack:(UINavigationController *)navigatiionController;
+-(void) makePushOrPopForBottomTabMenuToNavigationStack:(UINavigationController *)navigatiionController forTag:(NSInteger )buttonTag;
 @end

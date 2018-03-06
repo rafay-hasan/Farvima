@@ -9,8 +9,6 @@
 #import "NewsViewController.h"
 #import "NewsTableViewCell.h"
 #import "NewsSectionHeader.h"
-#import "MessageViewController.h"
-#import "NotificationViewController.h"
 #import "RHWebServiceManager.h"
 #import "SVProgressHUD.h"
 #import "User Details.h"
@@ -30,9 +28,8 @@
 @property (weak, nonatomic) IBOutlet UITableView *newsTableView;
 
 - (IBAction)backButtonAction:(id)sender;
-- (IBAction)messageButtonAction:(id)sender;
-- (IBAction)notificationButtonAction:(id)sender;
 - (IBAction)leftMenuButtonAction:(id)sender;
+- (IBAction)NewsBottomTabMenuButtonAction:(UIButton *)sender;
 
 @end
 
@@ -132,30 +129,15 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)messageButtonAction:(id)sender {
-    MessageViewController *messageVc = [MessageViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:messageVc]) {
-        //push controller
-        MessageViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"messaggi"];
-        [self.navigationController pushViewController:newView animated:YES];
-        
-    }
-}
-
-- (IBAction)notificationButtonAction:(id)sender {
-    NotificationViewController *notificationVc = [NotificationViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:notificationVc]) {
-        //push controller
-        NotificationViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"notification"];
-        [self.navigationController pushViewController:newView animated:YES];
-        
-    }
-}
 
 - (IBAction)leftMenuButtonAction:(id)sender {
     
     [[self sideMenuController] showLeftViewAnimated:sender];
     
+}
+
+- (IBAction)NewsBottomTabMenuButtonAction:(UIButton *)sender {
+    [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
 -(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
     for (UIViewController *vc in self.navigationController.viewControllers) {

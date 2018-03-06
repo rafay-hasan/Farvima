@@ -7,16 +7,15 @@
 //
 
 #import "NotificationViewController.h"
-#import "MessageViewController.h"
 #import "NotificationTableViewCell.h"
 #import "UIViewController+LGSideMenuController.h"
 #import "User Details.h"
 
 @interface NotificationViewController ()<LGSideMenuControllerDelegate>
 
-- (IBAction)messageButtonAction:(id)sender;
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)leftSliderButtonAction:(id)sender;
+- (IBAction)NoticeBottomTabMenuButtonAction:(UIButton *)sender;
 
 @property (weak, nonatomic) IBOutlet UITableView *notificationTableview;
 
@@ -61,21 +60,17 @@
     }
     return NO;
 }
-- (IBAction)messageButtonAction:(id)sender {
-    MessageViewController *messageVc = [MessageViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:messageVc]) {
-        //push controller
-        MessageViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"messaggi"];
-        [self.navigationController pushViewController:newView animated:YES];
 
-    }
-}
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)leftSliderButtonAction:(id)sender {
     [[self sideMenuController] showLeftViewAnimated:sender];
+}
+
+- (IBAction)NoticeBottomTabMenuButtonAction:(UIButton *)sender {
+    [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
