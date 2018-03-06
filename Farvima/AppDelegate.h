@@ -15,6 +15,7 @@
 
 -(BOOL) saveProductDetailsWithID:(NSString *)productId forProductName:(NSString *)name productPrice:(NSString *)price productType:(NSString *)type;
 - (NSArray *) retrieveAllOrder ;
+- (void) RemoveAllDataOfOrder;
 
 #pragma mark - Core data for messages vriable
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;

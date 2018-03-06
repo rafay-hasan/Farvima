@@ -12,17 +12,23 @@
 #import "OrderDetailsTableViewCell.h"
 #import "MessageViewController.h"
 #import "NotificationViewController.h"
+#import "RHWebServiceManager.h"
+#import "SVProgressHUD.h"
+#import "User Details.h"
 #import "AppDelegate.h"
 
-@interface OrderDetailsViewController ()<UITableViewDelegate,UITableViewDataSource> {
+@interface OrderDetailsViewController ()<UITableViewDelegate,UITableViewDataSource,RHWebServiceDelegate> {
     AppDelegate *appDelegate;
 }
 @property (strong,nonatomic) NSArray *orderArray;
+@property (strong,nonatomic) NSMutableArray *quantityArray;
+@property (strong,nonatomic) RHWebServiceManager *myWebService;
 @property (weak, nonatomic) IBOutlet UITableView *orderTableview;
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)messageButtonAction:(id)sender;
 - (IBAction)notificationButtonAction:(id)sender;
 
+- (IBAction)orderConfirmButtonAction:(id)sender;
 
 @end
 
@@ -33,6 +39,10 @@
     // Do any additional setup after loading the view.
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     self.orderArray = [appDelegate retrieveAllOrder];
+    self.quantityArray = [NSMutableArray new];
+    for (id ob in self.orderArray) {
+        [self.quantityArray addObject:@"1"];
+    }
     self.orderTableview.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     UINib *orderTableHeaderXib = [UINib nibWithNibName:@"OrderDetailsHeaderSection" bundle:nil];
     [self.orderTableview registerNib:orderTableHeaderXib forHeaderFooterViewReuseIdentifier:@"orderTableSectionHeader"];
@@ -76,8 +86,13 @@
     }
     cell.productNameLabel.text = [[self.orderArray objectAtIndex:indexPath.row] valueForKey:@"name"];
     cell.categoryTypeImageView.image = [UIImage imageNamed:[[self.orderArray objectAtIndex:indexPath.row] valueForKey:@"type"]];
-    cell.priceLabel.text = [NSString stringWithFormat:@"%@€",[[self.orderArray objectAtIndex:indexPath.row] valueForKey:@"price"]];
-    
+    cell.quantityLabel.text = [self.quantityArray objectAtIndex:indexPath.row];
+    double price = ([[[self.orderArray objectAtIndex:indexPath.row] valueForKey:@"price"] doubleValue]) * ([[self.quantityArray objectAtIndex:indexPath.row] doubleValue]);
+    cell.priceLabel.text = [NSString stringWithFormat:@"%.2lf€",price];
+    cell.incrementButton.tag = 1000 + indexPath.row;
+    [cell.incrementButton addTarget:self action:@selector(incrementButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    cell.decrementButton.tag = 1000 + indexPath.row;
+    [cell.decrementButton addTarget:self action:@selector(decrementButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
     return cell;
 }
@@ -94,16 +109,32 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     OrderDetailsFooetrSection *orderFooterView = [self.orderTableview dequeueReusableHeaderFooterViewWithIdentifier:@"orderTableSectionFooter"];
-    NSInteger total = 0;
-    for (id object in self.orderArray) {
-        NSString *price = [object valueForKey:@"price"];
-        total = total + [price integerValue];
+    double total = 0;
+    for (NSInteger i=0; i < self.orderArray.count; i++) {
+        total = total + ([[[self.orderArray objectAtIndex:i] valueForKey:@"price"] doubleValue] * [[self.quantityArray objectAtIndex:i] integerValue]);
     }
-    NSLog(@"%ld",total);
-    orderFooterView.totalAmountLabel.text = [NSString stringWithFormat:@"%ld€",total];
+    orderFooterView.totalAmountLabel.text = [NSString stringWithFormat:@"%.2lf€",total];
     return orderFooterView;
 }
 
+-(void) incrementButtonAction:(UIButton *)sender {
+    NSInteger value = [[self.quantityArray objectAtIndex:sender.tag - 1000] integerValue] + 1;
+    [self.quantityArray replaceObjectAtIndex:sender.tag - 1000 withObject:[NSString stringWithFormat:@"%ld",(long)value]];
+    //NSIndexPath *myIP = [NSIndexPath indexPathForRow:sender.tag - 1000 inSection:0];
+    //[self.orderTableview reloadRowsAtIndexPaths:[NSArray arrayWithObject:myIP] withRowAnimation:UITableViewRowAnimationFade];
+    [self.orderTableview reloadData];
+    
+}
+
+-(void) decrementButtonAction:(UIButton *)sender {
+    NSInteger value = [[self.quantityArray objectAtIndex:sender.tag - 1000] integerValue] - 1;
+    if (value > 0) {
+        [self.quantityArray replaceObjectAtIndex:sender.tag - 1000 withObject:[NSString stringWithFormat:@"%ld",(long)value]];
+        //NSIndexPath *myIP = [NSIndexPath indexPathForRow:sender.tag - 1000 inSection:0];
+        //[self.orderTableview reloadRowsAtIndexPaths:[NSArray arrayWithObject:myIP] withRowAnimation:UITableViewRowAnimationFade];
+        [self.orderTableview reloadData];
+    }
+}
 
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -127,6 +158,62 @@
         [self.navigationController pushViewController:newView animated:YES];
         
     }
+}
+
+- (IBAction)orderConfirmButtonAction:(id)sender {
+    NSString *productHistory = [NSString new];
+    productHistory = @"";
+    for (NSInteger i=0; i<self.orderArray.count; i++) {
+        if (productHistory.length > 0) {
+            productHistory = [NSString stringWithFormat:@"%@,%@",productHistory,[[self.orderArray objectAtIndex:i] valueForKey:@"orderId"]];
+            productHistory = [NSString stringWithFormat:@"%@-%@-",productHistory,[self.quantityArray objectAtIndex:i]];
+            productHistory = [NSString stringWithFormat:@"%@%@",productHistory,[[self.orderArray objectAtIndex:i] valueForKey:@"price"]];
+        }
+        else {
+            productHistory = [[self.orderArray objectAtIndex:i] valueForKey:@"orderId"];
+            productHistory = [NSString stringWithFormat:@"%@-%@-",productHistory,[self.quantityArray objectAtIndex:i]];
+            productHistory = [NSString stringWithFormat:@"%@%@",productHistory,[[self.orderArray objectAtIndex:i] valueForKey:@"price"]];
+        }
+    }
+    if (productHistory.length > 0) {
+        [self confirmOrderWebServiceWithOrderHistory:productHistory];
+    }
+}
+
+-(void) confirmOrderWebServiceWithOrderHistory:(NSString *)orderHistory
+{
+    [SVProgressHUD show];
+    NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:orderHistory,@"order_products_history",nil];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,OrderConfirmation_URL_API,[User_Details sharedInstance].appUserId];
+    self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeOrderConfirmation Delegate:self];
+    [self.myWebService getPostDataFromWebURLWithUrlString:urlStr dictionaryData:postData];
+}
+
+-(void) dataFromWebReceivedSuccessfully:(id) responseObj
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    if(self.myWebService.requestType == HTTPRequestTypeOrderConfirmation)
+    {
+        NSLog(@"%@",responseObj);
+        [appDelegate RemoveAllDataOfOrder];
+        self.orderArray = [appDelegate retrieveAllOrder];
+        [self.orderTableview reloadData];
+    }
+}
+
+-(void) dataFromWebReceiptionFailed:(NSError*) error
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 -(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
