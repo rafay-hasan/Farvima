@@ -144,7 +144,7 @@
                     [self.delegate dataFromWebReceivedSuccessfully:responseObject];
                 }
             }
-            else if(self.requestType == HTTPRequestTypePharmacySearch)
+            else if(self.requestType == HTTPRequestTypePharmacySearch || self.requestType == HTTPRequestTypePharmacySearchForCurrentLocation)
             {
                 if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
                 {
@@ -970,10 +970,16 @@
 -(NSMutableArray *) parseAllPharmacyItems :(id) response
 {
     NSMutableArray *pharmacyItemsArray = [NSMutableArray new];
+    NSMutableArray *tempArray = [NSMutableArray new];
     
-    if([[response valueForKey:@"pharmacy"] isKindOfClass:[NSArray class]])
+    if([[response valueForKey:@"pharmacy"] isKindOfClass:[NSArray class]] || [[response valueForKey:@"pharmacy_list"] isKindOfClass:[NSArray class]])
     {
-        NSArray *tempArray = [(NSArray *)response valueForKey:@"pharmacy"];
+        if (self.requestType == HTTPRequestTypePharmacySearch) {
+            tempArray = [(NSArray *)response valueForKey:@"pharmacy"];
+        }
+        else {
+            tempArray = [(NSArray *)response valueForKey:@"pharmacy_list"];
+        }
         
         for(NSInteger i = 0; i < tempArray.count; i++)
         {

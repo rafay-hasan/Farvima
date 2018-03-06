@@ -20,6 +20,7 @@
 #define News_URL_API @"app_all_news_by_limit/"
 #define Message_URL_API @"app_message_list_by_app_user_id_limit/"
 #define PharmacySearch_URL_API @"app_pharmacy_search"
+#define PharmacySearchForCurrentLocation_URL_API @"app_near_by_pharmacy"
 #define ChiSiamo_URL_API @"app_farma_about_us"
 #define SideMenuCategories_URL_API @"app_all_categories"
 #define AllProducts_URL_API @"app_product_list_by_limit/"
@@ -40,6 +41,7 @@ enum {
     HTTPRequestTypeNews,
     HTTPRequestTypeMessage,
     HTTPRequestTypePharmacySearch,
+    HTTPRequestTypePharmacySearchForCurrentLocation,
     HTTPRequestTypeChiSiamo,
     HTTPRequestTypeSlideMenuCategory,
     HTTPRequestTypeAllProducts,

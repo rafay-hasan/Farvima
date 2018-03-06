@@ -2179,7 +2179,7 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghv-0A-b61">
                                                 <rect key="frame" x="0.0" y="0.0" width="288" height="166.5"/>
                                                 <connections>
-                                                    <segue destination="gVK-XP-Q2T" kind="show" id="lLy-Ij-R9e"/>
+                                                    <action selector="searchPharmacyByLocationButtonAction:" destination="z9V-U6-TQY" eventType="touchUpInside" id="dKs-38-vev"/>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CERCA ATTORNO A ME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m4C-2V-dLH">
