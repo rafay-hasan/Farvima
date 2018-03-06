@@ -168,7 +168,8 @@
 {
     [SVProgressHUD show];
     self.view.userInteractionEnabled = NO;
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,CategoryOfferProducts_URL_API,[User_Details sharedInstance].appUserId,categoryId];
+    NSString *startingLimit = [NSString stringWithFormat:@"%li",self.offerArray.count];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@/%@",BASE_URL_API,CategoryOfferProducts_URL_API,[User_Details sharedInstance].appUserId,categoryId,startingLimit];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeCategoryOfferProducts Delegate:self];
     [self.myWebService getDataFromWebURLWithUrlString:urlStr];
     
@@ -185,10 +186,11 @@
 
 -(void) CallAllOfferWebservice
 {
-    NSLog(@"%@",self.offerUrlString);
     [SVProgressHUD show];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeAllOffer Delegate:self];
-    [self.myWebService getDataFromWebURLWithUrlString:self.offerUrlString];
+    NSString *startingLimit = [NSString stringWithFormat:@"%li",self.offerArray.count];
+    NSString *urlString = [NSString stringWithFormat:@"%@/%@",self.offerUrlString,startingLimit];
+    [self.myWebService getDataFromWebURLWithUrlString:urlString];
 }
 
 -(void) dataFromWebReceivedSuccessfully:(id) responseObj
@@ -197,8 +199,7 @@
     self.view.userInteractionEnabled = YES;
     if(self.myWebService.requestType == HTTPRequestTypeAllOffer || self.myWebService.requestType == HTTPRequestTypeCategoryOfferProducts)
     {
-        [self.offerArray removeAllObjects];
-        self.offerArray = [[NSMutableArray alloc]initWithArray:(NSArray *)responseObj];
+        [self.offerArray addObjectsFromArray:(NSArray *)responseObj];
         [self.offerTypeTableview reloadData];
         [self.offerTypeCollectionview reloadData];
     }

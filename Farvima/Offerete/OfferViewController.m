@@ -101,8 +101,8 @@
 -(void) CallOfferWebservice
 {
     [SVProgressHUD show];
-    //NSString *startingLimit = [NSString stringWithFormat:@"%li",self.offerArray.count];
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,Offer_URL_API,[User_Details sharedInstance].appUserId];
+    NSString *startingLimit = [NSString stringWithFormat:@"%li",self.offerArray.count];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,Offer_URL_API,[User_Details sharedInstance].appUserId,startingLimit];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeOffer Delegate:self];
     [self.myWebService getDataFromWebURLWithUrlString:urlStr];
     
@@ -114,8 +114,7 @@
     self.view.userInteractionEnabled = YES;
     if(self.myWebService.requestType == HTTPRequestTypeOffer)
     {
-        [self.offerArray removeAllObjects];
-        self.offerArray = [[NSMutableArray alloc]initWithArray:(NSArray *)responseObj];
+        [self.offerArray addObjectsFromArray:(NSArray *)responseObj];
     }
     [self.offerTableview reloadData];
 }
