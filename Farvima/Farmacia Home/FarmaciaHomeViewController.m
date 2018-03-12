@@ -10,7 +10,7 @@
 #import "UIViewController+LGSideMenuController.h"
 #import "User Details.h"
 
-@interface FarmaciaHomeViewController ()
+@interface FarmaciaHomeViewController ()<LGSideMenuControllerDelegate>
 
 - (IBAction)FarmaciaHomeBottomTabMenuAction:(UIButton *)sender;
 
@@ -28,6 +28,7 @@
 
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    self.sideMenuController.delegate = self;
     self.sideMenuController.leftViewSwipeGestureEnabled = NO;
     self.sideMenuController.rightViewSwipeGestureEnabled = NO;
 }
@@ -55,4 +56,13 @@
 - (IBAction)FarmaciaHomeBottomTabMenuAction:(UIButton *)sender {
     [[User_Details sharedInstance] makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
+
+- (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [User_Details sharedInstance].appUserId = @"";
+}
+
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+}
+
 @end

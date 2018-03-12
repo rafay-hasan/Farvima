@@ -14,6 +14,7 @@
 @interface NewsDetailsViewController ()<LGSideMenuControllerDelegate>
 
 - (IBAction)newsDetailsBottomTabButtonAction:(UIButton *)sender;
+- (IBAction)newsDetailsLeftSlideButtonAction:(id)sender;
 
 - (IBAction)backButtonAction:(id)sender;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *newsDetailsTextviewHeight;
@@ -102,6 +103,10 @@
 
 - (IBAction)newsDetailsBottomTabButtonAction:(UIButton *)sender {
     [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
+}
+
+- (IBAction)newsDetailsLeftSlideButtonAction:(id)sender {
+    [[self sideMenuController] showLeftViewAnimated:sender];
 }
 
 - (IBAction)backButtonAction:(id)sender {

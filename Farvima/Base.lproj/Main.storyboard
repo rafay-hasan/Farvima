@@ -5801,7 +5801,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="backIcon"/>
                                         <connections>
-                                            <action selector="backButtonAction:" destination="HcR-X4-gih" eventType="touchUpInside" id="5O2-7g-zyb"/>
+                                            <action selector="backButtonAction:" destination="HcR-X4-gih" eventType="touchUpInside" id="IWG-wL-MzH"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FARMACIA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfI-nW-Q68">
@@ -5825,7 +5825,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="menu"/>
                                         <connections>
-                                            <action selector="leftMenuButtonAction:" destination="eFD-tp-307" eventType="touchUpInside" id="rOe-ra-cee"/>
+                                            <action selector="farmaciaLeftSlideMenuButtonAction:" destination="HcR-X4-gih" eventType="touchUpInside" id="KdZ-Jv-9Wo"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -6292,6 +6292,9 @@
                                             <constraint firstAttribute="width" constant="30" id="oim-al-UhH"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="menu"/>
+                                        <connections>
+                                            <action selector="farmacistLeftSlideMenuButtonAction:" destination="pAj-pE-qiF" eventType="touchUpInside" id="U38-52-xkq"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -6309,7 +6312,7 @@
                                     <constraint firstItem="2Vx-Ge-49n" firstAttribute="leading" secondItem="y5a-wj-qNs" secondAttribute="trailing" constant="8" id="qSu-O1-L0B"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="116" estimatedRowHeight="116" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="2" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="btM-ei-N7V">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="116" estimatedRowHeight="116" sectionHeaderHeight="1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="2" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="btM-ei-N7V">
                                 <rect key="frame" x="16" y="80" width="288" height="415"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
@@ -6317,7 +6320,7 @@
                                         <rect key="frame" x="0.0" y="55.5" width="288" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N6A-lW-bqI" id="AK7-NP-aXg">
-                                            <rect key="frame" x="0.0" y="0.0" width="288" height="115.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="288" height="116"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4kh-kv-ely">
@@ -6599,6 +6602,9 @@
                                             <constraint firstAttribute="height" constant="24" id="BAH-aQ-WNh"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="menu"/>
+                                        <connections>
+                                            <action selector="leftMenuSlideButtonAction:" destination="e5g-Dt-h0M" eventType="touchUpInside" id="kQd-Uq-eiE"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -6967,6 +6973,9 @@
                                             <constraint firstAttribute="height" constant="24" id="kmt-fS-Q4M"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="menu"/>
+                                        <connections>
+                                            <action selector="leftMenySlideButtonAction:" destination="3FN-jP-gfT" eventType="touchUpInside" id="Omp-fj-QWl"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -7850,6 +7859,9 @@
                                             <constraint firstAttribute="width" constant="30" id="wBa-hi-Hqo"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="menu"/>
+                                        <connections>
+                                            <action selector="newsDetailsLeftSlideButtonAction:" destination="ezI-OT-zNz" eventType="touchUpInside" id="fx0-IZ-GJO"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

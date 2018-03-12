@@ -9,8 +9,9 @@
 #import "ProfileViewController.h"
 #import "User Details.h"
 #import "ProfileTableViewCell.h"
+#import "UIViewController+LGSideMenuController.h"
 
-@interface ProfileViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface ProfileViewController ()<UITableViewDataSource,UITableViewDelegate,LGSideMenuControllerDelegate>
 
 @property (strong,nonatomic) NSMutableDictionary *profileDic;
 @property (strong,nonatomic) NSArray *profileArray;
@@ -18,6 +19,7 @@
 
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)profilePageBottomTabButtonAction:(UIButton *)sender;
+- (IBAction)leftMenySlideButtonAction:(id)sender;
 
 @end
 
@@ -36,6 +38,11 @@
     [self.profileDic setObject:@"+39 348 9194413" forKey:@"Telefono:"];
     self.profileArray = [NSArray arrayWithObjects:@"Username:",@"Nome:",@"Cognome:",@"Data di nascita:",@"Email:",@"Indirizzo:",@"Telefono:", nil];
     [self.profileTableview reloadData];
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.sideMenuController.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,6 +66,10 @@
 
 - (IBAction)profilePageBottomTabButtonAction:(UIButton *)sender {
     [[User_Details sharedInstance] makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
+}
+
+- (IBAction)leftMenySlideButtonAction:(id)sender {
+    [[self sideMenuController] showLeftViewAnimated:sender];
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -101,5 +112,12 @@
     return footerView;
 }
 
+- (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [User_Details sharedInstance].appUserId = @"";
+}
+
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+}
 
 @end

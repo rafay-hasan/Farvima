@@ -8,10 +8,12 @@
 
 #import "ProfileEditViewController.h"
 #import "User Details.h"
+#import "UIViewController+LGSideMenuController.h"
 
-@interface ProfileEditViewController ()
+@interface ProfileEditViewController ()<LGSideMenuControllerDelegate>
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)profileEditBottomTabMenuButtonAction:(UIButton *)sender;
+- (IBAction)leftMenuSlideButtonAction:(id)sender;
 
 @end
 
@@ -20,6 +22,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.sideMenuController.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,5 +50,17 @@
 
 - (IBAction)profileEditBottomTabMenuButtonAction:(UIButton *)sender {
     [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
+}
+
+- (IBAction)leftMenuSlideButtonAction:(id)sender {
+    [[self sideMenuController] showLeftViewAnimated:sender];
+}
+
+- (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [User_Details sharedInstance].appUserId = @"";
+}
+
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
 }
 @end

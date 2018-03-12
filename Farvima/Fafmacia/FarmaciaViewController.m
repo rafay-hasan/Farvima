@@ -17,10 +17,11 @@
 #import "UILabel+FormattedText.h"
 #import "CustomAnnotation.h"
 #import "PharmaciaMapInfoPopOverViewController.h"
+#import "UIViewController+LGSideMenuController.h"
 #import <MapKit/MapKit.h>
 #import <MessageUI/MessageUI.h>
 
-@interface FarmaciaViewController ()<RHWebServiceDelegate,MKMapViewDelegate,InfoPopOverDelegate,UIPopoverPresentationControllerDelegate,MFMailComposeViewControllerDelegate>
+@interface FarmaciaViewController ()<RHWebServiceDelegate,MKMapViewDelegate,InfoPopOverDelegate,UIPopoverPresentationControllerDelegate,MFMailComposeViewControllerDelegate,LGSideMenuControllerDelegate>
 
 @property(nonatomic,retain)UIPopoverPresentationController *dateTimePopover8;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
@@ -31,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *pharmacyEventTable;
 @property (weak, nonatomic) IBOutlet MKMapView *pharmacyMapview;
 - (IBAction)FarmaciaInfoPageBottomTabMenuButtonAction:(UIButton *)sender;
+- (IBAction)farmaciaLeftSlideMenuButtonAction:(id)sender;
 
 
 @end
@@ -326,6 +328,10 @@
 
 - (IBAction)FarmaciaInfoPageBottomTabMenuButtonAction:(UIButton *)sender {
     [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
+}
+
+- (IBAction)farmaciaLeftSlideMenuButtonAction:(id)sender {
+    [[self sideMenuController] showLeftViewAnimated:sender];
 }
 @end
 

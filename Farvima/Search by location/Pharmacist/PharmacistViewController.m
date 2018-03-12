@@ -15,10 +15,11 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "FarmacistObject.h"
 
-@interface PharmacistViewController ()<RHWebServiceDelegate,UITableViewDataSource,UITableViewDelegate>
+@interface PharmacistViewController ()<RHWebServiceDelegate,UITableViewDataSource,UITableViewDelegate,LGSideMenuControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *farmacistTableview;
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)farmacistPageBottomTabMenuButtonAction:(UIButton *)sender;
+- (IBAction)farmacistLeftSlideMenuButtonAction:(id)sender;
 
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 @property (strong,nonatomic) NSArray *farmacistArray;
@@ -32,6 +33,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     [self CallFarmacistWebservice];
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.sideMenuController.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -148,4 +154,17 @@
 - (IBAction)farmacistPageBottomTabMenuButtonAction:(UIButton *)sender {
     [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
+
+- (IBAction)farmacistLeftSlideMenuButtonAction:(id)sender {
+    [[self sideMenuController] showLeftViewAnimated:sender];
+}
+
+- (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [User_Details sharedInstance].appUserId = @"";
+}
+
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+}
+
 @end
