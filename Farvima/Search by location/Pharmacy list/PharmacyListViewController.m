@@ -13,32 +13,27 @@
 #import "MainViewController.h"
 #import "FarmaciaHomeViewController.h"
 #import "SearchPharmacyObject.h"
-#import <MapKit/MapKit.h>
+#import <GoogleMaps/GoogleMaps.h>
 #import "User Details.h"
 #import "RHWebServiceManager.h"
 #import "SVProgressHUD.h"
 #import "NavigationController.h"
+#import "MarkerView.h"
 
-@interface DXAnnotation : NSObject <MKAnnotation>
-
-@property(nonatomic, assign) CLLocationCoordinate2D coordinate;
-@end
-
-@interface PharmacyListViewController () <UITableViewDelegate,UITableViewDataSource,LGSideMenuControllerDelegate,MKMapViewDelegate,RHWebServiceDelegate>
+@interface PharmacyListViewController () <UITableViewDelegate,UITableViewDataSource,LGSideMenuControllerDelegate,RHWebServiceDelegate,GMSMapViewDelegate>
 
 @property (strong,nonatomic) FarmVimaSlideMenuSingletone *slideMenuSharedManager;
 @property (strong, nonatomic) SearchPharmacyObject *object;
 - (IBAction)leftMenuButtonAction:(id)sender;
 
-- (IBAction)associateButtonAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *orientationHeaderLabel;
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)rightSlideMenuAction:(id)sender;
 - (IBAction)PharmacyListBottomTabButtonAction:(UIButton *)sender;
 
 @property (weak, nonatomic) IBOutlet UITableView *pharmacyListTableview;
-@property (weak, nonatomic) IBOutlet UIView *mapContainerView;
-@property (weak, nonatomic) IBOutlet MKMapView *pharmacyMapView;
+@property (weak, nonatomic) IBOutlet GMSMapView *mapView;
+
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 @property (strong,nonatomic) User_Details *userManager;
 
@@ -52,7 +47,7 @@
     self.userManager = [User_Details sharedInstance];
     
     self.object = [SearchPharmacyObject new];
-    self.mapContainerView.hidden = YES;
+    self.mapView.hidden = YES;
     self.pharmacyListTableview.hidden = NO;
     [self resetSlideRightmenu];
     [self setMapLocation];
@@ -87,60 +82,42 @@
 
 - (void) setMapLocation {
     
+    SearchPharmacyObject *object = [self.pharmacyArray objectAtIndex:0];
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:[object.latitude doubleValue]
+                                                            longitude:[object.longlitude doubleValue]
+                                                                 zoom:8];
     for(SearchPharmacyObject *object in self.pharmacyArray) {
-        DXAnnotation *annotation = [DXAnnotation new];
-        annotation.coordinate = CLLocationCoordinate2DMake([object.latitude doubleValue], [object.longlitude doubleValue]);
-        [self.pharmacyMapView addAnnotation:annotation];
+        GMSMarker *marker = [[GMSMarker alloc] init];
+        marker.position = CLLocationCoordinate2DMake([object.latitude doubleValue], [object.longlitude doubleValue]);
+        //marker.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
+        marker.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
+        marker.icon = [UIImage imageNamed:@"pin"];
+        marker.userData = object.pharmacyId;
+        marker.map = self.mapView;
     }
-    if(self.pharmacyArray.count > 0)
-    {
-        DXAnnotation *annotation = [DXAnnotation new];
-        SearchPharmacyObject *object = [self.pharmacyArray objectAtIndex:0];
-        annotation.coordinate = CLLocationCoordinate2DMake([object.latitude doubleValue], [object.longlitude doubleValue]);
-       // [self.pharmacyMapView setRegion:MKCoordinateRegionMakeWithDistance(annotation.coordinate, 10000, 10000)];
-        [self.pharmacyMapView setCenterCoordinate:annotation.coordinate animated:YES];
-        //[self.pharmacyMapView setZoomEnabled:YES];
-    }
-    
+    self.mapView.camera = camera;
+    //self.mapView.delegate = self;
 }
-
-- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation {
-    static NSString *identifier = @"MyAnnotationView";
-    
-    if ([annotation isKindOfClass:[MKUserLocation class]]) {
-        return nil;
-    }
-    
-    MKPinAnnotationView *view = (id)[mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-    if (view) {
-        view.annotation = annotation;
-    } else {
-        view = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
-        view.canShowCallout = false;  // note, we're not going to use the system callout
-        view.animatesDrop = true;
-    }
-    
+- (UIView *)mapView:(GMSMapView *)mapView markerInfoWindow:(GMSMarker *)marker {
+    MarkerView *view =  [[[NSBundle mainBundle] loadNibNamed:@"CustomMarkerView" owner:self options:nil] objectAtIndex:0];
+   NSUInteger index = 0;
+   for(SearchPharmacyObject *object in self.pharmacyArray) {
+       if ([[object valueForKey:@"pharmacyId"] isEqualToString:marker.userData]) {
+           view.addressLabel.text = object.addres;
+           view.phoneNumberLabel.text = object.phone;
+           view.webAddressLabel.text = object.pharmacyId;
+           view.emailAddressLabel.text = object.email;
+           view.associateButton.tag = 1000 + index;
+           [view.associateButton addTarget:self action:@selector(AssociateFromMapButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+           break;
+       }
+       index++;
+   }
     return view;
 }
 
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
-//    PopoverController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"AnnotationPopover"];
-//    controller.modalPresentationStyle = UIModalPresentationPopover;
-//
-//    controller.popoverPresentationController.sourceView = view;
-//
-//    // adjust sourceRect so it's centered over the annotation
-//
-//    CGRect sourceRect = CGRectZero;
-//    sourceRect.origin.x += [mapView convertCoordinate:view.annotation.coordinate toPointToView:mapView].x - view.frame.origin.x;
-//    sourceRect.size.height = view.frame.size.height;
-//    controller.popoverPresentationController.sourceRect = sourceRect;
-//
-//    controller.annotation = view.annotation;
-//
-//    [self presentViewController:controller animated:TRUE completion:nil];
-//
-//    [mapView deselectAnnotation:view.annotation animated:true];  // deselect the annotation so that when we dismiss the popover, the annotation won't still be selected
+- (void) mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
+    NSLog(@"id is %@",marker.userData);
 }
 
 /*
@@ -281,12 +258,12 @@
 - (void)didHideRightView:(nonnull UIView *)rightView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
     if (self.slideMenuSharedManager.isListSelected) {
         self.pharmacyListTableview.hidden = NO;
-        self.mapContainerView.hidden = YES;
+        self.mapView.hidden = YES;
         self.orientationHeaderLabel.text = @"VISTA ELENCO";
     }
     else {
         self.pharmacyListTableview.hidden = YES;
-        self.mapContainerView.hidden = NO;
+        self.mapView.hidden = NO;
         self.orientationHeaderLabel.text = @"VISTA MAPPA";
     }
 }
@@ -304,21 +281,14 @@
 - (IBAction)leftMenuButtonAction:(id)sender {
 }
 
-- (IBAction)associateButtonAction:(id)sender {
-    
-    FarmaciaHomeViewController *notificationVc = [FarmaciaHomeViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:notificationVc]) {
-        //push controller
-        FarmaciaHomeViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"pharmaciaHome"];
-        [self.navigationController pushViewController:newView animated:YES];
-        
-    }
+-(void) AssociateFromMapButtonAction:(UIButton *)sender {
+    NSLog(@"id is %@", [[self.pharmacyArray objectAtIndex:sender.tag - 1000] valueForKey:@"pharmacyId"]);
 }
 
 
-
 @end
 
-@implementation DXAnnotation
+//@implementation DXAnnotation
+//
+//@end
 
-@end

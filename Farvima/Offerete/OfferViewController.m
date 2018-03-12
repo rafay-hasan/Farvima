@@ -33,7 +33,7 @@
 @property (strong,nonatomic) NSMutableArray *offerArray;
 @property (nonatomic) BOOL downloading;
 @property (strong,nonatomic) NSString* selectedDownloadFileName;
-
+@property (strong,nonatomic) User_Details *userManager;
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)showLeftMenuAction:(id)sender;
 - (IBAction)searchProductButtonAction:(id)sender;
@@ -49,11 +49,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.userManager = [User_Details sharedInstance];
     self.offerTableview.estimatedRowHeight = 90;
     self.offerTableview.rowHeight = UITableViewAutomaticDimension;
     self.offerTableview.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     self.offerArray = [NSMutableArray new];
-    [self CallOfferWebservice];
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -65,6 +65,11 @@
     self.downloadProgressContainerView.hidden = YES;
     self.downloadProgressSlider.progress = 0.0;
     self.downloading = NO;
+}
+
+-(void) viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self CallOfferWebservice];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,6 +102,9 @@
 
 -(void) CallOfferWebservice
 {
+    NSLog(@"is is %@",[User_Details sharedInstance].appUserId);
+    NSLog(@"id is %@",self.userManager.appUserId);
+    
     [SVProgressHUD show];
     NSString *startingLimit = [NSString stringWithFormat:@"%li",self.offerArray.count];
     NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,Offer_URL_API,[User_Details sharedInstance].appUserId,startingLimit];

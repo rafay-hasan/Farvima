@@ -15,6 +15,7 @@
 		84A607F21FA3062300D7E3D7 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A607F11FA3062300D7E3D7 /* NewsViewController.m */; };
 		84A725BE203E7F7F00224D75 /* AllOfferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A725BD203E7F7F00224D75 /* AllOfferObject.m */; };
 		84A725C1203EB33100224D75 /* FileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A725C0203EB33000224D75 /* FileDownloader.m */; };
+		84CF4F012056BBB000C272AD /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF4F002056BBB000C272AD /* TestViewController.m */; };
 		BB04CDA31FD5A2BF008A70DC /* SearchPharmacyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BB04CDA21FD5A2BF008A70DC /* SearchPharmacyObject.m */; };
 		BB0B0D992041C53000D04803 /* FarmacistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0B0D982041C53000D04803 /* FarmacistTableViewCell.m */; };
 		BB0B0D9D2041C84D00D04803 /* FarmacistObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0B0D9C2041C84D00D04803 /* FarmacistObject.m */; };
@@ -56,6 +57,8 @@
 		BB8A24B51FA4DD480070322E /* MessageSectionHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24B41FA4DD480070322E /* MessageSectionHeader.m */; };
 		BB8A24B71FA4DD5E0070322E /* MessageSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */; };
 		BB8A59881FC9610900468389 /* ChooseYourPharmacyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A59871FC9610900468389 /* ChooseYourPharmacyViewController.m */; };
+		BB91B9232056D4060049D4F7 /* CustomMarkerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB91B9222056D4060049D4F7 /* CustomMarkerView.xib */; };
+		BB91B9262056D42F0049D4F7 /* MarkerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BB91B9252056D42F0049D4F7 /* MarkerView.m */; };
 		BBB4065C20416D8100A2665A /* CustomAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB4065B20416D8100A2665A /* CustomAnnotation.m */; };
 		BBB4065F2041826300A2665A /* PharmaciaMapInfoPopOverViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBB4065E2041826300A2665A /* PharmaciaMapInfoPopOverViewController.m */; };
 		BBBC782A1FC7224600062F37 /* SearchResultTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BBBC78291FC7224600062F37 /* SearchResultTableViewCell.m */; };
@@ -107,6 +110,8 @@
 		84A725BD203E7F7F00224D75 /* AllOfferObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllOfferObject.m; sourceTree = "<group>"; };
 		84A725BF203EB32F00224D75 /* FileDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDownloader.h; sourceTree = "<group>"; };
 		84A725C0203EB33000224D75 /* FileDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDownloader.m; sourceTree = "<group>"; };
+		84CF4EFF2056BBB000C272AD /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		84CF4F002056BBB000C272AD /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		BB04CDA11FD5A2BF008A70DC /* SearchPharmacyObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPharmacyObject.h; sourceTree = "<group>"; };
 		BB04CDA21FD5A2BF008A70DC /* SearchPharmacyObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchPharmacyObject.m; sourceTree = "<group>"; };
 		BB0B0D972041C53000D04803 /* FarmacistTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FarmacistTableViewCell.h; sourceTree = "<group>"; };
@@ -185,6 +190,9 @@
 		BB8A24B61FA4DD5E0070322E /* MessageSectionHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MessageSectionHeader.xib; sourceTree = "<group>"; };
 		BB8A59861FC9610900468389 /* ChooseYourPharmacyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChooseYourPharmacyViewController.h; sourceTree = "<group>"; };
 		BB8A59871FC9610900468389 /* ChooseYourPharmacyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChooseYourPharmacyViewController.m; sourceTree = "<group>"; };
+		BB91B9222056D4060049D4F7 /* CustomMarkerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CustomMarkerView.xib; sourceTree = "<group>"; };
+		BB91B9242056D42F0049D4F7 /* MarkerView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MarkerView.h; sourceTree = "<group>"; };
+		BB91B9252056D42F0049D4F7 /* MarkerView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MarkerView.m; sourceTree = "<group>"; };
 		BBB4065A20416D8100A2665A /* CustomAnnotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomAnnotation.h; sourceTree = "<group>"; };
 		BBB4065B20416D8100A2665A /* CustomAnnotation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomAnnotation.m; sourceTree = "<group>"; };
 		BBB4065D2041826300A2665A /* PharmaciaMapInfoPopOverViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PharmaciaMapInfoPopOverViewController.h; sourceTree = "<group>"; };
@@ -381,6 +389,8 @@
 				BB5198B62041BA3500B2BBC5 /* PharmacistViewController.m */,
 				BB0B0D972041C53000D04803 /* FarmacistTableViewCell.h */,
 				BB0B0D982041C53000D04803 /* FarmacistTableViewCell.m */,
+				84CF4EFF2056BBB000C272AD /* TestViewController.h */,
+				84CF4F002056BBB000C272AD /* TestViewController.m */,
 			);
 			path = Pharmacist;
 			sourceTree = "<group>";
@@ -636,6 +646,8 @@
 				BBF2D2951FC97B2B007EE3FC /* PharmacyListViewController.m */,
 				BBF2D2971FC98114007EE3FC /* PharmacyListTableViewCell.h */,
 				BBF2D2981FC98114007EE3FC /* PharmacyListTableViewCell.m */,
+				BB91B9242056D42F0049D4F7 /* MarkerView.h */,
+				BB91B9252056D42F0049D4F7 /* MarkerView.m */,
 			);
 			path = "Pharmacy list";
 			sourceTree = "<group>";
@@ -700,6 +712,7 @@
 				BBC8860F1FC971C000D60612 /* Search by address */,
 				BBC886101FC9727A00D60612 /* Search by location */,
 				BBFD43CC1F93AABD00A7E265 /* Main.storyboard */,
+				BB91B9222056D4060049D4F7 /* CustomMarkerView.xib */,
 				BB691A931FD84E5300D5A489 /* myView.xib */,
 				BB691A941FD8522B00D5A489 /* customCalloutView.xib */,
 				BB16A7BD1FA77E7300AFA112 /* OrderDetailsHeaderSection.xib */,
@@ -791,6 +804,7 @@
 				BBFD43D31F93AABD00A7E265 /* LaunchScreen.storyboard in Resources */,
 				BB7700F01FA4762D00EA76D2 /* NewsHeader.xib in Resources */,
 				BB8A24B71FA4DD5E0070322E /* MessageSectionHeader.xib in Resources */,
+				BB91B9232056D4060049D4F7 /* CustomMarkerView.xib in Resources */,
 				BBFD43D01F93AABD00A7E265 /* Assets.xcassets in Resources */,
 				BB16A7BE1FA77E7300AFA112 /* OrderDetailsHeaderSection.xib in Resources */,
 				BBFD43CE1F93AABD00A7E265 /* Main.storyboard in Resources */,
@@ -840,6 +854,8 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Farvima/Pods-Farvima-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);
@@ -903,6 +919,7 @@
 				BBD52C081FD41D9F00EC3A76 /* UILabel+FormattedText.m in Sources */,
 				BBB4065F2041826300A2665A /* PharmaciaMapInfoPopOverViewController.m in Sources */,
 				BB7700DC1FA45E3200EA76D2 /* NewsTableViewCell.m in Sources */,
+				BB91B9262056D42F0049D4F7 /* MarkerView.m in Sources */,
 				BBDC09361F93B7C600E5D9A2 /* NewsIntroViewController.m in Sources */,
 				BB6446381FA5FD7F006F2B92 /* SearchResultViewController.m in Sources */,
 				8433E40F20565962008E1702 /* ProfileTableViewCell.m in Sources */,
@@ -924,6 +941,7 @@
 				BB5C96521FC45AC900126DC9 /* MainViewController.m in Sources */,
 				BBD52BF91FD3FA5700EC3A76 /* User Details.m in Sources */,
 				BB04CDA31FD5A2BF008A70DC /* SearchPharmacyObject.m in Sources */,
+				84CF4F012056BBB000C272AD /* TestViewController.m in Sources */,
 				BBE31AB91FA5A2D700E07440 /* ProductSearchViewController.m in Sources */,
 				BB3425CF1FB209A8000FD88C /* EventDetailsViewController.m in Sources */,
 				BB16A7C41FA781C400AFA112 /* OrderDetailsTableViewCell.m in Sources */,

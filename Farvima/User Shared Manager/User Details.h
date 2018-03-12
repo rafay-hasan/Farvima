@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 
 @interface User_Details : NSObject
-@property (strong,nonatomic) NSString *appUserId,*pharmacyId,*referenceAppUserPharmacyId,*currentlySelectedLeftSlideMenu;
+@property (retain,strong) NSString *appUserId,*pharmacyId,*referenceAppUserPharmacyId,*currentlySelectedLeftSlideMenu;
 + (User_Details *) sharedInstance;
 -(void) makeSaltaButtonAction;
 -(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController navigationController:(UINavigationController *)navController;

@@ -31,6 +31,7 @@
 }
 
 -(void) createLeftGeneralSlideMenu {
+    NSLog(@"%@",[User_Details sharedInstance].appUserId);
     [self.leftSideMenuArray removeAllObjects];
     if ([User_Details sharedInstance].referenceAppUserPharmacyId.length > 0) {
         [self.leftSideMenuArray addObject:@"FARMACIA"];

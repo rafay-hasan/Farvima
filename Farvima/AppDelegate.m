@@ -12,6 +12,7 @@
 #import "SVProgressHUD.h"
 #import "User Details.h"
 #import "FarmVimaSlideMenuSingletone.h"
+@import GoogleMaps;
 
 @interface AppDelegate ()<RHWebServiceDelegate>
 
@@ -25,6 +26,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    [GMSServices provideAPIKey:@"AIzaSyAyxboUhN8tJ8Yc9O0OWFDOT0Aplsb_uD0"];
     [IQKeyboardManager sharedManager].enable = YES;
     self.userManager = [User_Details sharedInstance];
      [self CallUserDetailsWebserviceWithUDID:[[[UIDevice currentDevice] identifierForVendor] UUIDString] forDeviceToken:@"123456789"];
@@ -70,7 +72,7 @@
 
 -(void) CallUserDetailsWebserviceWithUDID:(NSString *)ID forDeviceToken:(NSString *)deviceToken
 {
-    NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:ID,@"device_unique_id",deviceToken,@"device_push_token",nil];
+    NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:@"951753258",@"device_unique_id",@"7513594315",@"device_push_token",nil];
     [SVProgressHUD show];
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL_API,UserDetails_URL_API];
     self.myWebserviceManager = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestypeUserDetails Delegate:self];
@@ -107,6 +109,7 @@
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
     [[FarmVimaSlideMenuSingletone sharedManager] createLeftGeneralSlideMenu];
+    NSLog(@"App User id is %@",self.userManager.appUserId);
     //self.userManager.appUserId = @"6";
 }
 
