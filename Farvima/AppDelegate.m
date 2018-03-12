@@ -107,6 +107,7 @@
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
     [[FarmVimaSlideMenuSingletone sharedManager] createLeftGeneralSlideMenu];
+    self.userManager.appUserId = @"6";
 }
 
 -(void) dataFromWebReceiptionFailed:(NSError*) error

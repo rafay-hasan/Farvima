@@ -21,7 +21,7 @@
 #import "MessageViewController.h"
 #import "NotificationViewController.h"
 #import "ChooseYourPharmacyViewController.h"
-
+#import "ProfileViewController.h"
 
 @implementation User_Details
 
@@ -164,6 +164,9 @@
     else if (buttonTag == 1003) {
         targetViewController = [mystoryboard instantiateViewControllerWithIdentifier:@"notification"];
     }
+    else if (buttonTag == 1004) {
+        targetViewController = [mystoryboard instantiateViewControllerWithIdentifier:@"profile"];
+    }
     
     if (![self isControllerAlreadyOnNavigationControllerStack:targetViewController navigationController:navigatiionController]) {
         if (buttonTag == 1001) {
@@ -177,6 +180,10 @@
         else if (buttonTag == 1003) {
             NotificationViewController *notificationView = [mystoryboard instantiateViewControllerWithIdentifier:@"notification"];
             [navigatiionController pushViewController:notificationView animated:YES];
+        }
+        else if (buttonTag == 1004) {
+            ProfileViewController *profileView = [mystoryboard instantiateViewControllerWithIdentifier:@"profile"];
+            [navigatiionController pushViewController:profileView animated:YES];
         }
     }
     
