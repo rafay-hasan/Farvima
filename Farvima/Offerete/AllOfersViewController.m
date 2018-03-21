@@ -12,6 +12,8 @@
 #import "UIViewController+LGSideMenuController.h"
 #import "User Details.h"
 #import "RHWebServiceManager.h"
+#import "ProductSearchViewController.h"
+#import "OrderDetailsViewController.h"
 #import "SVProgressHUD.h"
 #import "OfferTypeObject.h"
 #import "SearchProductDetailsViewController.h"
@@ -98,9 +100,31 @@
 */
 
 - (IBAction)productSearchButtonAction:(id)sender {
+    ProductSearchViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"productSearch"];
+    if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+        //push controller
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
 }
 
 - (IBAction)busketButtonAction:(id)sender {
+    OrderDetailsViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"confirmOrder"];
+    if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+        //push controller
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    }
+}
+
+-(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        if ([vc isKindOfClass:targetViewController.class]) {
+            [self.navigationController popToViewController:vc animated:NO];
+            return YES;
+        }
+    }
+    return NO;
 }
 
 - (IBAction)ledtGeneralSlideButtonAction:(id)sender {

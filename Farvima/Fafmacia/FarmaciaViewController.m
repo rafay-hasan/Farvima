@@ -17,6 +17,7 @@
 #import "EventDetailsViewController.h"
 #import "UILabel+FormattedText.h"
 #import "CustomAnnotation.h"
+#import "OfferViewController.h"
 #import "PharmaciaMapInfoPopOverViewController.h"
 #import "UIViewController+LGSideMenuController.h"
 #import <MapKit/MapKit.h>
@@ -30,6 +31,8 @@
 @property (strong,nonatomic) PharmacyObject *pharmacy;
 @property (strong,nonatomic) EventObject *eventObject;
 - (IBAction)backButtonAction:(id)sender;
+- (IBAction)offerButtonAction:(id)sender;
+
 @property (weak, nonatomic) IBOutlet UITableView *pharmacyEventTable;
 @property (weak, nonatomic) IBOutlet MKMapView *pharmacyMapview;
 - (IBAction)FarmaciaInfoPageBottomTabMenuButtonAction:(UIButton *)sender;
@@ -86,6 +89,23 @@
 
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (IBAction)offerButtonAction:(id)sender {
+    OfferViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"offerte"];
+    if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
+-(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
+    for (UIViewController *vc in self.navigationController.viewControllers) {
+        if ([vc isKindOfClass:targetViewController.class]) {
+            [self.navigationController popToViewController:vc animated:NO];
+            return YES;
+        }
+    }
+    return NO;
 }
 
 #pragma mark All Web service

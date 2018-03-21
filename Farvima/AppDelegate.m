@@ -72,7 +72,7 @@
 
 -(void) CallUserDetailsWebserviceWithUDID:(NSString *)ID forDeviceToken:(NSString *)deviceToken
 {
-    NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:@"951753258",@"device_unique_id",@"7513594315",@"device_push_token",nil];
+    NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:@"9517532580",@"device_unique_id",@"75135943150",@"device_push_token",nil];
     [SVProgressHUD show];
     NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL_API,UserDetails_URL_API];
     self.myWebserviceManager = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestypeUserDetails Delegate:self];

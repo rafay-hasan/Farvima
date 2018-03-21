@@ -88,7 +88,7 @@
         GMSMarker *marker = [[GMSMarker alloc] init];
         marker.position = CLLocationCoordinate2DMake([object.latitude doubleValue], [object.longlitude doubleValue]);
         //marker.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
-        marker.infoWindowAnchor = CGPointMake(0.44f, 0.45f);
+        marker.infoWindowAnchor = CGPointMake(0.44f, 0.0f);
         marker.icon = [UIImage imageNamed:@"pin"];
         marker.userData = object.pharmacyId;
         marker.map = self.mapView;

@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *aboutUsTextViewHeight;
 
 - (IBAction)ChiShimoBottonTabButtonAction:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UIButton *registerbutton;
 
 
 @end
@@ -110,8 +111,10 @@
     self.aboutUsTextView.scrollEnabled = NO;
     CGSize sizeThatFitsTextView = [self.aboutUsTextView sizeThatFits:CGSizeMake(self.aboutUsTextView.frame.size.width, MAXFLOAT)];
     self.aboutUsTextViewHeight.constant = sizeThatFitsTextView.height;
-    self.scrollContainerHeight.constant = self.aboutUsTextView.frame.origin.y + self.aboutUsTextViewHeight.constant + 16;
     [self.view layoutIfNeeded];
+    self.scrollContainerHeight.constant = self.registerbutton.frame.origin.y + 75;
+    [self.view layoutIfNeeded];
+    NSLog(@"%f %f",self.aboutUsTextViewHeight.constant,self.scrollContainerHeight.constant);
 }
 
 -(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{

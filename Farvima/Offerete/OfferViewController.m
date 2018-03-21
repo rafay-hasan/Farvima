@@ -215,11 +215,10 @@
 
 - (IBAction)searchProductButtonAction:(id)sender {
     
-    ProductSearchViewController *messageVc = [ProductSearchViewController new];
-    if (![self isControllerAlreadyOnNavigationControllerStack:messageVc]) {
+    ProductSearchViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"productSearch"];
+    if (![self isControllerAlreadyOnNavigationControllerStack:vc]) {
         //push controller
-        ProductSearchViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"productSearch"];
-        [self.navigationController pushViewController:newView animated:YES];
+        [self.navigationController pushViewController:vc animated:YES];
         
     }
 }

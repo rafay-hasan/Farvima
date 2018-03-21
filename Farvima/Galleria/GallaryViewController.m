@@ -134,15 +134,6 @@
 - (IBAction)galleryBottomTabMenuButtonAction:(UIButton *)sender {
     [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
--(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
-    for (UIViewController *vc in self.navigationController.viewControllers) {
-        if ([vc isKindOfClass:targetViewController.class]) {
-            [self.navigationController popToViewController:vc animated:NO];
-            return YES;
-        }
-    }
-    return NO;
-}
 
 #pragma mark All Web service
 

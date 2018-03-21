@@ -1952,14 +1952,28 @@
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="128" id="1Cg-5o-d4s"/>
                                                 </constraints>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                 <dataDetectorType key="dataDetectorTypes" phoneNumber="YES" link="YES" address="YES" calendarEvent="YES" shipmentTrackingNumber="YES" flightNumber="YES" lookupSuggestion="YES"/>
                                             </textView>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FbS-4h-z3c">
+                                                <rect key="frame" x="54" y="213" width="213" height="57"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="57" id="KJS-wi-hUP"/>
+                                                    <constraint firstAttribute="width" constant="213" id="jrW-mR-wqt"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <state key="normal" title="REGISTRATI / ASSOCIATI" backgroundImage="ButtonBackground">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="3hL-Tb-1si" firstAttribute="leading" secondItem="Xp9-l5-g7X" secondAttribute="leading" constant="16" id="K6C-Ww-bB6"/>
+                                            <constraint firstItem="FbS-4h-z3c" firstAttribute="top" secondItem="3hL-Tb-1si" secondAttribute="bottom" constant="16" id="TBj-ub-mhs"/>
+                                            <constraint firstItem="FbS-4h-z3c" firstAttribute="centerX" secondItem="Xp9-l5-g7X" secondAttribute="centerX" id="Vh2-54-mgs"/>
                                             <constraint firstItem="3hL-Tb-1si" firstAttribute="top" secondItem="SOM-tz-wFE" secondAttribute="bottom" constant="16" id="eEn-hQ-m5y"/>
                                             <constraint firstAttribute="trailing" secondItem="3hL-Tb-1si" secondAttribute="trailing" constant="16" id="i7S-wZ-sD4"/>
                                             <constraint firstItem="3hL-Tb-1si" firstAttribute="top" secondItem="SOM-tz-wFE" secondAttribute="bottom" constant="16" id="l7X-Mo-ygO"/>
@@ -1996,6 +2010,7 @@
                     <connections>
                         <outlet property="aboutUsTextView" destination="3hL-Tb-1si" id="yu9-Ru-HS5"/>
                         <outlet property="aboutUsTextViewHeight" destination="1Cg-5o-d4s" id="Wmd-SL-use"/>
+                        <outlet property="registerbutton" destination="FbS-4h-z3c" id="Kpd-g9-4Xo"/>
                         <outlet property="scrollContainerHeight" destination="rfO-Wb-8P0" id="Pml-v3-bkH"/>
                     </connections>
                 </viewController>
@@ -4541,7 +4556,7 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="busket"/>
                                         <connections>
-                                            <action selector="busketButtonAction:" destination="VBC-H1-1t6" eventType="touchUpInside" id="ekc-q7-HY7"/>
+                                            <segue destination="27t-Ai-O3D" kind="show" id="AdG-aW-YBq"/>
                                         </connections>
                                     </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E6h-10-FM5">
@@ -4607,19 +4622,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c99-lR-QPI">
-                                                    <rect key="frame" x="65" y="8" width="247" height="103.5"/>
+                                                    <rect key="frame" x="0.0" y="8" width="0.0" height="103.5"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="cb6-dh-Vuy">
-                                                            <rect key="frame" x="0.0" y="30" width="209" height="43.5"/>
+                                                            <rect key="frame" x="0.0" y="30" width="0.0" height="43.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VOLTANITO " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cE9-h7-fmW">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="209" height="20.5"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="0.0" height="20.5"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="12/12/20120" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSN-8f-8i0">
-                                                                    <rect key="frame" x="0.0" y="25.5" width="209" height="18"/>
+                                                                    <rect key="frame" x="0.0" y="25.5" width="0.0" height="18"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -4627,13 +4642,13 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="Xul-lK-E2V">
-                                                            <rect key="frame" x="217" y="6" width="30" height="92"/>
+                                                            <rect key="frame" x="0.0" y="6" width="30" height="92"/>
                                                             <subviews>
                                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lPr-wG-Wcf">
                                                                     <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
                                                                     <subviews>
                                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="farma logo" translatesAutoresizingMaskIntoConstraints="NO" id="iAP-lW-KgI">
-                                                                            <rect key="frame" x="4.5" y="4.5" width="21" height="21"/>
+                                                                            <rect key="frame" x="0.0" y="4.5" width="21" height="21"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="21" id="L3U-RC-ISn"/>
                                                                                 <constraint firstAttribute="height" constant="21" id="qCS-JI-VMS"/>
@@ -4661,7 +4676,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M9o-4W-sBG">
-                                                    <rect key="frame" x="8" y="32" width="49" height="56"/>
+                                                    <rect key="frame" x="0.0" y="32" width="49" height="56"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="49" id="RyG-91-TJA"/>
                                                         <constraint firstAttribute="height" constant="56" id="nMT-E9-gKg"/>
@@ -4908,6 +4923,8 @@
                                     </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="G3y-SZ-Knn">
                                         <rect key="frame" x="8" y="34" width="261" height="2"/>
+                                        <color key="tintColor" red="0.57647058823529407" green="0.5725490196078431" blue="0.56862745098039214" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="progressTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </progressView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="7bb-OD-cbl">
                                         <rect key="frame" x="8" y="44" width="261" height="14.5"/>
@@ -5942,6 +5959,9 @@
                                                     <constraint firstAttribute="height" constant="24" id="tOn-CE-z8S"/>
                                                 </constraints>
                                                 <state key="normal" image="forwardIcon"/>
+                                                <connections>
+                                                    <action selector="offerButtonAction:" destination="HcR-X4-gih" eventType="touchUpInside" id="o4d-GF-Cn9"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OFFERTE" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fOI-pK-EKg">
                                                 <rect key="frame" x="199.5" y="17.5" width="66.5" height="18"/>
@@ -9988,12 +10008,13 @@
         <image name="web" width="13" height="13"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dP1-0X-XeF"/>
-        <segue reference="tH7-ES-EPC"/>
-        <segue reference="HPR-Yc-8af"/>
-        <segue reference="F3P-kJ-vsm"/>
+        <segue reference="AdG-aW-YBq"/>
+        <segue reference="XMT-zX-fkm"/>
+        <segue reference="hjK-sH-UmP"/>
+        <segue reference="tEq-Jv-WBS"/>
+        <segue reference="WTa-E5-hQ1"/>
         <segue reference="GSt-dJ-DOA"/>
         <segue reference="X2S-6a-e6P"/>
-        <segue reference="GYY-bM-aMD"/>
+        <segue reference="W1w-gw-WYd"/>
     </inferredMetricsTieBreakers>
 </document>
