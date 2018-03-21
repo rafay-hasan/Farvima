@@ -116,7 +116,7 @@
 -(void) CallFarmacistWebservice
 {
     [SVProgressHUD show];
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,Farmacist_URL_API,[User_Details sharedInstance].appUserId];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,Farmacist_URL_API,[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"]];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeFarmacist Delegate:self];
     [self.myWebService getDataFromWebURLWithUrlString:urlStr];
 }

@@ -35,7 +35,6 @@
 @property (weak, nonatomic) IBOutlet GMSMapView *mapView;
 
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
-@property (strong,nonatomic) User_Details *userManager;
 
 @end
 
@@ -44,7 +43,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.userManager = [User_Details sharedInstance];
     
     self.object = [SearchPharmacyObject new];
     self.mapView.hidden = YES;
@@ -163,14 +161,14 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     UIView *footerView = [[UIView alloc] init];
-    footerView.backgroundColor = [UIColor colorWithRed:6.0/255.0 green:39.0/255.0 blue:156.0/255.0 alpha:1];
+    footerView.backgroundColor = [UIColor colorWithRed:145.0/255.0 green:146.0/255.0 blue:147.0/255.0 alpha:1];
     return footerView;
 }
 
 -(void) makePharmacyAssociate:(UIButton *)sender {
     
     self.object = [self.pharmacyArray objectAtIndex:sender.tag - 1000];
-    [self CallPharmacyAssociateWebserviceWith:self.object.pharmacyId forAppUser:self.userManager.appUserId];
+    [self CallPharmacyAssociateWebserviceWith:self.object.pharmacyId forAppUser:[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"]];
 }
 
 -(void) CallPharmacyAssociateWebserviceWith:(NSString *)pharmacyId forAppUser:(NSString *)appUserId

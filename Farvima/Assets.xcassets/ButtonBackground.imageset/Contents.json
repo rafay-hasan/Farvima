@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "filea.png",
+      "filename" : "home_pssshar_12.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "filea-1.png",
+      "filename" : "home_pssshar_12-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "filea-2.png",
+      "filename" : "home_pssshar_12-2.png",
       "scale" : "3x"
     }
   ],

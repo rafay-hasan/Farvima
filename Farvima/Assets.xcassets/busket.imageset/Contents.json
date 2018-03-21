@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "icona carrello.png",
+      "filename" : "offerte_16.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icona carrello-1.png",
+      "filename" : "offerte_16-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "icona carrello-2.png",
+      "filename" : "offerte_16-2.png",
       "scale" : "3x"
     }
   ],

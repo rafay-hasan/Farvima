@@ -14,6 +14,7 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "EventObject.h"
 #import "EventTableViewCell.h"
+#import "EventDetailsViewController.h"
 #import "UILabel+FormattedText.h"
 #import "CustomAnnotation.h"
 #import "PharmaciaMapInfoPopOverViewController.h"
@@ -33,6 +34,7 @@
 @property (weak, nonatomic) IBOutlet MKMapView *pharmacyMapview;
 - (IBAction)FarmaciaInfoPageBottomTabMenuButtonAction:(UIButton *)sender;
 - (IBAction)farmaciaLeftSlideMenuButtonAction:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *totalOfferNumberLabel;
 
 
 @end
@@ -73,14 +75,12 @@
             ppc.delegate = self;
         }
     }
-    
-//    if ([segue.identifier isEqualToString:@"mapPopOver"]) {
-//        UIViewController *dvc = segue.destinationViewController;
-//        UIPopoverPresentationController *controller = dvc.popoverPresentationController;
-//        if (controller) {
-//            controller.delegate = self;
-//        }
-//    }
+    else if ([identifier isEqualToString:@"pharmacyEventDetails"]) {
+        NSIndexPath *indexPath = (NSIndexPath *)sender;
+        EventDetailsViewController *vc = [segue destinationViewController];
+        vc.object = [self.pharmacy.eventArray objectAtIndex:indexPath.section];
+        
+    }
 }
 
 
@@ -93,7 +93,7 @@
 -(void) CallPharmacyDetailsWebservice
 {
     [SVProgressHUD show];
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,PharmacyDetails_URL_API,[User_Details sharedInstance].appUserId];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,PharmacyDetails_URL_API,[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"]];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypePharmacyDetails Delegate:self];
     [self.myWebService getDataFromWebURLWithUrlString:urlStr];
     
@@ -106,6 +106,7 @@
     if(self.myWebService.requestType == HTTPRequestTypePharmacyDetails)
     {
         self.pharmacy = (PharmacyObject *) responseObj;
+        self.totalOfferNumberLabel.text = self.pharmacy.totalOffer;
         [self.pharmacyEventTable reloadData];
         if (self.pharmacy.latitude.length > 0 && self.pharmacy.longlititude.length > 0)
         {
@@ -165,9 +166,9 @@
     
     if (self.eventObject.location.length > 0) {
         cell.eventLocation.text = [NSString stringWithFormat:@"presso %@",self.eventObject.location];
-        [cell.eventLocation setTextColor:[UIColor colorWithRed:40.0/255.0 green:67.0/255.0 blue:135.0/255.0 alpha:1] String:@"presso "];
+        [cell.eventLocation setTextColor:[UIColor colorWithRed:83.0/255.0 green:83.0/255.0 blue:83.0/255.0 alpha:1] String:@"presso "];
         [cell.eventLocation setFont:[UIFont systemFontOfSize:15 weight:UIFontWeightSemibold] afterOccurenceOfString:@"presso "];
-        [cell.eventLocation setTextColor:[UIColor colorWithRed:0.0/255.0 green:41.0/255.0 blue:128.0/255.0 alpha:1] String:self.eventObject.location];
+        [cell.eventLocation setTextColor:[UIColor colorWithRed:56.0/255.0 green:56.0/255.0 blue:56.0/255.0 alpha:1] String:self.eventObject.location];
         [cell.eventLocation setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption1] beforeOccurenceOfString:self.eventObject.location];
         
     }
@@ -177,9 +178,9 @@
     
     if (self.eventObject.locationDate.length > 0) {
         cell.eventDate.text = [NSString stringWithFormat:@"data %@",self.eventObject.locationDate];
-        [cell.eventDate setTextColor:[UIColor colorWithRed:40.0/255.0 green:67.0/255.0 blue:135.0/255.0 alpha:1] String:@"data "];
+        [cell.eventDate setTextColor:[UIColor colorWithRed:83.0/255.0 green:83.0/255.0 blue:83.0/255.0 alpha:1] String:@"data "];
         [cell.eventDate setFont:[UIFont systemFontOfSize:15 weight:UIFontWeightSemibold] afterOccurenceOfString:@"data "];
-        [cell.eventDate setTextColor:[UIColor colorWithRed:0.0/255.0 green:41.0/255.0 blue:128.0/255.0 alpha:1] String:self.eventObject.locationDate];
+        [cell.eventDate setTextColor:[UIColor colorWithRed:56.0/255.0 green:56.0/255.0 blue:56.0/255.0 alpha:1] String:self.eventObject.locationDate];
         [cell.eventDate setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption1] beforeOccurenceOfString:self.eventObject.locationDate];
         
     }
@@ -208,7 +209,7 @@
         footerView.backgroundColor = [UIColor clearColor];
     }
     else {
-        footerView.backgroundColor = [UIColor colorWithRed:11.0/255.0 green:72.0/255.0 blue:155.0/255.0 alpha:1];
+        footerView.backgroundColor = [UIColor colorWithRed:145.0/255.0 green:146.0/255.0 blue:147.0/255.0 alpha:1];
     }
     return footerView;
 }

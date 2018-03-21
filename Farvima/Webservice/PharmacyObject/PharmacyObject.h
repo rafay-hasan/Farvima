@@ -11,6 +11,6 @@
 @interface PharmacyObject : NSObject
 
 @property (strong,nonatomic) NSString *latitude,*longlititude,*phone,*facebookUrl,*totalOffer,*emailAddress,*webAddress,*location;
-@property (strong,nonatomic) NSArray *eventArray;
+@property (strong,nonatomic) NSMutableArray *eventArray;
 
 @end

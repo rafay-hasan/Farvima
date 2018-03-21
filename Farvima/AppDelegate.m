@@ -134,7 +134,7 @@
         }
     }
     [[FarmVimaSlideMenuSingletone sharedManager] createLeftGeneralSlideMenu];
-    self.userManager.appUserId = @"6"; // Need to remove this line after testing
+    //self.userManager.appUserId = @"6"; // Need to remove this line after testing
 }
 
 

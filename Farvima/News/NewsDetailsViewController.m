@@ -57,7 +57,7 @@
 
 - (void) loadNewsDetailsView
 {
-    UIColor *color = [UIColor colorWithRed:11.0/255.0 green:72.0/255.0 blue:155.0/255.0 alpha:1];
+    UIColor *color = [UIColor colorWithRed:145.0/255.0 green:146.0/255.0 blue:147.0/255.0 alpha:1];
     [self.newsImageView.layer setBorderColor: color.CGColor];
     [self.newsImageView.layer setBorderWidth: 2.0];
     

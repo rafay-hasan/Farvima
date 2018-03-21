@@ -85,7 +85,7 @@
     cell.keyLabel.text = [self.profileArray objectAtIndex:indexPath.row];
     cell.valueLabel.text = [self.profileDic valueForKey:[self.profileArray objectAtIndex:indexPath.row]];
     if (indexPath.row == 2) {
-        cell.dividerView.backgroundColor = [UIColor colorWithRed:0.0/255.0 green:41.0/255.0 blue:141.0/255.0 alpha:1];
+        cell.dividerView.backgroundColor = [UIColor colorWithRed:145.0/255.0 green:146.0/255.0 blue:147.0/255.0 alpha:1];
     }
     else {
         cell.dividerView.backgroundColor = [UIColor whiteColor];

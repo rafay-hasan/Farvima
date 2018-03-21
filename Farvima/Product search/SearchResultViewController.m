@@ -26,7 +26,6 @@
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 @property (strong,nonatomic) NSMutableArray *categoryMenuArray,*categoryMenuIdArray;
 @property (strong,nonatomic) NSMutableArray *productsArray;
-@property (strong,nonatomic) User_Details *userManager;
 @property (strong,nonatomic) AllProductObject *productObject;
 @property (nonatomic) BOOL generalLeftMenuSelected;
 - (IBAction)backButtonAction:(id)sender;
@@ -50,7 +49,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.userManager = [User_Details sharedInstance];
     self.productObject = [AllProductObject new];
     self.productsArray = [NSMutableArray new];
     self.currentlySelected = @"";
@@ -175,7 +173,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     UIView *footerView = [[UIView alloc] init];
-    footerView.backgroundColor = [UIColor colorWithRed:6.0/255.0 green:39.0/255.0 blue:156.0/255.0 alpha:1];
+    footerView.backgroundColor = [UIColor colorWithRed:145.0/255.0 green:146.0/255.0 blue:147.0/255.0 alpha:1];
     return footerView;
 }
 
@@ -274,7 +272,7 @@
     self.view.userInteractionEnabled = NO;
     self.currentlySelected = @"Category Products";
     NSString *startingLimit = [NSString stringWithFormat:@"%li",self.productsArray.count];
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@/%@",BASE_URL_API,CategoryProducts_URL_API,self.userManager.appUserId,categoryId,startingLimit];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@/%@",BASE_URL_API,CategoryProducts_URL_API,[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"],categoryId,startingLimit];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeCategoryProducts Delegate:self];
     [self.myWebService getDataFromWebURLWithUrlString:urlStr];
     
@@ -286,7 +284,7 @@
     self.view.userInteractionEnabled = NO;
     self.currentlySelected = @"All Products";
     NSString *startingLimit = [NSString stringWithFormat:@"%li",self.productsArray.count];
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,AllProducts_URL_API,self.userManager.appUserId,startingLimit];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,AllProducts_URL_API,[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"],startingLimit];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeAllProducts Delegate:self];
     [self.myWebService getDataFromWebURLWithUrlString:urlStr];
     
@@ -409,8 +407,6 @@
 }
 
 - (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-    NSLog(@"showed");
-    NSString *menuname = [User_Details sharedInstance].currentlySelectedLeftSlideMenu;
     
     if (self.generalLeftMenuSelected) {
         [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];

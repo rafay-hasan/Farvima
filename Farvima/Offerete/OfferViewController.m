@@ -107,7 +107,7 @@
     
     [SVProgressHUD show];
     NSString *startingLimit = [NSString stringWithFormat:@"%li",self.offerArray.count];
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,Offer_URL_API,[User_Details sharedInstance].appUserId,startingLimit];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,Offer_URL_API,[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"],startingLimit];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeOffer Delegate:self];
     [self.myWebService getDataFromWebURLWithUrlString:urlStr];
     

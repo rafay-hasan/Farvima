@@ -73,7 +73,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     OrderDetailsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"orderDetailsCell" forIndexPath:indexPath];
     if (indexPath.row % 2 == 0) {
-        cell.backgroundColor = [UIColor colorWithRed:230/255.0 green:228/255.0 blue:228/255.0 alpha:1.0];
+        cell.backgroundColor = [UIColor colorWithRed:145.0/255.0 green:146.0/255.0 blue:147.0/255.0 alpha:1.0];
         //cell.notificationTYpeImageView.image = [UIImage imageNamed:@"farma logo"];
     }
     else {
@@ -165,7 +165,7 @@
 {
     [SVProgressHUD show];
     NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:orderHistory,@"order_products_history",nil];
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,OrderConfirmation_URL_API,[User_Details sharedInstance].appUserId];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,OrderConfirmation_URL_API,[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"]];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeOrderConfirmation Delegate:self];
     [self.myWebService getPostDataFromWebURLWithUrlString:urlStr dictionaryData:postData];
 }

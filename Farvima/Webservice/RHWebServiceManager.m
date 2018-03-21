@@ -807,71 +807,154 @@
 
 -(PharmacyObject *) parsePharmacyDetailsItems :(id) response
 {
-    PharmacyObject *object = [PharmacyObject new];
+    PharmacyObject *Pharmacyobject = [PharmacyObject new];
     
     if([[response valueForKey:@"pharmacy_details"] isKindOfClass:[NSDictionary class]])
     {
         NSDictionary *dic = [(NSDictionary *)response valueForKey:@"pharmacy_details"];
         if ([[dic valueForKey:@"telefono"] isKindOfClass:[NSString class]]) {
-            object.phone = [dic valueForKey:@"telefono"];
+            Pharmacyobject.phone = [dic valueForKey:@"telefono"];
         }
         else {
-            object.phone = @"";
+            Pharmacyobject.phone = @"";
         }
         
         if ([[dic valueForKey:@"latitudine"] isKindOfClass:[NSString class]]) {
-            object.latitude = [dic valueForKey:@"latitudine"];
+            Pharmacyobject.latitude = [dic valueForKey:@"latitudine"];
         }
         else {
-            object.latitude = @"";
+            Pharmacyobject.latitude = @"";
         }
         
         if ([[dic valueForKey:@"longitudine"] isKindOfClass:[NSString class]]) {
-            object.longlititude = [dic valueForKey:@"longitudine"];
+            Pharmacyobject.longlititude = [dic valueForKey:@"longitudine"];
         }
         else {
-            object.longlititude = @"";
+            Pharmacyobject.longlititude = @"";
         }
         
         if ([[dic valueForKey:@"email"] isKindOfClass:[NSString class]]) {
-            object.emailAddress = [dic valueForKey:@"email"];
+            Pharmacyobject.emailAddress = [dic valueForKey:@"email"];
         }
         else {
-            object.emailAddress = @"";
+            Pharmacyobject.emailAddress = @"";
         }
         
         if ([[dic valueForKey:@"url"] isKindOfClass:[NSString class]]) {
-            object.webAddress = [dic valueForKey:@"url"];
+            Pharmacyobject.webAddress = [dic valueForKey:@"url"];
         }
         else {
-            object.webAddress = @"";
+            Pharmacyobject.webAddress = @"";
         }
         
         if ([[dic valueForKey:@"indirizzo"] isKindOfClass:[NSString class]]) {
-            object.location = [dic valueForKey:@"indirizzo"];
+            Pharmacyobject.location = [dic valueForKey:@"indirizzo"];
         }
         else {
-            object.location = @"";
+            Pharmacyobject.location = @"";
         }
         
     }
     
-    if([[response valueForKey:@"total_offers"] isKindOfClass:[NSString class]])
+    if([[response valueForKey:@"total_offers"] isKindOfClass:[NSNumber class]])
     {
-        object.totalOffer = [response valueForKey:@"total_offers"];
+        Pharmacyobject.totalOffer = [NSString stringWithFormat:@"%@",[response valueForKey:@"total_offers"]];
     }
     else {
-        object.totalOffer = @"0";
+        Pharmacyobject.totalOffer = @"0";
     }
     
     if([[response valueForKey:@"event"] isKindOfClass:[NSArray class]])
     {
-        object.eventArray = [self parseAllEventItems:[response valueForKey:@"event"]];
+        Pharmacyobject.eventArray = [NSMutableArray new];
+        
+        NSArray *tempArray = [(NSArray *)response valueForKey:@"event"];
+        
+        for(NSInteger i = 0; i < tempArray.count; i++)
+        {
+            EventObject *object = [EventObject new];
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"events_name"] isKindOfClass:[NSString class]])
+            {
+                object.name = [[tempArray objectAtIndex:i] valueForKey:@"events_name"];
+            }
+            else
+            {
+                object.name = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"events_description"] isKindOfClass:[NSString class]])
+            {
+                object.details = [[tempArray objectAtIndex:i] valueForKey:@"events_description"];
+            }
+            else
+            {
+                object.details = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"events_place"] isKindOfClass:[NSString class]])
+            {
+                object.location = [[tempArray objectAtIndex:i] valueForKey:@"events_place"];
+            }
+            else
+            {
+                object.location = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"events_image_location"] isKindOfClass:[NSString class]])
+            {
+                object.imageUel = [NSString stringWithFormat:@"%@%@",BASE_URL_API,[[tempArray objectAtIndex:i] valueForKey:@"events_image_location"]];
+            }
+            else
+            {
+                object.imageUel = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"events_start_date"] isKindOfClass:[NSString class]])
+            {
+                object.locationDate = [[tempArray objectAtIndex:i] valueForKey:@"events_start_date"];
+            }
+            else
+            {
+                object.locationDate = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"events_start_time"] isKindOfClass:[NSString class]])
+            {
+                object.startTime = [[tempArray objectAtIndex:i] valueForKey:@"events_start_time"];
+            }
+            else
+            {
+                object.startTime = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"events_end_time"] isKindOfClass:[NSString class]])
+            {
+                object.endTime = [[tempArray objectAtIndex:i] valueForKey:@"events_end_time"];
+            }
+            else
+            {
+                object.endTime = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"ref_events_pharmacy_id"] isKindOfClass:[NSString class]])
+            {
+                object.referencePharmacyId = [[tempArray objectAtIndex:i] valueForKey:@"ref_events_pharmacy_id"];
+            }
+            else
+            {
+                object.referencePharmacyId = @"";
+            }
+            
+            [Pharmacyobject.eventArray addObject:object];
+        }
+        
+        
     }
     else {
-        object.eventArray = [NSArray new];
+        Pharmacyobject.eventArray = [NSMutableArray new];
     }
-    return object;
+    return Pharmacyobject;
     
 }
 

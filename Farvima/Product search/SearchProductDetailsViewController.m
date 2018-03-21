@@ -115,7 +115,7 @@
 {
     [SVProgressHUD show];
     self.view.userInteractionEnabled = NO;
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,LoginAuthentication_URL_API,[User_Details sharedInstance].appUserId];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,LoginAuthentication_URL_API,[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"]];
     //urlStr = @"http://farmadevelopment.switchyapp.com/app_user_login_authentication/6";
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeLoginAuthentication Delegate:self];
     [self.myWebService getDataFromWebURLWithUrlString:urlStr];
@@ -126,7 +126,7 @@
 {
     [SVProgressHUD show];
     self.view.userInteractionEnabled = NO;
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,CheckPharmacyAssociation_URL_API,[User_Details sharedInstance].appUserId];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,CheckPharmacyAssociation_URL_API,[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"]];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeCheckPharmacyAssociation Delegate:self];
     [self.myWebService getDataFromWebURLWithUrlString:urlStr];
     

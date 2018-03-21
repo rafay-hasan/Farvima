@@ -59,7 +59,7 @@
 */
 
 - (void) loadEventDetailsdata {
-    UIColor *color = [UIColor colorWithRed:11.0/255.0 green:72.0/255.0 blue:155.0/255.0 alpha:1];
+    UIColor *color = [UIColor colorWithRed:145.0/255.0 green:146.0/255.0 blue:147.0/255.0 alpha:1];
     [self.eventImageView.layer setBorderColor: color.CGColor];
     [self.eventImageView.layer setBorderWidth: 2.0];
     if (self.object.imageUel.length > 0) {
@@ -79,9 +79,9 @@
     
     if (self.object.locationDate.length > 0) {
         self.eventdateLabel.text = [NSString stringWithFormat:@"data %@",self.object.locationDate];
-        [self.eventdateLabel setTextColor:[UIColor colorWithRed:40.0/255.0 green:67.0/255.0 blue:135.0/255.0 alpha:1] String:@"data "];
+        [self.eventdateLabel setTextColor:[UIColor colorWithRed:83.0/255.0 green:83.0/255.0 blue:83.0/255.0 alpha:1] String:@"data "];
         [self.eventdateLabel setFont:[UIFont systemFontOfSize:13 weight:UIFontWeightSemibold] afterOccurenceOfString:@"data "];
-        [self.eventdateLabel setTextColor:[UIColor colorWithRed:0.0/255.0 green:41.0/255.0 blue:128.0/255.0 alpha:1] String:self.object.locationDate];
+        [self.eventdateLabel setTextColor:[UIColor colorWithRed:56.0/255.0 green:56.0/255.0 blue:56.0/255.0 alpha:1] String:self.object.locationDate];
         [self.eventdateLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption1] beforeOccurenceOfString:self.object.locationDate];
         
     }
@@ -91,17 +91,17 @@
     
     NSString *startEndTime =  [NSString stringWithFormat:@"Dalle %@ Alle %@",self.object.startTime,self.object.endTime];
     self.eventTimeLabel.text = [NSString stringWithFormat:@"ore %@",startEndTime];
-    [self.eventTimeLabel setTextColor:[UIColor colorWithRed:40.0/255.0 green:67.0/255.0 blue:135.0/255.0 alpha:1] String:@"ore "];
+    [self.eventTimeLabel setTextColor:[UIColor colorWithRed:83.0/255.0 green:83.0/255.0 blue:83.0/255.0 alpha:1] String:@"ore "];
     [self.eventTimeLabel setFont:[UIFont systemFontOfSize:13 weight:UIFontWeightSemibold] afterOccurenceOfString:@"ore "];
-    [self.eventTimeLabel setTextColor:[UIColor colorWithRed:0.0/255.0 green:41.0/255.0 blue:128.0/255.0 alpha:1] String:startEndTime];
+    [self.eventTimeLabel setTextColor:[UIColor colorWithRed:56.0/255.0 green:56.0/255.0 blue:56.0/255.0 alpha:1] String:startEndTime];
     [self.eventTimeLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption1] beforeOccurenceOfString:startEndTime];
     
     
     if (self.object.location.length > 0) {
         self.eventLocationLabel.text = [NSString stringWithFormat:@"presso %@",self.object.location];
-        [self.eventLocationLabel setTextColor:[UIColor colorWithRed:40.0/255.0 green:67.0/255.0 blue:135.0/255.0 alpha:1] String:@"presso "];
+        [self.eventLocationLabel setTextColor:[UIColor colorWithRed:83.0/255.0 green:83.0/255.0 blue:83.0/255.0 alpha:1] String:@"presso "];
         [self.eventLocationLabel setFont:[UIFont systemFontOfSize:13 weight:UIFontWeightSemibold] afterOccurenceOfString:@"presso "];
-        [self.eventLocationLabel setTextColor:[UIColor colorWithRed:0.0/255.0 green:41.0/255.0 blue:128.0/255.0 alpha:1] String:self.object.location];
+        [self.eventLocationLabel setTextColor:[UIColor colorWithRed:56.0/255.0 green:56.0/255.0 blue:56.0/255.0 alpha:1] String:self.object.location];
         [self.eventLocationLabel setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption1] beforeOccurenceOfString:self.object.location];
         
     }

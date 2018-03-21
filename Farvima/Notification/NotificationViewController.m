@@ -83,7 +83,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"notificationCell" forIndexPath:indexPath];
     if (indexPath.row % 2 == 0) {
-        cell.backgroundColor = [UIColor colorWithRed:230/255.0 green:228/255.0 blue:228/255.0 alpha:1.0];
+        cell.backgroundColor = [UIColor colorWithRed:226/255.0 green:224/255.0 blue:224/255.0 alpha:1.0];
         cell.notificationTYpeImageView.image = [UIImage imageNamed:@"farma logo"];
     }
     else {

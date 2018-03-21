@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "dial.png",
+      "filename" : "icona numero.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "dial-2.png",
+      "filename" : "icona numero-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "dial-1.png",
+      "filename" : "icona numero-2.png",
       "scale" : "3x"
     }
   ],

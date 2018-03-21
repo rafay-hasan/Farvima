@@ -22,7 +22,6 @@
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 @property (strong,nonatomic) EventObject *eventObject;
 @property (strong,nonatomic) NSMutableArray *eventsArray;
-@property (strong,nonatomic) User_Details *userManager;
 
 @property (weak, nonatomic) IBOutlet UITableView *eventtableView;
 
@@ -38,7 +37,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.userManager = [User_Details sharedInstance];
     self.eventObject = [EventObject new];
     self.eventsArray = [NSMutableArray new];
     [self CallEventWebservice];
@@ -120,9 +118,9 @@
     
     if (self.eventObject.location.length > 0) {
         cell.eventLocation.text = [NSString stringWithFormat:@"presso %@",self.eventObject.location];
-        [cell.eventLocation setTextColor:[UIColor colorWithRed:40.0/255.0 green:67.0/255.0 blue:135.0/255.0 alpha:1] String:@"presso "];
+        [cell.eventLocation setTextColor:[UIColor colorWithRed:83.0/255.0 green:83.0/255.0 blue:83.0/255.0 alpha:1] String:@"presso "];
         [cell.eventLocation setFont:[UIFont systemFontOfSize:15 weight:UIFontWeightSemibold] afterOccurenceOfString:@"presso "];
-        [cell.eventLocation setTextColor:[UIColor colorWithRed:0.0/255.0 green:41.0/255.0 blue:128.0/255.0 alpha:1] String:self.eventObject.location];
+        [cell.eventLocation setTextColor:[UIColor colorWithRed:56.0/255.0 green:56.0/255.0 blue:56.0/255.0 alpha:1] String:self.eventObject.location];
         [cell.eventLocation setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption1] beforeOccurenceOfString:self.eventObject.location];
         
     }
@@ -132,9 +130,9 @@
     
     if (self.eventObject.locationDate.length > 0) {
         cell.eventDate.text = [NSString stringWithFormat:@"data %@",self.eventObject.locationDate];
-        [cell.eventDate setTextColor:[UIColor colorWithRed:40.0/255.0 green:67.0/255.0 blue:135.0/255.0 alpha:1] String:@"data "];
+        [cell.eventDate setTextColor:[UIColor colorWithRed:83.0/255.0 green:83.0/255.0 blue:83.0/255.0 alpha:1] String:@"data "];
         [cell.eventDate setFont:[UIFont systemFontOfSize:15 weight:UIFontWeightSemibold] afterOccurenceOfString:@"data "];
-        [cell.eventDate setTextColor:[UIColor colorWithRed:0.0/255.0 green:41.0/255.0 blue:128.0/255.0 alpha:1] String:self.eventObject.locationDate];
+        [cell.eventDate setTextColor:[UIColor colorWithRed:56.0/255.0 green:56.0/255.0 blue:56.0/255.0 alpha:1] String:self.eventObject.locationDate];
         [cell.eventDate setFont:[UIFont preferredFontForTextStyle:UIFontTextStyleCaption1] beforeOccurenceOfString:self.eventObject.locationDate];
         
     }
@@ -163,7 +161,7 @@
         footerView.backgroundColor = [UIColor clearColor];
     }
     else {
-        footerView.backgroundColor = [UIColor colorWithRed:11.0/255.0 green:72.0/255.0 blue:155.0/255.0 alpha:1];
+        footerView.backgroundColor = [UIColor colorWithRed:145.0/255.0 green:146.0/255.0 blue:147.0/255.0 alpha:1];
     }
     return footerView;
 }
@@ -185,7 +183,7 @@
 {
     [SVProgressHUD show];
     NSString *startingLimit = [NSString stringWithFormat:@"%li",self.eventsArray.count];
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,Event_URL_API,self.userManager.appUserId,startingLimit];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,Event_URL_API,[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"],startingLimit];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeEvents Delegate:self];
     [self.myWebService getDataFromWebURLWithUrlString:urlStr];
 }

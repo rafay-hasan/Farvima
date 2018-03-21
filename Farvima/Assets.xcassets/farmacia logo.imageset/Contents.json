@@ -2,17 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "logo farmacia copia.png",
+      "filename" : "offerte_32.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "logo farmacia copia-1.png",
+      "filename" : "offerte_32-1.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
-      "filename" : "logo farmacia copia-2.png",
+      "filename" : "offerte_32-2.png",
       "scale" : "3x"
     }
   ],

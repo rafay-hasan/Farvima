@@ -20,7 +20,6 @@
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 @property (strong,nonatomic) GalleryObject *galleryObject;
 @property (strong,nonatomic) NSMutableArray *gallaryArray;
-@property (strong,nonatomic) User_Details *userManager;
 @property (weak, nonatomic) IBOutlet UICollectionView *galleryCollectionView;
 
 - (IBAction)backButtonAction:(id)sender;
@@ -34,7 +33,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.userManager = [User_Details sharedInstance];
     self.galleryObject = [GalleryObject new];
     self.gallaryArray = [NSMutableArray new];
     [self CallGalleryWebservice];
@@ -152,7 +150,7 @@
 {
     [SVProgressHUD show];
     NSString *startingLimit = [NSString stringWithFormat:@"%li",self.gallaryArray.count];
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,Gallery_URL_API,self.userManager.appUserId,startingLimit];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,Gallery_URL_API,[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"],startingLimit];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeGallery Delegate:self];
     [self.myWebService getDataFromWebURLWithUrlString:urlStr];
     

@@ -174,7 +174,7 @@
     [SVProgressHUD show];
     self.view.userInteractionEnabled = NO;
     NSString *startingLimit = [NSString stringWithFormat:@"%li",self.offerArray.count];
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@/%@",BASE_URL_API,CategoryOfferProducts_URL_API,[User_Details sharedInstance].appUserId,categoryId,startingLimit];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@/%@",BASE_URL_API,CategoryOfferProducts_URL_API,[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"],categoryId,startingLimit];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeCategoryOfferProducts Delegate:self];
     [self.myWebService getDataFromWebURLWithUrlString:urlStr];
     
@@ -304,7 +304,7 @@
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section
 {
     UIView *footerView = [[UIView alloc] init];
-    footerView.backgroundColor = [UIColor colorWithRed:6.0/255.0 green:39.0/255.0 blue:156.0/255.0 alpha:1];
+    footerView.backgroundColor = [UIColor colorWithRed:145.0/255.0 green:146.0/255.0 blue:147.0/255.0 alpha:1];
     return footerView;
 }
 

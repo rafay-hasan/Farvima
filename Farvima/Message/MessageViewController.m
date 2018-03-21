@@ -21,7 +21,6 @@
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 @property (strong,nonatomic) MessageObject *messageObject;
 @property (strong,nonatomic) NSMutableArray *messageArray;
-@property (strong,nonatomic) User_Details *userManager;
 
 @property (weak, nonatomic) IBOutlet UITableView *messageTableview;
 - (IBAction)leftSliderButtonAction:(id)sender;
@@ -39,7 +38,6 @@
     UINib *messageHeaderXix = [UINib nibWithNibName:@"MessageSectionHeader" bundle:nil];
     [self.messageTableview registerNib:messageHeaderXix forHeaderFooterViewReuseIdentifier:@"messageSectionHeader"];
     
-    self.userManager = [User_Details sharedInstance];
     self.messageObject = [MessageObject new];
     self.messageArray = [NSMutableArray new];
     [self CallMessageWebservice];
@@ -132,7 +130,7 @@
 {
     [SVProgressHUD show];
     NSString *startingLimit = [NSString stringWithFormat:@"%li",self.messageArray.count];
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,Message_URL_API,self.userManager.appUserId,startingLimit];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,Message_URL_API,[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"],startingLimit];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeMessage Delegate:self];
     [self.myWebService getDataFromWebURLWithUrlString:urlStr];
     
