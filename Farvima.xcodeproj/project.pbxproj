@@ -51,6 +51,7 @@
 		BB7700F01FA4762D00EA76D2 /* NewsHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB7700EF1FA4762D00EA76D2 /* NewsHeader.xib */; };
 		BB7700F31FA4856B00EA76D2 /* NewsDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7700F21FA4856B00EA76D2 /* NewsDetailsViewController.m */; };
 		BB7C7FE91FD3CCC600515EBC /* RHWebServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = BB7C7FE81FD3CCC600515EBC /* RHWebServiceManager.m */; };
+		BB85300520694A20006A439F /* NotificationObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BB85300420694A20006A439F /* NotificationObject.m */; };
 		BB877B1C1FC9B25A00E06020 /* FarmaciaHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB877B1B1FC9B25A00E06020 /* FarmaciaHomeViewController.m */; };
 		BB8A24AF1FA4D5760070322E /* MessageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24AE1FA4D5760070322E /* MessageViewController.m */; };
 		BB8A24B21FA4DCE30070322E /* MessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB8A24B11FA4DCE30070322E /* MessageTableViewCell.m */; };
@@ -179,6 +180,8 @@
 		BB7700F21FA4856B00EA76D2 /* NewsDetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NewsDetailsViewController.m; sourceTree = "<group>"; };
 		BB7C7FE71FD3CCC600515EBC /* RHWebServiceManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RHWebServiceManager.h; sourceTree = "<group>"; };
 		BB7C7FE81FD3CCC600515EBC /* RHWebServiceManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RHWebServiceManager.m; sourceTree = "<group>"; };
+		BB85300320694A20006A439F /* NotificationObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NotificationObject.h; sourceTree = "<group>"; };
+		BB85300420694A20006A439F /* NotificationObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NotificationObject.m; sourceTree = "<group>"; };
 		BB877B1A1FC9B25A00E06020 /* FarmaciaHomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FarmaciaHomeViewController.h; sourceTree = "<group>"; };
 		BB877B1B1FC9B25A00E06020 /* FarmaciaHomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FarmaciaHomeViewController.m; sourceTree = "<group>"; };
 		BB8A24AD1FA4D5760070322E /* MessageViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MessageViewController.h; sourceTree = "<group>"; };
@@ -459,8 +462,18 @@
 				BB2B6754203B4F91008782FA /* ProductObject */,
 				84A725BB203E7F5200224D75 /* OfferObject */,
 				BB0B0D9A2041C82E00D04803 /* FarmacistObject */,
+				BB853002206949F6006A439F /* NotificationObject */,
 			);
 			path = Webservice;
+			sourceTree = "<group>";
+		};
+		BB853002206949F6006A439F /* NotificationObject */ = {
+			isa = PBXGroup;
+			children = (
+				BB85300320694A20006A439F /* NotificationObject.h */,
+				BB85300420694A20006A439F /* NotificationObject.m */,
+			);
+			path = NotificationObject;
 			sourceTree = "<group>";
 		};
 		BB877B191FC9B22F00E06020 /* Farmacia Home */ = {
@@ -883,6 +896,7 @@
 				BB0DEA371F9F9045009E8420 /* OfferViewController.m in Sources */,
 				8433E41220566606008E1702 /* ProfileEditViewController.m in Sources */,
 				BB8A24B21FA4DCE30070322E /* MessageTableViewCell.m in Sources */,
+				BB85300520694A20006A439F /* NotificationObject.m in Sources */,
 				BB13E82C1F9CD78D00BDA4EB /* PharmaHomeViewController.m in Sources */,
 				BBBC782A1FC7224600062F37 /* SearchResultTableViewCell.m in Sources */,
 				84079E3220440607009998CF /* AllOfersViewController.m in Sources */,

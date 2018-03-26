@@ -93,7 +93,7 @@
     }
     else if ([segue.identifier isEqualToString:@"allOfer"]) {
         AllOfersViewController *vc = [segue destinationViewController];
-        vc.offerUrlString = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,All_OfferList_URL_API,[User_Details sharedInstance].appUserId];
+        vc.offerUrlString = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,All_OfferList_URL_API,[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"]];
     }
 }
 

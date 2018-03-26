@@ -11,6 +11,7 @@
 
 #define BASE_URL_API @"http://farmadevelopment.switchyapp.com/"
 #define UserDetails_URL_API @"ios_store_device_id_tokens"
+#define PharmacyDetails_URL_API @"app_associate_pharmacy"
 #define Gallery_URL_API @"app_gallery_images/"
 #define Offer_URL_API @"app_all_offer_pdf_list/"
 #define All_OfferList_URL_API @"app_all_offer_products/"
@@ -28,18 +29,21 @@
 #define CategoryOfferProducts_URL_API @"app_category_offer_products/"
 #define CategoryProductSearch_URL_API @"app_search_product"
 #define AssociatePharmacy_URL_API @"app_associate_pharmacy"
-#define PharmacyDetails_URL_API @"app_get_pharmacy_details_by_app_user_id/"
+#define PharmacyDetails_URL_API @"app_associate_pharmacy"
 #define CheckPharmacyAssociation_URL_API @"app_user_checking_pharmacy_association/"
 #define LoginAuthentication_URL_API @"app_user_login_authentication/"
 #define OrderConfirmation_URL_API @"app_order_confirmation/"
+#define Notification_URL_API @"notifications/"
 
 enum {
     HTTPRequestypeUserDetails,
+    HTTPRequestypePharmacyDetails,
     HTTPRequestTypeGallery,
     HTTPRequestTypeOffer,
     HTTPRequestTypeEvents,
     HTTPRequestTypeNews,
     HTTPRequestTypeMessage,
+    HTTPRequestTypeNotification,
     HTTPRequestTypePharmacySearch,
     HTTPRequestTypePharmacySearchForCurrentLocation,
     HTTPRequestTypeChiSiamo,

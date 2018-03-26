@@ -17,6 +17,7 @@
 #import "PharmacyObject.h"
 #import "FarmacistObject.h"
 #import "OfferTypeObject.h"
+#import "NotificationObject.h"
 
 @implementation RHWebServiceManager
 
@@ -103,6 +104,13 @@
                 if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
                 {
                     [self.delegate dataFromWebReceivedSuccessfully:[self parseFarmacistItems:responseObject]];
+                }
+            }
+            else if(self.requestType == HTTPRequestTypeNotification)
+            {
+                if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
+                {
+                    [self.delegate dataFromWebReceivedSuccessfully:[self parseNotificationItems:responseObject]];
                 }
             }
             else {
@@ -802,6 +810,53 @@
         
     }
     return farmacistArray;
+    
+}
+
+-(NSMutableArray *) parseNotificationItems :(id) response
+{
+    NSMutableArray *notificationArray = [NSMutableArray new];
+    
+    if([[response valueForKey:@"notification"] isKindOfClass:[NSArray class]])
+    {
+        NSArray *tempArray = [(NSArray *)response valueForKey:@"notification"];
+        
+        for(NSInteger i = 0; i < tempArray.count; i++)
+        {
+            NotificationObject *object = [NotificationObject new];
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"notification_id"] isKindOfClass:[NSString class]])
+            {
+                object.notificationId = [[tempArray objectAtIndex:i] valueForKey:@"notification_id"];
+            }
+            else
+            {
+                object.notificationId = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"notification_subject_id"] isKindOfClass:[NSString class]])
+            {
+                object.notificationTypeId = [[tempArray objectAtIndex:i] valueForKey:@"notification_subject_id"];
+            }
+            else
+            {
+                object.notificationTypeId = @"";
+            }
+            
+            if([[[tempArray objectAtIndex:i] valueForKey:@"ref_notification_pharmacy_id"] isKindOfClass:[NSNull class]])
+            {
+                object.NotificationCategory = @"farma logo";
+            }
+            else
+            {
+                object.NotificationCategory = @"farmacia logo";
+            }
+            
+            [notificationArray addObject:object];
+        }
+        
+    }
+    return notificationArray;
     
 }
 

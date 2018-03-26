@@ -10,15 +10,20 @@
 #import "NotificationTableViewCell.h"
 #import "UIViewController+LGSideMenuController.h"
 #import "User Details.h"
+#import "RHWebServiceManager.h"
+#import "SVProgressHUD.h"
+#import "NotificationObject.h"
 
-@interface NotificationViewController ()<LGSideMenuControllerDelegate>
+@interface NotificationViewController ()<LGSideMenuControllerDelegate,RHWebServiceDelegate>
 
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)leftSliderButtonAction:(id)sender;
 - (IBAction)NoticeBottomTabMenuButtonAction:(UIButton *)sender;
 
 @property (weak, nonatomic) IBOutlet UITableView *notificationTableview;
-
+@property (strong,nonatomic) RHWebServiceManager *myWebService;
+@property (strong,nonatomic) NSMutableArray *notificationArray;
+@property (strong,nonatomic) NotificationObject *notification;
 
 @end
 
@@ -28,12 +33,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.notificationTableview.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
+    self.notificationArray = [NSMutableArray new];
     
 }
 
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.sideMenuController.delegate = self;
+    [self CallNotificationWebservice];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -72,24 +79,56 @@
 - (IBAction)NoticeBottomTabMenuButtonAction:(UIButton *)sender {
     [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
+
+#pragma mark All Web service
+
+-(void) CallNotificationWebservice
+{
+    [SVProgressHUD show];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,Notification_URL_API,[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"]];
+    self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeNotification Delegate:self];
+    [self.myWebService getDataFromWebURLWithUrlString:urlStr];
+    
+}
+
+-(void) dataFromWebReceivedSuccessfully:(id) responseObj
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    if(self.myWebService.requestType == HTTPRequestTypeNotification)
+    {
+        [self.notificationArray addObjectsFromArray:(NSArray *)responseObj];
+    }
+    [self.notificationTableview reloadData];
+}
+
+-(void) dataFromWebReceiptionFailed:(NSError*) error
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 5;
+    return self.notificationArray.count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"notificationCell" forIndexPath:indexPath];
-    if (indexPath.row % 2 == 0) {
-        cell.backgroundColor = [UIColor colorWithRed:226/255.0 green:224/255.0 blue:224/255.0 alpha:1.0];
-        cell.notificationTYpeImageView.image = [UIImage imageNamed:@"farma logo"];
-    }
-    else {
-        cell.backgroundColor = [UIColor whiteColor];
-        cell.notificationTYpeImageView.image = [UIImage imageNamed:@"farmacia logo"];
-    }
+    self.notification = [self.notificationArray objectAtIndex:indexPath.row];
+    cell.notificationTYpeImageView.image = [UIImage imageNamed:self.notification.NotificationCategory];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
