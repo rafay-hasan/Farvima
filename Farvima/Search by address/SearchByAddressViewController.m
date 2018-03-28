@@ -33,6 +33,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
+    
     self.userManager = [User_Details sharedInstance];
     self.pharmacyObject = [SearchPharmacyObject new];
     self.pharmacyArray = [NSMutableArray new];
@@ -41,6 +46,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+-(void)dismissKeyboard {
+    [self.searchTextfield resignFirstResponder];
 }
 
 

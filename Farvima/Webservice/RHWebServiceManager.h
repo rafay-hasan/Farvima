@@ -34,10 +34,14 @@
 #define LoginAuthentication_URL_API @"app_user_login_authentication/"
 #define OrderConfirmation_URL_API @"app_order_confirmation/"
 #define Notification_URL_API @"notifications/"
+#define ProfileDetails_URL_API @"app_user_details/"
+#define ProfileModification_URL_API @"app_user_details_update/"
 
 enum {
     HTTPRequestypeUserDetails,
     HTTPRequestypePharmacyDetails,
+    HTTPRequestypeProfileDetails,
+    HTTPRequestypeProfileModification,
     HTTPRequestTypeGallery,
     HTTPRequestTypeOffer,
     HTTPRequestTypeEvents,

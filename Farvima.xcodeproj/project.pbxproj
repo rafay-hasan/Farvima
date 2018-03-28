@@ -15,6 +15,7 @@
 		84A607F21FA3062300D7E3D7 /* NewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A607F11FA3062300D7E3D7 /* NewsViewController.m */; };
 		84A725BE203E7F7F00224D75 /* AllOfferObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A725BD203E7F7F00224D75 /* AllOfferObject.m */; };
 		84A725C1203EB33100224D75 /* FileDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A725C0203EB33000224D75 /* FileDownloader.m */; };
+		84A98537206B78E000797FDD /* ProfileObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A98536206B78E000797FDD /* ProfileObject.m */; };
 		84CF4F012056BBB000C272AD /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84CF4F002056BBB000C272AD /* TestViewController.m */; };
 		BB04CDA31FD5A2BF008A70DC /* SearchPharmacyObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BB04CDA21FD5A2BF008A70DC /* SearchPharmacyObject.m */; };
 		BB0B0D992041C53000D04803 /* FarmacistTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = BB0B0D982041C53000D04803 /* FarmacistTableViewCell.m */; };
@@ -111,6 +112,8 @@
 		84A725BD203E7F7F00224D75 /* AllOfferObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllOfferObject.m; sourceTree = "<group>"; };
 		84A725BF203EB32F00224D75 /* FileDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileDownloader.h; sourceTree = "<group>"; };
 		84A725C0203EB33000224D75 /* FileDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileDownloader.m; sourceTree = "<group>"; };
+		84A98535206B78E000797FDD /* ProfileObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileObject.h; sourceTree = "<group>"; };
+		84A98536206B78E000797FDD /* ProfileObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileObject.m; sourceTree = "<group>"; };
 		84CF4EFF2056BBB000C272AD /* TestViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		84CF4F002056BBB000C272AD /* TestViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
 		BB04CDA11FD5A2BF008A70DC /* SearchPharmacyObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchPharmacyObject.h; sourceTree = "<group>"; };
@@ -314,6 +317,15 @@
 			path = OfferObject;
 			sourceTree = "<group>";
 		};
+		84A98534206B78B000797FDD /* ProfileObject */ = {
+			isa = PBXGroup;
+			children = (
+				84A98535206B78E000797FDD /* ProfileObject.h */,
+				84A98536206B78E000797FDD /* ProfileObject.m */,
+			);
+			path = ProfileObject;
+			sourceTree = "<group>";
+		};
 		BB04CDA41FD5A2C4008A70DC /* SearchPharmacyObject */ = {
 			isa = PBXGroup;
 			children = (
@@ -463,6 +475,7 @@
 				84A725BB203E7F5200224D75 /* OfferObject */,
 				BB0B0D9A2041C82E00D04803 /* FarmacistObject */,
 				BB853002206949F6006A439F /* NotificationObject */,
+				84A98534206B78B000797FDD /* ProfileObject */,
 			);
 			path = Webservice;
 			sourceTree = "<group>";
@@ -924,6 +937,7 @@
 				BBDC093D1F93B81300E5D9A2 /* OfferIntroViewController.m in Sources */,
 				BBDC09411F93B83500E5D9A2 /* PreBookIntroViewController.m in Sources */,
 				BB7700EE1FA475D600EA76D2 /* NewsSectionHeader.m in Sources */,
+				84A98537206B78E000797FDD /* ProfileObject.m in Sources */,
 				BB6028522040880700F06F9B /* PharmacyObject.m in Sources */,
 				BBF4DF0A1FA4EE9A00E0C811 /* NotificationViewController.m in Sources */,
 				BBB4065C20416D8100A2665A /* CustomAnnotation.m in Sources */,

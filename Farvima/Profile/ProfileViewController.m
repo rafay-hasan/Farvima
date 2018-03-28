@@ -10,11 +10,18 @@
 #import "User Details.h"
 #import "ProfileTableViewCell.h"
 #import "UIViewController+LGSideMenuController.h"
+#import "RHWebServiceManager.h"
+#import "SVProgressHUD.h"
+#import "ProfileObject.h"
+#import "ProfileEditViewController.h"
 
-@interface ProfileViewController ()<UITableViewDataSource,UITableViewDelegate,LGSideMenuControllerDelegate>
+@interface ProfileViewController ()<UITableViewDataSource,UITableViewDelegate,LGSideMenuControllerDelegate,RHWebServiceDelegate>
 
 @property (strong,nonatomic) NSMutableDictionary *profileDic;
 @property (strong,nonatomic) NSArray *profileArray;
+@property (strong,nonatomic) RHWebServiceManager *myWebService;
+@property (strong,nonatomic) ProfileObject *profile;
+
 @property (weak, nonatomic) IBOutlet UITableView *profileTableview;
 
 - (IBAction)backButtonAction:(id)sender;
@@ -29,13 +36,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.profileDic = [NSMutableDictionary dictionary];
-    [self.profileDic setObject:@"Test Username" forKey:@"Username:"];
-    [self.profileDic setObject:@"Test name" forKey:@"Nome:"];
-    [self.profileDic setObject:@"Test Cogname" forKey:@"Cognome:"];
-    [self.profileDic setObject:@"15-0--1991" forKey:@"Data di nascita:"];
-    [self.profileDic setObject:@"test@gmail.com" forKey:@"Email:"];
-    [self.profileDic setObject:@"Via pentani,3,Perugia" forKey:@"Indirizzo:"];
-    [self.profileDic setObject:@"+39 348 9194413" forKey:@"Telefono:"];
+    [self.profileDic setObject:@"" forKey:@"Username:"];
+    [self.profileDic setObject:@"" forKey:@"Nome:"];
+    [self.profileDic setObject:@"" forKey:@"Cognome:"];
+    [self.profileDic setObject:@"" forKey:@"Data di nascita:"];
+    [self.profileDic setObject:@"" forKey:@"Email:"];
+    [self.profileDic setObject:@"" forKey:@"Indirizzo:"];
+    [self.profileDic setObject:@"" forKey:@"Telefono:"];
     self.profileArray = [NSArray arrayWithObjects:@"Username:",@"Nome:",@"Cognome:",@"Data di nascita:",@"Email:",@"Indirizzo:",@"Telefono:", nil];
     [self.profileTableview reloadData];
 }
@@ -43,6 +50,7 @@
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.sideMenuController.delegate = self;
+    [self CallProfileWebservice];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -50,15 +58,61 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"profileModification"]) {
+        ProfileEditViewController *vc = segue.destinationViewController;
+        vc.profile = self.profile;
+    }
 }
-*/
+
+
+-(void) CallProfileWebservice
+{
+    [SVProgressHUD show];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,ProfileDetails_URL_API,[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"]];
+    self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestypeProfileDetails Delegate:self];
+    [self.myWebService getDataFromWebURLWithUrlString:urlStr];
+    
+}
+
+-(void) dataFromWebReceivedSuccessfully:(id) responseObj
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    if(self.myWebService.requestType == HTTPRequestypeProfileDetails)
+    {
+        self.profile = responseObj;
+        [self.profileDic setObject:self.profile.userName forKey:@"Username:"];
+        [self.profileDic setObject:self.profile.firstname forKey:@"Nome:"];
+        [self.profileDic setObject:self.profile.lastName forKey:@"Cognome:"];
+        [self.profileDic setObject:self.profile.birthDate forKey:@"Data di nascita:"];
+        [self.profileDic setObject:self.profile.email forKey:@"Email:"];
+        [self.profileDic setObject:self.profile.address forKey:@"Indirizzo:"];
+        [self.profileDic setObject:self.profile.phone forKey:@"Telefono:"];
+    }
+    [self.profileTableview reloadData];
+}
+
+-(void) dataFromWebReceiptionFailed:(NSError*) error
+{
+    [SVProgressHUD dismiss];
+    self.view.userInteractionEnabled = YES;
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

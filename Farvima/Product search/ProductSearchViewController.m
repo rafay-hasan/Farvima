@@ -36,6 +36,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self
+                                                                          action:@selector(dismissKeyboard)];
+    
+    [self.view addGestureRecognizer:tap];
 }
 
 -(void) viewDidAppear:(BOOL)animated {
@@ -62,6 +67,13 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void)dismissKeyboard {
+    [self.nameTextField resignFirstResponder];
+    [self.codeTextField resignFirstResponder];
+    [self.categoryTextField resignFirstResponder];
+}
+
 
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];

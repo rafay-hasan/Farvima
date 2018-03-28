@@ -128,6 +128,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"notificationCell" forIndexPath:indexPath];
     self.notification = [self.notificationArray objectAtIndex:indexPath.row];
+    cell.notificationTitleLabel.text = self.notification.notificationTitle;
     cell.notificationTYpeImageView.image = [UIImage imageNamed:self.notification.NotificationCategory];
     return cell;
 }

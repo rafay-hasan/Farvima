@@ -18,6 +18,7 @@
 #import "FarmacistObject.h"
 #import "OfferTypeObject.h"
 #import "NotificationObject.h"
+#import "ProfileObject.h"
 
 @implementation RHWebServiceManager
 
@@ -111,6 +112,13 @@
                 if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
                 {
                     [self.delegate dataFromWebReceivedSuccessfully:[self parseNotificationItems:responseObject]];
+                }
+            }
+            else if(self.requestType == HTTPRequestypeProfileDetails)
+            {
+                if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
+                {
+                    [self.delegate dataFromWebReceivedSuccessfully:[self parseProfileDetails:responseObject]];
                 }
             }
             else {
@@ -843,6 +851,15 @@
                 object.notificationTypeId = @"";
             }
             
+            if([[[tempArray objectAtIndex:i] valueForKey:@"notification_title"] isKindOfClass:[NSString class]])
+            {
+                object.notificationTitle = [[tempArray objectAtIndex:i] valueForKey:@"notification_title"];
+            }
+            else
+            {
+                object.notificationTitle = @"";
+            }
+            
             if([[[tempArray objectAtIndex:i] valueForKey:@"ref_notification_pharmacy_id"] isKindOfClass:[NSNull class]])
             {
                 object.NotificationCategory = @"farma logo";
@@ -857,6 +874,98 @@
         
     }
     return notificationArray;
+    
+}
+
+-(ProfileObject *) parseProfileDetails :(id) response
+{
+    ProfileObject *object = [ProfileObject new];
+    object.userName = @"";
+    object.firstname = @"";
+    object.lastName = @"";
+    object.address = @"";
+    object.email = @"";
+    object.phone = @"";
+    object.birthDate = @"";
+    
+    if([[response valueForKey:@"profile_details"] isKindOfClass:[NSDictionary class]])
+    {
+        NSDictionary *tempDic = [(NSDictionary *)response valueForKey:@"profile_details"];
+        
+        if([[tempDic valueForKey:@"app_user_ecommerce_user_name_email"] isKindOfClass:[NSString class]])
+        {
+            object.userName = [tempDic valueForKey:@"app_user_ecommerce_user_name_email"];
+        }
+        else
+        {
+            object.userName = @"";
+        }
+        
+        if([[tempDic valueForKey:@"app_user_first_name"] isKindOfClass:[NSString class]])
+        {
+            object.firstname = [tempDic valueForKey:@"app_user_first_name"];
+        }
+        else
+        {
+            object.firstname = @"";
+        }
+        
+        if([[tempDic valueForKey:@"app_user_last_name"] isKindOfClass:[NSString class]])
+        {
+            object.lastName = [tempDic valueForKey:@"app_user_last_name"];
+        }
+        else
+        {
+            object.lastName = @"";
+        }
+        
+        if([[tempDic valueForKey:@"app_user_birth_date"] isKindOfClass:[NSString class]])
+        {
+            object.birthDate = [tempDic valueForKey:@"app_user_birth_date"];
+        }
+        else
+        {
+            object.birthDate = @"";
+        }
+        
+        if([[tempDic valueForKey:@"app_user_sex"] isKindOfClass:[NSString class]])
+        {
+            object.sex = [tempDic valueForKey:@"app_user_sex"];
+        }
+        else
+        {
+            object.sex = @"";
+        }
+        
+        if([[tempDic valueForKey:@"app_user_address"] isKindOfClass:[NSString class]])
+        {
+            object.address = [tempDic valueForKey:@"app_user_address"];
+        }
+        else
+        {
+            object.address = @"";
+        }
+        
+        if([[tempDic valueForKey:@"app_user_email"] isKindOfClass:[NSString class]])
+        {
+            object.email = [tempDic valueForKey:@"app_user_email"];
+        }
+        else
+        {
+            object.email = @"";
+        }
+        
+        if([[tempDic valueForKey:@"app_user_cell_phone"] isKindOfClass:[NSString class]])
+        {
+            object.phone = [tempDic valueForKey:@"app_user_cell_phone"];
+        }
+        else
+        {
+            object.phone = @"";
+        }
+        
+    }
+    return object;
     
 }
 

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ProfileObject.h"
 
 @interface ProfileEditViewController : UIViewController
-
+@property (strong,nonatomic) ProfileObject *profile;
 @end
