@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "MessageObject.h"
 @interface MessageViewController : UIViewController
+
+@property (strong,nonatomic) MessageObject *messageObject;
+@property (nonatomic) BOOL fromNotificationPage;
 
 @end

@@ -4103,7 +4103,7 @@
         <!--Event Details View Controller-->
         <scene sceneID="BO0-li-bSm">
             <objects>
-                <viewController id="Onz-dy-eTE" customClass="EventDetailsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="eventDetails" id="Onz-dy-eTE" customClass="EventDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hSQ-WA-bcn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="700"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -7902,7 +7902,7 @@
         <!--News Details View Controller-->
         <scene sceneID="fVF-kd-Fk4">
             <objects>
-                <viewController id="ezI-OT-zNz" customClass="NewsDetailsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newsDetails" id="ezI-OT-zNz" customClass="NewsDetailsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mZM-VI-sZw">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

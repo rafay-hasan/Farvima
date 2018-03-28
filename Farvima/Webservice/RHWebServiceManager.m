@@ -128,6 +128,27 @@
                     [self.delegate dataFromWebReceivedSuccessfully:[self parseOfferNotification:responseObject]];
                 }
             }
+            else if(self.requestType == HTTPRequestTypeNotificationDetailsNews)
+            {
+                if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
+                {
+                    [self.delegate dataFromWebReceivedSuccessfully:[self parseNewsNotification:responseObject]];
+                }
+            }
+            else if(self.requestType == HTTPRequestTypeNotificationDetailsEvent)
+            {
+                if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
+                {
+                    [self.delegate dataFromWebReceivedSuccessfully:[self parseEventNotification:responseObject]];
+                }
+            }
+            else if(self.requestType == HTTPRequestTypeNotificationDetailsMessage)
+            {
+                if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
+                {
+                    [self.delegate dataFromWebReceivedSuccessfully:[self parseMessageNotification:responseObject]];
+                }
+            }
             else {
                 if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
                 {
@@ -1405,6 +1426,183 @@
         else
         {
             object.offerType = @"farmacia logo";
+        }
+        
+    }
+    return object;
+}
+
+-(MessageObject *) parseMessageNotification :(id) response
+{
+    MessageObject *object = [MessageObject new];
+    if([[response valueForKey:@"notification_details"] isKindOfClass:[NSDictionary class]])
+    {
+        NSDictionary *tempDic = [(NSDictionary *)response valueForKey:@"notification_details"];
+        
+        if([[tempDic valueForKey:@"message_title"] isKindOfClass:[NSString class]])
+        {
+            object.name = [tempDic valueForKey:@"message_title"];
+        }
+        else
+        {
+            object.name = @"";
+        }
+        
+        if([[tempDic valueForKey:@"message_details"] isKindOfClass:[NSString class]])
+        {
+            object.details = [tempDic valueForKey:@"message_details"];
+        }
+        else
+        {
+            object.details = @"";
+        }
+        
+        if([[tempDic valueForKey:@"message_created_date_time"] isKindOfClass:[NSString class]])
+        {
+            object.creationDate = [tempDic valueForKey:@"message_created_date_time"];
+        }
+        else
+        {
+            object.creationDate = @"";
+        }
+        
+        if([[tempDic valueForKey:@"ref_message_pharmacy_id"] isKindOfClass:[NSString class]])
+        {
+            object.referencePharmacyId = [tempDic valueForKey:@"ref_message_pharmacy_id"];
+        }
+        else
+        {
+            object.referencePharmacyId = @"";
+        }
+        
+    }
+    return object;
+}
+
+-(NewsObject *) parseNewsNotification :(id) response
+{
+    NewsObject *object = [NewsObject new];
+    if([[response valueForKey:@"notification_details"] isKindOfClass:[NSDictionary class]])
+    {
+        NSDictionary *tempDic = [(NSDictionary *)response valueForKey:@"notification_details"];
+        
+        if([[tempDic valueForKey:@"news_title"] isKindOfClass:[NSString class]])
+        {
+            object.name = [tempDic valueForKey:@"news_title"];
+        }
+        else
+        {
+            object.name = @"";
+        }
+        
+        if([[tempDic valueForKey:@"news_description"] isKindOfClass:[NSString class]])
+        {
+            object.details = [tempDic valueForKey:@"news_description"];
+        }
+        else
+        {
+            object.details = @"";
+        }
+        
+        if([[tempDic valueForKey:@"news_image_location"] isKindOfClass:[NSString class]])
+        {
+            object.imageUel = [NSString stringWithFormat:@"%@%@",BASE_URL_API,[tempDic valueForKey:@"news_image_location"]];
+        }
+        else
+        {
+            object.imageUel = @"";
+        }
+        
+        if([[tempDic valueForKey:@"news_created_edited_date_time"] isKindOfClass:[NSString class]])
+        {
+            object.creationDate = [tempDic valueForKey:@"news_created_edited_date_time"];
+        }
+        else
+        {
+            object.creationDate = @"";
+        }
+        
+    }
+    return object;
+}
+
+-(EventObject *) parseEventNotification :(id) response
+{
+    EventObject *object = [EventObject new];
+    if([[response valueForKey:@"notification_details"] isKindOfClass:[NSDictionary class]])
+    {
+        NSDictionary *tempDic = [(NSDictionary *)response valueForKey:@"notification_details"];
+        
+        if([[tempDic valueForKey:@"events_name"] isKindOfClass:[NSString class]])
+        {
+            object.name = [tempDic valueForKey:@"events_name"];
+        }
+        else
+        {
+            object.name = @"";
+        }
+        
+        if([[tempDic valueForKey:@"events_description"] isKindOfClass:[NSString class]])
+        {
+            object.details = [tempDic valueForKey:@"events_description"];
+        }
+        else
+        {
+            object.details = @"";
+        }
+        
+        if([[tempDic valueForKey:@"events_place"] isKindOfClass:[NSString class]])
+        {
+            object.location = [tempDic valueForKey:@"events_place"];
+        }
+        else
+        {
+            object.location = @"";
+        }
+        
+        if([[tempDic valueForKey:@"events_image_location"] isKindOfClass:[NSString class]])
+        {
+            object.imageUel = [NSString stringWithFormat:@"%@%@",BASE_URL_API,[tempDic valueForKey:@"events_image_location"]];
+        }
+        else
+        {
+            object.imageUel = @"";
+        }
+        
+        if([[tempDic valueForKey:@"events_start_date"] isKindOfClass:[NSString class]])
+        {
+            object.locationDate = [tempDic valueForKey:@"events_start_date"];
+        }
+        else
+        {
+            object.locationDate = @"";
+        }
+        
+        if([[tempDic valueForKey:@"events_start_time"] isKindOfClass:[NSString class]])
+        {
+            object.startTime = [tempDic valueForKey:@"events_start_time"];
+        }
+        else
+        {
+            object.startTime = @"";
+        }
+        
+        if([[tempDic valueForKey:@"events_end_time"] isKindOfClass:[NSString class]])
+        {
+            object.endTime = [tempDic valueForKey:@"events_end_time"];
+        }
+        else
+        {
+            object.endTime = @"";
+        }
+        
+        if([[tempDic valueForKey:@"ref_events_pharmacy_id"] isKindOfClass:[NSString class]])
+        {
+            object.referencePharmacyId = [tempDic valueForKey:@"ref_events_pharmacy_id"];
+        }
+        else
+        {
+            object.referencePharmacyId = @"";
         }
         
     }

@@ -12,14 +12,12 @@
 #import "RHWebServiceManager.h"
 #import "SVProgressHUD.h"
 #import "User Details.h"
-#import "MessageObject.h"
 #import "UIViewController+LGSideMenuController.h"
 
 
 @interface MessageViewController ()<UITableViewDelegate,UITableViewDataSource,RHWebServiceDelegate,LGSideMenuControllerDelegate>
 
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
-@property (strong,nonatomic) MessageObject *messageObject;
 @property (strong,nonatomic) NSMutableArray *messageArray;
 
 @property (weak, nonatomic) IBOutlet UITableView *messageTableview;
@@ -38,9 +36,14 @@
     UINib *messageHeaderXix = [UINib nibWithNibName:@"MessageSectionHeader" bundle:nil];
     [self.messageTableview registerNib:messageHeaderXix forHeaderFooterViewReuseIdentifier:@"messageSectionHeader"];
     
-    self.messageObject = [MessageObject new];
     self.messageArray = [NSMutableArray new];
-    [self CallMessageWebservice];
+    if(self.fromNotificationPage) {
+        [self.messageArray addObject:self.messageObject];
+        [self.messageTableview reloadData];
+    }
+    else {
+        [self CallMessageWebservice];
+    }
 }
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -164,12 +167,14 @@
 
 - (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
     
-    NSInteger currentOffset = scrollView.contentOffset.y;
-    NSInteger maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
-    if (maximumOffset - currentOffset <= -40) {
-        
-        [self CallMessageWebservice];
-        
+    if (!self.fromNotificationPage) {
+        NSInteger currentOffset = scrollView.contentOffset.y;
+        NSInteger maximumOffset = scrollView.contentSize.height - scrollView.frame.size.height;
+        if (maximumOffset - currentOffset <= -40) {
+            
+            [self CallMessageWebservice];
+            
+        }
     }
 }
 

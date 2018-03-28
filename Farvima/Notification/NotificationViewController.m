@@ -14,6 +14,9 @@
 #import "SVProgressHUD.h"
 #import "NotificationObject.h"
 #import "OfferViewController.h"
+#import "NewsDetailsViewController.h"
+#import "EventDetailsViewController.h"
+#import "MessageViewController.h"
 
 @interface NotificationViewController ()<LGSideMenuControllerDelegate,RHWebServiceDelegate>
 
@@ -99,10 +102,14 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (self.myWebService.requestType == HTTPRequestTypeNotificationDetailsNews) {
-        NSLog(@"%@",responseObj);
+        NewsDetailsViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"newsDetails"];
+        vc.object = responseObj;
+        [self.navigationController pushViewController:vc animated:YES];
     }
     else if (self.myWebService.requestType == HTTPRequestTypeNotificationDetailsEvent) {
-        NSLog(@"%@",responseObj);
+        EventDetailsViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"eventDetails"];
+        vc.object = responseObj;
+        [self.navigationController pushViewController:vc animated:YES];
     }
     else if (self.myWebService.requestType == HTTPRequestTypeNotificationDetailsGallery) {
         NSLog(@"%@",responseObj);
@@ -111,7 +118,10 @@
         NSLog(@"%@",responseObj);
     }
     else if (self.myWebService.requestType == HTTPRequestTypeNotificationDetailsMessage) {
-        NSLog(@"%@",responseObj);
+        MessageViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"messaggi"];
+        vc.messageObject = responseObj;
+        vc.fromNotificationPage = YES;
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 
