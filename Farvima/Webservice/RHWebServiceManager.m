@@ -121,6 +121,13 @@
                     [self.delegate dataFromWebReceivedSuccessfully:[self parseProfileDetails:responseObject]];
                 }
             }
+            else if(self.requestType == HTTPRequestTypeNotificationDetailsOffer)
+            {
+                if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
+                {
+                    [self.delegate dataFromWebReceivedSuccessfully:[self parseOfferNotification:responseObject]];
+                }
+            }
             else {
                 if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
                 {
@@ -1337,6 +1344,71 @@
     }
     return pharmacyItemsArray;
     
+}
+
+-(AllOfferObject *) parseOfferNotification :(id) response
+{
+    AllOfferObject *object = [AllOfferObject new];
+    if([[response valueForKey:@"notification_details"] isKindOfClass:[NSDictionary class]])
+    {
+        NSDictionary *tempDic = [(NSDictionary *)response valueForKey:@"notification_details"];
+        
+        if([[tempDic valueForKey:@"offer_pdf_id"] isKindOfClass:[NSString class]])
+        {
+            object.offerId = [tempDic  valueForKey:@"offer_pdf_id"];
+        }
+        else
+        {
+            object.offerId = @"";
+        }
+        
+        if([[tempDic valueForKey:@"offer_pdf_title"] isKindOfClass:[NSString class]])
+        {
+            object.offerTitle = [tempDic valueForKey:@"offer_pdf_title"];
+        }
+        else
+        {
+            object.offerTitle = @"";
+        }
+        
+        if([[tempDic valueForKey:@"offer_pdf_storage"] isKindOfClass:[NSString class]])
+        {
+            object.offerPdfLink = [NSString stringWithFormat:@"%@%@",BASE_URL_API,[tempDic valueForKey:@"offer_pdf_storage"]];
+        }
+        else
+        {
+            object.offerPdfLink = @"";
+        }
+        
+        if([[tempDic valueForKey:@"offer_pdf_starting_date_time"] isKindOfClass:[NSString class]])
+        {
+            object.startTime = [tempDic valueForKey:@"offer_pdf_starting_date_time"];
+        }
+        else
+        {
+            object.startTime = @"";
+        }
+        
+        if([[tempDic valueForKey:@"offer_pdf_ending_date_time"] isKindOfClass:[NSString class]])
+        {
+            object.endTime = [tempDic valueForKey:@"offer_pdf_ending_date_time"];
+        }
+        else
+        {
+            object.endTime = @"";
+        }
+        
+        if([[tempDic valueForKey:@"offer_pdf_from_farma"] isKindOfClass:[NSString class]] && [[tempDic valueForKey:@"offer_pdf_from_farma"] isEqualToString:@"1"])
+        {
+            object.offerType = @"farma logo";
+        }
+        else
+        {
+            object.offerType = @"farmacia logo";
+        }
+        
+    }
+    return object;
 }
 
 

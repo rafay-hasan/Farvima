@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "AllOfferObject.h"
 
 @interface OfferViewController : UIViewController
-
+@property (nonatomic) BOOL fromNotificationPage;
+@property (strong,nonatomic) AllOfferObject *offerObject;
 @end

@@ -13,6 +13,7 @@
 #import "RHWebServiceManager.h"
 #import "SVProgressHUD.h"
 #import "NotificationObject.h"
+#import "OfferViewController.h"
 
 @interface NotificationViewController ()<LGSideMenuControllerDelegate,RHWebServiceDelegate>
 
@@ -23,7 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *notificationTableview;
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 @property (strong,nonatomic) NSMutableArray *notificationArray;
-@property (strong,nonatomic) NotificationObject *notification;
+@property (strong,nonatomic) NotificationObject *object;
 
 @end
 
@@ -58,15 +59,6 @@
 }
 */
 
--(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
-    for (UIViewController *vc in self.navigationController.viewControllers) {
-        if ([vc isKindOfClass:targetViewController.class]) {
-            [self.navigationController popToViewController:vc animated:NO];
-            return YES;
-        }
-    }
-    return NO;
-}
 
 - (IBAction)backButtonAction:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
@@ -98,8 +90,29 @@
     if(self.myWebService.requestType == HTTPRequestTypeNotification)
     {
         [self.notificationArray addObjectsFromArray:(NSArray *)responseObj];
+        [self.notificationTableview reloadData];
     }
-    [self.notificationTableview reloadData];
+    else if (self.myWebService.requestType == HTTPRequestTypeNotificationDetailsOffer) {
+        OfferViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"offerte"];
+        vc.offerObject = responseObj;
+        vc.fromNotificationPage = YES;
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if (self.myWebService.requestType == HTTPRequestTypeNotificationDetailsNews) {
+        NSLog(@"%@",responseObj);
+    }
+    else if (self.myWebService.requestType == HTTPRequestTypeNotificationDetailsEvent) {
+        NSLog(@"%@",responseObj);
+    }
+    else if (self.myWebService.requestType == HTTPRequestTypeNotificationDetailsGallery) {
+        NSLog(@"%@",responseObj);
+    }
+    else if (self.myWebService.requestType == HTTPRequestTypeNotificationDetailsOfferProduct) {
+        NSLog(@"%@",responseObj);
+    }
+    else if (self.myWebService.requestType == HTTPRequestTypeNotificationDetailsMessage) {
+        NSLog(@"%@",responseObj);
+    }
 }
 
 -(void) dataFromWebReceiptionFailed:(NSError*) error
@@ -127,14 +140,39 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"notificationCell" forIndexPath:indexPath];
-    self.notification = [self.notificationArray objectAtIndex:indexPath.row];
-    cell.notificationTitleLabel.text = self.notification.notificationTitle;
-    cell.notificationTYpeImageView.image = [UIImage imageNamed:self.notification.NotificationCategory];
+    self.object = [self.notificationArray objectAtIndex:indexPath.row];
+    cell.notificationTitleLabel.text = self.object.notificationTitle;
+    cell.notificationTYpeImageView.image = [UIImage imageNamed:self.object.NotificationCategory];
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    self.object = [self.notificationArray objectAtIndex:indexPath.row];
+    
+    [SVProgressHUD show];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,NotificationDetails_URL_API,self.object.notificationId];
+    if ([self.object.notificationTypeId isEqualToString:@"1"]) {
+        self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeNotificationDetailsOffer Delegate:self];
+    }
+    else if ([self.object.notificationTypeId isEqualToString:@"2"]) {
+        self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeNotificationDetailsNews Delegate:self];
+    }
+    else if ([self.object.notificationTypeId isEqualToString:@"3"]) {
+        self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeNotificationDetailsEvent Delegate:self];
+    }
+    else if ([self.object.notificationTypeId isEqualToString:@"4"]) {
+        self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeNotificationDetailsGallery Delegate:self];
+    }
+    else if ([self.object.notificationTypeId isEqualToString:@"5"]) {
+        self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeNotificationDetailsOfferProduct Delegate:self];
+    }
+    else if ([self.object.notificationTypeId isEqualToString:@"6"]) {
+        self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeNotificationDetailsMessage Delegate:self];
+    }
+    [self.myWebService getDataFromWebURLWithUrlString:urlStr];
+    
+    
 }
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     

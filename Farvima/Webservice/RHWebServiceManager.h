@@ -34,6 +34,7 @@
 #define LoginAuthentication_URL_API @"app_user_login_authentication/"
 #define OrderConfirmation_URL_API @"app_order_confirmation/"
 #define Notification_URL_API @"notifications/"
+#define NotificationDetails_URL_API @"notification_details/"
 #define ProfileDetails_URL_API @"app_user_details/"
 #define ProfileModification_URL_API @"app_user_details_update/"
 
@@ -48,6 +49,12 @@ enum {
     HTTPRequestTypeNews,
     HTTPRequestTypeMessage,
     HTTPRequestTypeNotification,
+    HTTPRequestTypeNotificationDetailsOffer,
+    HTTPRequestTypeNotificationDetailsNews,
+    HTTPRequestTypeNotificationDetailsEvent,
+    HTTPRequestTypeNotificationDetailsGallery,
+    HTTPRequestTypeNotificationDetailsOfferProduct,
+    HTTPRequestTypeNotificationDetailsMessage,
     HTTPRequestTypePharmacySearch,
     HTTPRequestTypePharmacySearchForCurrentLocation,
     HTTPRequestTypeChiSiamo,

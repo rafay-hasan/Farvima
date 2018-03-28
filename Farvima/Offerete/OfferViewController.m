@@ -12,7 +12,6 @@
 #import "User Details.h"
 #import "RHWebServiceManager.h"
 #import "SVProgressHUD.h"
-#import "AllOfferObject.h"
 #import "OfferTableViewCell.h"
 #import "FileDownloader.h"
 #import "AllOfersViewController.h"
@@ -29,7 +28,6 @@
 @property (strong,nonatomic) FileDownloader *objDownloader;
 @property (retain,nonatomic) UIDocumentInteractionController *docController;
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
-@property (strong,nonatomic) AllOfferObject *offerObject;
 @property (strong,nonatomic) NSMutableArray *offerArray;
 @property (nonatomic) BOOL downloading;
 @property (strong,nonatomic) NSString* selectedDownloadFileName;
@@ -69,7 +67,14 @@
 
 -(void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self CallOfferWebservice];
+    if(self.fromNotificationPage) {
+        [self.offerArray removeAllObjects];
+        [self.offerArray addObject:self.offerObject];
+        [self.offerTableview reloadData];
+    }
+    else {
+        [self CallOfferWebservice];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -110,7 +115,6 @@
     NSString *urlStr = [NSString stringWithFormat:@"%@%@%@/%@",BASE_URL_API,Offer_URL_API,[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"],startingLimit];
     self.myWebService = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestTypeOffer Delegate:self];
     [self.myWebService getDataFromWebURLWithUrlString:urlStr];
-    
 }
 
 -(void) dataFromWebReceivedSuccessfully:(id) responseObj
