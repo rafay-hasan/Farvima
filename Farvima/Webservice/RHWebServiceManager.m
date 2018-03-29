@@ -177,6 +177,7 @@
 {
     requestURL = [requestURL stringByReplacingOccurrencesOfString:@" " withString:@"%20"];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"text/plain",@"application/json", nil];
     [manager POST:requestURL parameters:postDataDic progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         if([self.delegate conformsToProtocol:@protocol(RHWebServiceDelegate)])
         {

@@ -17,8 +17,11 @@
 #import "NewsDetailsViewController.h"
 #import "EventDetailsViewController.h"
 #import "MessageViewController.h"
+#import "AppDelegate.h"
 
-@interface NotificationViewController ()<LGSideMenuControllerDelegate,RHWebServiceDelegate>
+@interface NotificationViewController ()<LGSideMenuControllerDelegate,RHWebServiceDelegate> {
+    AppDelegate *appDelegate;
+}
 
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)leftSliderButtonAction:(id)sender;
@@ -28,7 +31,7 @@
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 @property (strong,nonatomic) NSMutableArray *notificationArray;
 @property (strong,nonatomic) NotificationObject *object;
-
+@property (strong,nonatomic) NSDictionary *notificationStatusDic;
 @end
 
 @implementation NotificationViewController
@@ -38,7 +41,8 @@
     // Do any additional setup after loading the view.
     self.notificationTableview.tableFooterView = [[UIView alloc]initWithFrame:CGRectZero];
     self.notificationArray = [NSMutableArray new];
-    
+    self.notificationStatusDic = [NSDictionary new];
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -92,21 +96,28 @@
     self.view.userInteractionEnabled = YES;
     if(self.myWebService.requestType == HTTPRequestTypeNotification)
     {
+        [self.notificationArray removeAllObjects];
         [self.notificationArray addObjectsFromArray:(NSArray *)responseObj];
-        [self.notificationTableview reloadData];
+        [self makeRequiredDbChanges];
     }
     else if (self.myWebService.requestType == HTTPRequestTypeNotificationDetailsOffer) {
+        [appDelegate updateNotificationStatusforNotificationId:self.object.notificationId];
+        
         OfferViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"offerte"];
         vc.offerObject = responseObj;
         vc.fromNotificationPage = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (self.myWebService.requestType == HTTPRequestTypeNotificationDetailsNews) {
+        [appDelegate updateNotificationStatusforNotificationId:self.object.notificationId];
+        
         NewsDetailsViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"newsDetails"];
         vc.object = responseObj;
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (self.myWebService.requestType == HTTPRequestTypeNotificationDetailsEvent) {
+        [appDelegate updateNotificationStatusforNotificationId:self.object.notificationId];
+        
         EventDetailsViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"eventDetails"];
         vc.object = responseObj;
         [self.navigationController pushViewController:vc animated:YES];
@@ -118,6 +129,8 @@
         NSLog(@"%@",responseObj);
     }
     else if (self.myWebService.requestType == HTTPRequestTypeNotificationDetailsMessage) {
+        [appDelegate updateNotificationStatusforNotificationId:self.object.notificationId];
+        
         MessageViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"messaggi"];
         vc.messageObject = responseObj;
         vc.fromNotificationPage = YES;
@@ -131,12 +144,50 @@
     self.view.userInteractionEnabled = YES;
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
-        
-        
         [alert dismissViewControllerAnimated:YES completion:nil];
     }];
     [alert addAction:ok];
     [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void) makeRequiredDbChanges {
+    NSMutableDictionary *finalDic = [NSMutableDictionary new];
+    //retrieve all inserted notification
+    self.notificationStatusDic = [[NSDictionary alloc]initWithDictionary:[appDelegate getAllValuesfromNotification]];
+    NSArray *keyArray = [self.notificationStatusDic allKeys];
+    
+    for (NotificationObject *notification in self.notificationArray) {
+        if ([keyArray containsObject:notification.notificationId]) {
+            [finalDic setObject:[self.notificationStatusDic valueForKey:notification.notificationId] forKey:notification.notificationId];
+        }
+        else {
+            [finalDic setObject:[NSNumber numberWithBool:NO] forKey:notification.notificationId];
+        }
+    }
+    
+    // delete all notification as there may be old notifications which are not required now
+    [appDelegate removeAllNotificationData];
+    
+    // insert notifications
+    NSUInteger totalCount = 0;
+    for(NSString *key in finalDic) {
+        [appDelegate savNotificationDetailsWithID:key Status:[finalDic valueForKey:key]];
+        if ([[finalDic valueForKey:key] isEqual:[NSNumber numberWithBool:NO]]) {
+            totalCount = totalCount + 1;
+        }
+    }
+    
+    if(totalCount > 0) {
+        [UIApplication sharedApplication].applicationIconBadgeNumber = totalCount;
+    }
+    else {
+        [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
+    }
+    
+    self.notificationStatusDic = nil;
+    self.notificationStatusDic = [[NSDictionary alloc]initWithDictionary:[appDelegate getAllValuesfromNotification]];
+    
+    [self.notificationTableview reloadData];
 }
 
 
@@ -151,8 +202,14 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"notificationCell" forIndexPath:indexPath];
     self.object = [self.notificationArray objectAtIndex:indexPath.row];
-    cell.notificationTitleLabel.text = self.object.notificationTitle;
+    cell.notificationTitleLabel.text = self.object.notificationId;
     cell.notificationTYpeImageView.image = [UIImage imageNamed:self.object.NotificationCategory];
+    if ([[self.notificationStatusDic valueForKey:self.object.notificationId] isEqual:[NSNumber numberWithBool:YES]]) {
+        cell.unreadStatusLabel.hidden = YES;
+    }
+    else {
+        cell.unreadStatusLabel.hidden = NO;
+    }
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

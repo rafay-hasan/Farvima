@@ -12,5 +12,6 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *notificationTYpeImageView;
 @property (weak, nonatomic) IBOutlet UILabel *notificationTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *unreadStatusLabel;
 
 @end

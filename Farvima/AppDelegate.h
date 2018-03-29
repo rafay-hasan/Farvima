@@ -17,6 +17,12 @@
 - (NSArray *) retrieveAllOrder ;
 - (void) RemoveAllDataOfOrder;
 
+-(BOOL)checkIfNotificationisNew:(NSString *)notificationId;
+-(NSMutableDictionary *) getAllValuesfromNotification;
+-(BOOL) savNotificationDetailsWithID:(NSString *)notificationId Status:(NSNumber *)value;
+-(void) removeAllNotificationData;
+-(void) updateNotificationStatusforNotificationId:(NSString *)notificationId;
+
 #pragma mark - Core data for messages vriable
 @property (readonly, strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;

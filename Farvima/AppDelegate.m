@@ -27,9 +27,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [GMSServices provideAPIKey:@"AIzaSyAyxboUhN8tJ8Yc9O0OWFDOT0Aplsb_uD0"];
+//    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"NotificationStatusDictionary"] == nil) {
+//        NSMutableDictionary *dic = [NSMutableDictionary new];
+//        [[NSUserDefaults standardUserDefaults] setObject:dic forKey:@"NotificationStatusDictionary"];
+//        [[NSUserDefaults standardUserDefaults] synchronize];
+//    }
     [IQKeyboardManager sharedManager].enable = YES;
     self.userManager = [User_Details sharedInstance];
-     [self CallUserDetailsWebserviceWithUDID:[[[UIDevice currentDevice] identifierForVendor] UUIDString] forDeviceToken:@"123456789"];
+    [self CallUserDetailsWebserviceWithUDID:[[[UIDevice currentDevice] identifierForVendor] UUIDString] forDeviceToken:@"123456789"];
     
     [application registerForRemoteNotifications];
     if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
@@ -310,9 +315,106 @@
     {
         [context deleteObject:object];
     }
-    
+
     error = nil;
     [context save:&error];
+}
+
+-(BOOL)checkIfNotificationisNew:(NSString *)notificationId
+{
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Notification" inManagedObjectContext:managedObjectContext];
+    
+    NSFetchRequest *request = [[NSFetchRequest alloc] init];
+    [request setEntity:entity];
+    [request setFetchLimit:1];
+    [request setPredicate:[NSPredicate predicateWithFormat:@"notificationId == %@", notificationId]];
+    
+    NSError *error = nil;
+    NSUInteger count = [managedObjectContext countForFetchRequest:request error:&error];
+    
+    if (count)
+    {
+        return YES;
+    }
+    else
+    {
+        return NO;
+    }
+}
+
+-(NSMutableDictionary *) getAllValuesfromNotification {
+    NSMutableDictionary *notificationStatusDic = [NSMutableDictionary new];
+    
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Notification" inManagedObjectContext:managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    [fetchRequest setEntity:entity];
+    NSError *error = nil;
+    NSArray *fetchedObjects = [managedObjectContext executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *info in fetchedObjects) {
+        if([[info valueForKey:@"status"] isEqualToNumber:[NSNumber numberWithBool:YES]]) {
+            [notificationStatusDic setObject:[NSNumber numberWithBool:YES] forKey:[info valueForKey:@"notificationId"]];
+        }
+        else {
+             [notificationStatusDic setObject:[NSNumber numberWithBool:NO] forKey:[info valueForKey:@"notificationId"]];
+        }
+    }
+    return notificationStatusDic;
+}
+
+-(BOOL) savNotificationDetailsWithID:(NSString *)notificationId Status:(NSNumber *)value  {
+    
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSManagedObject *object = [NSEntityDescription insertNewObjectForEntityForName:@"Notification" inManagedObjectContext:context];
+    
+    [object setValue:notificationId forKey:@"notificationId"];
+    [object setValue:value forKey:@"status"];
+    
+    // Save the context
+    NSError *error = nil;
+    if (![context save:&error]) {
+        NSLog(@"Save Failed! %@ %@", error, [error localizedDescription]);
+        return NO;
+    }
+    else {
+        return YES;
+    }
+}
+
+-(void) removeAllNotificationData {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Notification"];
+    [fetchRequest setIncludesPropertyValues:NO]; //only fetch the managedObjectID
+    
+    NSError *error;
+    NSArray *fetchedObjects = [context executeFetchRequest:fetchRequest error:&error];
+    for (NSManagedObject *object in fetchedObjects)
+    {
+        [context deleteObject:object];
+    }
+    
+    [self saveContext];
+}
+
+-(void) updateNotificationStatusforNotificationId:(NSString *)notificationId {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    NSEntityDescription *entityDes = [NSEntityDescription entityForName:@"Notification" inManagedObjectContext:context];
+    NSFetchRequest *fetchReq = [[NSFetchRequest alloc]init];
+    [fetchReq setEntity:entityDes];
+    NSPredicate *pred =[NSPredicate predicateWithFormat:@"(notificationId = %@)", notificationId];
+    [fetchReq setPredicate:pred];
+    NSError *error;
+    NSArray *objects = [context executeFetchRequest:fetchReq error:&error];
+    
+    for(NSManagedObject *info in objects)
+    {
+        if([notificationId isEqualToString:[info valueForKey:@"notificationId"]])
+        {
+            [info setValue:[NSNumber numberWithBool:YES] forKey:@"status"];
+        }
+    }
+    [self saveContext];
 }
 
 @end

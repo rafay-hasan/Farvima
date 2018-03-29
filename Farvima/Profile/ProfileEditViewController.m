@@ -124,7 +124,7 @@
 }
 - (IBAction)profileModificationButtonAction:(id)sender {
     NSString *message = @"";
-    if (self.dateTextField.text.length > 0 && self.emailTextField.text.length > 0 && self.addressTextfield.text.length > 0 && self.phoneTextField.text.length > 0) {
+    if (self.dateTextField.text.length > 0 && self.emailTextField.text.length > 0 && self.addressTextfield.text.length > 0 && self.phoneTextField.text.length > 0 && [self NSStringIsValidEmail:self.emailTextField.text]) {
         [self UpdateProfileDetailsWebService];
     }
     else if (self.dateTextField.text.length == 0) {
@@ -135,6 +135,9 @@
     }
     else if (self.emailTextField.text.length == 0) {
         message = @"Please select your email address";
+    }
+    else if (![self NSStringIsValidEmail:self.emailTextField.text]) {
+        message = @"Please select a valid email address";
     }
     else if (self.phoneTextField.text.length == 0) {
         message = @"Please select your phone number";
@@ -152,9 +155,24 @@
     }
 }
 
+-(BOOL) NSStringIsValidEmail:(NSString *)checkString
+{
+    BOOL stricterFilter = NO; // Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/
+    NSString *stricterFilterString = @"^[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}$";
+    NSString *laxString = @"^.+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*$";
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:checkString];
+}
+
 -(void) UpdateProfileDetailsWebService
 {
-    NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:self.dateTextField.text,@"app_user_birth_date",self.addressTextfield.text,@"app_user_address",self.emailTextField.text,@"app_user_email,",self.phoneTextField.text,@"app_user_cell_phone",nil];
+//    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+//    [dateFormatter setDateFormat:@"dd MMM, yyyy"];
+//    NSDate *date = [dateFormatter dateFromString:self.dateTextField.text];
+//    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    
+    NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:self.dateTextField.text,@"app_user_birth_date",self.addressTextfield.text,@"app_user_address",self.emailTextField.text,@"app_user_email",self.phoneTextField.text,@"app_user_cell_phone",nil];
     [SVProgressHUD show];
     NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,ProfileModification_URL_API,[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"]];
     self.myWebserviceManager = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestypeProfileModification Delegate:self];
@@ -168,10 +186,7 @@
     if(self.myWebserviceManager.requestType == HTTPRequestypeProfileModification)
     {
         NSLog(@"Response is %@",responseObj);
-        if ([[responseObj valueForKey:@"pharmacy_logo_storage_path"] isKindOfClass:[NSString class]]) {
-        }
-        else {
-        }
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 
@@ -179,7 +194,7 @@
 {
     [SVProgressHUD dismiss];
     self.view.userInteractionEnabled = YES;
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.debugDescription preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
         
         
