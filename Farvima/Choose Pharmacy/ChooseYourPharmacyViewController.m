@@ -19,6 +19,7 @@
 }
 
 - (IBAction)ChoosePharmacyBottomTabAction:(UIButton *)sender;
+- (IBAction)saltaButtonAction:(id)sender;
 
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)leftSlideButtonAction:(id)sender;
@@ -73,6 +74,9 @@
 
 - (IBAction)ChoosePharmacyBottomTabAction:(UIButton *)sender {
     [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
+}
+
+- (IBAction)saltaButtonAction:(id)sender {
 }
 
 - (IBAction)backButtonAction:(id)sender {

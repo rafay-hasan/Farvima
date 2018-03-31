@@ -128,19 +128,19 @@
         [self UpdateProfileDetailsWebService];
     }
     else if (self.dateTextField.text.length == 0) {
-        message = @"Please select your date of birth";
+        message = @"Please enter your date of birth";
     }
     else if (self.addressTextfield.text.length == 0) {
-        message = @"Please select your Address";
+        message = @"Please enter your Address";
     }
     else if (self.emailTextField.text.length == 0) {
-        message = @"Please select your email address";
+        message = @"Please enter your email address";
     }
     else if (![self NSStringIsValidEmail:self.emailTextField.text]) {
-        message = @"Please select a valid email address";
+        message = @"Please enter a valid email address";
     }
     else if (self.phoneTextField.text.length == 0) {
-        message = @"Please select your phone number";
+        message = @"Please enter your phone number";
     }
     
     if (message.length > 0) {

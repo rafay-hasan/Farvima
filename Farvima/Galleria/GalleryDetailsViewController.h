@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GalleryObject.h"
 
 @interface GalleryDetailsViewController : UIViewController
+
+@property (strong,nonatomic) GalleryObject *gallery;
 
 @end

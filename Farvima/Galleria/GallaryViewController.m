@@ -14,6 +14,7 @@
 #import "GalleryObject.h"
 #import "GallaryCollectionViewCell.h"
 #import "UIViewController+LGSideMenuController.h"
+#import "GalleryDetailsViewController.h"
 
 @interface GallaryViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,RHWebServiceDelegate,LGSideMenuControllerDelegate>
 
@@ -50,15 +51,16 @@
 
 
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
 }
-*/
+
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -81,6 +83,14 @@
     }
     cell.backgroundColor = [UIColor clearColor];
     return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    self.galleryObject = [self.gallaryArray objectAtIndex:indexPath.row];
+    GalleryDetailsViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"galleryDetails"];
+    vc.gallery = self.galleryObject;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath

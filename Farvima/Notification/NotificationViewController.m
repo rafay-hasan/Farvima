@@ -17,6 +17,7 @@
 #import "NewsDetailsViewController.h"
 #import "EventDetailsViewController.h"
 #import "MessageViewController.h"
+#import "GalleryDetailsViewController.h"
 #import "AppDelegate.h"
 
 @interface NotificationViewController ()<LGSideMenuControllerDelegate,RHWebServiceDelegate> {
@@ -123,7 +124,11 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if (self.myWebService.requestType == HTTPRequestTypeNotificationDetailsGallery) {
-        NSLog(@"%@",responseObj);
+        [appDelegate updateNotificationStatusforNotificationId:self.object.notificationId];
+        
+        GalleryDetailsViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"galleryDetails"];
+        vc.gallery = responseObj;
+        [self.navigationController pushViewController:vc animated:YES];
     }
     else if (self.myWebService.requestType == HTTPRequestTypeNotificationDetailsOfferProduct) {
         NSLog(@"%@",responseObj);

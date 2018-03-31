@@ -149,6 +149,13 @@
                     [self.delegate dataFromWebReceivedSuccessfully:[self parseMessageNotification:responseObject]];
                 }
             }
+            else if(self.requestType == HTTPRequestTypeNotificationDetailsGallery)
+            {
+                if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
+                {
+                    [self.delegate dataFromWebReceivedSuccessfully:[self parseGalleryNotification:responseObject]];
+                }
+            }
             else {
                 if([self.delegate respondsToSelector:@selector(dataFromWebReceivedSuccessfully:)])
                 {
@@ -1523,6 +1530,43 @@
             object.creationDate = @"";
         }
         
+    }
+    return object;
+}
+
+-(GalleryObject *) parseGalleryNotification :(id) response
+{
+    GalleryObject *object = [GalleryObject new];
+    if([[response valueForKey:@"notification_details"] isKindOfClass:[NSDictionary class]])
+    {
+        NSDictionary *tempDic = [(NSDictionary *)response valueForKey:@"notification_details"];
+        
+        if([[tempDic valueForKey:@"gallery_image_title"] isKindOfClass:[NSString class]])
+        {
+            object.name = [tempDic valueForKey:@"gallery_image_title"];
+        }
+        else
+        {
+            object.name = @"";
+        }
+        
+        if([[tempDic valueForKey:@"gallery_image_description"] isKindOfClass:[NSString class]])
+        {
+            object.details = [tempDic valueForKey:@"gallery_image_description"];
+        }
+        else
+        {
+            object.details = @"";
+        }
+        
+        if([[tempDic valueForKey:@"gallery_image_storage_path"] isKindOfClass:[NSString class]])
+        {
+            object.imageUel = [NSString stringWithFormat:@"%@%@",BASE_URL_API,[tempDic valueForKey:@"gallery_image_storage_path"]];
+        }
+        else
+        {
+            object.imageUel = @"";
+        }
     }
     return object;
 }
