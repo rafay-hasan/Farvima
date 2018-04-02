@@ -97,24 +97,27 @@
         self.userManager.appUserId = @"";
     }
     
-    if ([[responseObj valueForKey:@"app_user_pharmacy_id"] isKindOfClass:[NSString class]]) {
-        self.userManager.pharmacyId = [responseObj valueForKey:@"app_user_pharmacy_id"];
-        [[NSUserDefaults standardUserDefaults] setObject:[responseObj valueForKey:@"app_user_pharmacy_id"] forKey:@"pharmacyId"];
-    }
-    else {
-        self.userManager.pharmacyId = nil;
-    }
+//    if ([[responseObj valueForKey:@"app_user_pharmacy_id"] isKindOfClass:[NSString class]]) {
+//        NSLog(@"  pharmacy id %@",[[NSUserDefaults standardUserDefaults]valueForKey:@"pharmacyId"]);
+//        self.userManager.pharmacyId = [responseObj valueForKey:@"app_user_pharmacy_id"];
+//        [[NSUserDefaults standardUserDefaults] setObject:[responseObj valueForKey:@"app_user_pharmacy_id"] forKey:@"pharmacyId"];
+//    }
+//    else {
+//        self.userManager.pharmacyId = nil;
+//    }
     
     if ([[responseObj valueForKey:@"ref_app_user_pharmacy_pharmacy_id"] isKindOfClass:[NSString class]]) {
         self.userManager.referenceAppUserPharmacyId = [responseObj valueForKey:@"ref_app_user_pharmacy_pharmacy_id"];
         [[NSUserDefaults standardUserDefaults] setObject:[responseObj valueForKey:@"ref_app_user_pharmacy_pharmacy_id"] forKey:@"referenceAppUserPharmacyId"];
+        [[NSUserDefaults standardUserDefaults] setObject:[responseObj valueForKey:@"ref_app_user_pharmacy_pharmacy_id"] forKey:@"pharmacyId"];
     }
     else {
         self.userManager.referenceAppUserPharmacyId = nil;
+        self.userManager.pharmacyId = nil;
     }
     [[NSUserDefaults standardUserDefaults] synchronize];
     [[FarmVimaSlideMenuSingletone sharedManager] createLeftGeneralSlideMenu];
-    NSLog(@"App User id is %@",self.userManager.appUserId);
+    //NSLog(@"App User id is %@",self.userManager.appUserId);
     //self.userManager.appUserId = @"6";
 }
 
