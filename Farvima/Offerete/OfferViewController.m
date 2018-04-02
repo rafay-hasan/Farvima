@@ -57,6 +57,7 @@
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.sideMenuController.delegate = self;
+    self.sideMenuController.rightViewSwipeGestureEnabled = NO;
     self.downloadProgressContainerView.layer.cornerRadius = 3;
     self.downloadProgressContainerView.layer.masksToBounds = YES;
     self.downloaderBgView.hidden = YES;
@@ -256,11 +257,13 @@
 }
 
 - (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-    [User_Details sharedInstance].appUserId = @"";
+    [User_Details sharedInstance].currentlySelectedLeftSlideMenu = @"";
 }
 
 - (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-    [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+    if ([User_Details sharedInstance].currentlySelectedLeftSlideMenu.length > 0) {
+        [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+    }
 }
 
 #pragma Mark Downloader Delegate methods

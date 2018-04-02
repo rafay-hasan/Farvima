@@ -78,6 +78,7 @@
 		BBDC093A1F93B7F100E5D9A2 /* EventIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09391F93B7F100E5D9A2 /* EventIntroViewController.m */; };
 		BBDC093D1F93B81300E5D9A2 /* OfferIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC093C1F93B81300E5D9A2 /* OfferIntroViewController.m */; };
 		BBDC09411F93B83500E5D9A2 /* PreBookIntroViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDC09401F93B83500E5D9A2 /* PreBookIntroViewController.m */; };
+		BBE01A382072897900CDAA6B /* LoginWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE01A372072897900CDAA6B /* LoginWebViewController.m */; };
 		BBE31AB91FA5A2D700E07440 /* ProductSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE31AB81FA5A2D700E07440 /* ProductSearchViewController.m */; };
 		BBE5E7EF1FD458FF0026DDB5 /* NewsObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE5E7EE1FD458FF0026DDB5 /* NewsObject.m */; };
 		BBE5E7F31FD46DF00026DDB5 /* MessageObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BBE5E7F21FD46DF00026DDB5 /* MessageObject.m */; };
@@ -234,6 +235,8 @@
 		BBDC093C1F93B81300E5D9A2 /* OfferIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OfferIntroViewController.m; sourceTree = "<group>"; };
 		BBDC093F1F93B83500E5D9A2 /* PreBookIntroViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PreBookIntroViewController.h; sourceTree = "<group>"; };
 		BBDC09401F93B83500E5D9A2 /* PreBookIntroViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PreBookIntroViewController.m; sourceTree = "<group>"; };
+		BBE01A362072897900CDAA6B /* LoginWebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginWebViewController.h; sourceTree = "<group>"; };
+		BBE01A372072897900CDAA6B /* LoginWebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginWebViewController.m; sourceTree = "<group>"; };
 		BBE31AB71FA5A2D700E07440 /* ProductSearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProductSearchViewController.h; sourceTree = "<group>"; };
 		BBE31AB81FA5A2D700E07440 /* ProductSearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProductSearchViewController.m; sourceTree = "<group>"; };
 		BBE5E7ED1FD458FF0026DDB5 /* NewsObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NewsObject.h; sourceTree = "<group>"; };
@@ -648,6 +651,8 @@
 				BB16A7C01FA77EA100AFA112 /* OrderDetailsHeaderSection.m */,
 				BB16A7C71FA788BE00AFA112 /* OrderDetailsFooetrSection.h */,
 				BB16A7C81FA788BE00AFA112 /* OrderDetailsFooetrSection.m */,
+				BBE01A362072897900CDAA6B /* LoginWebViewController.h */,
+				BBE01A372072897900CDAA6B /* LoginWebViewController.m */,
 			);
 			path = "Product search";
 			sourceTree = "<group>";
@@ -975,6 +980,7 @@
 				BB5C96521FC45AC900126DC9 /* MainViewController.m in Sources */,
 				BBD52BF91FD3FA5700EC3A76 /* User Details.m in Sources */,
 				BB04CDA31FD5A2BF008A70DC /* SearchPharmacyObject.m in Sources */,
+				BBE01A382072897900CDAA6B /* LoginWebViewController.m in Sources */,
 				84CF4F012056BBB000C272AD /* TestViewController.m in Sources */,
 				BBE31AB91FA5A2D700E07440 /* ProductSearchViewController.m in Sources */,
 				BB3425CF1FB209A8000FD88C /* EventDetailsViewController.m in Sources */,

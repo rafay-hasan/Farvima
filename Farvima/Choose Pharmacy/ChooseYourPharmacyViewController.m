@@ -14,7 +14,7 @@
 #import "PharmacyListViewController.h"
 #import <CoreLocation/CoreLocation.h>
 
-@interface ChooseYourPharmacyViewController ()<RHWebServiceDelegate,CLLocationManagerDelegate> {
+@interface ChooseYourPharmacyViewController ()<RHWebServiceDelegate,CLLocationManagerDelegate,LGSideMenuControllerDelegate> {
     CLLocationManager *locationManager;
 }
 
@@ -50,6 +50,8 @@
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [locationManager startUpdatingLocation];
+    self.sideMenuController.delegate = self;
+    self.sideMenuController.rightViewSwipeGestureEnabled = NO;
 }
 
 -(void) viewWillDisappear:(BOOL)animated {
@@ -77,6 +79,7 @@
 }
 
 - (IBAction)saltaButtonAction:(id)sender {
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (IBAction)backButtonAction:(id)sender {
@@ -136,6 +139,7 @@
         [self.pharmacyArray addObjectsFromArray:(NSArray *)responseObj];
         PharmacyListViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"pharmacyListPage"];
         vc.pharmacyArray = self.pharmacyArray;
+        vc.forCurrentLocation = YES;
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
@@ -154,6 +158,15 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+- (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [User_Details sharedInstance].currentlySelectedLeftSlideMenu = @"";
+}
+
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    if ([User_Details sharedInstance].currentlySelectedLeftSlideMenu.length > 0) {
+        [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+    }
+}
 
 
 @end

@@ -22,6 +22,7 @@
 #import "UIViewController+LGSideMenuController.h"
 #import <MapKit/MapKit.h>
 #import <MessageUI/MessageUI.h>
+#import "LoginWebViewController.h"
 
 @interface FarmaciaViewController ()<RHWebServiceDelegate,MKMapViewDelegate,InfoPopOverDelegate,UIPopoverPresentationControllerDelegate,MFMailComposeViewControllerDelegate,LGSideMenuControllerDelegate>
 
@@ -39,6 +40,8 @@
 - (IBAction)farmaciaLeftSlideMenuButtonAction:(id)sender;
 @property (weak, nonatomic) IBOutlet UILabel *totalOfferNumberLabel;
 
+- (IBAction)facebookButtonAction:(id)sender;
+- (IBAction)callButtonAction:(id)sender;
 
 @end
 
@@ -49,6 +52,13 @@
     // Do any additional setup after loading the view.
     [self CallPharmacyDetailsWebservice];
 }
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.sideMenuController.delegate = self;
+    self.sideMenuController.rightViewSwipeGestureEnabled = NO;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -296,25 +306,34 @@
 }
 
 -(void)valueSelectedFromOver:(NSUInteger )value {
-    if (value == 1002) {
-        NSString *phoneNumber = [@"telprompt://" stringByAppendingString:self.pharmacy.phone];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    [self dismissViewControllerAnimated:YES completion:nil];
+    //self.pharmacy.phone = @"01722601792";
+    if (value == 3002) {
+        if (self.pharmacy.phone.length > 0) {
+            NSString *phoneNumber = [@"telprompt://" stringByAppendingString:self.pharmacy.phone];
+            [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+        }
     }
-    else if (value == 1003) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString: self.pharmacy.webAddress]];
+    else if (value == 3003) {
+        if (self.pharmacy.webAddress.length > 0) {
+            LoginWebViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebview"];
+            newView.webLinkStr = self.pharmacy.webAddress;
+            [self.navigationController pushViewController:newView animated:YES];
+        }
     }
-    else if (value == 1004) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-        NSArray *toRecipents = [NSArray arrayWithObject:self.pharmacy.emailAddress];
-        if ([MFMailComposeViewController canSendMail]){
-            MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
-            mc.mailComposeDelegate = self;
-            [mc setSubject:@""];
-            [mc setMessageBody:@"" isHTML:NO];
-            [mc setToRecipients:toRecipents];
-            
-            // Present mail view controller on screen
-            [self presentViewController:mc animated:YES completion:NULL];
+    else if (value == 3004) {
+        if (self.pharmacy.emailAddress.length > 0) {
+            NSArray *toRecipents = [NSArray arrayWithObject:self.pharmacy.emailAddress];
+            if ([MFMailComposeViewController canSendMail]){
+                MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+                mc.mailComposeDelegate = self;
+                [mc setSubject:@""];
+                [mc setMessageBody:@"" isHTML:NO];
+                [mc setToRecipients:toRecipents];
+                
+                // Present mail view controller on screen
+                [self presentViewController:mc animated:YES completion:NULL];
+            }
         }
     }
 }
@@ -353,6 +372,31 @@
 
 - (IBAction)farmaciaLeftSlideMenuButtonAction:(id)sender {
     [[self sideMenuController] showLeftViewAnimated:sender];
+}
+
+- (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [User_Details sharedInstance].currentlySelectedLeftSlideMenu = @"";
+}
+
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    if ([User_Details sharedInstance].currentlySelectedLeftSlideMenu.length > 0) {
+        [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+    }
+}
+
+- (IBAction)facebookButtonAction:(id)sender {
+    if (self.pharmacy.facebookUrl.length > 0) {
+        LoginWebViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebview"];
+        newView.webLinkStr = self.pharmacy.facebookUrl;
+        [self.navigationController pushViewController:newView animated:YES];
+    }
+}
+
+- (IBAction)callButtonAction:(id)sender {
+    if (self.pharmacy.phone.length > 0) {
+        NSString *phoneNumber = [@"telprompt://" stringByAppendingString:self.pharmacy.phone];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+    }
 }
 @end
 

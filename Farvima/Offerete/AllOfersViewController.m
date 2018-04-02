@@ -41,6 +41,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *offerTypeCollectionview;
 - (IBAction)allOfferBottomTabButtonAction:(UIButton *)sender;
 
+@property (weak, nonatomic) IBOutlet UILabel *categoryLabel;
 
 
 @end
@@ -153,19 +154,27 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [User_Details sharedInstance].currentlySelectedLeftSlideMenu = @"";
+}
+
 - (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-    if (self.generalLeftMenuSelected) {
-        [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
-        self.currentlySelected = @"All Offer";
-    }
-    else {
-        for (id object in self.categoryMenuIdArray) {
-            if ([[object valueForKey:@"descrizione"] isEqualToString:[User_Details sharedInstance].currentlySelectedLeftSlideMenu]) {
-                self.selectedCategoryId = [object valueForKey:@"codice_categoria"];
-                [self.offerArray removeAllObjects];
-                self.currentlySelected = @"Category Offer";
-                [self CallCategoryOfferWebservicewithCategoryId:self.selectedCategoryId];
-                break;
+    if ([User_Details sharedInstance].currentlySelectedLeftSlideMenu.length > 0) {
+        if (self.generalLeftMenuSelected) {
+            self.categoryLabel.text = @"TUTTE LE CATEGORIE";
+            [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+            self.currentlySelected = @"All Offer";
+        }
+        else {
+            self.categoryLabel.text = [User_Details sharedInstance].currentlySelectedLeftSlideMenu;
+            for (id object in self.categoryMenuIdArray) {
+                if ([[object valueForKey:@"descrizione"] isEqualToString:[User_Details sharedInstance].currentlySelectedLeftSlideMenu]) {
+                    self.selectedCategoryId = [object valueForKey:@"codice_categoria"];
+                    [self.offerArray removeAllObjects];
+                    self.currentlySelected = @"Category Offer";
+                    [self CallCategoryOfferWebservicewithCategoryId:self.selectedCategoryId];
+                    break;
+                }
             }
         }
     }

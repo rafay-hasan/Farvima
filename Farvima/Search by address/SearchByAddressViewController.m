@@ -12,7 +12,9 @@
 #import "User Details.h"
 #import "SearchPharmacyObject.h"
 #import "PharmacyListViewController.h"
-@interface SearchByAddressViewController ()<RHWebServiceDelegate>
+#import "UIViewController+LGSideMenuController.h"
+
+@interface SearchByAddressViewController ()<RHWebServiceDelegate,LGSideMenuControllerDelegate,UITextFieldDelegate>
 
 @property (strong,nonatomic) RHWebServiceManager *myWebService;
 @property (strong,nonatomic) SearchPharmacyObject *pharmacyObject;
@@ -23,6 +25,7 @@
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)searchButtonAction:(id)sender;
 - (IBAction)productSearchPageBottomTabBarButtonAction:(UIButton *)sender;
+- (IBAction)leftSlideButtonAction:(id)sender;
 
 
 @end
@@ -41,6 +44,12 @@
     self.userManager = [User_Details sharedInstance];
     self.pharmacyObject = [SearchPharmacyObject new];
     self.pharmacyArray = [NSMutableArray new];
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.sideMenuController.delegate = self;
+    self.sideMenuController.rightViewSwipeGestureEnabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,6 +73,7 @@
     if ([segue.identifier isEqualToString:@"pharmacyList"]) {
         PharmacyListViewController *vc = segue.destinationViewController;
         vc.pharmacyArray = self.pharmacyArray;
+        vc.forCurrentLocation = NO;
     }
 }
 
@@ -109,12 +119,48 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.searchTextfield) {
+        [textField becomeFirstResponder];
+        [self CallSearchPharmacyWebServicewithPharmacyName:self.searchTextfield.text];
+    }
+    return YES;
+}
+
 - (IBAction)searchButtonAction:(id)sender {
     [self CallSearchPharmacyWebServicewithPharmacyName:self.searchTextfield.text];
+//    if (self.searchTextfield.text.length > 0) {
+//        [self CallSearchPharmacyWebServicewithPharmacyName:self.searchTextfield.text];
+//    }
+//    else {
+//        UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:@"Please enter the product name" preferredStyle:UIAlertControllerStyleAlert];
+//        UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+//
+//
+//            [alert dismissViewControllerAnimated:YES completion:nil];
+//        }];
+//        [alert addAction:ok];
+//        [self presentViewController:alert animated:YES completion:nil];
+//    }
 }
 
 - (IBAction)productSearchPageBottomTabBarButtonAction:(UIButton *)sender {
     [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
+
+- (IBAction)leftSlideButtonAction:(id)sender {
+    [[self sideMenuController] showLeftViewAnimated:sender];
+}
+
+- (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [User_Details sharedInstance].currentlySelectedLeftSlideMenu = @"";
+}
+
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    if ([User_Details sharedInstance].currentlySelectedLeftSlideMenu.length > 0) {
+        [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+    }
+}
+
 
 @end

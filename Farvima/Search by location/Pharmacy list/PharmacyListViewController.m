@@ -45,19 +45,28 @@
     // Do any additional setup after loading the view.
     
     self.object = [SearchPharmacyObject new];
-    self.mapView.hidden = YES;
-    self.pharmacyListTableview.hidden = NO;
+    if(self.forCurrentLocation) {
+        self.mapView.hidden = NO;
+        self.pharmacyListTableview.hidden = YES;
+    }
+    else {
+        self.mapView.hidden = YES;
+        self.pharmacyListTableview.hidden = NO;
+    }
     [self resetSlideRightmenu];
     [self setMapLocation];
     
 }
 
--(void) viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    NSLog(@"View did appear called");
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.sideMenuController.delegate = self;
+    self.sideMenuController.leftViewSwipeGestureEnabled = YES;
+    self.sideMenuController.rightViewSwipeGestureEnabled = YES;
 }
 
 -(void) viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
     self.sideMenuController.leftViewSwipeGestureEnabled = NO;
     self.sideMenuController.rightViewSwipeGestureEnabled = NO;
     [self.slideMenuSharedManager createLeftGeneralSlideMenu];
@@ -75,7 +84,7 @@
     [self.slideMenuSharedManager.rightSideMenuArray addObject:@"VISTA ELENCO"];
     [self.slideMenuSharedManager.rightSideMenuArray addObject:@"VISTA MAPPA"];
     self.slideMenuSharedManager.isListSelected = YES;
-    self.sideMenuController.delegate = self;
+//    self.sideMenuController.delegate = self;
 }
 
 - (void) setMapLocation {
@@ -105,8 +114,8 @@
            view.phoneNumberLabel.text = object.phone;
            view.webAddressLabel.text = object.pharmacyId;
            view.emailAddressLabel.text = object.email;
-           view.associateButton.tag = 1000 + index;
-           [view.associateButton addTarget:self action:@selector(AssociateFromMapButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+           //view.associateButton.tag = 1000 + index;
+           //[view.associateButton addTarget:self action:@selector(AssociateFromMapButtonAction:) forControlEvents:UIControlEventTouchUpInside];
            break;
        }
        index++;
@@ -115,7 +124,10 @@
 }
 
 - (void) mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker {
-    NSLog(@"id is %@",marker.userData);
+    [User_Details sharedInstance].pharmacyId = marker.userData;
+    [[NSUserDefaults standardUserDefaults] setObject:marker.userData forKey:@"pharmacyId"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self CallPharmacyAssociateWebserviceWith:marker.userData forAppUser:[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"]];
 }
 
 /*
@@ -168,6 +180,9 @@
 -(void) makePharmacyAssociate:(UIButton *)sender {
     
     self.object = [self.pharmacyArray objectAtIndex:sender.tag - 1000];
+    [User_Details sharedInstance].pharmacyId = self.object.pharmacyId;
+    [[NSUserDefaults standardUserDefaults] setObject:self.object.pharmacyId forKey:@"pharmacyId"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     [self CallPharmacyAssociateWebserviceWith:self.object.pharmacyId forAppUser:[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"]];
 }
 
@@ -277,12 +292,24 @@
 }
 
 - (IBAction)leftMenuButtonAction:(id)sender {
+    [[self sideMenuController] showLeftViewAnimated:sender];
 }
 
--(void) AssociateFromMapButtonAction:(UIButton *)sender {
-    NSLog(@"id is %@", [[self.pharmacyArray objectAtIndex:sender.tag - 1000] valueForKey:@"pharmacyId"]);
+//-(void) AssociateFromMapButtonAction:(UIButton *)sender {
+//   // NSLog(@"id is %@", [[self.pharmacyArray objectAtIndex:sender.tag - 1000] valueForKey:@"pharmacyId"]);
+//    self.object = [self.pharmacyArray objectAtIndex:sender.tag - 1000];
+//    [self CallPharmacyAssociateWebserviceWith:self.object.pharmacyId forAppUser:[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"]];
+//}
+
+- (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [User_Details sharedInstance].currentlySelectedLeftSlideMenu = @"";
 }
 
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    if ([User_Details sharedInstance].currentlySelectedLeftSlideMenu.length > 0) {
+        [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+    }
+}
 
 @end
 

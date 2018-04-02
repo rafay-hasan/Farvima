@@ -33,6 +33,7 @@
 - (IBAction)leftSliderButtonAction:(id)sender;
 - (IBAction)categoryLeftSlideButtonAction:(id)sender;
 - (IBAction)PrenotaERitiraBottomTabMenuButtonAction:(UIButton *)sender;
+@property (weak, nonatomic) IBOutlet UILabel *categoryNameLabel;
 
 @property (weak, nonatomic) IBOutlet UICollectionView *productSearchCollectionView;
 - (IBAction)productOrientationButtonAction:(id)sender;
@@ -403,21 +404,25 @@
 }
 
 - (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-    [User_Details sharedInstance].appUserId = @"";
+    [User_Details sharedInstance].currentlySelectedLeftSlideMenu = @"";
 }
 
 - (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
     
-    if (self.generalLeftMenuSelected) {
-        [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
-    }
-    else {
-        for (id object in self.categoryMenuIdArray) {
-            if ([[object valueForKey:@"descrizione"] isEqualToString:[User_Details sharedInstance].currentlySelectedLeftSlideMenu]) {
-                self.selectedCategoryId = [object valueForKey:@"codice_categoria"];
-                [self.productsArray removeAllObjects];
-                [self CallCategoryProductsWebservicewithCategoryId:self.selectedCategoryId];
-                break;
+    if ([User_Details sharedInstance].currentlySelectedLeftSlideMenu.length > 0) {
+        if (self.generalLeftMenuSelected) {
+            self.categoryNameLabel.text = @"TUTTE LE CATEGORIE";
+            [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+        }
+        else {
+            self.categoryNameLabel.text = [User_Details sharedInstance].currentlySelectedLeftSlideMenu;
+            for (id object in self.categoryMenuIdArray) {
+                if ([[object valueForKey:@"descrizione"] isEqualToString:[User_Details sharedInstance].currentlySelectedLeftSlideMenu]) {
+                    self.selectedCategoryId = [object valueForKey:@"codice_categoria"];
+                    [self.productsArray removeAllObjects];
+                    [self CallCategoryProductsWebservicewithCategoryId:self.selectedCategoryId];
+                    break;
+                }
             }
         }
     }

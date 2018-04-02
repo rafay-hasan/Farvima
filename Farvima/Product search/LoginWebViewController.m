@@ -1,51 +1,29 @@
 //
-//  GalleryDetailsViewController.m
+//  LoginWebViewController.m
 //  Farvima
 //
-//  Created by Rafay Hasan on 3/29/18.
+//  Created by Rafay Hasan on 4/2/18.
 //  Copyright © 2018 Rafay Hasan. All rights reserved.
 //
 
-#import "GalleryDetailsViewController.h"
+#import "LoginWebViewController.h"
 #import "UIViewController+LGSideMenuController.h"
 #import "User Details.h"
-#import <SDWebImage/UIImageView+WebCache.h>
+#import "SVProgressHUD.h"
 
-@interface GalleryDetailsViewController ()<LGSideMenuControllerDelegate>
-
-
-@property (weak, nonatomic) IBOutlet UIImageView *galleryImageview;
-@property (weak, nonatomic) IBOutlet UILabel *galleryTitleLabel;
-@property (weak, nonatomic) IBOutlet UITextView *galleryDetailsTextView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *galleryTextViewHeight;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scrollContainerViewHeight;
-
+@interface LoginWebViewController ()<LGSideMenuControllerDelegate,UIWebViewDelegate>
+@property (weak, nonatomic) IBOutlet UIWebView *loginWebview;
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)leftSlideButtonAction:(id)sender;
-- (IBAction)bottomTabGalleryDetailsButtonAction:(UIButton *)sender;
-
+- (IBAction)loginWebviewBottomTabSlideMenuAction:(UIButton *)sender;
 
 @end
 
-@implementation GalleryDetailsViewController
+@implementation LoginWebViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    if (self.gallery.imageUel.length > 0) {
-        [self.galleryImageview sd_setImageWithURL:[NSURL URLWithString:self.gallery.imageUel]
-                                 placeholderImage:[UIImage imageNamed:@"placeholder"]];
-    }
-    else {
-        self.galleryImageview.image = nil;
-    }
-    
-    self.galleryTitleLabel.text = self.gallery.name;
-    self.galleryDetailsTextView.text = self.gallery.details;
-    self.galleryDetailsTextView.scrollEnabled = NO;
-    CGSize sizeThatFitsTextView = [self.galleryDetailsTextView sizeThatFits:CGSizeMake(self.galleryDetailsTextView.frame.size.width, MAXFLOAT)];
-    self.galleryTextViewHeight.constant = sizeThatFitsTextView.height;
-    self.scrollContainerViewHeight.constant = self.galleryDetailsTextView.frame.origin.y + self.galleryTextViewHeight.constant;
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -56,7 +34,10 @@
 
 -(void) viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    [self.view layoutIfNeeded];
+    NSString *urlString = self.webLinkStr;
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:url];
+    [self.loginWebview loadRequest:urlRequest];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -79,11 +60,10 @@
 }
 
 - (IBAction)leftSlideButtonAction:(id)sender {
-    [[self sideMenuController] showLeftViewAnimated:sender];
+     [[self sideMenuController] showLeftViewAnimated:sender];
 }
 
-- (IBAction)bottomTabGalleryDetailsButtonAction:(UIButton *)sender {
-    
+- (IBAction)loginWebviewBottomTabSlideMenuAction:(UIButton *)sender {
      [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
 
@@ -96,4 +76,23 @@
         [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
     }
 }
+
+- (void)webViewDidStartLoad:(UIWebView *)webView {
+    [SVProgressHUD show];
+}
+- (void)webViewDidFinishLoad:(UIWebView *)webView {
+    [SVProgressHUD dismiss];
+}
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action) {
+        
+        
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }];
+    [alert addAction:ok];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+
 @end

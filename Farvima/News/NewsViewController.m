@@ -52,6 +52,7 @@
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.sideMenuController.delegate = self;
+    self.sideMenuController.rightViewSwipeGestureEnabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -198,11 +199,13 @@
     }
 }
 - (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-    [User_Details sharedInstance].appUserId = @"";
+    [User_Details sharedInstance].currentlySelectedLeftSlideMenu = @"";
 }
 
 - (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-    [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+    if ([User_Details sharedInstance].currentlySelectedLeftSlideMenu.length > 0) {
+        [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+    }
 }
 
 

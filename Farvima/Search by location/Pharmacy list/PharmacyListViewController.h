@@ -12,5 +12,6 @@
 @interface PharmacyListViewController : UIViewController
 
 @property (strong,nonatomic) NSArray *pharmacyArray;
+@property (nonatomic) BOOL forCurrentLocation;
 
 @end

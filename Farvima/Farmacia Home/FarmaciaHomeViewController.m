@@ -46,9 +46,9 @@
     self.locationLabel.text = @"";
     self.vatNumberlabel.text = @"";
     self.telephoneLabel.text = @"";
+    self.openingClosingTimeLabel.text = @"";
     self.pharmacynameLabel.hidden = YES;
     self.pharmacyImageView.hidden = YES;
-    self.openingClosingTimeLabel.hidden = YES;
     [self callPharmacyDetailsWebService];
 }
 
@@ -77,18 +77,20 @@
 }
 
 - (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-    [User_Details sharedInstance].appUserId = @"";
+    [User_Details sharedInstance].currentlySelectedLeftSlideMenu = @"";
 }
 
 - (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-    [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+    if ([User_Details sharedInstance].currentlySelectedLeftSlideMenu.length > 0) {
+        [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+    }
 }
 
 -(void) callPharmacyDetailsWebService
 {
     NSDictionary *postData = [NSDictionary dictionaryWithObjectsAndKeys:[[NSUserDefaults standardUserDefaults] valueForKey:@"pharmacyId"],@"pharmacy_id",[[NSUserDefaults standardUserDefaults] valueForKey:@"appUserId"],@"app_user_id",nil];
     [SVProgressHUD show];
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL_API,PharmacyDetails_URL_API];
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@",BASE_URL_API,AssociatePharmacy_URL_API];
     self.myWebserviceManager = [[RHWebServiceManager alloc]initWebserviceWithRequestType:HTTPRequestypePharmacyDetails Delegate:self];
     [self.myWebserviceManager getPostDataFromWebURLWithUrlString:urlStr dictionaryData:postData];
 }
@@ -102,7 +104,7 @@
         if ([[responseObj valueForKey:@"pharmacy_logo_storage_path"] isKindOfClass:[NSString class]]) {
             self.pharmacynameLabel.hidden = YES;
             self.pharmacyImageView.hidden = NO;
-            [self.pharmacyImageView sd_setImageWithURL:[NSURL URLWithString:[responseObj valueForKey:@"pharmacy_logo_storage_path"]]
+            [self.pharmacyImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",BASE_URL_API,[responseObj valueForKey:@"pharmacy_logo_storage_path"]]]
                                      placeholderImage:[UIImage imageNamed:@"placeholder"]];
         }
         else {

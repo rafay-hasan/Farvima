@@ -15,8 +15,9 @@
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "AppDelegate.h"
 #import "OrderDetailsViewController.h"
+#import "LoginWebViewController.h"
 
-@interface SearchProductDetailsViewController ()<RHWebServiceDelegate> {
+@interface SearchProductDetailsViewController ()<RHWebServiceDelegate,LGSideMenuControllerDelegate> {
     AppDelegate *appDelegate;
 }
 
@@ -46,6 +47,12 @@
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
     [self loadProductDetailsView];
     
+}
+
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.sideMenuController.delegate = self;
+    self.sideMenuController.rightViewSwipeGestureEnabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -183,7 +190,10 @@
     if (self.myWebService.requestType == HTTPRequestTypeLoginAuthentication) {
         NSLog(@"%@",error.description);
         NSString *urlStr = [NSString stringWithFormat:@"%@%@%@",BASE_URL_API,LoginAuthentication_URL_API,[User_Details sharedInstance].appUserId];
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
+        LoginWebViewController *newView = [self.storyboard instantiateViewControllerWithIdentifier:@"loginWebview"];
+        newView.webLinkStr = urlStr;
+        [self.navigationController pushViewController:newView animated:YES];
+        
     }
     else {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Message", Nil) message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
@@ -203,6 +213,16 @@
         }
     }
     return NO;
+}
+
+- (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [User_Details sharedInstance].currentlySelectedLeftSlideMenu = @"";
+}
+
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    if ([User_Details sharedInstance].currentlySelectedLeftSlideMenu.length > 0) {
+        [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+    }
 }
 
 @end

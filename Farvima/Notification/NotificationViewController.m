@@ -49,6 +49,7 @@
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.sideMenuController.delegate = self;
+    self.sideMenuController.rightViewSwipeGestureEnabled = NO;
     [self CallNotificationWebservice];
 }
 
@@ -207,13 +208,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NotificationTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"notificationCell" forIndexPath:indexPath];
     self.object = [self.notificationArray objectAtIndex:indexPath.row];
-    cell.notificationTitleLabel.text = self.object.notificationId;
+    cell.notificationTitleLabel.text = self.object.notificationTitle;
     cell.notificationTYpeImageView.image = [UIImage imageNamed:self.object.NotificationCategory];
     if ([[self.notificationStatusDic valueForKey:self.object.notificationId] isEqual:[NSNumber numberWithBool:YES]]) {
-        cell.unreadStatusLabel.hidden = YES;
+        cell.backgroundColor = [UIColor colorWithRed:157.0/255.0 green:157.0/255.0 blue:156.0/255.0 alpha:1];//[UIColor lightGrayColor];
     }
     else {
-        cell.unreadStatusLabel.hidden = NO;
+        cell.backgroundColor = [UIColor whiteColor];
     }
     return cell;
 }
@@ -261,11 +262,13 @@
 }
 
 - (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-    [User_Details sharedInstance].appUserId = @"";
+    [User_Details sharedInstance].currentlySelectedLeftSlideMenu = @"";
 }
 
 - (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-    [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+    if ([User_Details sharedInstance].currentlySelectedLeftSlideMenu.length > 0) {
+        [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+    }
 }
 
 @end

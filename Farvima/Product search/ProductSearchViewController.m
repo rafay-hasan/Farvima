@@ -14,7 +14,7 @@
 #import "SearchResultViewController.h"
 #import "User Details.h"
 
-@interface ProductSearchViewController ()<RHWebServiceDelegate,LGSideMenuControllerDelegate>
+@interface ProductSearchViewController ()<RHWebServiceDelegate,LGSideMenuControllerDelegate,UITextFieldDelegate>
 
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)searchButtonAction:(id)sender;
@@ -52,6 +52,7 @@
 -(void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.sideMenuController.delegate = self;
+    self.sideMenuController.rightViewSwipeGestureEnabled = NO;
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -80,7 +81,7 @@
 }
 
 - (IBAction)searchButtonAction:(id)sender {
-    if (self.nameTextField.text.length >0 || self.codeTextField.text.length > 0 || self.categoryTextField.text.length > 0) {
+    if (self.nameTextField.text.length > 0 || self.codeTextField.text.length > 0 || self.categoryTextField.text.length > 0) {
        // [self.delegate resultOfSearchedData:@"data received"];
        // [self.navigationController popViewControllerAnimated:YES];
         [self CallProductSearchWebserviceWithName:self.nameTextField.text OrWithCode:self.codeTextField.text OrWithCategory:self.categoryTextField.text];
@@ -136,11 +137,13 @@
 }
 
 - (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-    [User_Details sharedInstance].appUserId = @"";
+    [User_Details sharedInstance].currentlySelectedLeftSlideMenu = @"";
 }
 
 - (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
-    [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+    if ([User_Details sharedInstance].currentlySelectedLeftSlideMenu.length > 0) {
+        [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+    }
 }
 
 -(BOOL)isControllerAlreadyOnNavigationControllerStack:(UIViewController *)targetViewController{
@@ -151,6 +154,21 @@
         }
     }
     return NO;
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    if (textField == self.nameTextField) {
+        [self.codeTextField becomeFirstResponder];
+    }
+    else if (textField == self.codeTextField) {
+        [self.categoryTextField becomeFirstResponder];
+    }
+    else if (textField == self.categoryTextField) {
+        [self.categoryTextField resignFirstResponder];
+        [self CallProductSearchWebserviceWithName:self.nameTextField.text OrWithCode:self.codeTextField.text OrWithCategory:self.categoryTextField.text];
+    }
+    return true;
 }
 
 @end

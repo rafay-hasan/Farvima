@@ -417,6 +417,7 @@
 
 -(NSMutableArray *) parseAllOfferTypeItems :(id ) response
 {
+    NSLog(@"Response is %@",response);
     NSMutableArray *offerItemsArray = [NSMutableArray new];
     NSMutableArray *tempArray = [NSMutableArray new];
     
@@ -579,6 +580,7 @@
 
 -(NSMutableArray *) parseAllProducts :(id) response
 {
+    NSLog(@"%@",response);
     NSMutableArray *productItemsArray = [NSMutableArray new];
     
     if([[response valueForKey:@"product"] isKindOfClass:[NSArray class]])
@@ -674,7 +676,7 @@
                 
                 if([[[tempArray objectAtIndex:i] valueForKey:@"product_new_linkImmagineProdotto"] isKindOfClass:[NSString class]])
                 {
-                    object.imageUel = [[tempArray objectAtIndex:i] valueForKey:@"product_new_linkImmagineProdotto"];
+                    object.imageUel = [NSString stringWithFormat:@"%@%@",BASE_URL_API, [[tempArray objectAtIndex:i] valueForKey:@"product_new_linkImmagineProdotto"]];//[[tempArray objectAtIndex:i] valueForKey:@"product_new_linkImmagineProdotto"];
                 }
                 else
                 {
@@ -1052,6 +1054,13 @@
         }
         else {
             Pharmacyobject.location = @"";
+        }
+        
+        if ([[dic valueForKey:@"pharmacy_facebook_url"] isKindOfClass:[NSString class]]) {
+            Pharmacyobject.facebookUrl = [dic valueForKey:@"pharmacy_facebook_url"];
+        }
+        else {
+            Pharmacyobject.facebookUrl = @"";
         }
         
     }

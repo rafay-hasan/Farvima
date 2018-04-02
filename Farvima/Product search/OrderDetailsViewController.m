@@ -14,8 +14,9 @@
 #import "SVProgressHUD.h"
 #import "User Details.h"
 #import "AppDelegate.h"
+#import "UIViewController+LGSideMenuController.h"
 
-@interface OrderDetailsViewController ()<UITableViewDelegate,UITableViewDataSource,RHWebServiceDelegate> {
+@interface OrderDetailsViewController ()<UITableViewDelegate,UITableViewDataSource,RHWebServiceDelegate,LGSideMenuControllerDelegate> {
     AppDelegate *appDelegate;
 }
 @property (strong,nonatomic) NSArray *orderArray;
@@ -25,6 +26,7 @@
 - (IBAction)backButtonAction:(id)sender;
 - (IBAction)orderConfirmButtonAction:(id)sender;
 - (IBAction)ConfirmOrderPageBottomTabMenuButtonAction:(UIButton *)sender;
+- (IBAction)leftSlideMenuButtonAction:(id)sender;
 
 @end
 
@@ -47,6 +49,11 @@
     [self.orderTableview reloadData];
 }
 
+-(void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.sideMenuController.delegate = self;
+    self.sideMenuController.rightViewSwipeGestureEnabled = NO;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -161,6 +168,10 @@
     [[User_Details sharedInstance]makePushOrPopForBottomTabMenuToNavigationStack:self.navigationController forTag:sender.tag];
 }
 
+- (IBAction)leftSlideMenuButtonAction:(id)sender {
+     [[self sideMenuController] showLeftViewAnimated:sender];
+}
+
 -(void) confirmOrderWebServiceWithOrderHistory:(NSString *)orderHistory
 {
     [SVProgressHUD show];
@@ -206,4 +217,15 @@
     }
     return NO;
 }
+
+- (void)willShowLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    [User_Details sharedInstance].currentlySelectedLeftSlideMenu = @"";
+}
+
+- (void)didHideLeftView:(nonnull UIView *)leftView sideMenuController:(nonnull LGSideMenuController *)sideMenuController {
+    if ([User_Details sharedInstance].currentlySelectedLeftSlideMenu.length > 0) {
+        [[User_Details sharedInstance] makePushOrPopViewControllertoNavigationStack:self.navigationController];
+    }
+}
+
 @end
