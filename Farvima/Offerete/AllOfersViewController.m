@@ -17,8 +17,8 @@
 #import "SVProgressHUD.h"
 #import "OfferTypeObject.h"
 #import "SearchProductDetailsViewController.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "FarmVimaSlideMenuSingletone.h"
+#import "UIImageView+AFNetworking.h"
 
 @interface AllOfersViewController ()<RHWebServiceDelegate,UITableViewDelegate,UITableViewDataSource,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,LGSideMenuControllerDelegate>
 
@@ -290,8 +290,7 @@
     self.productObject = [self.offerArray objectAtIndex:indexPath.section];
     //self.productObject.imageUel = [self.productObject.imageUel re]
     if (self.productObject.imageUel.length > 0) {
-        [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:self.productObject.imageUel]
-                                 placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        [cell.productImageView setImageWithURL:[NSURL URLWithString:self.productObject.imageUel] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     }
     else {
         cell.productImageView.image = [UIImage imageNamed:@"placeholder"];
@@ -354,8 +353,7 @@
     SearchResultCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"offerTypeListCell" forIndexPath:indexPath];
     self.productObject = [self.offerArray objectAtIndex:indexPath.row];
     if (self.productObject.imageUel.length > 0) {
-        [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:self.productObject.imageUel]
-                                 placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        [cell.productImageView setImageWithURL:[NSURL URLWithString:self.productObject.imageUel] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     }
     else {
         cell.productImageView.image = [UIImage imageNamed:@"placeholder"];

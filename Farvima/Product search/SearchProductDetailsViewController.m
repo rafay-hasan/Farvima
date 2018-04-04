@@ -12,7 +12,7 @@
 #import "SVProgressHUD.h"
 #import "User Details.h"
 #import "ChooseYourPharmacyViewController.h"
-#import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImageView+AFNetworking.h"
 #import "AppDelegate.h"
 #import "OrderDetailsViewController.h"
 #import "LoginWebViewController.h"
@@ -45,8 +45,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication]delegate];
-    [self loadProductDetailsView];
-    
+     [self loadProductDetailsView];
 }
 
 -(void) viewWillAppear:(BOOL)animated {
@@ -54,6 +53,7 @@
     self.sideMenuController.delegate = self;
     self.sideMenuController.rightViewSwipeGestureEnabled = NO;
 }
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -73,8 +73,8 @@
 - (void) loadProductDetailsView
 {
     if (self.productObject.imageUel.length > 0) {
-        [self.productImageView sd_setImageWithURL:[NSURL URLWithString:self.productObject.imageUel]
-                                 placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        NSLog(@"url is %@",self.productObject.imageUel);
+        [self.productImageView setImageWithURL:[NSURL URLWithString:self.productObject.imageUel] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     }
     else {
         self.productImageView.image = [UIImage imageNamed:@"placeholder"];

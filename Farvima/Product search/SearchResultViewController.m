@@ -18,7 +18,7 @@
 #import "AllProductObject.h"
 #import "ProductSearchViewController.h"
 #import "SearchProductDetailsViewController.h"
-#import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImageView+AFNetworking.h"
 
 @interface SearchResultViewController ()<UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout,UITableViewDataSource, UITableViewDelegate,RHWebServiceDelegate,ProductSearchControllerDelegate,LGSideMenuControllerDelegate>
 
@@ -127,8 +127,8 @@
     self.productObject = [self.productsArray objectAtIndex:indexPath.section];
     //self.productObject.imageUel = [self.productObject.imageUel re]
     if (self.productObject.imageUel.length > 0) {
-        [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:self.productObject.imageUel]
-                                 placeholderImage:[UIImage imageNamed:@"placeholder"]];
+        NSLog(@"url is %@",self.productObject.imageUel);
+        [cell.productImageView setImageWithURL:[NSURL URLWithString:self.productObject.imageUel] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     }
     else {
         cell.productImageView.image = [UIImage imageNamed:@"placeholder"];
@@ -191,8 +191,7 @@
     SearchResultCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"searchResultCell" forIndexPath:indexPath];
     self.productObject = [self.productsArray objectAtIndex:indexPath.row];
     if (self.productObject.imageUel.length > 0) {
-        [cell.productImageView sd_setImageWithURL:[NSURL URLWithString:self.productObject.imageUel]
-                                 placeholderImage:[UIImage imageNamed:@"placeholder"]];
+       [cell.productImageView setImageWithURL:[NSURL URLWithString:self.productObject.imageUel] placeholderImage:[UIImage imageNamed:@"placeholder"]];
     }
     else {
         cell.productImageView.image = [UIImage imageNamed:@"placeholder"];
@@ -316,14 +315,12 @@
             [self.categoryMenuArray addObject:[object valueForKey:@"descrizione"]];
             [self.categoryMenuIdArray addObject:object];
         }
-        NSLog(@"id is %@",self.categoryMenuIdArray);
         [self CallAllProductsWebservice];
     }
     else {
         [self.productsArray addObjectsFromArray:(NSArray *)responseObj];
         [self.searchResultTableview reloadData];
         [self.productSearchCollectionView reloadData];
-        NSLog(@"total product count is %lu",(unsigned long)self.productsArray.count);
     }
 }
 

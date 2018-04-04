@@ -417,9 +417,10 @@
 
 -(NSMutableArray *) parseAllOfferTypeItems :(id ) response
 {
-    NSLog(@"Response is %@",response);
+    //NSLog(@"Response is %@",response);
     NSMutableArray *offerItemsArray = [NSMutableArray new];
     NSMutableArray *tempArray = [NSMutableArray new];
+    NSArray *stringArray = [NSArray new];
     
     if ([[response valueForKey:@"all_offer_products"] isKindOfClass:[NSArray class]]) {
         tempArray = [(NSArray *)response valueForKey:@"all_offer_products"];
@@ -434,9 +435,16 @@
         
         if([[[tempArray objectAtIndex:i] valueForKey:@"product_id"] isKindOfClass:[NSString class]])
         {
-            if([[[tempArray objectAtIndex:i] valueForKey:@"descrizione_h1"] isKindOfClass:[NSString class]])
+            if([[[tempArray objectAtIndex:i] valueForKey:@"descrizione_ricerca"] isKindOfClass:[NSString class]])
             {
-                object.name = [[tempArray objectAtIndex:i] valueForKey:@"descrizione_h1"];
+                stringArray = nil;
+                stringArray = [[[tempArray objectAtIndex:i] valueForKey:@"descrizione_ricerca"] componentsSeparatedByString:@" - "];
+                if(stringArray.count >=2) {
+                    object.name = [stringArray objectAtIndex:1];
+                }
+                else {
+                    object.name = @"";
+                }
             }
             else
             {
@@ -480,9 +488,16 @@
             }
         }
         else if ([[[tempArray objectAtIndex:i] valueForKey:@"product_new_id"] isKindOfClass:[NSString class]]) {
-            if([[[tempArray objectAtIndex:i] valueForKey:@"product_new_descrizione_h1"] isKindOfClass:[NSString class]])
+            if([[[tempArray objectAtIndex:i] valueForKey:@"product_new_descrizione_ricerca"] isKindOfClass:[NSString class]])
             {
-                object.name = [[tempArray objectAtIndex:i] valueForKey:@"product_new_descrizione_h1"];
+                stringArray = nil;
+                stringArray = [[[tempArray objectAtIndex:i] valueForKey:@"product_new_descrizione_ricerca"] componentsSeparatedByString:@" - "];
+                if(stringArray.count >=2) {
+                    object.name = [stringArray objectAtIndex:1];
+                }
+                else {
+                    object.name = @"";
+                }
             }
             else
             {
@@ -509,7 +524,7 @@
             
             if([[[tempArray objectAtIndex:i] valueForKey:@"product_new_linkImmagineProdotto"] isKindOfClass:[NSString class]])
             {
-                object.imageUel = [[tempArray objectAtIndex:i] valueForKey:@"product_new_linkImmagineProdotto"];
+                object.imageUel = [NSString stringWithFormat:@"%@%@",BASE_URL_API, [[tempArray objectAtIndex:i] valueForKey:@"product_new_linkImmagineProdotto"]];
             }
             else
             {
@@ -526,9 +541,16 @@
             }
         }
         else if ([[[tempArray objectAtIndex:i] valueForKey:@"product_free_text_id"] isKindOfClass:[NSString class]]) {
-            if([[[tempArray objectAtIndex:i] valueForKey:@"product_free_text_name"] isKindOfClass:[NSString class]])
+            if([[[tempArray objectAtIndex:i] valueForKey:@"product_free_text_description"] isKindOfClass:[NSString class]])
             {
-                object.name = [[tempArray objectAtIndex:i] valueForKey:@"product_free_text_name"];
+                stringArray = nil;
+                stringArray = [[[tempArray objectAtIndex:i] valueForKey:@"product_free_text_description"] componentsSeparatedByString:@" - "];
+                if(stringArray.count >=2) {
+                    object.name = [stringArray objectAtIndex:1];
+                }
+                else {
+                    object.name = @"";
+                }
             }
             else
             {
@@ -571,6 +593,12 @@
                 object.pharmacyCategoryType = @"farmacia logo";
             }
         }
+        NSRange range = [object.imageUel rangeOfString:@"&minsan="];
+        if (range.location != NSNotFound) {
+            object.imageUel = [object.imageUel substringWithRange:NSMakeRange(0, range.location)];
+            
+        }
+        object.imageUel = [object.imageUel stringByReplacingOccurrencesOfString:@"image?f=" withString:@""];
         [offerItemsArray addObject:object];
     }
     return offerItemsArray;
@@ -580,8 +608,9 @@
 
 -(NSMutableArray *) parseAllProducts :(id) response
 {
-    NSLog(@"%@",response);
+    //NSLog(@"%@",response);
     NSMutableArray *productItemsArray = [NSMutableArray new];
+    NSArray *stringArray = [NSArray new];
     
     if([[response valueForKey:@"product"] isKindOfClass:[NSArray class]])
     {
@@ -601,9 +630,16 @@
             
             if([[[tempArray objectAtIndex:i] valueForKey:@"product_id"] isKindOfClass:[NSString class]])
             {
-                if([[[tempArray objectAtIndex:i] valueForKey:@"descrizione_h1"] isKindOfClass:[NSString class]])
+                if([[[tempArray objectAtIndex:i] valueForKey:@"descrizione_ricerca"] isKindOfClass:[NSString class]])
                 {
-                    object.name = [[tempArray objectAtIndex:i] valueForKey:@"descrizione_h1"];
+                    stringArray = nil;
+                    stringArray = [[[tempArray objectAtIndex:i] valueForKey:@"descrizione_ricerca"] componentsSeparatedByString:@" - "];
+                    if(stringArray.count >=2) {
+                        object.name = [stringArray objectAtIndex:1];
+                    }
+                    else {
+                        object.name = @"";
+                    }
                 }
                 else
                 {
@@ -647,9 +683,16 @@
                 }
             }
             else if ([[[tempArray objectAtIndex:i] valueForKey:@"product_new_id"] isKindOfClass:[NSString class]]) {
-                if([[[tempArray objectAtIndex:i] valueForKey:@"product_new_descrizione_h1"] isKindOfClass:[NSString class]])
+                if([[[tempArray objectAtIndex:i] valueForKey:@"product_new_descrizione_ricerca"] isKindOfClass:[NSString class]])
                 {
-                    object.name = [[tempArray objectAtIndex:i] valueForKey:@"product_new_descrizione_h1"];
+                    stringArray = nil;
+                    stringArray = [[[tempArray objectAtIndex:i] valueForKey:@"product_new_descrizione_ricerca"] componentsSeparatedByString:@" - "];
+                    if(stringArray.count >=2) {
+                        object.name = [stringArray objectAtIndex:1];
+                    }
+                    else {
+                        object.name = @"";
+                    }
                 }
                 else
                 {
@@ -676,7 +719,7 @@
                 
                 if([[[tempArray objectAtIndex:i] valueForKey:@"product_new_linkImmagineProdotto"] isKindOfClass:[NSString class]])
                 {
-                    object.imageUel = [NSString stringWithFormat:@"%@%@",BASE_URL_API, [[tempArray objectAtIndex:i] valueForKey:@"product_new_linkImmagineProdotto"]];//[[tempArray objectAtIndex:i] valueForKey:@"product_new_linkImmagineProdotto"];
+                    object.imageUel = [NSString stringWithFormat:@"%@%@",BASE_URL_API, [[tempArray objectAtIndex:i] valueForKey:@"product_new_linkImmagineProdotto"]];
                 }
                 else
                 {
@@ -693,9 +736,16 @@
                 }
             }
             else if ([[[tempArray objectAtIndex:i] valueForKey:@"product_free_text_id"] isKindOfClass:[NSString class]]) {
-                if([[[tempArray objectAtIndex:i] valueForKey:@"product_free_text_name"] isKindOfClass:[NSString class]])
+                if([[[tempArray objectAtIndex:i] valueForKey:@"product_free_text_description"] isKindOfClass:[NSString class]])
                 {
-                    object.name = [[tempArray objectAtIndex:i] valueForKey:@"product_free_text_name"];
+                    stringArray = nil;
+                    stringArray = [[[tempArray objectAtIndex:i] valueForKey:@"product_free_text_description"] componentsSeparatedByString:@" - "];
+                    if(stringArray.count >=2) {
+                        object.name = [stringArray objectAtIndex:1];
+                    }
+                    else {
+                        object.name = @"";
+                    }
                 }
                 else
                 {
@@ -738,7 +788,12 @@
                     object.pharmacyCategoryType = @"farmacia logo";
                 }
             }
-            
+            NSRange range = [object.imageUel rangeOfString:@"&minsan="];
+            if (range.location != NSNotFound) {
+                object.imageUel = [object.imageUel substringWithRange:NSMakeRange(0, range.location)];
+                
+            }
+            object.imageUel = [object.imageUel stringByReplacingOccurrencesOfString:@"image?f=" withString:@""];
             [productItemsArray addObject:object];
         }
         
